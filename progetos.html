@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acionet</title>
+    <link rel="shortcut icon" href="assets/imgs/Acionet.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/responsividade.css">
+    <script src="js/js.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Tela de Loading -->
+    <div class="loading-container" id="loading">
+        <div class="loading-content">
+            <img src="assets/imgs/Acionet.png" alt="Logo" class="loading-logo" />
+            <div class="spinner"></div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg content-nav">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><img src="assets/imgs/nav-logo.jpeg" alt="" class="logo"></a>
+                <button class="navbar-toggler button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse content-nav-link" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="noticias.html">Notícias</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="progetos.html"
+                                style="color: #FF0000 !important;">Projetos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="eventos.html">Eventos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="conquistas.html">Conquistas</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="sobre.html">Sobre</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
+                        </li>
+                    </ul>
+                    <div>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Pesquisar por artigo"
+                                aria-label="Search" required>
+                            <button class="btn" type="submit">Pesquisar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="content-pagina-noticia-top">
+            <h1>Progetos</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed, odit?.</p>
+        </section>
+
+        <section>
+            <div class="nossos-progetos-titulo">
+                <h2>Nossos Projetos</h2>
+                <input class="form-control me-2" type="search" placeholder="Buscar Notícias..." aria-label="Search"
+                    required>
+            </div>
+
+            <div class="content-projetos-page">
+                <img src="assets/imgs/main.png" alt="">
+                <div class="content-descricao-progeto-page">
+                    <div> <span class="tipo-progeto">Tecnologia</span>
+                        <span class="data-progeto">Junho 2025</span>
+                    </div>
+                    <h2>Acionet lança plataforma revolucionária de inteligência artificial para o setor financeiro
+                    </h2>
+                    <p>Plataforma completa para gestão de processos financeiros com dashboard intuitivo e análise
+                        preditiva. O sistema permite a integração de múltiplos departamentos e oferece insights em
+                        tempo
+                        real para tomada de decisões estratégicas.</p>
+                    <h6><strong>Cliente:</strong> FinTech Solutions</h6>
+                    <h6><strong>Tecnologias:</strong></h6>
+                    <div>
+                        <span class="tipo-tecnologia">React</span>
+                        <span class="tipo-tecnologia">Node.js</span>
+                        <span class="tipo-tecnologia">AWS</span>
+                        <span class="tipo-tecnologia">Machine Learning</span>
+                        <span class="tipo-tecnologia">PostgreSQL</span>
+                    </div>
+                    <a class="btn" href="noticias.html">Ver detalhes do projeto <svg xmlns="http://www.w3.org/2000/svg"
+                            width="20" height="20" fill="currentColor" class="bi bi-arrow-right-short"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                        </svg></a>
+                </div>
+            </div>
+
+            <div class="content-projetos">
+               <div class="content-filtro">
+                    <div>
+                        <button data-filter="Todos" class="active">Todos</button>
+                        <button data-filter="Tecnologia">Tecnologia</button>
+                        <button data-filter="Inovação">Inovação</button>
+                        <button data-filter="Transformação Digital">Transformação Digital</button>
+                        <button data-filter="IA">IA</button>
+                    </div>
+                </div>
+
+                <div class="content-progeto-cards">
+                    <div class="row justify-content-center">
+
+                        <div class="col-md-4">
+                            <div class="card project-card">
+                                <div class="card-img-container">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                                        class="card-img-top" alt="Dashboard Financeiro">
+                                    <div class="tipo-evento project-type">IA</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="content-descricao-progeto-card">
+                                        <span class="data-progeto">Junho 2025</span>
+                                        <h2>Sistema de Gestão Integrada para o Setor Financeiro</h2>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eaque,
+                                            voluptatum
+                                            reiciendis excepturi maiores sunt quas quia, exercitationem dolor, dolorum
+                                            quam
+                                            reprehenderit autem molestias facilis.</p>
+                                        <h6><strong>Cliente:</strong> FinTech Solutions</h6>
+                                        <h6><strong>Tecnologias:</strong></h6>
+                                        <div>
+                                            <span class="tipo-tecnologia">React</span>
+                                            <span class="tipo-tecnologia">Node.js</span>
+                                            <span class="tipo-tecnologia">AWS</span>
+                                            <span class="tipo-tecnologia">Machine Learning</span>
+                                            <span class="tipo-tecnologia">PostgreSQL</span>
+                                        </div>
+                                        <div class="content-link-progeto-page">
+                                            <a class="link-progeto-page" href="#">Ver mais... <svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="currentColor" class="bi bi-arrow-right-short"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                                                </svg></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card project-card">
+                                <div class="card-img-container">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                                        class="card-img-top" alt="Dashboard Financeiro">
+                                    <div class="tipo-evento project-type">Inovação</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="content-descricao-progeto-card">
+                                        <span class="data-progeto">Junho 2025</span>
+                                        <h2>Sistema de Gestão Integrada para o Setor Financeiro</h2>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eaque,
+                                            voluptatum
+                                            reiciendis excepturi maiores sunt quas quia, exercitationem dolor, dolorum
+                                            quam
+                                            reprehenderit autem molestias facilis.</p>
+                                        <h6><strong>Cliente:</strong> FinTech Solutions</h6>
+                                        <h6><strong>Tecnologias:</strong></h6>
+                                        <div>
+                                            <span class="tipo-tecnologia">React</span>
+                                            <span class="tipo-tecnologia">Node.js</span>
+                                            <span class="tipo-tecnologia">AWS</span>
+                                            <span class="tipo-tecnologia">Machine Learning</span>
+                                            <span class="tipo-tecnologia">PostgreSQL</span>
+                                        </div>
+                                        <div class="content-link-progeto-page">
+                                            <a class="link-progeto-page" href="#">Ver mais... <svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="currentColor" class="bi bi-arrow-right-short"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                                                </svg></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="card project-card">
+                                <div class="card-img-container">
+                                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                                        class="card-img-top" alt="Dashboard Financeiro">
+                                    <div class="tipo-evento project-type">Tecnologia</div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="content-descricao-progeto-card">
+                                        <span class="data-progeto">Junho 2025</span>
+                                        <h2>Sistema de Gestão Integrada para o Setor Financeiro</h2>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae eaque,
+                                            voluptatum
+                                            reiciendis excepturi maiores sunt quas quia, exercitationem dolor, dolorum
+                                            quam
+                                            reprehenderit autem molestias facilis.</p>
+                                        <h6><strong>Cliente:</strong> FinTech Solutions</h6>
+                                        <h6><strong>Tecnologias:</strong></h6>
+                                        <div>
+                                            <span class="tipo-tecnologia">React</span>
+                                            <span class="tipo-tecnologia">Node.js</span>
+                                            <span class="tipo-tecnologia">AWS</span>
+                                            <span class="tipo-tecnologia">Machine Learning</span>
+                                            <span class="tipo-tecnologia">PostgreSQL</span>
+                                        </div>
+                                        <div class="content-link-progeto-page">
+                                            <a class="link-progeto-page" href="#">Ver mais... <svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                    fill="currentColor" class="bi bi-arrow-right-short"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8" />
+                                                </svg></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                          <!-- Mensagem de "nenhum resultado" -->
+                <div id="no-results-conquistas"
+                    style="display:none; text-align:center; padding:20px; font-size:18px; color:#666;">
+                    Nenhuma conquista encontrada para este filtro.
+                </div>
+                    </div>
+                </div>
+
+                <script>
+
+                    document.addEventListener("DOMContentLoaded", () => {
+                        const buttons = document.querySelectorAll(".content-filtro button");
+                        const cards = document.querySelectorAll(".project-card");
+
+                        buttons.forEach(button => {
+                            button.addEventListener("click", () => {
+                                // Remove active de todos os botões
+                                buttons.forEach(btn => btn.classList.remove("active"));
+                                // Adiciona active no botão clicado
+                                button.classList.add("active");
+
+                                const filter = button.getAttribute("data-filter");
+
+                                cards.forEach(card => {
+                                    const type = card.querySelector(".project-type").textContent.trim();
+
+                                    if (filter === "Todos" || type.includes(filter)) {
+                                        card.parentElement.style.display = "block";
+                                    } else {
+                                        card.parentElement.style.display = "none";
+                                    }
+                                });
+                            });
+                        });
+                    });
+                </script>
+        </section>
+
+        <section class="content-subscrever-background">
+            <div class="content-subscrever">
+                <div class="content-descricao-subscricao">
+                    <div class="descricao-subscricao">
+                        <h1>Fique por dentro das novidades da Acionet</h1>
+                        <p>Inscreva-se em nossa newsletter para receber as últimas notícias sobre projetos, eventos e
+                            conquistas da Acionet.</p>
+                    </div>
+
+                    <div>
+                        <form class="d-flex form-subscricao" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Seu e-mail" aria-label="Search"
+                                required>
+                            <button class="btn" type="submit">Inscrever-se</button>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <div class="image-container-subscricao">
+                        <!-- Imagem de exemplo (substitua pela sua própria) -->
+                        <img class="img-fluid" src="assets/imgs/main.png">
+
+                        <div class="image-description-subscricao">
+                            <h3>Acionet lança nova plataforma de inteligência artificial</h3>
+                            <p>15 de junho, 2025 • 5 min de leitura</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="content-footer-top">
+                <div class="content-footer-descricao">
+                    <h1>Acionet</h1>
+                    <p>Soluções tecnológicas inovadoras que impulsionam o crescimento e a transformação digital do seu
+                        negócio.</p>
+                    <div class="redes-socias-footer">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-facebook" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                            </svg>
+                        </a>
+
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-youtube" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                            </svg>
+                        </a>
+
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-linkedin" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div>
+                    <h1>Notícias</h1>
+                    <a href="">Tecnologia</a>
+                    <a href="">Projetos</a>
+                    <a href="">Eventos</a>
+                    <a href="">Conquistas</a>
+                    <a href="">Parcerias</a>
+                </div>
+
+                <div>
+                    <h1>Links Rápidos</h1>
+                    <a href="">Sobre Nós</a>
+                    <a href="">Serviços</a>
+                    <a href="">Projetos</a>
+                    <a href="">Eventos</a>
+                    <a href="">Contato</a>
+                </div>
+
+                <div>
+                    <h1>Contato</h1>
+                    <p>Av. Paulista, 1000
+                        São Paulo, SP 01310-100</p>
+                    <p>(11) 3000-1000</p>
+                    <p>contato@acionet.com</p>
+                </div>
+            </div>
+            <hr class="hr-footer">
+            <div class="content-footer-rodape">
+                <p>© 2025 Acionet. Todos os direitos reservados.</p>
+                <div>
+                    <a class="margin-footer-right" href="">Política de Privacidade</a>
+                    <a href="">Termos de Uso</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+
+    <!-- Botão Scroll to Top -->
+    <button id="scrollTopBtn" title="Voltar ao topo">
+        ↑
+    </button>
+
+    <script>
+        // Mostrar/esconder o botão conforme scroll
+        const scrollBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (document.documentElement.scrollTop > 200) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        });
+
+        // Ação ao clicar → volta suave ao topo
+        scrollBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projetosSection = document.querySelector('.nossos-progetos-titulo');
+            if (!projetosSection) return;
+
+            const searchInput = projetosSection.querySelector('input[type="search"]');
+            const allCards = document.querySelectorAll('.content-progeto-cards .project-card');
+            const destaque = document.querySelector('.content-descricao-progeto-page');
+            const categorias = document.querySelector('.content-projetos');
+
+            // Container de resultados
+            let resultsContainer = document.createElement('div');
+            resultsContainer.className = 'results-container row justify-content-center';
+            projetosSection.parentElement.appendChild(resultsContainer);
+
+            const normalize = str => (str || '')
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase();
+
+            function filterNow() {
+                const q = normalize(searchInput.value.trim());
+                resultsContainer.innerHTML = '';
+                let found = 0;
+
+                if (q === '') {
+                    allCards.forEach(c => c.closest('.col-md-4').style.display = '');
+                    if (categorias) categorias.style.display = '';
+                    if (destaque) destaque.closest('.content-projetos-page').style.display = '';
+                    return;
+                }
+
+                // esconder originais
+                allCards.forEach(c => c.closest('.col-md-4').style.display = 'none');
+                if (categorias) categorias.style.display = 'none';
+                if (destaque) destaque.closest('.content-projetos-page').style.display = 'none';
+
+                // 🔎 Buscar nos cards
+                allCards.forEach(card => {
+                    const hay = normalize(card.innerText);
+                    if (hay.includes(q)) {
+                        found++;
+
+                        const title = card.querySelector('h2,h3,h4,h5')?.textContent || 'Projeto';
+                        const desc = card.querySelector('p')?.textContent || '';
+                        const img = card.querySelector('img')?.src || 'https://via.placeholder.com/400x200?text=Projeto';
+                        const link = card.querySelector('a')?.getAttribute('href') || '#';
+
+                        const newCard = document.createElement('div');
+                        newCard.className = 'col-md-4';
+                        newCard.innerHTML = `
+          <div class="card uniform-card" style="margin-bottom: 10px;">
+            <img src="${img}" class="card-img-top" alt="${title}">
+            <div class="card-body">
+              <h5 class="card-title">${title}</h5>
+              <p class="card-text">${desc.substring(0, 120)}...</p>
+            </div>
+          </div>
+        `;
+                        // 🔗 Redirecionamento ao clicar
+                        newCard.querySelector('.card').onclick = () => window.location.href = link;
+
+                        resultsContainer.appendChild(newCard);
+                    }
+                });
+
+                // 🔎 Buscar também no destaque
+                if (destaque) {
+                    const destaqueText = normalize(destaque.innerText);
+                    if (destaqueText.includes(q)) {
+                        found++;
+
+                        const title = destaque.querySelector('h2')?.textContent || 'Projeto em Destaque';
+                        const desc = destaque.querySelector('p')?.textContent || '';
+                        const img = document.querySelector('.content-projetos-page img')?.src || 'https://via.placeholder.com/400x200?text=Projeto';
+                        const link = destaque.querySelector('a')?.getAttribute('href') || '#';
+
+                        const newCard = document.createElement('div');
+                        newCard.className = 'col-md-4';
+                        newCard.innerHTML = `
+          <div class="card uniform-card" style="margin-bottom: 10px;">
+            <img src="${img}" class="card-img-top" alt="${title}">
+            <div class="card-body">
+              <h5 class="card-title">${title}</h5>
+              <p class="card-text">${desc.substring(0, 120)}...</p>
+            </div>
+          </div>
+        `;
+                        newCard.querySelector('.card').onclick = () => window.location.href = link;
+
+                        resultsContainer.appendChild(newCard);
+                    }
+                }
+
+                if (found === 0) {
+                    resultsContainer.innerHTML = `
+        <div class="col-12 no-results">
+          Nenhum projeto encontrado.
+        </div>
+      `;
+                }
+            }
+
+            searchInput.addEventListener('input', filterNow);
+        });
+    </script>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
+
+</html>
