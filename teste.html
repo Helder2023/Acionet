@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acionet | Tecnologia que Transforma Negócios</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Soluções em IA, desenvolvimento de software e consultoria tecnológica para transformar digitalmente seu negócio.">
+    <meta name="keywords" content="tecnologia, IA, desenvolvimento, software, consultoria, transformação digital, Acionet">
+    <meta name="author" content="Acionet">
+    <meta property="og:title" content="Acionet | Tecnologia que Transforma Negócios">
+    <meta property="og:description" content="Soluções tecnológicas inovadoras para impulsionar seu negócio.">
+    <meta property="og:image" content="https://helder2023.github.io/Acionet/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://helder2023.github.io/Acionet/">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    
+    <!-- Preconnect para recursos externos -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+</head>
+<body class="home-page">
+    <!-- 🔝 Loading Screen
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Inicializando sistemas...</p>
+        </div>
+    </div>
+ -->
+    <!-- 🎮 Navegação Principal -->
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <div class="logo-mark">
+                    <div class="logo-dot" style="--position: 1"></div>
+                    <div class="logo-dot" style="--position: 2"></div>
+                    <div class="logo-dot" style="--position: 3"></div>
+                    <div class="logo-line"></div>
+                </div>
+                <span class="logo-text">ACIONET</span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link active" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
+                    
+                    <!-- Dropdown Soluções -->
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-brain"></i>
+                                        Inteligência Artificial
+                                    </h4>
+                                    <a href="solucoes.html#ia-ml">Machine Learning</a>
+                                    <a href="solucoes.html#ia-nlp">Processamento de Linguagem</a>
+                                    <a href="solucoes.html#ia-cv">Visão Computacional</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Desenvolvimento
+                                    </h4>
+                                    <a href="solucoes.html#dev-web">Aplicações Web</a>
+                                    <a href="solucoes.html#dev-mobile">Aplicativos Mobile</a>
+                                    <a href="solucoes.html#dev-api">APIs & Microservices</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-cloud"></i>
+                                        Cloud & DevOps
+                                    </h4>
+                                    <a href="solucoes.html#cloud-aws">Infraestrutura AWS</a>
+                                    <a href="solucoes.html#cloud-devops">Pipeline DevOps</a>
+                                    <a href="solucoes.html#cloud-security">Segurança Cloud</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html" class="nav-link" data-text="Projetos">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Projetos</span>
+                        <div class="link-underline"></div>
+                    </a>
+                    
+                    <a href="sobre.html" class="nav-link" data-text="Sobre">
+                        <i class="fas fa-users"></i>
+                        <span>Sobre</span>
+                        <div class="link-underline"></div>
+                    </a>
+                </div>
+
+                <div class="menu-right">
+                    <a href="blog.html" class="nav-link" data-text="Blog">
+                        <i class="fas fa-blog"></i>
+                        <span>Blog</span>
+                    </a>
+                    
+                    <a href="eventos.html" class="nav-link" data-text="Eventos">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                    
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão Mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 🌟 Hero Section -->
+    <section class="hero-section">
+        <!-- Canvas para Partículas -->
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Badge de Destaque -->
+                <div class="hero-badge">
+                    <span class="badge-text">
+                        <i class="fas fa-bolt"></i>
+                        Inovação em Tempo Real
+                    </span>
+                    <div class="badge-glow"></div>
+                </div>
+
+                <!-- Título Principal -->
+                <h1 class="hero-title">
+                    <span class="title-line">Tecnologia que</span>
+                    <span class="title-line">
+                        <span class="word-gradient">Impulsiona</span>
+                        <span class="typewriter-text" id="typewriter"></span>
+                    </span>
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="hero-subtitle">
+                    Desenvolvemos soluções digitais em 
+                    <span class="highlight-text">IA</span>, 
+                    <span class="highlight-text">blockchain</span> e 
+                    <span class="highlight-text">cloud computing</span> 
+                    que transformam dados em resultados mensuráveis.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-actions">
+                    <a href="solucoes.html" class="btn btn-primary">
+                        <div class="btn-content">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Explorar Soluções</span>
+                        </div>
+                        <div class="btn-hover-effect"></div>
+                    </a>
+                    
+                    <a href="portfolio.html" class="btn btn-secondary">
+                        <div class="btn-content">
+                            <i class="fas fa-eye"></i>
+                            <span>Ver Cases Reais</span>
+                        </div>
+                        <div class="pulse-dot"></div>
+                    </a>
+                </div>
+
+                <!-- Estatísticas -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="150">0</div>
+                        <div class="stat-label">
+                            <i class="fas fa-check-circle"></i>
+                            Projetos Entregues
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="40">0</div>
+                        <div class="stat-label">
+                            <i class="fas fa-smile"></i>
+                            Clientes Satisfeitos
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="98">0</div>
+                        <div class="stat-label">
+                            <i class="fas fa-chart-line"></i>
+                            % Satisfação
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual 3D -->
+            <div class="hero-visual">
+                <div class="floating-dashboard">
+                    <div class="dashboard-element" style="--delay: 0s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.3s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.6s">
+                        <div class="element-glow"></div>
+                    </div>
+                </div>
+                <div class="data-flow">
+                    <div class="flow-line"></div>
+                    <div class="flow-node" style="--position: 1"></div>
+                    <div class="flow-node" style="--position: 2"></div>
+                    <div class="flow-node" style="--position: 3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll para explorar</span>
+        </div>
+    </section>
+
+    <!-- ⚡ Soluções em Destaque -->
+    <section class="solutions-section" id="solucoes">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>// NOSSAS EXPERTISES</span>
+                </div>
+                <h2 class="section-title">
+                    Soluções que <span class="text-gradient">Transformam</span>
+                </h2>
+                <p class="section-description">
+                    Combinamos tecnologia de ponta com expertise de mercado para entregar 
+                    soluções que realmente fazem a diferença no seu negócio.
+                </p>
+            </div>
+
+            <div class="solutions-grid">
+                <!-- Card 1: Inteligência Artificial -->
+                <div class="solution-card" data-category="ai">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                            <div class="icon-halo"></div>
+                        </div>
+                        <div class="card-badge">AI-Powered</div>
+                    </div>
+                    
+                    <h3 class="card-title">Inteligência Artificial</h3>
+                    
+                    <p class="card-description">
+                        Desenvolvemos modelos preditivos e sistemas inteligentes 
+                        que aprendem com seus dados e automatizam decisões complexas.
+                    </p>
+                    
+                    <ul class="card-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Machine Learning Avançado</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Processamento de Linguagem Natural</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Visão Computacional</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="card-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">PyTorch</span>
+                    </div>
+                    
+                    <a href="solucoes.html#ia" class="card-link">
+                        <span>Explorar Solução</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <div class="card-background"></div>
+                </div>
+
+                <!-- Card 2: Desenvolvimento Customizado -->
+                <div class="solution-card" data-category="dev">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-code"></i>
+                            <div class="icon-halo"></div>
+                        </div>
+                        <div class="card-badge">Full-Stack</div>
+                    </div>
+                    
+                    <h3 class="card-title">Desenvolvimento Customizado</h3>
+                    
+                    <p class="card-description">
+                        Criamos aplicações web e mobile sob medida, 
+                        escaláveis e com performance excepcional para 
+                        atender necessidades específicas.
+                    </p>
+                    
+                    <ul class="card-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Aplicações Web Progressivas</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Apps Nativos & Cross-Platform</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Arquitetura Microservices</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="card-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                    
+                    <a href="solucoes.html#dev" class="card-link">
+                        <span>Explorar Solução</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <div class="card-background"></div>
+                </div>
+
+                <!-- Card 3: Cloud & DevOps -->
+                <div class="solution-card" data-category="cloud">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-cloud"></i>
+                            <div class="icon-halo"></div>
+                        </div>
+                        <div class="card-badge">Cloud-Native</div>
+                    </div>
+                    
+                    <h3 class="card-title">Cloud & DevOps</h3>
+                    
+                    <p class="card-description">
+                        Infraestrutura escalável e pipelines de entrega 
+                        contínua para garantir alta disponibilidade e 
+                        velocidade de desenvolvimento.
+                    </p>
+                    
+                    <ul class="card-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Arquitetura Multi-Cloud</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>CI/CD Automatizado</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Monitoramento em Tempo Real</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="card-tech">
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Terraform</span>
+                    </div>
+                    
+                    <a href="solucoes.html#cloud" class="card-link">
+                        <span>Explorar Solução</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <div class="card-background"></div>
+                </div>
+
+                <!-- Card 4: Consultoria -->
+                <div class="solution-card" data-category="consulting">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="icon-halo"></div>
+                        </div>
+                        <div class="card-badge">Estratégico</div>
+                    </div>
+                    
+                    <h3 class="card-title">Consultoria em TI</h3>
+                    
+                    <p class="card-description">
+                        Assessoria especializada para planejamento e 
+                        execução da transformação digital da sua empresa.
+                    </p>
+                    
+                    <ul class="card-features">
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Roadmap Tecnológico</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Análise de Arquitetura</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check"></i>
+                            <span>Gestão de Mudança</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="card-tech">
+                        <span class="tech-tag">TOGAF</span>
+                        <span class="tech-tag">ITIL</span>
+                        <span class="tech-tag">Agile</span>
+                    </div>
+                    
+                    <a href="solucoes.html#consultoria" class="card-link">
+                        <span>Explorar Solução</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    
+                    <div class="card-background"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏆 Case de Destaque -->
+    <section class="case-section">
+        <div class="container">
+            <div class="case-container">
+                <div class="case-visual">
+                    <div class="dashboard-preview">
+                        <div class="dashboard-header">
+                            <div class="dashboard-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="dashboard-title">FinTech Analytics</div>
+                        </div>
+                        
+                        <div class="dashboard-content">
+                            <!-- Gráficos animados -->
+                            <div class="chart-container">
+                                <div class="chart-bar" style="--height: 80%"></div>
+                                <div class="chart-bar" style="--height: 60%"></div>
+                                <div class="chart-bar" style="--height: 90%"></div>
+                                <div class="chart-bar" style="--height: 70%"></div>
+                            </div>
+                            
+                            <!-- Métricas -->
+                            <div class="metrics-grid">
+                                <div class="metric-item">
+                                    <div class="metric-value">+240%</div>
+                                    <div class="metric-label">Eficiência</div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-value">-65%</div>
+                                    <div class="metric-label">Erros</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="data-flow-animation">
+                        <div class="flow-path"></div>
+                        <div class="data-point" style="--delay: 0s"></div>
+                        <div class="data-point" style="--delay: 0.5s"></div>
+                        <div class="data-point" style="--delay: 1s"></div>
+                    </div>
+                </div>
+                
+                <div class="case-content">
+                    <div class="case-badge">
+                        <i class="fas fa-trophy"></i>
+                        <span>Case de Sucesso</span>
+                    </div>
+                    
+                    <h3 class="case-title">
+                        Otimização de Processos para Fintech com IA
+                    </h3>
+                    
+                    <p class="case-description">
+                        Desenvolvemos um sistema de inteligência artificial que 
+                        revolucionou a análise de crédito e risco de uma fintech 
+                        líder, proporcionando decisões mais rápidas e precisas.
+                    </p>
+                    
+                    <div class="case-stats">
+                        <div class="case-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">+240%</div>
+                                <div class="stat-label">Eficiência Operacional</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-times-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">-65%</div>
+                                <div class="stat-label">Erros Manuais</div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-stat">
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value">R$ 2.8M</div>
+                                <div class="stat-label">Economia/Ano</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="case-tech">
+                        <span class="tech-used">Tecnologias utilizadas:</span>
+                        <div class="tech-list">
+                            <span class="tech-item">Python</span>
+                            <span class="tech-item">TensorFlow</span>
+                            <span class="tech-item">React</span>
+                            <span class="tech-item">AWS</span>
+                        </div>
+                    </div>
+                    
+                    <a href="case-detalhe.html" class="btn btn-outline">
+                        <div class="btn-content">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Ver Estudo de Caso Completo</span>
+                        </div>
+                        <div class="btn-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📰 Últimas do Blog -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>📰 INSIGHTS & INOVAÇÃO</span>
+                </div>
+                <h2 class="section-title">
+                    Últimas do <span class="text-gradient">Blog</span>
+                </h2>
+                <p class="section-description">
+                    Conteúdo exclusivo sobre tendências, tecnologias e cases 
+                    que moldam o futuro dos negócios.
+                </p>
+                <a href="blog.html" class="section-link">
+                    Ver Todos os Artigos
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Artigo 1 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <div class="image-overlay"></div>
+                        <div class="card-category">
+                            <span class="category-badge">Tecnologia</span>
+                        </div>
+                        <div class="card-date">
+                            <i class="far fa-calendar"></i>
+                            <span>15 Jun, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            O Futuro da IA Generativa nos Negócios
+                        </h3>
+                        
+                        <p class="card-excerpt">
+                            Como as ferramentas de IA generativa estão 
+                            transformando a criação de conteúdo e automação 
+                            de processos empresariais.
+                        </p>
+                        
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>5 min de leitura</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-eye"></i>
+                                <span>1.2k visualizações</span>
+                            </div>
+                        </div>
+                        
+                        <a href="blog-post.html" class="card-link">
+                            Ler Artigo
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artigo 2 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <div class="image-overlay"></div>
+                        <div class="card-category">
+                            <span class="category-badge">Projeto</span>
+                        </div>
+                        <div class="card-date">
+                            <i class="far fa-calendar"></i>
+                            <span>12 Jun, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            Migração Cloud: Caso de Sucesso no Varejo
+                        </h3>
+                        
+                        <p class="card-excerpt">
+                            Como ajudamos uma rede varejista a migrar sua 
+                            infraestrutura para a nuvem, reduzindo custos em 40%.
+                        </p>
+                        
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>7 min de leitura</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-eye"></i>
+                                <span>890 visualizações</span>
+                            </div>
+                        </div>
+                        
+                        <a href="blog-post.html" class="card-link">
+                            Ler Artigo
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Artigo 3 -->
+                <article class="blog-card">
+                    <div class="card-image">
+                        <div class="image-overlay"></div>
+                        <div class="card-category">
+                            <span class="category-badge">Inovação</span>
+                        </div>
+                        <div class="card-date">
+                            <i class="far fa-calendar"></i>
+                            <span>10 Jun, 2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            Blockchain além das Criptomoedas
+                        </h3>
+                        
+                        <p class="card-excerpt">
+                            Aplicações práticas de blockchain em supply chain, 
+                            contratos inteligentes e segurança de dados.
+                        </p>
+                        
+                        <div class="card-meta">
+                            <div class="meta-item">
+                                <i class="far fa-clock"></i>
+                                <span>6 min de leitura</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="far fa-eye"></i>
+                                <span>1.5k visualizações</span>
+                            </div>
+                        </div>
+                        
+                        <a href="blog-post.html" class="card-link">
+                            Ler Artigo
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📧 Newsletter Futurista -->
+    <section class="newsletter-section">
+        <div class="newsletter-container">
+            <div class="newsletter-visual">
+                <div class="orbit-animation">
+                    <div class="orbit-ring"></div>
+                    <div class="satellite" style="--angle: 0deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 120deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 240deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="newsletter-content">
+                <h3 class="newsletter-title">
+                    Fique à Frente das
+                    <span class="text-gradient">Tendências</span>
+                </h3>
+                
+                <p class="newsletter-subtitle">
+                    Receba insights exclusivos sobre IA, tecnologia e inovação 
+                    diretamente no seu email. Conteúdo premium semanal.
+                </p>
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                placeholder="seu@email.com"
+                                required
+                                aria-label="Seu endereço de email"
+                            >
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Inscrever-se</span>
+                            <i class="fas fa-paper-plane"></i>
+                            <div class="submit-effect"></div>
+                        </button>
+                    </div>
+                    
+                    <div class="form-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>
+                            Respeitamos sua privacidade. Sem spam. 
+                            Você pode cancelar a qualquer momento.
+                        </span>
+                    </div>
+                    
+                    <div class="form-success" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Inscrição realizada com sucesso!</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Coluna 1: Logo & Sobre -->
+                    <div class="footer-column">
+                        <a href="index.html" class="footer-logo">
+                            <div class="logo-symbol">
+                                <div class="symbol-dot"></div>
+                                <div class="symbol-line"></div>
+                            </div>
+                            <span class="logo-text">ACIONET</span>
+                        </a>
+                        
+                        <p class="footer-about">
+                            Empresa de tecnologia especializada em soluções 
+                            inovadoras de IA, desenvolvimento de software e 
+                            consultoria estratégica.
+                        </p>
+                        
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: Links Rápidos -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Navegação</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Início</a></li>
+                            <li><a href="sobre.html">Sobre Nós</a></li>
+                            <li><a href="solucoes.html">Soluções</a></li>
+                            <li><a href="portfolio.html">Projetos</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="eventos.html">Eventos</a></li>
+                            <li><a href="contato.html">Contato</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Coluna 3: Serviços -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Serviços</h4>
+                        <ul class="footer-links">
+                            <li><a href="solucoes.html#ia">Inteligência Artificial</a></li>
+                            <li><a href="solucoes.html#dev">Desenvolvimento Customizado</a></li>
+                            <li><a href="solucoes.html#cloud">Cloud & DevOps</a></li>
+                            <li><a href="solucoes.html#consultoria">Consultoria em TI</a></li>
+                            <li><a href="solucoes.html#seguranca">Segurança Cibernética</a></li>
+                            <li><a href="solucoes.html#analytics">Análise de Dados</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Coluna 4: Contato -->
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contato</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>
+                                    Av. Paulista, 1000<br>
+                                    São Paulo - SP, 01310-100
+                                </span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 9999-9999</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contato@acionet.com.br</span>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-newsletter">
+                            <h5>Receba nossas atualizações</h5>
+                            <form class="mini-form">
+                                <input type="email" placeholder="Seu email">
+                                <button type="submit">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        © 2025 Acionet. Todos os direitos reservados.
+                    </div>
+                    
+                    <div class="footer-legal">
+                        <a href="politica-privacidade.html">Política de Privacidade</a>
+                        <a href="termos-uso.html">Termos de Uso</a>
+                        <a href="cookies.html">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
+
+    <!-- 📝 Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/particles.js"></script>
+    <script>
+        // Configuração inicial
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar typewriter
+            initTypewriter();
+            
+            // Inicializar contadores
+            initCounters();
+            
+            // Inicializar animações de scroll
+            initScrollAnimations();
+            
+            // Configurar formulário
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const successMessage = document.getElementById('successMessage');
+                    successMessage.style.display = 'flex';
+                    setTimeout(() => {
+                        successMessage.style.display = 'none';
+                        newsletterForm.reset();
+                    }, 3000);
+                });
+            }
+            
+            // Esconder loading screen
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }
+            }, 1500);
+        });
+
+        function initTypewriter() {
+            const words = ['Sua Empresa', 'o Futuro', 'Resultados'];
+            const typewriter = document.getElementById('typewriter');
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            
+            function type() {
+                const currentWord = words[wordIndex];
+                
+                if (isDeleting) {
+                    typewriter.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typewriter.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+                
+                let typeSpeed = 100;
+                
+                if (isDeleting) {
+                    typeSpeed /= 2;
+                }
+                
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 1500;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500;
+                }
+                
+                setTimeout(type, typeSpeed);
+            }
+            
+            setTimeout(type, 1000);
+        }
+    </script>
+</body>
+</html>
+
+<style>
+    /* ============================================
+   VARIÁVEIS CSS & RESET
+============================================ */
+:root {
+    /* Cores da Marca */
+    --vermelho-acionet: #E63946;
+    --azul-profundo: #1D3557;
+    --branco-puro: #F1FAEE;
+    --azul-claro-tech: #A8DADC;
+    --azul-escuro: #0A192F;
+    
+    /* Tons de apoio */
+    --cinza-escuro: #2A2D34;
+    --cinza-medio: #5C5F6B;
+    --cinza-claro: #EFF1F5;
+    --cinza-hover: #F8F9FA;
+    
+    /* Gradientes */
+    --gradiente-vermelho: linear-gradient(135deg, #E63946 0%, #FF6B7A 100%);
+    --gradiente-azul: linear-gradient(135deg, #1D3557 0%, #2A4B7C 100%);
+    --gradiente-tech: linear-gradient(135deg, #1D3557 0%, #A8DADC 100%);
+    --gradiente-dashboard: linear-gradient(135deg, #0A192F 0%, #1D3557 100%);
+    
+    /* Efeitos */
+    --sombra-suave: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --sombra-media: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --sombra-forte: 0 15px 50px rgba(230, 57, 70, 0.15);
+    --sombra-card: 0 10px 40px rgba(26, 25, 46, 0.1);
+    
+    /* Tipografia */
+    --fonte-principal: 'Inter', -apple-system, sans-serif;
+    --fonte-secundaria: 'Space Grotesk', 'Segoe UI', sans-serif;
+    
+    /* Espaçamento (8px grid) */
+    --espaco-xs: 0.5rem;
+    --espaco-sm: 1rem;
+    --espaco-md: 1.5rem;
+    --espaco-lg: 2rem;
+    --espaco-xl: 3rem;
+    --espaco-2xl: 4rem;
+    --espaco-3xl: 6rem;
+    
+    /* Bordas */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
+    
+    /* Transições */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index layers */
+    --z-below: -1;
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-modal: 300;
+    --z-tooltip: 400;
+    --z-max: 999;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    line-height: 1.6;
+    color: var(--cinza-escuro);
+    background-color: var(--branco-puro);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   COMPONENTES REUTILIZÁVEIS
+============================================ */
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--espaco-lg);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--espaco-md);
+    }
+}
+
+/* Seções */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--espaco-2xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-badge {
+    display: inline-block;
+    background: var(--gradiente-azul);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: var(--espaco-md);
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-family: var(--fonte-secundaria);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--azul-profundo);
+    margin-bottom: var(--espaco-md);
+    line-height: 1.2;
+}
+
+.section-description {
+    font-size: 1.125rem;
+    color: var(--cinza-medio);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.text-gradient {
+    background: var(--gradiente-vermelho);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+}
+
+/* Botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    gap: 0.75rem;
+}
+
+.btn-primary {
+    background: var(--gradiente-vermelho);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-forte);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--azul-profundo);
+    border: 2px solid var(--azul-profundo);
+}
+
+.btn-secondary:hover {
+    background: var(--azul-profundo);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--vermelho-acionet);
+    border: 2px solid var(--vermelho-acionet);
+    padding: 0.875rem 1.75rem;
+}
+
+.btn-outline:hover {
+    background: var(--vermelho-acionet);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Cards */
+.solution-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--espaco-xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--sombra-card);
+    transition: all var(--transition-normal);
+    height: 100%;
+    border: 1px solid var(--cinza-claro);
+}
+
+.solution-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-forte);
+    border-color: var(--vermelho-acionet);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--espaco-lg);
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradiente-azul);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.card-badge {
+    background: var(--gradiente-vermelho);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-title {
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    color: var(--azul-profundo);
+    margin-bottom: var(--espaco-sm);
+    font-weight: 700;
+}
+
+.card-features {
+    list-style: none;
+    margin: var(--espaco-lg) 0;
+}
+
+.card-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--cinza-medio);
+}
+
+.card-features i {
+    color: var(--vermelho-acionet);
+    font-size: 0.875rem;
+}
+
+.card-tech {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: var(--espaco-lg);
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    background: var(--cinza-claro);
+    color: var(--azul-profundo);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--vermelho-acionet);
+    text-decoration: none;
+    font-weight: 600;
+    transition: gap var(--transition-normal);
+}
+
+.card-link:hover {
+    gap: 1rem;
+}
+
+/* ============================================
+   LAYOUT ESPECÍFICO
+============================================ */
+
+/* Navegação */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: var(--z-sticky);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--azul-profundo);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--cinza-escuro);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem;
+    position: relative;
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--vermelho-acionet);
+}
+
+.nav-cta {
+    background: var(--gradiente-vermelho);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-normal);
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-forte);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+    position: relative;
+    background: var(--gradiente-dashboard);
+    overflow: hidden;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--espaco-2xl);
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    position: relative;
+    z-index: var(--z-base);
+}
+
+.hero-content {
+    color: white;
+}
+
+.hero-title {
+    font-family: var(--fonte-secundaria);
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: var(--espaco-lg);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--espaco-xl);
+    max-width: 500px;
+}
+
+.highlight-text {
+    color: var(--vermelho-acionet);
+    font-weight: 600;
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--espaco-md);
+    margin-bottom: var(--espaco-2xl);
+}
+
+.hero-stats {
+    display: flex;
+    gap: var(--espaco-xl);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+/* Grids */
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espaco-xl);
+    margin-top: var(--espaco-xl);
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espaco-xl);
+    margin-top: var(--espaco-xl);
+}
+
+/* Footer */
+.footer {
+    background: var(--azul-profundo);
+    color: white;
+    margin-top: var(--espaco-3xl);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espaco-2xl);
+    padding: var(--espaco-2xl) 0;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    display: block;
+    padding: 0.25rem 0;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--espaco-lg);
+    }
+}
+
+/* ============================================
+   ANIMAÇÕES E EFEITOS ESPECIAIS
+============================================ */
+
+/* Loading Screen */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px var(--vermelho-acionet); }
+    50% { box-shadow: 0 0 20px var(--vermelho-acionet); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--azul-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-max);
+    animation: fadeIn 0.5s ease;
+}
+
+.loading-logo {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    font-family: var(--fonte-secundaria);
+    margin-bottom: var(--espaco-xl);
+}
+
+.logo-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--vermelho-acionet);
+    border-radius: 50%;
+    animation: float 2s ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+.logo-particle:nth-child(1) { top: -20px; left: 20px; }
+.logo-particle:nth-child(2) { top: 10px; right: 0; }
+.logo-particle:nth-child(3) { bottom: -10px; left: 50%; }
+
+.progress-bar {
+    width: 0%;
+    height: 4px;
+    background: var(--gradiente-vermelho);
+    border-radius: var(--radius-full);
+    animation: slideIn 1.5s ease forwards;
+}
+
+/* Typewriter Effect */
+.typewriter-text {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 3px solid var(--vermelho-acionet);
+    white-space: nowrap;
+    animation: typewriter 3s steps(30, end) infinite,
+               blink 0.75s step-end infinite;
+}
+
+/* Floating Elements */
+.floating-dashboard {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.dashboard-element {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    animation: float 3s ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+.dashboard-element:nth-child(1) {
+    width: 200px;
+    height: 150px;
+    top: 0;
+    left: 0;
+}
+
+.dashboard-element:nth-child(2) {
+    width: 150px;
+    height: 200px;
+    top: 50px;
+    right: 0;
+}
+
+.dashboard-element:nth-child(3) {
+    width: 180px;
+    height: 180px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Hover Effects */
+.card-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradiente-vermelho);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    border-radius: inherit;
+    z-index: var(--z-below);
+}
+
+.solution-card:hover .card-hover-effect {
+    opacity: 0.1;
+}
+
+/* Pulse Animation */
+.pulse-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--vermelho-acionet);
+    border-radius: 50%;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--espaco-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    animation: float 2s ease-in-out infinite;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 10px;
+    background: white;
+    border-radius: 2px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 2s ease-in-out infinite;
+}
+
+/* Data Flow Animation */
+.data-flow {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--azul-claro-tech), 
+        transparent);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.flow-node {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--vermelho-acionet);
+    border-radius: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s ease-in-out infinite;
+    animation-delay: calc(var(--position) * 0.5s);
+}
+
+.flow-node:nth-child(1) { left: 25%; }
+.flow-node:nth-child(2) { left: 50%; }
+.flow-node:nth-child(3) { left: 75%; }
+
+/* Orbit Animation */
+.orbit-animation {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.orbit-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px dashed rgba(230, 57, 70, 0.3);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+}
+
+.satellite {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: var(--gradiente-vermelho);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: 
+        translate(-50%, -50%)
+        rotate(var(--angle))
+        translateX(100px)
+        rotate(calc(var(--angle) * -1));
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Hover Glow Effect */
+.icon-halo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: var(--vermelho-acionet);
+    opacity: 0.3;
+    filter: blur(10px);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Button Hover Effects */
+.btn-content {
+    position: relative;
+    z-index: var(--z-base);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.btn-hover-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        transparent 70%);
+    background-size: 200% 100%;
+    background-position: -100% 0;
+    transition: background-position 0.5s ease;
+    border-radius: inherit;
+}
+
+.btn-primary:hover .btn-hover-effect {
+    background-position: 100% 0;
+}
+
+/* Staggered Animation */
+.solution-card:nth-child(1) { animation-delay: 0.1s; }
+.solution-card:nth-child(2) { animation-delay: 0.2s; }
+.solution-card:nth-child(3) { animation-delay: 0.3s; }
+.solution-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Responsive Animations */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
