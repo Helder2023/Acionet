@@ -865,7 +865,6 @@ body {
     color: var(--azul-profundo);
     margin-bottom: var(--espaco-md);
     line-height: 1.2;
-    color: white !important;
 }
 
 .text-gradient {
@@ -881,7 +880,6 @@ body {
     color: var(--cinza-medio);
     max-width: 600px;
     margin: 0 auto var(--espaco-xl);
-    color: white !important;
 }
 
 .solutions-grid {
@@ -3508,7 +3506,7 @@ body {
 /* Cards de Redes Sociais */
 .social-card {
     position: relative;
-    height: 420px;
+    height: 480px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -4358,9 +4356,15 @@ body {
 }
 
 @media (max-width: 480px) {
-    .social-card {
-        height: 360px;
+
+    .social-card{
+        height: 500px;
     }
+
+    .hero-visual{
+        display: none;
+    }
+
     
     .stat-value {
         font-size: 1.8rem;
