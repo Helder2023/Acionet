@@ -1,369 +1,1245 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acionet</title>
-    <link rel="shortcut icon" href="assets/imgs/Acionet.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/responsividade.css">
-    <script src="js/js.js"></script>
+    <title>Sobre a Acionet | Tecnologia que Transforma Negócios</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Conheça a história da Acionet, nossa missão, valores, equipe de especialistas e por que somos referência em soluções tecnológicas no Brasil.">
+    <meta name="keywords"
+        content="sobre Acionet, história da empresa, equipe de tecnologia, cultura organizacional, valores, missão, visão">
+    <meta name="author" content="Acionet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acionet.com.br/sobre">
+    <meta property="og:title" content="Sobre a Acionet | Nossa História e Equipe">
+    <meta property="og:description"
+        content="Conheça a trajetória de mais de 10 anos da Acionet no mercado de tecnologia.">
+    <meta property="og:image" content="assets/imgs/og-sobre.jpg">
+
+    <!-- Fontes Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/logo.png">
+
+
 </head>
 
 <body>
-    <!-- Tela de Loading -->
-    <div class="loading-container" id="loading">
+    <!-- 🔝 Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <img src="assets/imgs/Acionet.png" alt="Logo" class="loading-logo" />
-            <div class="spinner"></div>
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Conhecendo nossa história...</p>
         </div>
     </div>
-    <header>
-        <nav class="navbar navbar-expand-lg content-nav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html"><img src="assets/imgs/nav-logo.jpeg" alt="" class="logo"></a>
-                <button class="navbar-toggler button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse content-nav-link" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                        </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="noticias.html">Notícias</a>
-                        </li>
+    <!-- 🎮 Navegação Principal -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <!-- Primeiro: imagem da logo -->
+                <img src="assets/imgs/logo.png" alt="Acionet - Soluções em Tecnologia" class="logo-image">
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="progetos.html">Projetos</a>
-                        </li>
+            </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="eventos.html">Eventos</a>
-                        </li>
+            <!-- Menu Desktop -->
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="conquistas.html">Conquistas</a>
-                        </li>
+                    <!-- Dropdown Soluções -->
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-brain"></i>
+                                        Inteligência Artificial
+                                    </h4>
+                                    <a href="solucoes.html#ia-ml">Machine Learning</a>
+                                    <a href="solucoes.html#ia-nlp">Processamento de Linguagem</a>
+                                    <a href="solucoes.html#ia-cv">Visão Computacional</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Desenvolvimento
+                                    </h4>
+                                    <a href="solucoes.html#dev-web">Aplicações Web</a>
+                                    <a href="solucoes.html#dev-mobile">Aplicativos Mobile</a>
+                                    <a href="solucoes.html#dev-api">APIs & Microservices</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-cloud"></i>
+                                        Cloud & DevOps
+                                    </h4>
+                                    <a href="solucoes.html#cloud-aws">Infraestrutura AWS</a>
+                                    <a href="solucoes.html#cloud-devops">Pipeline DevOps</a>
+                                    <a href="solucoes.html#cloud-security">Segurança Cloud</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="sobre.html" style="color: #FF0000 !important;" >Sobre</a>
-                        </li>
+                    <!-- Dropdown Projetos -->
+                    <div class="nav-dropdown">
+                        <a href="projetos.html" class="nav-link" data-text="Projetos">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projetos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-chart-pie"></i>
+                                        Por Setor
+                                    </h4>
+                                    <a href="portfolio.html#financeiro">Financeiro & Fintech</a>
+                                    <a href="portfolio.html#saude">Saúde & Biotech</a>
+                                    <a href="portfolio.html#varejo">Varejo & E-commerce</a>
+                                    <a href="portfolio.html#industria">Indústria 4.0</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-filter"></i>
+                                        Por Tecnologia
+                                    </h4>
+                                    <a href="portfolio.html#ia">Projetos com IA</a>
+                                    <a href="portfolio.html#blockchain">Blockchain</a>
+                                    <a href="portfolio.html#iot">IoT & Hardware</a>
+                                    <a href="portfolio.html#cloud">Migração Cloud</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="portfolio.html#cases">Cases de Sucesso</a>
+                                    <a href="portfolio.html#premiados">Projetos Premiados</a>
+                                    <a href="portfolio.html#inovacao">Inovação Radical</a>
+                                    <a href="portfolio.html#open-source">Open Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
-                        </li>
-                    </ul>
-                    <div>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Pesquisar por artigo"
-                                aria-label="Search" required>
-                            <button class="btn" type="submit">Pesquisar</button>
-                        </form>
-
+                    <!-- Dropdown Sobre -->
+                    <div class="nav-dropdown">
+                        <a href="sobre.html" class="nav-link active" data-text="Sobre">
+                            <i class="fas fa-users"></i>
+                            <span>Sobre</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-building"></i>
+                                        A Empresa
+                                    </h4>
+                                    <a href="sobre.html#historia">Nossa História</a>
+                                    <a href="sobre.html#missao">Missão & Valores</a>
+                                    <a href="sobre.html#cultura">Cultura Acionet</a>
+                                    <a href="sobre.html#premios">Prêmios</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users-cog"></i>
+                                        Equipe
+                                    </h4>
+                                    <a href="sobre.html#lideranca">Liderança</a>
+                                    <a href="sobre.html#especialistas">Especialistas</a>
+                                    <a href="sobre.html#conselho">Conselho Consultivo</a>
+                                    <a href="sobre.html#trabalhe">Trabalhe Conosco</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Compromisso
+                                    </h4>
+                                    <a href="sobre.html#sustentabilidade">Sustentabilidade</a>
+                                    <a href="sobre.html#diversidade">Diversidade & Inclusão</a>
+                                    <a href="sobre.html#etica">Ética & Compliance</a>
+                                    <a href="sobre.html#impacto">Impacto Social</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </header>
 
-    <main>
-
-        <section class="content-pagina-noticia-top">
-            <h1>Sobre a Acionet</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed, odit?.</p>
-        </section>
-
-        <section>
-
-            <div class="content-sobre-page">
-                <div class="content-descricao-progeto-page content-descricao-sobre-page">
-                    <span class="tipo-evento-page" style="width: 106px;">Nossa História</span>
-                    <h3 class="project-title titulo-evento" style=" margin-top: -20px; margin-bottom: -14px;">
-                        Transformando negócios através da tecnologia</h3>
-                    <div class="project-description">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat perspiciatis debitis
-                            incidunt corrupti enim? Velit minima quibusdam quas sed labore quisquam tenetur fugiat quae
-                            possimus consequatur hic nulla quos molestiae aperiam aut magnam, soluta earum! Quam
-                            recusandae harum ea impedit?</p>
-
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat perspiciatis debitis
-                            incidunt corrupti enim? Velit minima quibusdam quas sed labore quisquam tenetur fugiat quae
-                            possimus consequatur hic nulla quos molestiae aperiam aut magnam, soluta earum! Quam
-                            recusandae harum ea impedit?</p>
-
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat perspiciatis debitis
-                            incidunt corrupti enim? Velit minima quibusdam quas sed labore quisquam tenetur fugiat quae
-                            possimus consequatur hic nulla quos molestiae aperiam aut magnam, soluta earum! Quam
-                            recusandae harum ea impedit?</p>
-
-
+                <div class="menu-right">
+                    <!-- Dropdown Blog -->
+                    <div class="nav-dropdown">
+                        <a href="blog.html" class="nav-link" data-text="Blog">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Tecnologia
+                                    </h4>
+                                    <a href="blog.html#ia">Inteligência Artificial</a>
+                                    <a href="blog.html#dev">Desenvolvimento</a>
+                                    <a href="blog.html#cloud">Cloud Computing</a>
+                                    <a href="blog.html#seguranca">Cybersecurity</a>
+                                    <a href="blog.html#blockchain">Blockchain</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Inovação
+                                    </h4>
+                                    <a href="blog.html#tendencias">Tendências Tech</a>
+                                    <a href="blog.html#startups">Ecossistema Startup</a>
+                                    <a href="blog.html#futuro">Futuro da TI</a>
+                                    <a href="blog.html#pesquisa">Pesquisa & Desenvolvimento</a>
+                                    <a href="blog.html#metodologias">Metodologias Ágeis</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-briefcase"></i>
+                                        Negócios
+                                    </h4>
+                                    <a href="blog.html#transformacao">Transformação Digital</a>
+                                    <a href="blog.html#estrategia">Estratégia Tech</a>
+                                    <a href="blog.html#cases">Análise de Cases</a>
+                                    <a href="blog.html#metricas">Métricas & ROI</a>
+                                    <a href="blog.html#gestao">Gestão de TI</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-star"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="blog.html#populares">Mais Populares</a>
+                                    <a href="blog.html#recentes">Recentes</a>
+                                    <a href="blog.html#series">Séries Especiais</a>
+                                    <a href="blog.html#ebooks">E-books & Whitepapers</a>
+                                    <a href="blog.html#podcast">Podcast Acionet</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class=" content-buttom-enevtos content-buttom-sobre">
-                        <a href="" class="col-md-6 btn inscrever-btn">
-                            Conheça nossos serviços <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                fill="currentColor" class="bi bi-arrow-right svg-arrow-eventos-page"
-                                viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-                            </svg></a>
-                        <a href="" class="btn btn-sobre col-md-4 inscrever-btn">Fale Conosco</a>
+                    <!-- Dropdown Eventos -->
+                    <div class="nav-dropdown">
+                        <a href="eventos.html" class="nav-link" data-text="Eventos">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Eventos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-video"></i>
+                                        Webinars
+                                    </h4>
+                                    <a href="eventos.html#agendados">Próximos Webinars</a>
+                                    <a href="eventos.html#gravados">Webinars Gravados</a>
+                                    <a href="eventos.html#series">Séries Temáticas</a>
+                                    <a href="eventos.html#workshops">Workshops Online</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users"></i>
+                                        Presenciais
+                                    </h4>
+                                    <a href="eventos.html#conferencias">Conferências</a>
+                                    <a href="eventos.html#meetups">Meetups Tech</a>
+                                    <a href="eventos.html#hackathons">Hackathons</a>
+                                    <a href="eventos.html#treinamentos">Treinamentos</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Agenda
+                                    </h4>
+                                    <a href="eventos.html#calendario">Calendário Completo</a>
+                                    <a href="eventos.html#inscricoes">Minhas Inscrições</a>
+                                    <a href="eventos.html#patrocinio">Patrocínio</a>
+                                    <a href="eventos.html#speakers">Seja Speaker</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Especiais
+                                    </h4>
+                                    <a href="eventos.html#anual">Conferência Anual</a>
+                                    <a href="eventos.html#parceiros">Eventos Parceiros</a>
+                                    <a href="eventos.html#internacionais">Eventos Internacionais</a>
+                                    <a href="eventos.html#comunidade">Comunidade Acionet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão Mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" type="button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 🌟 Hero Section Sobre (igual à home) -->
+    <section class="hero-section">
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+        <div class="container hero-container">
+            <div class="hero-content">
+               
+                <!-- Badge de Destaque -->
+                <div class="hero-badge" style="margin-top: 10px;">
+                    <span class="badge-text">
+                        <i class="fas fa-users"></i>
+                        QUEM SOMOS
+                    </span>
+                    <div class="badge-glow"></div>
+                </div>
+
+                <!-- Título Principal -->
+                <h1 class="hero-title">
+                    <span class="title-line">Mais de uma década</span>
+                    <span class="title-line">
+                        <span class="word-gradient">transformando</span>
+                        <span>o futuro da tecnologia</span>
+                    </span>
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="hero-subtitle">
+                    Somos uma equipe de <span class="highlight-text">especialistas apaixonados</span> por inovação,
+                    dedicados a criar soluções que realmente fazem a diferença nos negócios dos nossos clientes.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-actions">
+                    <a href="#historia" class="btn btn-primary">
+                        <div class="btn-content">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Conheça Nossa História</span>
+                        </div>
+                        <div class="btn-hover-effect"></div>
+                    </a>
+
+                    <a href="#lideranca" class="btn btn-secondary">
+                        <div class="btn-content">
+                            <i class="fas fa-eye"></i>
+                            <span>Conheça a Equipe</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual 3D -->
+            <div class="hero-visual">
+                <div class="floating-dashboard">
+                    <div class="dashboard-element" style="--delay: 0s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.3s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.6s">
+                        <div class="element-glow"></div>
                     </div>
                 </div>
-                <img class="img-fluid" src="assets/imgs/main.png" alt="">
+                <div class="data-flow">
+                    <div class="flow-line"></div>
+                    <div class="flow-node" style="--position: 1"></div>
+                    <div class="flow-node" style="--position: 2"></div>
+                    <div class="flow-node" style="--position: 3"></div>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section class="content-transfomacao-digital">
-            <div class="content-descricao-sobre">
-                <span class="tipo-evento-page">Nossa Missão</span>
-                <h2>Impulsionar a transformação digital e o crescimento sustentável</h2>
-                <p>Nossa missão é capacitar empresas de todos os portes a alcançarem seu potencial máximo através de
-                    soluções tecnológicas inovadoras, promovendo a transformação digital e o crescimento sustentável.
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Conheça nossa história</span>
+        </div>
+    </section>
+
+    <!-- 🔍 Filtros Rápidos (âncoras) -->
+    <div class="quick-filters" style="background: white; padding: var(--espaco-md) 0; border-bottom: 1px solid var(--cinza-claro); position: sticky; top: 80px; z-index: 90; backdrop-filter: blur(10px);">
+        <div class="container">
+            <div class="solutions-filter" style="margin: 0;">
+                <a href="#historia" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-history"></i>
+                    História
+                </a>
+                <a href="#valores" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-heart"></i>
+                    Valores
+                </a>
+                <a href="#lideranca" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-users-cog"></i>
+                    Liderança
+                </a>
+                <a href="#equipe" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-users"></i>
+                    Equipe
+                </a>
+                <a href="#certificacoes" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-certificate"></i>
+                    Certificações
+                </a>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- 📜 História / Timeline -->
+    <section class="timeline-section" id="historia" style="scroll-margin-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>NOSSA HISTÓRIA</span>
+                </div>
+                <h2 class="section-title">
+                    Uma trajetória de <span class="text-gradient">inovação</span>
+                </h2>
+                <p class="section-description">
+                    Desde nossa fundação, acumulamos conquistas e aprendizados que nos tornaram referência
+                    no mercado de tecnologia.
                 </p>
             </div>
 
-            <div class="content-cards-transformacao-digital">
-                <div>
-                    <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                            class="bi bi-patch-check" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M10.354 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708 0" />
-                            <path
-                                d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911z" />
-                        </svg></span>
-                    <h4>Inovação</h4>
-                    <p>Buscamos constantemente novas soluções e tecnologias para superar desafios.</p>
-                </div>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
 
-                <div>
-                    <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                            class="bi bi-people" viewBox="0 0 16 16">
-                            <path
-                                d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
-                        </svg></span>
-                    <h4>Colaboração </h4>
-                    <p>Trabalhamos em equipe para alcançar resultados excepcionais.</p>
-                </div>
-
-                <div>
-                    <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                            class="bi bi-suitcase-lg" viewBox="0 0 16 16">
-                            <path
-                                d="M5 2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2h3.5A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5H14a.5.5 0 0 1-1 0H3a.5.5 0 0 1-1 0h-.5A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2zm1 0h4a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1M1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5H3V3zM15 12.5v-9a.5.5 0 0 0-.5-.5H13v10h1.5a.5.5 0 0 0 .5-.5m-3 .5V3H4v10z" />
-                        </svg></span>
-                    <h4>Excelência</h4>
-                    <p>Comprometidos com a qualidade e a entrega de valor em tudo o que fazemos.</p>
-                </div>
-
-                <div>
-                    <span><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                            class="bi bi-bullseye" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                            <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10m0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12" />
-                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8" />
-                            <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" />
-                        </svg></span>
-                    <h4>Foco no Cliente</h4>
-                    <p>Colocamos as necessidades dos nossos clientes no centro de nossas decisões.</p>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="content-lideres-acionet">
-            <div class="content-descricao-sobre">
-                <span class="tipo-evento-page">Nossa Equipe</span>
-                <h2>Conheça os líderes por trás da Acionet</h2>
-                <p>Nossa equipe de liderança combina décadas de experiência em tecnologia, negócios e inovação para
-                    guiar a Acionet rumo ao futuro.</p>
-            </div>
-
-            <div class="team-container">
-
-                <div class="team-card">
-                    <img class="avatar img-fluid" src="assets/imgs/main.png" alt="">
-                    <h3>Carlos Silva</h3>
-                    <div class="title">CEO & Fundador</div>
-                    <p>Com mais de 20 anos de experiência em tecnologia, Carlos fundou a Acionet com a visão de
-                        transformar negócios através da inovação digital.</p>
-                </div>
-
-                <div class="team-card">
-                    <img class="avatar img-fluid" src="assets/imgs/main.png" alt="">
-                    <h3>Ana Oliveira</h3>
-                    <div class="title">CTO</div>
-                    <p>Especialista em IA e cloud computing, Ana lidera o desenvolvimento de soluções tecnológicas
-                        inovadoras na Acionet.</p>
-                </div>
-
-                <div class="team-card">
-                    <img class="avatar img-fluid" src="assets/imgs/main.png" alt="">
-                    <h3>Roberto Santos</h3>
-                    <div class="title">Diretor de Operações</div>
-                    <p>Com vasta experiência em gestão de projetos, Roberto garante a excelência operacional em todas as
-                        entregas da Acionet.</p>
-                </div>
-
-                <div class="team-card">
-                    <img class="avatar img-fluid" src="assets/imgs/main.png" alt="">
-                    <h3>Mariana Costa</h3>
-                    <div class="title">Diretora de Marketing</div>
-                    <p>Especialista em marketing digital, Mariana é responsável por comunicar a visão e os valores da
-                        Acionet ao mercado.</p>
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-  <section class="content-subscrever-background">
-            <div class="content-subscrever">
-                <div class="content-descricao-subscricao">
-                    <div class="descricao-subscricao">
-                        <h1>Fique por dentro das novidades da Acionet</h1>
-                        <p>Inscreva-se em nossa newsletter para receber as últimas notícias sobre projetos, eventos e
-                            conquistas da Acionet.</p>
-                    </div>
-
-                    <div>
-                        <form class="d-flex form-subscricao" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Seu e-mail" aria-label="Search"
-                                required>
-                            <button class="btn" type="submit">Inscrever-se</button>
-                        </form>
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2013</span>
+                        <h3 class="timeline-title">Fundação da Acionet</h3>
+                        <p class="timeline-description">
+                            Iniciamos nossas atividades com foco em infraestrutura de redes e telecomunicações,
+                            atendendo pequenas e médias empresas na região metropolitana de São Paulo.
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <div class="image-container-subscricao">
-                        <!-- Imagem de exemplo (substitua pela sua própria) -->
-                        <img class="img-fluid" src="assets/imgs/main.png">
 
-                        <div class="image-description-subscricao">
-                            <h3>Acionet lança nova plataforma de inteligência artificial</h3>
-                            <p>15 de junho, 2025 • 5 min de leitura</p>
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2015</span>
+                        <h3 class="timeline-title">Primeiro grande contrato</h3>
+                        <p class="timeline-description">
+                            Fomos contratados para implantar a rede de fibra óptica de um dos maiores
+                            bancos do país, marcando nossa entrada no setor financeiro.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2017</span>
+                        <h3 class="timeline-title">Expansão para desenvolvimento de software</h3>
+                        <p class="timeline-description">
+                            Criamos a divisão de desenvolvimento de software, ampliando nosso portfólio
+                            com soluções customizadas para web, mobile e cloud.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2019</span>
+                        <h3 class="timeline-title">Certificação ISO 27001</h3>
+                        <p class="timeline-description">
+                            Obtivemos a certificação ISO 27001, consolidando nosso compromisso com
+                            a segurança da informação e boas práticas de governança.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2021</span>
+                        <h3 class="timeline-title">Prêmio Inovação em TI</h3>
+                        <p class="timeline-description">
+                            Recebemos o prêmio de empresa mais inovadora em TI pela revista Tecnologia&Negócios,
+                            com nosso case de IA para o setor financeiro.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2023</span>
+                        <h3 class="timeline-title">Expansão internacional</h3>
+                        <p class="timeline-description">
+                            Iniciamos operações em Portugal e Estados Unidos, levando nossa expertise
+                            em tecnologia para o mercado global.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 7 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2025</span>
+                        <h3 class="timeline-title">Hoje: 150+ projetos realizados</h3>
+                        <p class="timeline-description">
+                            Acumulamos mais de 150 projetos entregues com sucesso, 40 clientes ativos
+                            e uma equipe de 25 especialistas dedicados à inovação.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💎 Missão, Visão e Valores -->
+    <section class="values-section" id="valores" style="scroll-margin-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>MISSÃO, VISÃO & VALORES</span>
+                </div>
+                <h2 class="section-title">
+                    O que nos <span class="text-gradient">move</span>
+                </h2>
+                <p class="section-description">
+                    Nossos princípios e propósito guiam cada projeto e parceria.
+                </p>
+            </div>
+
+            <div class="values-grid">
+                <!-- Missão -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Missão</h3>
+                    <p class="value-description">
+                        Transformar negócios através da tecnologia, entregando soluções inovadoras,
+                        escaláveis e seguras que geram resultados reais para nossos clientes.
+                    </p>
+                </div>
+
+                <!-- Visão -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-eye"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Visão</h3>
+                    <p class="value-description">
+                        Ser referência nacional em soluções tecnológicas integradas, reconhecida pela
+                        excelência técnica, inovação e impacto positivo nos negócios.
+                    </p>
+                </div>
+
+                <!-- Valor 1: Inovação -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Inovação</h3>
+                    <p class="value-description">
+                        Buscamos constantemente novas tecnologias e abordagens para resolver desafios
+                        complexos de forma criativa e eficiente.
+                    </p>
+                </div>
+
+                <!-- Valor 2: Excelência -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-medal"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Excelência</h3>
+                    <p class="value-description">
+                        Entregamos sempre o melhor, com qualidade impecável, atenção aos detalhes
+                        e compromisso com resultados superiores.
+                    </p>
+                </div>
+
+                <!-- Valor 3: Parceria -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Parceria</h3>
+                    <p class="value-description">
+                        Construímos relações duradouras baseadas na confiança, transparência e
+                        comprometimento com o sucesso dos nossos clientes.
+                    </p>
+                </div>
+
+                <!-- Valor 4: Ética -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Ética</h3>
+                    <p class="value-description">
+                        Atuamos com integridade, respeito e responsabilidade em todas as nossas
+                        relações e decisões.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👥 Liderança -->
+    <section class="team-section" id="lideranca" style="scroll-margin-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>LIDERANÇA</span>
+                </div>
+                <h2 class="section-title">
+                    Quem está à <span class="text-gradient">frente</span>
+                </h2>
+                <p class="section-description">
+                    Conheça os líderes que conduzem a Acionet com visão estratégica e paixão por tecnologia.
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Líder 1: CEO -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Ricardo Mendes</h3>
+                        <p class="team-role">CEO & Fundador</p>
+                        <p class="team-bio">
+                            Engenheiro de telecomunicações com 20 anos de experiência. Passagens por Ericsson e Nokia.
+                            Especialista em estratégia de negócios e inovação tecnológica.
+                        </p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Líder 2: CTO -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Ana Paula Costa</h3>
+                        <p class="team-role">CTO</p>
+                        <p class="team-bio">
+                            PhD em Ciência da Computação pela USP. Especialista em IA e arquitetura de software.
+                            Responsável pela inovação técnica e P&D da Acionet.
+                        </p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Líder 3: Diretor de Operações -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user-gear"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Marcos Oliveira</h3>
+                        <p class="team-role">Diretor de Operações</p>
+                        <p class="team-bio">
+                            Engenheiro de redes com certificações CCIE e ITIL. 15 anos de experiência em projetos
+                            de grande porte para operadoras e bancos.
+                        </p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Líder 4: Diretora Comercial -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Patrícia Santos</h3>
+                        <p class="team-role">Diretora Comercial</p>
+                        <p class="team-bio">
+                            MBA em Gestão de Negócios pela FGV. Especialista em desenvolvimento de mercado
+                            e relacionamento com clientes estratégicos.
+                        </p>
+                        <div class="team-social">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer>
-            <div class="content-footer-top">
-                <div class="content-footer-descricao">
-                    <h1>Acionet</h1>
-                    <p>Soluções tecnológicas inovadoras que impulsionam o crescimento e a transformação digital do seu
-                        negócio.</p>
-                    <div class="redes-socias-footer">
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-facebook" viewBox="0 0 16 16">
-                                <path
-                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                            </svg>
-                        </a>
+    <!-- 👥 Equipe de Especialistas -->
+    <section class="team-section" id="equipe" style="scroll-margin-top: 100px; background: var(--cinza-claro);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>EQUIPE</span>
+                </div>
+                <h2 class="section-title">
+                    Nossos <span class="text-gradient">especialistas</span>
+                </h2>
+                <p class="section-description">
+                    Profissionais altamente qualificados, apaixonados por tecnologia e dedicados a entregar
+                    o melhor para nossos clientes.
+                </p>
+            </div>
 
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-youtube" viewBox="0 0 16 16">
-                                <path
-                                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
-                            </svg>
-                        </a>
+            <div class="team-grid">
+                <!-- Especialista 1: IA -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Carlos Lima</h3>
+                        <p class="team-role">Lead AI Engineer</p>
+                        <p class="team-bio">
+                            PhD em Machine Learning. Desenvolve modelos preditivos e soluções de IA
+                            para clientes dos setores financeiro e saúde.
+                        </p>
+                    </div>
+                </div>
 
-                        <a href="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                                class="bi bi-linkedin" viewBox="0 0 16 16">
-                                <path
-                                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                            </svg>
+                <!-- Especialista 2: Cloud -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Juliana Ferreira</h3>
+                        <p class="team-role">Cloud Architect</p>
+                        <p class="team-bio">
+                            Certificada AWS Solutions Architect e Azure Expert. Especialista em migrações
+                            cloud e otimização de infraestrutura.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Especialista 3: Redes -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Roberto Alves</h3>
+                        <p class="team-role">Network Specialist</p>
+                        <p class="team-bio">
+                            CCIE #54321. Responsável por projetos de infraestrutura de redes de missão crítica
+                            para grandes empresas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Especialista 4: Segurança -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Fernanda Costa</h3>
+                        <p class="team-role">Security Lead</p>
+                        <p class="team-bio">
+                            Especialista em segurança ofensiva e defensiva. Lidera projetos de adequação
+                            à LGPD e ISO 27001.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Especialista 5: Desenvolvimento -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Lucas Mendes</h3>
+                        <p class="team-role">Tech Lead</p>
+                        <p class="team-bio">
+                            Full-stack developer com 10 anos de experiência em React, Node.js e Python.
+                            Lidera squads de desenvolvimento ágil.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Especialista 6: IoT -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Camila Rodrigues</h3>
+                        <p class="team-role">IoT Specialist</p>
+                        <p class="team-bio">
+                            Engenheira de computação com foco em sistemas embarcados e Internet das Coisas.
+                            Responsável por projetos de indústria 4.0.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Especialista 7: Dados -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Thiago Souza</h3>
+                        <p class="team-role">Data Scientist</p>
+                        <p class="team-bio">
+                            Especialista em análise de dados e business intelligence. Cria dashboards
+                            e insights estratégicos para tomada de decisão.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Especialista 8: DevOps -->
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Paulo Cesar</h3>
+                        <p class="team-role">DevOps Engineer</p>
+                        <p class="team-bio">
+                            Especialista em CI/CD, Kubernetes e automação. Garante a infraestrutura
+                            escalável e confiável para as aplicações.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🏅 Certificações -->
+    <section class="certifications-section" id="certificacoes" style="scroll-margin-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>CERTIFICAÇÕES</span>
+                </div>
+                <h2 class="section-title">
+                    Qualidade e <span class="text-gradient">conformidade</span>
+                </h2>
+                <p class="section-description">
+                    Nossas certificações atestam nosso compromisso com excelência e boas práticas.
+                </p>
+            </div>
+
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>ISO 27001</span>
+                    <small>Segurança da Informação</small>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>ISO 9001</span>
+                    <small>Gestão da Qualidade</small>
+                </div>
+                <div class="cert-item">
+                    <i class="fab fa-aws"></i>
+                    <span>AWS</span>
+                    <small>Advanced Partner</small>
+                </div>
+                <div class="cert-item">
+                    <i class="fab fa-microsoft"></i>
+                    <span>Microsoft</span>
+                    <small>Gold Partner</small>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Cisco</span>
+                    <small>Premier Partner</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌱 Compromisso Social e Sustentabilidade -->
+    <section class="values-section" id="sustentabilidade" style="scroll-margin-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>COMPROMISSO</span>
+                </div>
+                <h2 class="section-title">
+                    Impacto <span class="text-gradient">positivo</span>
+                </h2>
+                <p class="section-description">
+                    Nossa responsabilidade vai além da tecnologia. Contribuímos ativamente para um mundo melhor.
+                </p>
+            </div>
+
+            <div class="values-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <!-- Sustentabilidade -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Sustentabilidade</h3>
+                    <p class="value-description">
+                        Compensamos 100% das emissões de carbono dos nossos projetos e promovemos
+                        práticas sustentáveis em todas as operações.
+                    </p>
+                </div>
+
+                <!-- Diversidade -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Diversidade</h3>
+                    <p class="value-description">
+                        Promovemos um ambiente inclusivo, com 45% de mulheres em cargos de liderança
+                        e programas de capacitação para grupos sub-representados.
+                    </p>
+                </div>
+
+                <!-- Educação -->
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <h3 class="value-title">Educação</h3>
+                    <p class="value-description">
+                        Mantemos parcerias com universidades e programas de estágio, formando novos
+                        talentos para o mercado de tecnologia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 💬 Depoimentos -->
+    <section class="testimonials" style="padding: var(--espaco-3xl) 0; background: var(--cinza-claro);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>DEPOIMENTOS</span>
+                </div>
+                <h2 class="section-title">
+                    O que falam sobre <span class="text-gradient">nós</span>
+                </h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--espaco-xl); margin-top: var(--espaco-2xl);">
+                <div style="background: white; padding: var(--espaco-xl); border-radius: var(--radius-xl); box-shadow: var(--sombra-suave);">
+                    <i class="fas fa-quote-left" style="color: var(--vermelho-acionet); font-size: 2rem; opacity: 0.3; margin-bottom: var(--espaco-md);"></i>
+                    <p style="color: var(--cinza-medio); line-height: 1.6; margin-bottom: var(--espaco-lg);">
+                        "A Acionet é mais que um fornecedor, é uma parceira estratégica. A equipe entende
+                        nosso negócio e sempre entrega soluções que superam expectativas."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: var(--espaco-md);">
+                        <div style="width: 50px; height: 50px; background: var(--gradiente-azul); border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--azul-profundo);">João Carlos</h4>
+                            <p style="color: var(--cinza-medio); font-size: 0.875rem;">CIO, Grupo ABC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: var(--espaco-xl); border-radius: var(--radius-xl); box-shadow: var(--sombra-suave);">
+                    <i class="fas fa-quote-left" style="color: var(--vermelho-acionet); font-size: 2rem; opacity: 0.3; margin-bottom: var(--espaco-md);"></i>
+                    <p style="color: var(--cinza-medio); line-height: 1.6; margin-bottom: var(--espaco-lg);">
+                        "Profissionais extremamente competentes e comprometidos. A parceria com a Acionet
+                        foi fundamental para nossa transformação digital."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: var(--espaco-md);">
+                        <div style="width: 50px; height: 50px; background: var(--gradiente-vermelho); border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--azul-profundo);">Mariana Silva</h4>
+                            <p style="color: var(--cinza-medio); font-size: 0.875rem;">CEO, HealthTech Brasil</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: var(--espaco-xl); border-radius: var(--radius-xl); box-shadow: var(--sombra-suave);">
+                    <i class="fas fa-quote-left" style="color: var(--vermelho-acionet); font-size: 2rem; opacity: 0.3; margin-bottom: var(--espaco-md);"></i>
+                    <p style="color: var(--cinza-medio); line-height: 1.6; margin-bottom: var(--espaco-lg);">
+                        "Equipe técnica de primeira linha. Resolvem problemas complexos com agilidade
+                        e sempre com soluções inovadoras e custo-efetivas."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: var(--espaco-md);">
+                        <div style="width: 50px; height: 50px; background: var(--gradiente-tech); border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--azul-profundo);">Roberto Oliveira</h4>
+                            <p style="color: var(--cinza-medio); font-size: 0.875rem;">Diretor de TI, Indústrias Reunidas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🚀 Trabalhe Conosco -->
+    <section class="cta-section" id="trabalhe" style="padding: var(--espaco-3xl) 0; background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-escuro) 100%); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-family: var(--fonte-secundaria); font-size: 2.5rem; margin-bottom: var(--espaco-md);">
+                Faça parte do nosso <span class="text-gradient">time</span>
+            </h2>
+            <p style="font-size: 1.125rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto var(--espaco-xl);">
+                Estamos sempre em busca de talentos apaixonados por tecnologia e inovação.
+                Venha construir o futuro conosco.
+            </p>
+            <div class="hero-actions" style="justify-content: center;">
+                <a href="carreiras.html" class="btn btn-primary">
+                    <i class="fas fa-briefcase"></i>
+                    Vagas Abertas
+                </a>
+                <a href="contato.html" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Currículo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📧 Newsletter -->
+    <section class="newsletter-section">
+        <div class="container newsletter-container">
+            <div class="newsletter-visual">
+                <div class="orbit-animation">
+                    <div class="orbit-ring"></div>
+                    <div class="satellite" style="--angle: 0deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 120deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 240deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newsletter-content">
+                <h3 class="newsletter-title">
+                    Fique por dentro das <span class="text-gradient">novidades</span>
+                </h3>
+                <p class="newsletter-subtitle">
+                    Receba insights sobre tecnologia, cases de sucesso e oportunidades de carreira.
+                </p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <input type="email" placeholder="seu@email.com" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Inscrever-se</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <a href="index.html" class="footer-logo">
+                            <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+                            <span class="logo-text">ACIONET</span>
                         </a>
+                        <p class="footer-about">
+                            Transformando negócios através da tecnologia com soluções inovadoras e resultados mensuráveis.
+                        </p>
                     </div>
 
-                </div>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Sobre</h4>
+                        <ul class="footer-links">
+                            <li><a href="#historia">História</a></li>
+                            <li><a href="#valores">Valores</a></li>
+                            <li><a href="#lideranca">Liderança</a></li>
+                            <li><a href="#equipe">Equipe</a></li>
+                            <li><a href="#certificacoes">Certificações</a></li>
+                        </ul>
+                    </div>
 
-                <div>
-                    <h1>Notícias</h1>
-                    <a href="">Tecnologia</a>
-                    <a href="">Projetos</a>
-                    <a href="">Eventos</a>
-                    <a href="">Conquistas</a>
-                    <a href="">Parcerias</a>
-                </div>
-
-                <div>
-                    <h1>Links Rápidos</h1>
-                    <a href="">Sobre Nós</a>
-                    <a href="">Serviços</a>
-                    <a href="">Projetos</a>
-                    <a href="">Eventos</a>
-                    <a href="">Contato</a>
-                </div>
-
-                <div>
-                    <h1>Contato</h1>
-                    <p>Av. Paulista, 1000
-                        São Paulo, SP 01310-100</p>
-                    <p>(11) 3000-1000</p>
-                    <p>contato@acionet.com</p>
-                </div>
-            </div>
-            <hr class="hr-footer">
-            <div class="content-footer-rodape">
-                <p>© 2025 Acionet. Todos os direitos reservados.</p>
-                <div>
-                    <a class="margin-footer-right" href="">Política de Privacidade</a>
-                    <a href="">Termos de Uso</a>
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contato</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>contato@acionet.com.br</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 9999-9999</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Av. Paulista, 1000 - São Paulo</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </footer>
-    </main>
+        </div>
 
-    
-<!-- Botão Scroll to Top -->
-<button id="scrollTopBtn" title="Voltar ao topo">
-  ↑
-</button>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        © 2025 Acionet. Todos os direitos reservados.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script>
-// Mostrar/esconder o botão conforme scroll
-const scrollBtn = document.getElementById("scrollTopBtn");
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
 
-window.addEventListener("scroll", () => {
-  if (document.documentElement.scrollTop > 200) {
-    scrollBtn.classList.add("show");
-  } else {
-    scrollBtn.classList.remove("show");
-  }
-});
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.style.display = 'none', 500);
+            }, 800);
+        });
 
-// Ação ao clicar → volta suave ao topo
-scrollBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-</script>
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            navToggle?.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
 
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Contadores
+            const counters = document.querySelectorAll('.number-value[data-count]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.count);
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(counter);
+            });
+        });
+    </script>
 </body>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-    crossorigin="anonymous"></script>
 
 </html>

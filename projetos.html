@@ -1,0 +1,2473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | Acionet - Cases de Sucesso em Tecnologia</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Conheça os cases de sucesso da Acionet em infraestrutura de redes, desenvolvimento de software, segurança eletrônica e consultoria TI. Projetos reais com resultados mensuráveis.">
+    <meta name="keywords"
+        content="cases de sucesso, projetos TI, fintech, healthtech, indústria 4.0, varejo, telecom, Acionet">
+    <meta name="author" content="Acionet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acionet.com.br/portfolio">
+    <meta property="og:title" content="Portfólio de Projetos | Acionet">
+    <meta property="og:description"
+        content="Cases reais de transformação digital em diversos setores da economia.">
+    <meta property="og:image" content="assets/imgs/og-projetos.jpg">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/logo.png">
+</head>
+
+<body>
+    <!-- 🔝 Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Carregando cases de sucesso...</p>
+        </div>
+    </div>
+
+    <!-- 🎮 Navegação Principal -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <!-- Primeiro: imagem da logo -->
+                <img src="assets/imgs/logo.png" alt="Acionet - Soluções em Tecnologia" class="logo-image">
+
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
+
+                    <!-- Dropdown Soluções -->
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-brain"></i>
+                                        Inteligência Artificial
+                                    </h4>
+                                    <a href="solucoes.html#ia-ml">Machine Learning</a>
+                                    <a href="solucoes.html#ia-nlp">Processamento de Linguagem</a>
+                                    <a href="solucoes.html#ia-cv">Visão Computacional</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Desenvolvimento
+                                    </h4>
+                                    <a href="solucoes.html#dev-web">Aplicações Web</a>
+                                    <a href="solucoes.html#dev-mobile">Aplicativos Mobile</a>
+                                    <a href="solucoes.html#dev-api">APIs & Microservices</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-cloud"></i>
+                                        Cloud & DevOps
+                                    </h4>
+                                    <a href="solucoes.html#cloud-aws">Infraestrutura AWS</a>
+                                    <a href="solucoes.html#cloud-devops">Pipeline DevOps</a>
+                                    <a href="solucoes.html#cloud-security">Segurança Cloud</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Projetos -->
+                    <div class="nav-dropdown">
+                        <a href="projetos.html" class="nav-link active" data-text="Projetos">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projetos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-chart-pie"></i>
+                                        Por Setor
+                                    </h4>
+                                    <a href="portfolio.html#financeiro">Financeiro & Fintech</a>
+                                    <a href="portfolio.html#saude">Saúde & Biotech</a>
+                                    <a href="portfolio.html#varejo">Varejo & E-commerce</a>
+                                    <a href="portfolio.html#industria">Indústria 4.0</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-filter"></i>
+                                        Por Tecnologia
+                                    </h4>
+                                    <a href="portfolio.html#ia">Projetos com IA</a>
+                                    <a href="portfolio.html#blockchain">Blockchain</a>
+                                    <a href="portfolio.html#iot">IoT & Hardware</a>
+                                    <a href="portfolio.html#cloud">Migração Cloud</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="portfolio.html#cases">Cases de Sucesso</a>
+                                    <a href="portfolio.html#premiados">Projetos Premiados</a>
+                                    <a href="portfolio.html#inovacao">Inovação Radical</a>
+                                    <a href="portfolio.html#open-source">Open Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Sobre -->
+                    <div class="nav-dropdown">
+                        <a href="sobre.html" class="nav-link" data-text="Sobre">
+                            <i class="fas fa-users"></i>
+                            <span>Sobre</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-building"></i>
+                                        A Empresa
+                                    </h4>
+                                    <a href="sobre.html#historia">Nossa História</a>
+                                    <a href="sobre.html#missao">Missão & Valores</a>
+                                    <a href="sobre.html#cultura">Cultura Acionet</a>
+                                    <a href="sobre.html#premios">Prêmios</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users-cog"></i>
+                                        Equipe
+                                    </h4>
+                                    <a href="sobre.html#lideranca">Liderança</a>
+                                    <a href="sobre.html#especialistas">Especialistas</a>
+                                    <a href="sobre.html#conselho">Conselho Consultivo</a>
+                                    <a href="sobre.html#trabalhe">Trabalhe Conosco</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Compromisso
+                                    </h4>
+                                    <a href="sobre.html#sustentabilidade">Sustentabilidade</a>
+                                    <a href="sobre.html#diversidade">Diversidade & Inclusão</a>
+                                    <a href="sobre.html#etica">Ética & Compliance</a>
+                                    <a href="sobre.html#impacto">Impacto Social</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <!-- Dropdown Blog -->
+                    <div class="nav-dropdown">
+                        <a href="blog.html" class="nav-link" data-text="Blog">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Tecnologia
+                                    </h4>
+                                    <a href="blog.html#ia">Inteligência Artificial</a>
+                                    <a href="blog.html#dev">Desenvolvimento</a>
+                                    <a href="blog.html#cloud">Cloud Computing</a>
+                                    <a href="blog.html#seguranca">Cybersecurity</a>
+                                    <a href="blog.html#blockchain">Blockchain</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Inovação
+                                    </h4>
+                                    <a href="blog.html#tendencias">Tendências Tech</a>
+                                    <a href="blog.html#startups">Ecossistema Startup</a>
+                                    <a href="blog.html#futuro">Futuro da TI</a>
+                                    <a href="blog.html#pesquisa">Pesquisa & Desenvolvimento</a>
+                                    <a href="blog.html#metodologias">Metodologias Ágeis</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-briefcase"></i>
+                                        Negócios
+                                    </h4>
+                                    <a href="blog.html#transformacao">Transformação Digital</a>
+                                    <a href="blog.html#estrategia">Estratégia Tech</a>
+                                    <a href="blog.html#cases">Análise de Cases</a>
+                                    <a href="blog.html#metricas">Métricas & ROI</a>
+                                    <a href="blog.html#gestao">Gestão de TI</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-star"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="blog.html#populares">Mais Populares</a>
+                                    <a href="blog.html#recentes">Recentes</a>
+                                    <a href="blog.html#series">Séries Especiais</a>
+                                    <a href="blog.html#ebooks">E-books & Whitepapers</a>
+                                    <a href="blog.html#podcast">Podcast Acionet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Eventos -->
+                    <div class="nav-dropdown">
+                        <a href="eventos.html" class="nav-link" data-text="Eventos">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Eventos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-video"></i>
+                                        Webinars
+                                    </h4>
+                                    <a href="eventos.html#agendados">Próximos Webinars</a>
+                                    <a href="eventos.html#gravados">Webinars Gravados</a>
+                                    <a href="eventos.html#series">Séries Temáticas</a>
+                                    <a href="eventos.html#workshops">Workshops Online</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users"></i>
+                                        Presenciais
+                                    </h4>
+                                    <a href="eventos.html#conferencias">Conferências</a>
+                                    <a href="eventos.html#meetups">Meetups Tech</a>
+                                    <a href="eventos.html#hackathons">Hackathons</a>
+                                    <a href="eventos.html#treinamentos">Treinamentos</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Agenda
+                                    </h4>
+                                    <a href="eventos.html#calendario">Calendário Completo</a>
+                                    <a href="eventos.html#inscricoes">Minhas Inscrições</a>
+                                    <a href="eventos.html#patrocinio">Patrocínio</a>
+                                    <a href="eventos.html#speakers">Seja Speaker</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Especiais
+                                    </h4>
+                                    <a href="eventos.html#anual">Conferência Anual</a>
+                                    <a href="eventos.html#parceiros">Eventos Parceiros</a>
+                                    <a href="eventos.html#internacionais">Eventos Internacionais</a>
+                                    <a href="eventos.html#comunidade">Comunidade Acionet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão Mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" type="button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 🌟 Hero Section Projetos (igual à home) -->
+    <section class="hero-section" style="margin-bottom: 70px;">
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+        <div class="container hero-container">
+            <div class="hero-content">
+              
+                <!-- Badge de Destaque -->
+                <div class="hero-badge" style="margin-top: 10px;">
+                    <span class="badge-text">
+                        <i class="fas fa-trophy"></i>
+                        CASES DE SUCESSO
+                    </span>
+                    <div class="badge-glow"></div>
+                </div>
+
+                <!-- Título Principal -->
+                <h1 class="hero-title">
+                    <span class="title-line">Projetos que</span>
+                    <span class="title-line">
+                        <span class="word-gradient">Transformam</span>
+                        <span>Negócios</span>
+                    </span>
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="hero-subtitle">
+                    Conheça os <span class="highlight-text">cases reais</span> que desenvolvemos para clientes
+                    nos setores <span class="highlight-text">financeiro, saúde, varejo, indústria</span> e
+                    <span class="highlight-text">telecomunicações</span> com resultados mensuráveis.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-actions">
+                    <a href="#infraestrutura" class="btn btn-primary">
+                        <div class="btn-content">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Explorar Projetos</span>
+                        </div>
+                        <div class="btn-hover-effect"></div>
+                    </a>
+
+                    <a href="contato.html" class="btn btn-secondary">
+                        <div class="btn-content">
+                            <i class="fas fa-headset"></i>
+                            <span>Falar com Especialista</span>
+                        </div>
+                        <div class="pulse-dot"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual 3D -->
+            <div class="hero-visual">
+                <div class="floating-dashboard">
+                    <div class="dashboard-element" style="--delay: 0s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.3s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.6s">
+                        <div class="element-glow"></div>
+                    </div>
+                </div>
+                <div class="data-flow">
+                    <div class="flow-line"></div>
+                    <div class="flow-node" style="--position: 1"></div>
+                    <div class="flow-node" style="--position: 2"></div>
+                    <div class="flow-node" style="--position: 3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Explorar Cases</span>
+        </div>
+    </section>
+
+
+    <!-- 🔍 Filtros Rápidos (âncoras) - IGUAL À PÁGINA DE SOLUÇÕES -->
+    <div class="quick-filters" style="background: white; padding: var(--espaco-md) 0; border-bottom: 1px solid var(--cinza-claro); position: sticky; top: 80px; z-index: 90; backdrop-filter: blur(10px);">
+        <div class="container">
+            <div class="solutions-filter" style="margin: 0;">
+                <a href="#infraestrutura" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-network-wired"></i>
+                    Infraestrutura
+                </a>
+                <a href="#desenvolvimento" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-code"></i>
+                    Desenvolvimento
+                </a>
+                <a href="#seguranca" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-shield-alt"></i>
+                    Segurança
+                </a>
+                <a href="#consultoria" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-chart-line"></i>
+                    Consultoria
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🏆 Grid de Projetos -->
+    <section class="projects-section" style="margin-top: -200px; padding-bottom: 0;">
+        <div class="container">
+            <!-- INFRAESTRUTURA - 4 Projetos -->
+            <section class="category-section" id="infraestrutura" style="scroll-margin-top: 100px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-network-wired"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <div>
+                        <h2 class="category-title">Infraestrutura de Redes</h2>
+                        <p class="category-subtitle">Conectividade robusta e de alta performance</p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Projeto 1: Microwave Link - Operadora Telecom (DESTAQUE) -->
+                    <div class="project-card project-card-featured">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #1D3557, #0A192F);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-satellite-dish" style="font-size: 3rem;"></i>
+                                        <span>Microwave Link</span>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>+500km Implantados</span>
+                                </div>
+                                <div class="floating-tech">
+                                    <span class="tech-bubble">MW</span>
+                                    <span class="tech-bubble">11GHz</span>
+                                    <span class="tech-bubble">SDH</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-tower-cell"></i>
+                                <span>Telecom & Operadoras</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Backhaul 10Gbps para Operadora Regional
+                            </h3>
+
+                            <p class="project-description">
+                                Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar
+                                torres de telefonia móvel, garantindo backhaul de alta capacidade para rede 4G/5G.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="35">0</div>
+                                    <div class="metric-label">Enlaces</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="10">0</div>
+                                    <div class="metric-suffix">Gbps</div>
+                                    <div class="metric-label">Capacidade</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="99.99">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Disponibilidade</div>
+                                </div>
+                            </div>
+
+                            <div class="project-stack">
+                                <div class="stack-title">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Tecnologias:</span>
+                                </div>
+                                <div class="stack-items">
+                                    <div class="stack-item" data-tooltip="Ceragon">C</div>
+                                    <div class="stack-item" data-tooltip="11GHz">11G</div>
+                                    <div class="stack-item" data-tooltip="18GHz">18G</div>
+                                    <div class="stack-item" data-tooltip="SDH">SDH</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-microwave.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 2: Fibra Óptica - Cidade Inteligente -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #2A4B7C, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-broadcast-tower"></i>
+                                        <span>Fibra Óptica</span>
+                                    </div>
+                                </div>
+                                <div class="project-badge innovation">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Cidade Inteligente</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-city"></i>
+                                <span>Smart City & Governo</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Rede Metropolitana de Fibra - 120km
+                            </h3>
+
+                            <p class="project-description">
+                                Projeto e implantação de anel óptico metropolitano interligando 45 órgãos públicos,
+                                incluindo prefeitura, hospitais, escolas e centros de segurança.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="120">0</div>
+                                    <div class="metric-label">km de Fibra</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="45">0</div>
+                                    <div class="metric-label">Pontos</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="40">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Economia</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-fiber.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 3: Datacenter - Modernização -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #0A192F, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-database"></i>
+                                        <span>Datacenter</span>
+                                    </div>
+                                </div>
+                                <div class="floating-tech">
+                                    <span class="tech-bubble">VMware</span>
+                                    <span class="tech-bubble">SAN</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-university"></i>
+                                <span>Setor Financeiro</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Modernização de Datacenter - Banco Regional
+                            </h3>
+
+                            <p class="project-description">
+                                Virtualização completa de 120 servidores físicos, implementação de storage
+                                all-flash e disaster recovery com replicação síncrona.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="70">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Redução Custos</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="99.999">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Disponibilidade</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="40">0</div>
+                                    <div class="metric-suffix">ms</div>
+                                    <div class="metric-label">Latência DR</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-datacenter.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 4: RF Drive Test - 5G -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #2A4B7C, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>RF Drive Test</span>
+                                    </div>
+                                </div>
+                                <div class="iot-devices">
+                                    <div class="device" style="--position: 1">
+                                        <i class="fas fa-wifi"></i>
+                                    </div>
+                                    <div class="device" style="--position: 2">
+                                        <i class="fas fa-broadcast-tower"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-broadcast-tower"></i>
+                                <span>Telecom 5G</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Otimização de Cobertura 5G - Grande São Paulo
+                            </h3>
+
+                            <p class="project-description">
+                                Campanha de drive test em 150km de vias urbanas para validação e otimização
+                                da primeira rede 5G standalone da região metropolitana.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="150">0</div>
+                                    <div class="metric-label">km Percorridos</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="98">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Cobertura</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="35">0</div>
+                                    <div class="metric-label">Melhorias</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-rfdrive.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DESENVOLVIMENTO - 4 Projetos -->
+            <section class="category-section" id="desenvolvimento" style="scroll-margin-top: 100px; margin-top: -250px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <div>
+                        <h2 class="category-title">Desenvolvimento de Software</h2>
+                        <p class="category-subtitle">Soluções customizadas com tecnologia de ponta</p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Projeto 5: FinTech IA (DESTAQUE) -->
+                    <div class="project-card project-card-featured">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>FinTech IA</span>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Case Premiado</span>
+                                </div>
+                                <div class="floating-tech">
+                                    <span class="tech-bubble">AI</span>
+                                    <span class="tech-bubble">ML</span>
+                                    <span class="tech-bubble">React</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-university"></i>
+                                <span>Fintech & Banking</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Plataforma de Análise de Crédito com IA
+                            </h3>
+
+                            <p class="project-description">
+                                Sistema preditivo de machine learning que revolucionou a análise
+                                de risco de uma das maiores fintechs do Brasil, reduzindo tempo
+                                de avaliação de dias para minutos.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="240">0</div>
+                                    <div class="metric-label">% Eficiência</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="65">0</div>
+                                    <div class="metric-label">% Menos Erros</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="2.8">0</div>
+                                    <div class="metric-suffix">M</div>
+                                    <div class="metric-label">Economia/Ano</div>
+                                </div>
+                            </div>
+
+                            <div class="project-stack">
+                                <div class="stack-items">
+                                    <div class="stack-item" data-tooltip="Python">
+                                        <i class="fab fa-python"></i>
+                                    </div>
+                                    <div class="stack-item" data-tooltip="TensorFlow">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="stack-item" data-tooltip="React">
+                                        <i class="fab fa-react"></i>
+                                    </div>
+                                    <div class="stack-item" data-tooltip="AWS">
+                                        <i class="fab fa-aws"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-fintech.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 6: HealthTech IoT -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #06D6A0, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-heartbeat"></i>
+                                        <span>HealthTech</span>
+                                    </div>
+                                </div>
+                                <div class="project-badge innovation">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>Inovação Radical</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>HealthTech</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Monitoramento Remoto de Pacientes com IoT
+                            </h3>
+
+                            <p class="project-description">
+                                Plataforma IoT para UTI móvel com wearables que monitoram sinais vitais em tempo real,
+                                reduzindo em 45% as reinternações de pacientes crônicos.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="99.7">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Precisão</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="45">0</div>
+                                    <div class="metric-label">% Redução</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="20">0</div>
+                                    <div class="metric-label">K+ Pacientes</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-healthtech.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 7: E-commerce Varejo -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #FFD166, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>E-commerce</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-store"></i>
+                                <span>Varejo & E-commerce</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Marketplace Multicanal - Rede de Moda
+                            </h3>
+
+                            <p class="project-description">
+                                Desenvolvimento de plataforma omnichannel integrando 150 lojas físicas,
+                                e-commerce e marketplaces com gestão unificada de estoque e pedidos.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="200">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Crescimento</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="150">0</div>
+                                    <div class="metric-label">Lojas</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="98">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Disponibilidade</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-ecommerce.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 8: Indústria 4.0 -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #2A4B7C, #0A192F);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-industry"></i>
+                                        <span>Indústria 4.0</span>
+                                    </div>
+                                </div>
+                                <div class="iot-devices">
+                                    <div class="device" style="--position: 1">
+                                        <i class="fas fa-microchip"></i>
+                                    </div>
+                                    <div class="device" style="--position: 2">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-industry"></i>
+                                <span>Indústria 4.0</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Sistema de Manufatura Inteligente
+                            </h3>
+
+                            <p class="project-description">
+                                Implementação de MES (Manufacturing Execution System) com IoT e machine learning
+                                para otimização de linha de produção automotiva.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="35">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Produtividade</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="50">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Redução Paradas</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="2.5">0</div>
+                                    <div class="metric-suffix">M</div>
+                                    <div class="metric-label">ROI/Ano</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-industry.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEGURANÇA - 2 Projetos -->
+            <section class="category-section" id="seguranca" style="scroll-margin-top: 100px;  margin-top: -250px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <div>
+                        <h2 class="category-title">Segurança Eletrônica</h2>
+                        <p class="category-subtitle">Proteção física e lógica para seu patrimônio</p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Projeto 9: CFTV IP Aeroporto (DESTAQUE) -->
+                    <div class="project-card project-card-featured">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-video"></i>
+                                        <span>CFTV IP</span>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <i class="fas fa-shield"></i>
+                                    <span>+500 Câmeras</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-plane"></i>
+                                <span>Aeroportuário</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Sistema de Videomonitoramento - Aeroporto Internacional
+                            </h3>
+
+                            <p class="project-description">
+                                Implantação de 550 câmeras IP com análise inteligente de vídeo, reconhecimento
+                                facial e integração com a Polícia Federal.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="550">0</div>
+                                    <div class="metric-label">Câmeras</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="98">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Cobertura</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="24">0</div>
+                                    <div class="metric-label">/7 Monitoramento</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-cctv.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 10: Controle de Acesso Corporativo -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #2A4B7C, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-fingerprint"></i>
+                                        <span>Biometria</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-building"></i>
+                                <span>Corporativo</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Controle de Acesso Biométrico - Sede Banco
+                            </h3>
+
+                            <p class="project-description">
+                                Sistema integrado de controle de acesso com biometria facial e digital
+                                para 3.500 funcionários em 18 andares do edifício-sede.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="3500">0</div>
+                                    <div class="metric-label">Usuários</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="18">0</div>
+                                    <div class="metric-label">Andares</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="99.9">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Precisão</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-access.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CONSULTORIA - 2 Projetos -->
+            <section class="category-section" id="consultoria" style="scroll-margin-top: 100px;  margin-top: -250px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <div>
+                        <h2 class="category-title">Consultoria Estratégica</h2>
+                        <p class="category-subtitle">Transformação digital e governança</p>
+                    </div>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Projeto 11: ISO 27001 (DESTAQUE) -->
+                    <div class="project-card project-card-featured">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>ISO 27001</span>
+                                    </div>
+                                </div>
+                                <div class="project-badge">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>Certificação</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Segurança da Informação</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Adequação à ISO 27001 e LGPD
+                            </h3>
+
+                            <p class="project-description">
+                                Consultoria completa para certificação ISO 27001 de empresa de tecnologia,
+                                incluindo políticas, procedimentos e implementação de controles.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="100">0</div>
+                                    <div class="metric-suffix">%</div>
+                                    <div class="metric-label">Conformidade</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="6">0</div>
+                                    <div class="metric-label">Meses Projeto</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="0">0</div>
+                                    <div class="metric-label">Não-conformidades</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-iso27001.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 12: Transformação Digital -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback" style="display: flex; background: linear-gradient(135deg, #2A4B7C, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-digital-t"></i>
+                                        <span>Transformação Digital</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+                            <div class="project-category">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Transformação Digital</span>
+                            </div>
+
+                            <h3 class="project-title">
+                                Roadmap Digital - Indústria Química
+                            </h3>
+
+                            <p class="project-description">
+                                Planejamento estratégico de transformação digital para indústria química,
+                                definindo roadmap de 5 anos com investimentos em IoT, IA e automação.
+                            </p>
+
+                            <div class="project-metrics">
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="25">0</div>
+                                    <div class="metric-suffix">M</div>
+                                    <div class="metric-label">ROI Projetado</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="15">0</div>
+                                    <div class="metric-label">Iniciativas</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value" data-count="5">0</div>
+                                    <div class="metric-label">Anos Roadmap</div>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="case-digital.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+                                <button class="btn-icon" data-action="share">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </section>
+
+    <!-- 💬 Depoimentos -->
+    <section class="testimonials" style="padding: var(--espaco-3xl) 0; background: var(--cinza-claro); margin-top: -50px;">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>DEPOIMENTOS</span>
+                </div>
+                <h2 class="section-title">
+                    O que nossos <span class="text-gradient">clientes</span> dizem
+                </h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--espaco-xl); margin-top: var(--espaco-2xl);">
+                <div style="background: white; padding: var(--espaco-xl); border-radius: var(--radius-xl); box-shadow: var(--sombra-suave);">
+                    <i class="fas fa-quote-left" style="color: var(--vermelho-acionet); font-size: 2rem; opacity: 0.3; margin-bottom: var(--espaco-md);"></i>
+                    <p style="color: var(--cinza-medio); line-height: 1.6; margin-bottom: var(--espaco-lg);">
+                        "A Acionet transformou nossa operação de TI. O projeto de modernização do datacenter nos deu
+                        disponibilidade e performance que antes não tínhamos."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: var(--espaco-md);">
+                        <div style="width: 50px; height: 50px; background: var(--gradiente-azul); border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--azul-profundo);">Carlos Silva</h4>
+                            <p style="color: var(--cinza-medio); font-size: 0.875rem;">CIO, Banco Regional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: var(--espaco-xl); border-radius: var(--radius-xl); box-shadow: var(--sombra-suave);">
+                    <i class="fas fa-quote-left" style="color: var(--vermelho-acionet); font-size: 2rem; opacity: 0.3; margin-bottom: var(--espaco-md);"></i>
+                    <p style="color: var(--cinza-medio); line-height: 1.6; margin-bottom: var(--espaco-lg);">
+                        "A plataforma de análise de crédito com IA superou todas as expectativas. Reduzimos nosso tempo
+                        de análise de 3 dias para 15 minutos."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: var(--espaco-md);">
+                        <div style="width: 50px; height: 50px; background: var(--gradiente-vermelho); border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--azul-profundo);">Ana Paula</h4>
+                            <p style="color: var(--cinza-medio); font-size: 0.875rem;">CEO, FinTech Innov</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: var(--espaco-xl); border-radius: var(--radius-xl); box-shadow: var(--sombra-suave);">
+                    <i class="fas fa-quote-left" style="color: var(--vermelho-acionet); font-size: 2rem; opacity: 0.3; margin-bottom: var(--espaco-md);"></i>
+                    <p style="color: var(--cinza-medio); line-height: 1.6; margin-bottom: var(--espaco-lg);">
+                        "O sistema de videomonitoramento com reconhecimento facial nos deu a segurança que precisávamos.
+                        Equipe técnica extremamente competente."
+                    </p>
+                    <div style="display: flex; align-items: center; gap: var(--espaco-md);">
+                        <div style="width: 50px; height: 50px; background: var(--gradiente-tech); border-radius: 50%;"></div>
+                        <div>
+                            <h4 style="font-weight: 700; color: var(--azul-profundo);">Marcos Andrade</h4>
+                            <p style="color: var(--cinza-medio); font-size: 0.875rem;">Diretor de Operações, Aeroporto</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📧 Newsletter -->
+    <section class="newsletter-section">
+        <div class="container newsletter-container">
+            <div class="newsletter-visual">
+                <div class="orbit-animation">
+                    <div class="orbit-ring"></div>
+                    <div class="satellite" style="--angle: 0deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 120deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 240deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newsletter-content">
+                <h3 class="newsletter-title">
+                    Receba <span class="text-gradient">Cases</span> Exclusivos
+                </h3>
+                <p class="newsletter-subtitle">
+                    Inscreva-se e receba mensalmente os melhores cases de sucesso e insights tecnológicos.
+                </p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <input type="email" placeholder="seu@email.com" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Inscrever-se</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <a href="index.html" class="footer-logo">
+                            <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+                            <span class="logo-text">ACIONET</span>
+                        </a>
+                        <p class="footer-about">
+                            Transformando negócios através da tecnologia com soluções inovadoras e resultados mensuráveis.
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Projetos</h4>
+                        <ul class="footer-links">
+                            <li><a href="#infraestrutura">Infraestrutura</a></li>
+                            <li><a href="#desenvolvimento">Desenvolvimento</a></li>
+                            <li><a href="#seguranca">Segurança</a></li>
+                            <li><a href="#consultoria">Consultoria</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contato</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>projetos@acionet.com.br</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 9999-9999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        © 2025 Acionet. Todos os direitos reservados.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/js.js"></script>
+    <script>
+        // Sistema de animação para estatísticas sociais
+        function initSocialStats() {
+            // Animar seguidores das redes
+            const followerValues = document.querySelectorAll('.stat-value[data-count]');
+            const overviewValues = document.querySelectorAll('.overview-value[data-count]');
+
+            const allValues = [...followerValues, ...overviewValues];
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const target = parseFloat(element.getAttribute('data-count'));
+                        const suffix = element.nextElementSibling?.classList.contains('stat-suffix') ?
+                            element.nextElementSibling :
+                            element.nextElementSibling?.classList.contains('overview-suffix') ?
+                                element.nextElementSibling : null;
+
+                        const isK = suffix?.textContent === 'K';
+
+                        animateSocialStat(element, target, isK, suffix);
+                        observer.unobserve(element);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            allValues.forEach(value => observer.observe(value));
+        }
+
+        function animateSocialStat(element, target, isK = false, suffixElement = null) {
+            const duration = 2000;
+            const steps = 60;
+
+            let current = 0;
+            let step = 0;
+
+            // Calcular incremento baseado no tipo de número
+            let actualTarget = isK ? target * 1000 : target;
+            let stepValue = actualTarget / steps;
+
+            const updateStat = () => {
+                if (step < steps) {
+                    current += stepValue;
+                    step++;
+
+                    // Formatar para exibição
+                    let displayValue;
+                    if (isK) {
+                        displayValue = (current / 1000).toFixed(1);
+                    } else if (target % 1 !== 0) {
+                        displayValue = current.toFixed(1);
+                    } else {
+                        displayValue = Math.floor(current);
+                    }
+
+                    element.textContent = displayValue;
+
+                    // Efeito visual durante a animação
+                    element.style.transform = 'scale(1.1)';
+                    element.style.color = 'var(--azul-claro-tech)';
+
+                    requestAnimationFrame(updateStat);
+                } else {
+                    // Valor final
+                    let finalValue;
+                    if (isK) {
+                        finalValue = target.toFixed(1);
+                    } else if (target % 1 !== 0) {
+                        finalValue = target.toFixed(1);
+                    } else {
+                        finalValue = Math.floor(target);
+                    }
+
+                    element.textContent = finalValue;
+                    element.style.transform = 'scale(1)';
+                    element.style.color = 'white';
+
+                    // Efeito de confete para valores grandes
+                    if (target > 5) {
+                        createConfetti(element);
+                    }
+                }
+            };
+
+            updateStat();
+        }
+
+        function createConfetti(element) {
+            const rect = element.getBoundingClientRect();
+            const colors = ['#0077B5', '#3B5998', '#E1306C', '#1DA1F2', '#06D6A0', '#FFD166'];
+
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.cssText = `
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: ${colors[Math.floor(Math.random() * colors.length)]};
+            border-radius: 50%;
+            top: ${rect.top + window.scrollY}px;
+            left: ${rect.left + (rect.width / 2)}px;
+            pointer-events: none;
+            z-index: 1000;
+        `;
+
+                document.body.appendChild(confetti);
+
+                // Animação
+                const animation = confetti.animate([
+                    {
+                        transform: 'translate(0, 0) rotate(0deg)',
+                        opacity: 1
+                    },
+                    {
+                        transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 + 50}px) rotate(${Math.random() * 360}deg)`,
+                        opacity: 0
+                    }
+                ], {
+                    duration: 1000,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                });
+
+                animation.onfinish = () => confetti.remove();
+            }
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function () {
+            initSocialStats();
+
+            // Adicionar efeito de hover 3D
+            const socialCards = document.querySelectorAll('.social-card');
+
+            socialCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateY = (x - centerX) / 25;
+                    const rotateX = (centerY - y) / 25;
+
+                    card.style.transform = `
+                perspective(1000px)
+                rotateX(${rotateX}deg)
+                rotateY(${rotateY}deg)
+                scale3d(1.02, 1.02, 1.02)
+            `;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                });
+            });
+        });
+        // Sistema de Paginação e Filtros para Soluções
+        function initSolutionsPagination() {
+            const grid = document.getElementById('solutionsGrid');
+            const cards = grid.querySelectorAll('.solution-card');
+            const prevBtn = document.querySelector('.pagination-btn.prev');
+            const nextBtn = document.querySelector('.pagination-btn.next');
+            const pageIndicators = document.querySelectorAll('.page-indicator');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const currentRange = document.querySelector('.current-range');
+            const totalItems = document.querySelector('.total-items');
+
+            // Configurações
+            const CARDS_PER_PAGE = 4;
+            let currentPage = 1;
+            let currentFilter = 'all';
+            let filteredCards = Array.from(cards);
+            let totalPages = Math.ceil(cards.length / CARDS_PER_PAGE);
+
+            // Atualizar contador total
+            totalItems.textContent = cards.length;
+
+            // Inicializar paginação
+            function initPagination() {
+                updatePageIndicators();
+                showPage(1);
+                updatePaginationControls();
+                updateRangeDisplay();
+            }
+
+            // Mostrar página específica
+            function showPage(page) {
+                currentPage = page;
+
+                // Calcular índices
+                const startIndex = (page - 1) * CARDS_PER_PAGE;
+                const endIndex = startIndex + CARDS_PER_PAGE;
+
+                // Esconder todos os cards
+                cards.forEach(card => {
+                    card.classList.remove('visible');
+                    card.classList.add('hidden');
+                });
+
+                // Mostrar apenas os cards da página atual
+                filteredCards.forEach((card, index) => {
+                    if (index >= startIndex && index < endIndex) {
+                        card.classList.remove('hidden');
+                        card.classList.add('visible');
+
+                        // Adicionar delay para animação em cascata
+                        card.style.animationDelay = `${(index - startIndex) * 0.1}s`;
+                    }
+                });
+
+                updatePageIndicators();
+                updatePaginationControls();
+                updateRangeDisplay();
+            }
+
+            // Atualizar indicadores de página
+            function updatePageIndicators() {
+                pageIndicators.forEach(indicator => {
+                    const pageNum = parseInt(indicator.dataset.page);
+                    indicator.classList.toggle('active', pageNum === currentPage);
+
+                    // Mostrar apenas os indicadores necessários
+                    if (pageNum <= totalPages) {
+                        indicator.style.display = 'flex';
+                    } else {
+                        indicator.style.display = 'none';
+                    }
+                });
+            }
+
+            // Atualizar controles de paginação
+            function updatePaginationControls() {
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+            }
+
+            // Atualizar display do range
+            function updateRangeDisplay() {
+                const start = ((currentPage - 1) * CARDS_PER_PAGE) + 1;
+                const end = Math.min(currentPage * CARDS_PER_PAGE, filteredCards.length);
+                currentRange.textContent = `${start}-${end}`;
+            }
+
+            // Filtrar cards por categoria
+            function filterCards(category) {
+                currentFilter = category;
+                currentPage = 1; // Reset para primeira página
+
+                if (category === 'all') {
+                    filteredCards = Array.from(cards);
+                } else {
+                    filteredCards = Array.from(cards).filter(card =>
+                        card.dataset.category === category
+                    );
+                }
+
+                // Atualizar total de páginas
+                totalPages = Math.ceil(filteredCards.length / CARDS_PER_PAGE);
+
+                // Atualizar botões de filtro
+                filterButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.filter === category);
+                });
+
+                // Mostrar primeira página dos resultados filtrados
+                showPage(1);
+            }
+
+            // Event Listeners
+
+            // Botões de paginação
+            prevBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    showPage(currentPage - 1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    showPage(currentPage + 1);
+                }
+            });
+
+            // Indicadores de página
+            pageIndicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    const pageNum = parseInt(indicator.dataset.page);
+                    if (pageNum <= totalPages) {
+                        showPage(pageNum);
+                    }
+                });
+            });
+
+            // Botões de filtro
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    filterCards(filter);
+                });
+            });
+
+            // Inicializar
+            initPagination();
+
+            // Adicionar observador para animação quando elementos entram na viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.target.classList.contains('visible')) {
+                        entry.target.classList.add('animated');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => observer.observe(card));
+
+            console.log(`✅ Paginação inicializada: ${cards.length} cards, ${totalPages} páginas`);
+        }
+
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function () {
+            initSolutionsPagination();
+        });
+        // ============================================
+        // CONFIGURAÇÃO INICIAL - SEM ERROS
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('✅ Site Acionet carregado com sucesso');
+
+            // 1. Remover loading screen
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loadingScreen');
+                if (loadingScreen) {
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none';
+                    }, 500);
+                }
+            }, 1500);
+
+            // 2. Inicializar Typewriter
+            initTypewriter();
+
+            // 3. Inicializar Contadores
+            initCounters();
+
+            // 4. Configurar Menu Mobile
+            initMobileMenu();
+
+            // 5. Configurar Back to Top
+            initBackToTop();
+
+            // 6. Configurar Formulário
+            initNewsletterForm();
+
+            // 7. Configurar Partículas Simples
+            initSimpleParticles();
+        });
+
+        // ============================================
+        // FUNÇÕES PRINCIPAIS
+        // ============================================
+
+        function initTypewriter() {
+            const typewriter = document.getElementById('typewriter');
+            if (!typewriter) return;
+
+            const words = ['Sua Empresa', 'o Futuro', 'Resultados'];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            let typeSpeed = 220; // Muito mais lento
+
+            // Suavizar com CSS
+            typewriter.style.transition = 'all 0.4s ease';
+            typewriter.style.opacity = '0';
+
+            function type() {
+                const currentWord = words[wordIndex];
+
+                if (isDeleting) {
+                    // Apagar bem devagar
+                    typewriter.style.opacity = '0.8';
+                    typewriter.textContent = currentWord.substring(0, charIndex);
+                    charIndex--;
+
+                    // Apagar cada vez mais devagar
+                    if (charIndex < 4) {
+                        typeSpeed = 280; // Muito lento no final
+                    } else {
+                        typeSpeed = 240; // Lento no meio
+                    }
+                } else {
+                    // Digitar bem devagar
+                    typewriter.style.opacity = '1';
+                    typewriter.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+
+                    // Digitar mais devagar ainda nas primeiras letras
+                    if (charIndex < 4) {
+                        typeSpeed = 260; // Super lento no início
+                    } else if (charIndex > currentWord.length - 3) {
+                        typeSpeed = 240; // Lento no final
+                    } else {
+                        typeSpeed = 220; // Lento no meio
+                    }
+                }
+
+                // Velocidade base muito lenta
+                let speed = typeSpeed;
+
+                // Pausas muito longas
+                if (!isDeleting && charIndex === currentWord.length) {
+                    // Pausa MUITO longa para apreciar a palavra
+                    speed = 3500; // 3.5 segundos!
+                    isDeleting = true;
+                    typewriter.style.opacity = '0.95';
+                    typewriter.style.transform = 'translateY(-2px)';
+
+                    // Suavizar o movimento
+                    setTimeout(() => {
+                        typewriter.style.transform = 'translateY(0)';
+                    }, 200);
+                }
+                else if (isDeleting && charIndex < 0) {
+                    // Transição muito suave entre palavras
+                    charIndex = 0;
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    speed = 1800; // 1.8 segundos de pausa
+
+                    // Fade out/in muito suave
+                    typewriter.style.opacity = '0.2';
+                    typewriter.style.transform = 'translateY(5px)';
+
+                    setTimeout(() => {
+                        typewriter.style.opacity = '1';
+                        typewriter.style.transform = 'translateY(0)';
+                    }, 900);
+                }
+
+                // Apenas variação mínima
+                speed += Math.random() * 20 - 10; // Apenas ±10ms
+
+                // Limites muito conservadores
+                speed = Math.max(speed, 180); // Mínimo 180ms
+                speed = Math.min(speed, 350); // Máximo 350ms
+
+                setTimeout(type, speed);
+            }
+
+            // Inicia com um delay muito generoso
+            setTimeout(() => {
+                typewriter.style.opacity = '0.3';
+                setTimeout(() => {
+                    typewriter.style.opacity = '1';
+                    setTimeout(type, 800);
+                }, 600);
+            }, 2000); // 2 segundos de delay inicial
+        }
+
+
+        function initCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count')) || 0;
+                const increment = target / 100;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                };
+
+                // Dispara quando visível
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(counter);
+            });
+        }
+
+        function initMobileMenu() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            if (!navToggle || !navMenu) return;
+
+            navToggle.addEventListener('click', function () {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Fecha menu ao clicar em link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                });
+            });
+
+            // Fecha menu ao clicar fora
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            });
+        }
+
+        function initBackToTop() {
+            const backToTop = document.getElementById('backToTop');
+            if (!backToTop) return;
+
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        function initNewsletterForm() {
+            const newsletterForm = document.getElementById('newsletterForm');
+            if (!newsletterForm) return;
+
+            newsletterForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const emailInput = this.querySelector('input[type="email"]');
+                const successMessage = document.getElementById('successMessage');
+
+                if (emailInput && emailInput.value) {
+                    // Simulação de envio
+                    if (successMessage) {
+                        successMessage.style.display = 'flex';
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                            newsletterForm.reset();
+                        }, 3000);
+                    }
+
+                    console.log('📧 Newsletter inscrição:', emailInput.value);
+                }
+            });
+        }
+
+        function initSimpleParticles() {
+            const canvas = document.getElementById('particlesCanvas');
+            if (!canvas) return;
+
+            const ctx = canvas.getContext('2d');
+
+            // Configurar canvas
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Partículas simples
+            const particles = [];
+            const particleCount = 50;
+
+            // Cores das partículas
+            const colors = [
+                'rgba(230, 57, 70, 0.8)',    // Vermelho
+                'rgba(168, 218, 220, 0.6)',  // Azul claro
+                'rgba(241, 250, 238, 0.4)'   // Branco
+            ];
+
+            // Criar partículas
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 3 + 1,
+                    speedX: Math.random() * 1 - 0.5,
+                    speedY: Math.random() * 1 - 0.5,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                });
+            }
+
+            // Animar partículas
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                particles.forEach(particle => {
+                    // Atualizar posição
+                    particle.x += particle.speedX;
+                    particle.y += particle.speedY;
+
+                    // Reaparecer no outro lado
+                    if (particle.x < 0) particle.x = canvas.width;
+                    if (particle.x > canvas.width) particle.x = 0;
+                    if (particle.y < 0) particle.y = canvas.height;
+                    if (particle.y > canvas.height) particle.y = 0;
+
+                    // Desenhar partícula
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = particle.color;
+                    ctx.fill();
+
+                    // Linhas entre partículas próximas
+                    particles.forEach(otherParticle => {
+                        const dx = particle.x - otherParticle.x;
+                        const dy = particle.y - otherParticle.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(168, 218, 220, ${0.2 * (1 - distance / 100)})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particle.x, particle.y);
+                            ctx.lineTo(otherParticle.x, otherParticle.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                requestAnimationFrame(animateParticles);
+            }
+
+            animateParticles();
+        }
+
+        // ============================================
+        // ANIMAÇÕES DE SCROLL
+        // ============================================
+
+        // Animar elementos quando aparecem na tela
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        // Observar cards e seções
+        document.querySelectorAll('.solution-card, .blog-card, .case-stat').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ============================================
+        // EFEITOS DE HOVER
+        // ============================================
+
+        // Efeito hover nos cards de solução
+        document.querySelectorAll('.solution-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Efeito hover nos links
+        document.querySelectorAll('.card-link').forEach(link => {
+            link.addEventListener('mouseenter', function () {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'translateX(5px)';
+                }
+            });
+
+            link.addEventListener('mouseleave', function () {
+                const icon = this.querySelector('i');
+                if (icon) {
+                    icon.style.transform = 'translateX(0)';
+                }
+            });
+        });
+
+        console.log('🎯 Todas as funções foram inicializadas com sucesso!');
+
+        // Adicione esta função ao seu script principal
+        function initProjectMetrics() {
+            const metricValues = document.querySelectorAll('.metric-value[data-count]');
+
+            if (metricValues.length === 0) return;
+
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const metricValue = entry.target;
+                        const target = parseFloat(metricValue.getAttribute('data-count'));
+                        const hasSuffix = metricValue.nextElementSibling?.classList.contains('metric-suffix');
+                        const suffix = metricValue.nextElementSibling;
+
+                        animateCounter(metricValue, target, hasSuffix ? suffix : null);
+                        observer.unobserve(metricValue);
+                    }
+                });
+            }, observerOptions);
+
+            metricValues.forEach(value => observer.observe(value));
+        }
+
+        function animateCounter(element, target, suffixElement = null) {
+            const duration = 2000; // 2 segundos
+            const steps = 60; // 60 frames
+            const stepValue = target / steps;
+            let current = 0;
+            let step = 0;
+
+            // Determinar se é um número inteiro ou decimal
+            const isInteger = target % 1 === 0;
+
+            const updateCounter = () => {
+                if (step < steps) {
+                    current += stepValue;
+                    step++;
+
+                    // Formatar o número baseado no tipo
+                    if (isInteger) {
+                        element.textContent = Math.floor(current);
+                    } else {
+                        element.textContent = current.toFixed(1);
+                    }
+
+                    // Atualizar suffix se existir
+                    if (suffixElement && suffixElement.textContent === 'M') {
+                        // Para valores em milhões, mostrar com 1 decimal
+                        element.textContent = current.toFixed(1);
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    // Garantir valor final exato
+                    if (isInteger) {
+                        element.textContent = Math.floor(target);
+                    } else {
+                        element.textContent = target.toFixed(1);
+                    }
+
+                    // Adicionar efeito visual ao completar
+                    element.style.color = 'var(--vermelho-acionet)';
+                    setTimeout(() => {
+                        element.style.color = 'var(--azul-profundo)';
+                    }, 300);
+                }
+            };
+
+            updateCounter();
+        }
+
+        // E também adicione para animar as estatísticas do hero
+        function initHeroStats() {
+            const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const suffix = stat.nextElementSibling?.textContent.includes('+') ? '+' : '';
+
+                animateHeroStat(stat, target, suffix);
+            });
+        }
+
+        function animateHeroStat(element, target, suffix = '') {
+            const duration = 1500;
+            const steps = 50;
+            const stepValue = target / steps;
+            let current = 0;
+            let step = 0;
+
+            const updateStat = () => {
+                if (step < steps) {
+                    current += stepValue;
+                    step++;
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateStat);
+                } else {
+                    element.textContent = target + suffix;
+                }
+            };
+
+            // Aguardar um pouco antes de iniciar
+            setTimeout(updateStat, 500);
+        }
+
+        // Inicializar tudo quando a página carregar
+        document.addEventListener('DOMContentLoaded', function () {
+            // ... seu código existente ...
+
+            // Adicionar estas linhas:
+            initHeroStats();
+            initProjectMetrics();
+
+            // ... resto do seu código ...
+        });
+
+        // Função corrigida para animar estatísticas do blog
+        function initBlogStats() {
+            console.log('📊 Inicializando estatísticas do blog...');
+
+            const statValues = document.querySelectorAll('.stat-value[data-count]');
+
+            if (statValues.length === 0) {
+                console.log('❌ Nenhuma estatística encontrada para animar');
+                return;
+            }
+
+            console.log(`✅ Encontradas ${statValues.length} estatísticas para animar`);
+
+            const observerOptions = {
+                threshold: 0.3,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const target = parseFloat(element.getAttribute('data-count'));
+                        const label = element.nextElementSibling?.textContent || '';
+                        const isK = label.includes('K');
+
+                        console.log(`🎯 Animando estatística: ${target} (isK: ${isK})`);
+                        animateBlogStat(element, target, isK);
+                        observer.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+
+            statValues.forEach((value, index) => {
+                console.log(`📝 Estatística ${index + 1}:`, {
+                    element: value,
+                    target: value.getAttribute('data-count'),
+                    label: value.nextElementSibling?.textContent
+                });
+                observer.observe(value);
+            });
+        }
+
+        function animateBlogStat(element, target, isK = false) {
+            const duration = 1800; // 1.8 segundos
+            const steps = 60; // 60 frames
+            let current = 0;
+            let step = 0;
+
+            // Determinar incremento baseado no tipo de número
+            let stepValue;
+            if (isK) {
+                // Para valores em K (ex: 2.4K = 2400)
+                const actualTarget = target * 1000;
+                stepValue = actualTarget / steps;
+            } else {
+                stepValue = target / steps;
+            }
+
+            console.log(`🔢 Iniciando animação: target=${target}, isK=${isK}, stepValue=${stepValue}`);
+
+            const updateStat = () => {
+                if (step < steps) {
+                    current += stepValue;
+                    step++;
+
+                    // Formatar o valor para exibição
+                    let displayValue;
+                    if (isK) {
+                        displayValue = (current / 1000).toFixed(1);
+                    } else if (target % 1 !== 0) {
+                        // Para decimais (ex: 2.4)
+                        displayValue = current.toFixed(1);
+                    } else {
+                        // Para inteiros
+                        displayValue = Math.floor(current);
+                    }
+
+                    element.textContent = displayValue;
+                    element.style.transform = 'scale(1.05)';
+
+                    requestAnimationFrame(updateStat);
+                } else {
+                    // Valor final
+                    let finalValue;
+                    if (isK) {
+                        finalValue = target.toFixed(1);
+                    } else if (target % 1 !== 0) {
+                        finalValue = target.toFixed(1);
+                    } else {
+                        finalValue = Math.floor(target);
+                    }
+
+                    element.textContent = finalValue;
+                    element.style.transform = 'scale(1)';
+
+                    // Adicionar efeito visual
+                    element.style.color = 'var(--vermelho-acionet)';
+                    setTimeout(() => {
+                        element.style.color = 'var(--azul-profundo)';
+                    }, 300);
+
+                    console.log(`✅ Animação completa: ${finalValue}`);
+                }
+            };
+
+            updateStat();
+        }
+
+        // Função para métricas de cases (se houver)
+        function initCaseMetrics() {
+            const caseMetrics = document.querySelectorAll('.metric-value[data-count]');
+
+            if (caseMetrics.length === 0) return;
+
+            console.log(`📈 Encontradas ${caseMetrics.length} métricas de cases`);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const target = parseFloat(element.getAttribute('data-count'));
+
+                        console.log(`📊 Animando métrica de case: ${target}`);
+                        animateCaseMetric(element, target);
+                        observer.unobserve(element);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            caseMetrics.forEach(metric => observer.observe(metric));
+        }
+
+        function animateCaseMetric(element, target) {
+            const duration = 1500;
+            const steps = 50;
+            const stepValue = target / steps;
+            let current = 0;
+            let step = 0;
+
+            const updateMetric = () => {
+                if (step < steps) {
+                    current += stepValue;
+                    step++;
+
+                    // Formatar baseado no tipo de número
+                    if (target % 1 === 0) {
+                        element.textContent = Math.floor(current);
+                    } else {
+                        element.textContent = current.toFixed(1);
+                    }
+
+                    requestAnimationFrame(updateMetric);
+                } else {
+                    // Valor final
+                    if (target % 1 === 0) {
+                        element.textContent = Math.floor(target);
+                    } else {
+                        element.textContent = target.toFixed(1);
+                    }
+
+                    // Efeito de conclusão
+                    const parentCard = element.closest('.case-metric');
+                    if (parentCard) {
+                        parentCard.style.boxShadow = '0 5px 15px rgba(230, 57, 70, 0.2)';
+                        setTimeout(() => {
+                            parentCard.style.boxShadow = '';
+                        }, 500);
+                    }
+                }
+            };
+
+            updateMetric();
+        }
+
+        // Adicione no início do seu script principal
+        console.log('🚀 Script do site Acionet carregado!');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('📄 DOM completamente carregado');
+
+            // ... seu código existente ...
+
+            // Inicializar todas as animações
+            initTypewriter();
+            initHeroStats(); // Se você tem esta função
+            initProjectMetrics(); // Se você tem esta função
+            initBlogStats(); // ← Esta é a nova função
+            initCaseMetrics(); // ← Esta também é nova
+
+            // ... resto do seu código ...
+
+            console.log('✅ Todas as funções foram inicializadas');
+        });
+    </script>
+</body>
+
+</html>

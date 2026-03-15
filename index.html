@@ -109,7 +109,7 @@
 
                     <!-- Dropdown Projetos -->
                     <div class="nav-dropdown">
-                        <a href="portfolio.html" class="nav-link" data-text="Projetos">
+                        <a href="projetos.html" class="nav-link" data-text="Projetos">
                             <i class="fas fa-project-diagram"></i>
                             <span>Projetos</span>
                             <i class="fas fa-chevron-down dropdown-icon"></i>
@@ -1965,7 +1965,7 @@
                         <span class="overview-suffix">K</span>
                         <div class="overview-label">Total de Seguidores</div>
                     </div>
-                   
+
                 </div>
 
                 <div class="overview-card">
@@ -1978,7 +1978,7 @@
                         <span class="overview-suffix">K</span>
                         <div class="overview-label">Engajamento Mensal</div>
                     </div>
-                   
+
                 </div>
 
                 <div class="overview-card">
@@ -1990,7 +1990,7 @@
                         <span class="overview-value" data-count="42">0</span>
                         <div class="overview-label">Países Alcançados</div>
                     </div>
-                   
+
                 </div>
             </div>
 
@@ -2063,7 +2063,7 @@
                 <div class="footer-grid">
                     <!-- Coluna 1: Logo & Sobre -->
                     <div class="footer-column">
-                      
+
                         <a href="index.html" class="footer-logo">
                             <img src="assets/imgs/logo.png" alt="Acionet - Soluções em Tecnologia" class="logo-image">
                             <span class="logo-text">ACIONET</span>
@@ -2176,6 +2176,131 @@
         <div class="top-glow"></div>
     </button>
 
+    <script>
+        // ============================
+// CONFIGURAÇÃO
+// ============================
+const solutionsGrid = document.getElementById('solutionsGrid');
+const solutionCards = Array.from(document.querySelectorAll('.solution-card'));
+const filterButtons = document.querySelectorAll('.filter-btn');
+const prevBtn = document.querySelector('.pagination-btn.prev');
+const nextBtn = document.querySelector('.pagination-btn.next');
+const pageIndicators = document.querySelectorAll('.page-indicator');
+const currentRange = document.querySelector('.current-range');
+const totalItems = document.querySelector('.total-items');
+
+let filteredCards = solutionCards.slice();
+let currentPage = 1;
+const cardsPerPage = 3;
+
+// ============================
+// FUNÇÃO PARA MOSTRAR CARDS
+// ============================
+function showCards(page = 1) {
+    const start = (page - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+
+    // Esconde todos os cards
+    solutionCards.forEach(card => card.style.display = 'none');
+
+    // Mostra apenas os cards filtrados na página
+    filteredCards.slice(start, end).forEach(card => card.style.display = 'block');
+
+    updatePaginationInfo(start, end);
+    updatePaginationButtons();
+    updatePageIndicators();
+}
+
+// ============================
+// ATUALIZA INFORMAÇÃO DA PAGINAÇÃO
+// ============================
+function updatePaginationInfo(start, end) {
+    totalItems.textContent = filteredCards.length;
+    const displayEnd = end > filteredCards.length ? filteredCards.length : end;
+    currentRange.textContent = `${start + 1}-${displayEnd}`;
+}
+
+// ============================
+// ATUALIZA BOTÕES DE PAGINAÇÃO
+// ============================
+function updatePaginationButtons() {
+    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+}
+
+// ============================
+// ATUALIZA INDICADORES DE PÁGINA
+// ============================
+function updatePageIndicators() {
+    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+    pageIndicators.forEach((btn, index) => {
+        if (index < totalPages) {
+            btn.style.display = 'inline-block';
+        } else {
+            btn.style.display = 'none';
+        }
+        btn.classList.toggle('active', index + 1 === currentPage);
+    });
+}
+
+// ============================
+// FILTRO POR CATEGORIA
+// ============================
+filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        if (filter === 'all') {
+            filteredCards = solutionCards.slice();
+        } else {
+            filteredCards = solutionCards.filter(card => card.getAttribute('data-category') === filter);
+        }
+
+        currentPage = 1;
+        showCards(currentPage);
+    });
+});
+
+// ============================
+// BOTÕES ANTERIOR/PRÓXIMA
+// ============================
+prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        showCards(currentPage);
+    }
+});
+
+nextBtn.addEventListener('click', () => {
+    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        showCards(currentPage);
+    }
+});
+
+// ============================
+// INDICADORES DE PÁGINA
+// ============================
+pageIndicators.forEach(btn => {
+    btn.addEventListener('click', () => {
+        currentPage = parseInt(btn.getAttribute('data-page'));
+        showCards(currentPage);
+    });
+});
+
+// ============================
+// INICIALIZAÇÃO
+// ============================
+document.addEventListener('DOMContentLoaded', () => {
+    showCards(currentPage);
+});
+
+    </script>
     <!-- 📝 Scripts Corrigidos -->
     <script>
         // Sistema de animação para estatísticas sociais

@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluções | Acionet - Tecnologia que Transforma Negócios</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Conheça nossas soluções completas em infraestrutura de rede, desenvolvimento de software, cloud computing, segurança eletrônica e consultoria ITIL.">
+    <meta name="keywords"
+        content="soluções TI, infraestrutura de rede, desenvolvimento software, cloud computing, segurança eletrônica, consultoria ITIL, Acionet">
+    <meta name="author" content="Acionet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acionet.com.br/solucoes">
+    <meta property="og:title" content="Soluções Inovadoras em Tecnologia | Acionet">
+    <meta property="og:description"
+        content="Descubra como nossas soluções tecnológicas podem transformar seu negócio com inovação e resultados mensuráveis.">
+    <meta property="og:image" content="assets/imgs/og-solucoes.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://acionet.com.br/solucoes">
+    <meta property="twitter:title" content="Soluções Inovadoras em Tecnologia | Acionet">
+    <meta property="twitter:description"
+        content="Descubra como nossas soluções tecnológicas podem transformar seu negócio com inovação e resultados mensuráveis.">
+    <meta property="twitter:image" content="assets/imgs/og-solucoes.jpg">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/logo.png">
+</head>
+
+<body>
+    <!-- 🔝 Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Carregando soluções inovadoras...</p>
+        </div>
+    </div>
+
+    <!-- 🎮 Navegação Principal (mesma do index.html) -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <!-- Primeiro: imagem da logo -->
+                <img src="assets/imgs/logo.png" alt="Acionet - Soluções em Tecnologia" class="logo-image">
+
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
+
+                    <!-- Dropdown Soluções -->
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link active" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-brain"></i>
+                                        Inteligência Artificial
+                                    </h4>
+                                    <a href="solucoes.html#ia-ml">Machine Learning</a>
+                                    <a href="solucoes.html#ia-nlp">Processamento de Linguagem</a>
+                                    <a href="solucoes.html#ia-cv">Visão Computacional</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Desenvolvimento
+                                    </h4>
+                                    <a href="solucoes.html#dev-web">Aplicações Web</a>
+                                    <a href="solucoes.html#dev-mobile">Aplicativos Mobile</a>
+                                    <a href="solucoes.html#dev-api">APIs & Microservices</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-cloud"></i>
+                                        Cloud & DevOps
+                                    </h4>
+                                    <a href="solucoes.html#cloud-aws">Infraestrutura AWS</a>
+                                    <a href="solucoes.html#cloud-devops">Pipeline DevOps</a>
+                                    <a href="solucoes.html#cloud-security">Segurança Cloud</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Projetos -->
+                    <div class="nav-dropdown">
+                        <a href="projetos.html" class="nav-link" data-text="Projetos">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projetos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-chart-pie"></i>
+                                        Por Setor
+                                    </h4>
+                                    <a href="portfolio.html#financeiro">Financeiro & Fintech</a>
+                                    <a href="portfolio.html#saude">Saúde & Biotech</a>
+                                    <a href="portfolio.html#varejo">Varejo & E-commerce</a>
+                                    <a href="portfolio.html#industria">Indústria 4.0</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-filter"></i>
+                                        Por Tecnologia
+                                    </h4>
+                                    <a href="portfolio.html#ia">Projetos com IA</a>
+                                    <a href="portfolio.html#blockchain">Blockchain</a>
+                                    <a href="portfolio.html#iot">IoT & Hardware</a>
+                                    <a href="portfolio.html#cloud">Migração Cloud</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="portfolio.html#cases">Cases de Sucesso</a>
+                                    <a href="portfolio.html#premiados">Projetos Premiados</a>
+                                    <a href="portfolio.html#inovacao">Inovação Radical</a>
+                                    <a href="portfolio.html#open-source">Open Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Sobre -->
+                    <div class="nav-dropdown">
+                        <a href="sobre.html" class="nav-link" data-text="Sobre">
+                            <i class="fas fa-users"></i>
+                            <span>Sobre</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-building"></i>
+                                        A Empresa
+                                    </h4>
+                                    <a href="sobre.html#historia">Nossa História</a>
+                                    <a href="sobre.html#missao">Missão & Valores</a>
+                                    <a href="sobre.html#cultura">Cultura Acionet</a>
+                                    <a href="sobre.html#premios">Prêmios</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users-cog"></i>
+                                        Equipe
+                                    </h4>
+                                    <a href="sobre.html#lideranca">Liderança</a>
+                                    <a href="sobre.html#especialistas">Especialistas</a>
+                                    <a href="sobre.html#conselho">Conselho Consultivo</a>
+                                    <a href="sobre.html#trabalhe">Trabalhe Conosco</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Compromisso
+                                    </h4>
+                                    <a href="sobre.html#sustentabilidade">Sustentabilidade</a>
+                                    <a href="sobre.html#diversidade">Diversidade & Inclusão</a>
+                                    <a href="sobre.html#etica">Ética & Compliance</a>
+                                    <a href="sobre.html#impacto">Impacto Social</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <!-- Dropdown Blog -->
+                    <div class="nav-dropdown">
+                        <a href="blog.html" class="nav-link" data-text="Blog">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Tecnologia
+                                    </h4>
+                                    <a href="blog.html#ia">Inteligência Artificial</a>
+                                    <a href="blog.html#dev">Desenvolvimento</a>
+                                    <a href="blog.html#cloud">Cloud Computing</a>
+                                    <a href="blog.html#seguranca">Cybersecurity</a>
+                                    <a href="blog.html#blockchain">Blockchain</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Inovação
+                                    </h4>
+                                    <a href="blog.html#tendencias">Tendências Tech</a>
+                                    <a href="blog.html#startups">Ecossistema Startup</a>
+                                    <a href="blog.html#futuro">Futuro da TI</a>
+                                    <a href="blog.html#pesquisa">Pesquisa & Desenvolvimento</a>
+                                    <a href="blog.html#metodologias">Metodologias Ágeis</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-briefcase"></i>
+                                        Negócios
+                                    </h4>
+                                    <a href="blog.html#transformacao">Transformação Digital</a>
+                                    <a href="blog.html#estrategia">Estratégia Tech</a>
+                                    <a href="blog.html#cases">Análise de Cases</a>
+                                    <a href="blog.html#metricas">Métricas & ROI</a>
+                                    <a href="blog.html#gestao">Gestão de TI</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-star"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="blog.html#populares">Mais Populares</a>
+                                    <a href="blog.html#recentes">Recentes</a>
+                                    <a href="blog.html#series">Séries Especiais</a>
+                                    <a href="blog.html#ebooks">E-books & Whitepapers</a>
+                                    <a href="blog.html#podcast">Podcast Acionet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Eventos -->
+                    <div class="nav-dropdown">
+                        <a href="eventos.html" class="nav-link" data-text="Eventos">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Eventos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-video"></i>
+                                        Webinars
+                                    </h4>
+                                    <a href="eventos.html#agendados">Próximos Webinars</a>
+                                    <a href="eventos.html#gravados">Webinars Gravados</a>
+                                    <a href="eventos.html#series">Séries Temáticas</a>
+                                    <a href="eventos.html#workshops">Workshops Online</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users"></i>
+                                        Presenciais
+                                    </h4>
+                                    <a href="eventos.html#conferencias">Conferências</a>
+                                    <a href="eventos.html#meetups">Meetups Tech</a>
+                                    <a href="eventos.html#hackathons">Hackathons</a>
+                                    <a href="eventos.html#treinamentos">Treinamentos</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Agenda
+                                    </h4>
+                                    <a href="eventos.html#calendario">Calendário Completo</a>
+                                    <a href="eventos.html#inscricoes">Minhas Inscrições</a>
+                                    <a href="eventos.html#patrocinio">Patrocínio</a>
+                                    <a href="eventos.html#speakers">Seja Speaker</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Especiais
+                                    </h4>
+                                    <a href="eventos.html#anual">Conferência Anual</a>
+                                    <a href="eventos.html#parceiros">Eventos Parceiros</a>
+                                    <a href="eventos.html#internacionais">Eventos Internacionais</a>
+                                    <a href="eventos.html#comunidade">Comunidade Acionet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão Mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" type="button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 🌟 Hero Section Soluções -->
+
+    <section class="hero-section">
+        <!-- Canvas para Partículas -->
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+        <div class="container hero-container">
+            <div class="hero-content">
+
+
+                <!-- Badge de Destaque -->
+                <div class="hero-badge" style="margin-top: 10px;">
+                    <span class="badge-text">
+                        <i class="fas fa-cogs"></i>
+                        PORTFÓLIO COMPLETO
+                    </span>
+                    <div class="badge-glow"></div>
+                </div>
+
+                <!-- Título Principal -->
+                <h1 class="hero-title">
+                    <span class="title-line">Soluções que</span>
+                    <span class="title-line">
+                        <span class="word-gradient">Transformam</span>
+                        <span>Negócios</span>
+                    </span>
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="hero-subtitle">
+                    Da <span class="highlight-text">infraestrutura física</span> à
+                    <span class="highlight-text">inteligência artificial</span>, oferecemos um ecossistema completo
+                    de soluções tecnológicas projetadas para impulsionar seu negócio ao próximo nível.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-actions">
+                    <a href="#infraestrutura" class="btn btn-primary">
+                        <div class="btn-content">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Explorar Soluções</span>
+                        </div>
+                        <div class="btn-hover-effect"></div>
+                    </a>
+                </div>
+
+               
+            </div>
+
+            <!-- Visual 3D (igual à home) -->
+            <div class="hero-visual">
+                <div class="floating-dashboard">
+                    <div class="dashboard-element" style="--delay: 0s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.3s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.6s">
+                        <div class="element-glow"></div>
+                    </div>
+                </div>
+                <div class="data-flow">
+                    <div class="flow-line"></div>
+                    <div class="flow-node" style="--position: 1"></div>
+                    <div class="flow-node" style="--position: 2"></div>
+                    <div class="flow-node" style="--position: 3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Explorar Soluções</span>
+        </div>
+    </section>
+
+    <!-- 🔍 Filtros Rápidos (âncoras) -->
+    <div class="quick-filters"
+        style="background: white; padding: var(--espaco-md) 0; border-bottom: 1px solid var(--cinza-claro); position: sticky; top: 80px; z-index: 90; backdrop-filter: blur(10px);">
+        <div class="container">
+            <div class="solutions-filter" style="margin: 0;">
+                <a href="#infraestrutura" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-network-wired"></i>
+                    Infraestrutura
+                </a>
+                <a href="#desenvolvimento" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-code"></i>
+                    Desenvolvimento
+                </a>
+                <a href="#seguranca" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-shield-alt"></i>
+                    Segurança
+                </a>
+                <a href="#consultoria" class="filter-btn" style="text-decoration: none;">
+                    <i class="fas fa-chart-line"></i>
+                    Consultoria
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- CATEGORIA: INFRAESTRUTURA -->
+    <!-- ============================================ -->
+    <section class="category-section" id="infraestrutura">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-network-wired"></i>
+                    <div class="icon-halo"></div>
+                </div>
+                <div>
+                    <h2 class="category-title">Infraestrutura de Redes</h2>
+                    <p class="category-subtitle">Conectividade robusta, escalável e de alta performance</p>
+                </div>
+            </div>
+
+            <div class="solutions-detailed-grid">
+                <!-- Microwave Link - Detalhado -->
+                <div class="solution-detailed-card featured">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div class="card-badge-detailed">High-Speed</div>
+                    </div>
+
+                    <h3 class="solution-title">Microwave Link</h3>
+
+                    <p class="solution-description-detailed">
+                        Solução de rádio enlace ponto a ponto para transmissão de dados em alta velocidade,
+                        ideal para backhaul de redes, conexão entre filiais e contingência de fibra óptica.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Até 10Gbps de throughput</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Latência < 1ms</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>99.999% disponibilidade</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Criptografia AES-256</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Frequências:</span>
+                            <span class="spec-value">6GHz, 11GHz, 18GHz, 23GHz, 38GHz</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Alcance:</span>
+                            <span class="spec-value">Até 80km (visada direta)</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fabricantes:</span>
+                            <span class="spec-value">Ceragon, Ericsson, Huawei, NEC</span>
+                        </div>
+                    </div>
+
+                    <div class="related-cases">
+                        <h4><i class="fas fa-briefcase"></i> Cases Relacionados</h4>
+                        <div class="cases-mini-grid">
+                            <div class="case-mini-card">
+                                <i class="fas fa-university"></i>
+                                <span>Banco do Brasil</span>
+                            </div>
+                            <div class="case-mini-card">
+                                <i class="fas fa-tower-cell"></i>
+                                <span>Vivo</span>
+                            </div>
+                            <div class="case-mini-card">
+                                <i class="fas fa-oil-well"></i>
+                                <span>Petrobras</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Fiber Optic Networks -->
+                <div class="solution-detailed-card">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                        <div class="card-badge-detailed">Fiber Optic</div>
+                    </div>
+
+                    <h3 class="solution-title">Redes de Fibra Óptica</h3>
+
+                    <p class="solution-description-detailed">
+                        Projetos completos de infraestrutura óptica para redes metropolitanas,
+                        longa distância e FTTH com as mais avançadas tecnologias do mercado.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>FTTH/FTTX Turnkey</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>DWDM/CWDM até 400G</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>OTDR/Certificação</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>GPON/XGS-PON</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Projetos:</span>
+                            <span class="spec-value">+2.000km de fibra implantada</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Capacidade:</span>
+                            <span class="spec-value">Até 400Gbps por lambda</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- RF Drive Test -->
+                <div class="solution-detailed-card">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div class="card-badge-detailed">RF Analysis</div>
+                    </div>
+
+                    <h3 class="solution-title">RF Drive Test & Otimização</h3>
+
+                    <p class="solution-description-detailed">
+                        Serviços especializados em medição e otimização de redes móveis (2G a 5G)
+                        para operadoras, torres e empresas com cobertura indoor.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Scanner Rohde & Schwarz</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Análise de handover</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mapeamento de interferência</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Relatórios automáticos</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Datacenter Modernization -->
+                <div class="solution-detailed-card">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="card-badge-detailed">DC Modern</div>
+                    </div>
+
+                    <h3 class="solution-title">Datacenter Modernization</h3>
+
+                    <p class="solution-description-detailed">
+                        Transformação completa de data centers com virtualização, hiperconvergência
+                        e estratégias de disaster recovery para máxima disponibilidade.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>VMware/Hyper-V</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Storage Area Network</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Backup & DRP</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Eficiência energética</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CATEGORIA: DESENVOLVIMENTO -->
+    <!-- ============================================ -->
+    <section class="category-section" id="desenvolvimento">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-code"></i>
+                    <div class="icon-halo"></div>
+                </div>
+                <div>
+                    <h2 class="category-title">Desenvolvimento de Software</h2>
+                    <p class="category-subtitle">Soluções customizadas com as mais modernas tecnologias</p>
+                </div>
+            </div>
+
+            <div class="solutions-detailed-grid">
+                <!-- Software Development -->
+                <div class="solution-detailed-card featured">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="card-badge-detailed">Custom Dev</div>
+                    </div>
+
+                    <h3 class="solution-title">Desenvolvimento Sob Medida</h3>
+
+                    <p class="solution-description-detailed">
+                        Criamos sistemas completos web, mobile e desktop adaptados às necessidades
+                        específicas do seu negócio, com arquitetura escalável e alta performance.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>React/Next.js/Vue</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Node.js/Python/Java</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>React Native/Flutter</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ERP/CRM Custom</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Metodologia:</span>
+                            <span class="spec-value">Scrum, Kanban, SAFe</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Qualidade:</span>
+                            <span class="spec-value">Testes automatizados, CI/CD</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Cloud Computing -->
+                <div class="solution-detailed-card">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="card-badge-detailed">Cloud</div>
+                    </div>
+
+                    <h3 class="solution-title">Cloud Computing</h3>
+
+                    <p class="solution-description-detailed">
+                        Migração, gestão e otimização de infraestrutura nas principais nuvens públicas,
+                        com foco em performance, segurança e redução de custos.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>AWS/Azure/GCP</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Kubernetes/Docker</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>FinOps (economia)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Multi-cloud/híbrida</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Mail Server -->
+                <div class="solution-detailed-card">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="card-badge-detailed">Email</div>
+                    </div>
+
+                    <h3 class="solution-title">Mail Server Solutions</h3>
+
+                    <p class="solution-description-detailed">
+                        Implementação de servidores de email corporativos com alta disponibilidade,
+                        segurança avançada e compliance com LGPD e normas internacionais.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Exchange/Office 365</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Postfix/Zimbra</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>DMARC/DKIM/SPF</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Arquivamento legal</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CATEGORIA: SEGURANÇA ELETRÔNICA -->
+    <!-- ============================================ -->
+    <section class="category-section" id="seguranca">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="icon-halo"></div>
+                </div>
+                <div>
+                    <h2 class="category-title">Segurança Eletrônica</h2>
+                    <p class="category-subtitle">Proteção física e lógica para seu patrimônio</p>
+                </div>
+            </div>
+
+            <div class="solutions-detailed-grid">
+                <!-- Electronic Security -->
+                <div class="solution-detailed-card featured">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="card-badge-detailed">CCTV</div>
+                    </div>
+
+                    <h3 class="solution-title">Sistemas de Vigilância</h3>
+
+                    <p class="solution-description-detailed">
+                        Projetos completos de CFTV IP com câmeras de alta resolução, análise inteligente
+                        de vídeo e integração com centrais de monitoramento 24/7.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Hikvision/Axis/Bosch</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Reconhecimento facial</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ANPR (placas)</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Armazenamento em NVR</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Controle de Acesso -->
+                <div class="solution-detailed-card">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-fingerprint"></i>
+                        </div>
+                        <div class="card-badge-detailed">Access</div>
+                    </div>
+
+                    <h3 class="solution-title">Controle de Acesso</h3>
+
+                    <p class="solution-description-detailed">
+                        Soluções biométricas e por cartão para controle de acesso a áreas restritas,
+                        com integração a sistemas de gestão de visitantes e horários.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Biometria digital</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Reconhecimento facial</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Catracas e cancelas</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>APP de autorização</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CATEGORIA: CONSULTORIA -->
+    <!-- ============================================ -->
+    <section class="category-section" id="consultoria">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="icon-halo"></div>
+                </div>
+                <div>
+                    <h2 class="category-title">Consultoria em TI</h2>
+                    <p class="category-subtitle">Estratégia, governança e transformação digital</p>
+                </div>
+            </div>
+
+            <div class="solutions-detailed-grid">
+                <!-- IT Consulting -->
+                <div class="solution-detailed-card featured">
+                    <div class="card-header-detailed">
+                        <div class="card-icon-detailed">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="card-badge-detailed">Strategy</div>
+                    </div>
+
+                    <h3 class="solution-title">Consultoria Estratégica</h3>
+
+                    <p class="solution-description-detailed">
+                        Apoio especializado para definição de estratégias digitais, governança de TI,
+                        adequação a normas como LGPD e ISO 27001, e otimização de processos.
+                    </p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ITIL/COBIT</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ISO 27001</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>LGPD</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>BCP/DRP</span>
+                        </div>
+                    </div>
+
+                    <a href="#contato" class="card-link" style="margin-top: var(--espaco-lg);">
+                        <span>Solicitar Proposta</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📊 Comparativo de Soluções -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header" style="color: white;">
+                <div class="section-badge">
+                    <span>COMPARATIVO</span>
+                </div>
+                <h2 class="section-title" style="color: white;">
+                    Escolha a <span class="text-gradient">Solução Ideal</span>
+                </h2>
+                <p class="section-description" style="color: rgba(255,255,255,0.8);">
+                    Compare nossos principais pacotes e encontre a melhor opção para seu negócio
+                </p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3><i class="fas fa-rocket"></i> Básico</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Consultoria inicial</li>
+                        <li><i class="fas fa-check"></i> Diagnóstico de rede</li>
+                        <li><i class="fas fa-check"></i> Suporte 8x5</li>
+                        <li><i class="fas fa-times"></i> Monitoramento 24/7</li>
+                        <li><i class="fas fa-times"></i> Projetos customizados</li>
+                    </ul>
+                    <div class="comparison-price">
+                        Sob consulta
+                    </div>
+                </div>
+
+                <div class="comparison-card"
+                    style="transform: scale(1.05); background: rgba(230,57,70,0.15); border-color: var(--vermelho-acionet);">
+                    <h3><i class="fas fa-crown"></i> Profissional</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Consultoria avançada</li>
+                        <li><i class="fas fa-check"></i> Projeto completo</li>
+                        <li><i class="fas fa-check"></i> Suporte 24/7</li>
+                        <li><i class="fas fa-check"></i> Monitoramento ativo</li>
+                        <li><i class="fas fa-check"></i> 1 projeto customizado</li>
+                    </ul>
+                    <div class="comparison-price">
+                        Sob consulta
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <h3><i class="fas fa-infinity"></i> Enterprise</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Consultoria estratégica</li>
+                        <li><i class="fas fa-check"></i> Múltiplos projetos</li>
+                        <li><i class="fas fa-check"></i> Suporte dedicado</li>
+                        <li><i class="fas fa-check"></i> SOC/NOC 24/7</li>
+                        <li><i class="fas fa-check"></i> SLA personalizado</li>
+                    </ul>
+                    <div class="comparison-price">
+                        Sob consulta
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ❓ FAQ - Perguntas Frequentes -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>FAQ</span>
+                </div>
+                <h2 class="section-title">
+                    Perguntas <span class="text-gradient">Frequentes</span>
+                </h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Qual o prazo médio de implantação?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Depende da complexidade do projeto. Soluções de infraestrutura podem levar de 2 a 8 semanas,
+                        enquanto desenvolvimento de software sob medida varia de 3 a 6 meses.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Oferecem garantia nos serviços?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim, todos os nossos serviços têm garantia mínima de 12 meses e suporte técnico incluso no
+                        período.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Trabalham com integração de sistemas?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim, somos especialistas em integração de sistemas legados com novas tecnologias via APIs e
+                        middleware.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Atendem todo o Brasil?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim, temos equipes em São Paulo, Rio de Janeiro, Brasília e parceiros em todas as regiões do
+                        país.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Como é feita a manutenção?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Oferecemos contratos de manutenção preventiva e corretiva com SLA de atendimento de 2 a 24
+                        horas.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Posso visitar um case de sucesso?</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim, mediante assinatura de NDA, podemos agendar visitas técnicas a clientes referência.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🚀 CTA Final -->
+    <section class="solutions-cta">
+        <div class="container">
+            <h2 style="font-family: var(--fonte-secundaria); font-size: 2.5rem; margin-bottom: var(--espaco-md);">
+                Pronto para <span class="text-gradient">Transformar</span> seu Negócio?
+            </h2>
+            <p style="font-size: 1.125rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto;">
+                Fale com um de nossos especialistas e descubra a solução ideal para seus desafios.
+            </p>
+            <div class="cta-buttons">
+                <a href="contato.html" class="btn btn-primary">
+                    <i class="fas fa-headset"></i>
+                    Falar com Especialista
+                </a>
+                <a href="portfolio.html" class="btn btn-outline-light">
+                    <i class="fas fa-eye"></i>
+                    Ver Cases de Sucesso
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📧 Newsletter (mesmo do index) -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container newsletter-container">
+            <div class="newsletter-visual">
+                <div class="orbit-animation">
+                    <div class="orbit-ring"></div>
+                    <div class="satellite" style="--angle: 0deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 120deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 240deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newsletter-content">
+                <h3 class="newsletter-title">
+                    Receba <span class="text-gradient">Insights</span> Exclusivos
+                </h3>
+                <p class="newsletter-subtitle">
+                    Novidades sobre tecnologia, cases de sucesso e convites para eventos.
+                </p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <input type="email" placeholder="seu@email.com" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Inscrever-se</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="form-note">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Sem spam. Cancelamento fácil.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 Footer (mesmo do index) -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <a href="index.html" class="footer-logo">
+                            <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+                            <span class="logo-text">ACIONET</span>
+                        </a>
+                        <p class="footer-about">
+                            Tecnologia que transforma negócios através de soluções inovadoras em infraestrutura,
+                            desenvolvimento e consultoria.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Soluções</h4>
+                        <ul class="footer-links">
+                            <li><a href="#infraestrutura">Infraestrutura de Redes</a></li>
+                            <li><a href="#desenvolvimento">Desenvolvimento</a></li>
+                            <li><a href="#seguranca">Segurança Eletrônica</a></li>
+                            <li><a href="#consultoria">Consultoria</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contato</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Av. Paulista, 1000<br>São Paulo - SP</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 9999-9999</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>solucoes@acionet.com.br</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        © 2025 Acionet. Todos os direitos reservados.
+                    </div>
+                    <div class="footer-legal">
+                        <a href="politica-privacidade.html">Política de Privacidade</a>
+                        <a href="termos-uso.html">Termos de Uso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
+
+    <!-- 📝 Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Loading screen
+        window.addEventListener('load', function () {
+            const loading = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => {
+                    loading.style.display = 'none';
+                }, 500);
+            }, 800);
+        });
+
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', function () {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                });
+            }
+
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function () {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+
+            backToTop.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Smooth scroll para âncoras
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+
+        // Inicializar contadores
+        function initCounters() {
+            const counters = document.querySelectorAll('.stat-number[data-count]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(counter);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initCounters);
+    </script>
+</body>
+
+</html>

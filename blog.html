@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Acionet - Insights e Inovação em Tecnologia</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Artigos, vídeos e notícias sobre as últimas tendências em tecnologia, IA, cloud computing, segurança e inovação. Conteúdo exclusivo da Acionet.">
+    <meta name="keywords"
+        content="blog tecnologia, artigos TI, vídeos tech, notícias inovação, IA, cloud computing, cybersecurity">
+    <meta name="author" content="Acionet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://acionet.com.br/blog">
+    <meta property="og:title" content="Blog Acionet | Tecnologia e Inovação">
+    <meta property="og:description"
+        content="Conteúdo exclusivo sobre tecnologia, cases de sucesso e tendências do mercado.">
+    <meta property="og:image" content="assets/imgs/og-blog.jpg">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/logo.png">
+
+
+</head>
+
+<body>
+    <!-- 🔝 Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Carregando conteúdo exclusivo...</p>
+        </div>
+    </div>
+
+    <!-- 🎮 Navegação Principal -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <!-- Primeiro: imagem da logo -->
+                <img src="assets/imgs/logo.png" alt="Acionet - Soluções em Tecnologia" class="logo-image">
+
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
+
+                    <!-- Dropdown Soluções -->
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-brain"></i>
+                                        Inteligência Artificial
+                                    </h4>
+                                    <a href="solucoes.html#ia-ml">Machine Learning</a>
+                                    <a href="solucoes.html#ia-nlp">Processamento de Linguagem</a>
+                                    <a href="solucoes.html#ia-cv">Visão Computacional</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Desenvolvimento
+                                    </h4>
+                                    <a href="solucoes.html#dev-web">Aplicações Web</a>
+                                    <a href="solucoes.html#dev-mobile">Aplicativos Mobile</a>
+                                    <a href="solucoes.html#dev-api">APIs & Microservices</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-cloud"></i>
+                                        Cloud & DevOps
+                                    </h4>
+                                    <a href="solucoes.html#cloud-aws">Infraestrutura AWS</a>
+                                    <a href="solucoes.html#cloud-devops">Pipeline DevOps</a>
+                                    <a href="solucoes.html#cloud-security">Segurança Cloud</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Projetos -->
+                    <div class="nav-dropdown">
+                        <a href="projetos.html" class="nav-link" data-text="Projetos">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projetos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-chart-pie"></i>
+                                        Por Setor
+                                    </h4>
+                                    <a href="portfolio.html#financeiro">Financeiro & Fintech</a>
+                                    <a href="portfolio.html#saude">Saúde & Biotech</a>
+                                    <a href="portfolio.html#varejo">Varejo & E-commerce</a>
+                                    <a href="portfolio.html#industria">Indústria 4.0</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-filter"></i>
+                                        Por Tecnologia
+                                    </h4>
+                                    <a href="portfolio.html#ia">Projetos com IA</a>
+                                    <a href="portfolio.html#blockchain">Blockchain</a>
+                                    <a href="portfolio.html#iot">IoT & Hardware</a>
+                                    <a href="portfolio.html#cloud">Migração Cloud</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="portfolio.html#cases">Cases de Sucesso</a>
+                                    <a href="portfolio.html#premiados">Projetos Premiados</a>
+                                    <a href="portfolio.html#inovacao">Inovação Radical</a>
+                                    <a href="portfolio.html#open-source">Open Source</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Sobre -->
+                    <div class="nav-dropdown">
+                        <a href="sobre.html" class="nav-link" data-text="Sobre">
+                            <i class="fas fa-users"></i>
+                            <span>Sobre</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-building"></i>
+                                        A Empresa
+                                    </h4>
+                                    <a href="sobre.html#historia">Nossa História</a>
+                                    <a href="sobre.html#missao">Missão & Valores</a>
+                                    <a href="sobre.html#cultura">Cultura Acionet</a>
+                                    <a href="sobre.html#premios">Prêmios</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users-cog"></i>
+                                        Equipe
+                                    </h4>
+                                    <a href="sobre.html#lideranca">Liderança</a>
+                                    <a href="sobre.html#especialistas">Especialistas</a>
+                                    <a href="sobre.html#conselho">Conselho Consultivo</a>
+                                    <a href="sobre.html#trabalhe">Trabalhe Conosco</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Compromisso
+                                    </h4>
+                                    <a href="sobre.html#sustentabilidade">Sustentabilidade</a>
+                                    <a href="sobre.html#diversidade">Diversidade & Inclusão</a>
+                                    <a href="sobre.html#etica">Ética & Compliance</a>
+                                    <a href="sobre.html#impacto">Impacto Social</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <!-- Dropdown Blog -->
+                    <div class="nav-dropdown">
+                        <a href="blog.html" class="nav-link active" data-text="Blog">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Tecnologia
+                                    </h4>
+                                    <a href="blog.html#ia">Inteligência Artificial</a>
+                                    <a href="blog.html#dev">Desenvolvimento</a>
+                                    <a href="blog.html#cloud">Cloud Computing</a>
+                                    <a href="blog.html#seguranca">Cybersecurity</a>
+                                    <a href="blog.html#blockchain">Blockchain</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Inovação
+                                    </h4>
+                                    <a href="blog.html#tendencias">Tendências Tech</a>
+                                    <a href="blog.html#startups">Ecossistema Startup</a>
+                                    <a href="blog.html#futuro">Futuro da TI</a>
+                                    <a href="blog.html#pesquisa">Pesquisa & Desenvolvimento</a>
+                                    <a href="blog.html#metodologias">Metodologias Ágeis</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-briefcase"></i>
+                                        Negócios
+                                    </h4>
+                                    <a href="blog.html#transformacao">Transformação Digital</a>
+                                    <a href="blog.html#estrategia">Estratégia Tech</a>
+                                    <a href="blog.html#cases">Análise de Cases</a>
+                                    <a href="blog.html#metricas">Métricas & ROI</a>
+                                    <a href="blog.html#gestao">Gestão de TI</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-star"></i>
+                                        Destaques
+                                    </h4>
+                                    <a href="blog.html#populares">Mais Populares</a>
+                                    <a href="blog.html#recentes">Recentes</a>
+                                    <a href="blog.html#series">Séries Especiais</a>
+                                    <a href="blog.html#ebooks">E-books & Whitepapers</a>
+                                    <a href="blog.html#podcast">Podcast Acionet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Eventos -->
+                    <div class="nav-dropdown">
+                        <a href="eventos.html" class="nav-link" data-text="Eventos">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Eventos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-video"></i>
+                                        Webinars
+                                    </h4>
+                                    <a href="eventos.html#agendados">Próximos Webinars</a>
+                                    <a href="eventos.html#gravados">Webinars Gravados</a>
+                                    <a href="eventos.html#series">Séries Temáticas</a>
+                                    <a href="eventos.html#workshops">Workshops Online</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users"></i>
+                                        Presenciais
+                                    </h4>
+                                    <a href="eventos.html#conferencias">Conferências</a>
+                                    <a href="eventos.html#meetups">Meetups Tech</a>
+                                    <a href="eventos.html#hackathons">Hackathons</a>
+                                    <a href="eventos.html#treinamentos">Treinamentos</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Agenda
+                                    </h4>
+                                    <a href="eventos.html#calendario">Calendário Completo</a>
+                                    <a href="eventos.html#inscricoes">Minhas Inscrições</a>
+                                    <a href="eventos.html#patrocinio">Patrocínio</a>
+                                    <a href="eventos.html#speakers">Seja Speaker</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-trophy"></i>
+                                        Especiais
+                                    </h4>
+                                    <a href="eventos.html#anual">Conferência Anual</a>
+                                    <a href="eventos.html#parceiros">Eventos Parceiros</a>
+                                    <a href="eventos.html#internacionais">Eventos Internacionais</a>
+                                    <a href="eventos.html#comunidade">Comunidade Acionet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão Mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" type="button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 🌟 Hero Section Blog -->
+    <section class="hero-section">
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+        <div class="container hero-container">
+            <div class="hero-content">
+                <!-- Badge de Destaque -->
+                <div class="hero-badge" style="margin-top: 10px;">
+                    <span class="badge-text">
+                        <i class="fas fa-newspaper"></i>
+                        INSIGHTS & INOVAÇÃO
+                    </span>
+                    <div class="badge-glow"></div>
+                </div>
+
+                <!-- Título Principal -->
+                <h1 class="hero-title">
+                    <span class="title-line">Conhecimento que</span>
+                    <span class="title-line">
+                        <span class="word-gradient">transforma</span>
+                        <span>negócios</span>
+                    </span>
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="hero-subtitle">
+                    Artigos, vídeos e notícias sobre as últimas tendências em
+                    <span class="highlight-text">IA</span>,
+                    <span class="highlight-text">Cloud</span> e
+                    <span class="highlight-text">Inovação</span>
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-actions">
+                    <a href="#artigos" class="btn btn-primary">
+                        <div class="btn-content">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Explorar Artigos</span>
+                        </div>
+                        <div class="btn-hover-effect"></div>
+                    </a>
+
+                    <a href="#videos" class="btn btn-secondary">
+                        <div class="btn-content">
+                            <i class="fas fa-video"></i>
+                            <span>Assistir Vídeos</span>
+                        </div>
+                        <div class="pulse-dot"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual 3D -->
+            <div class="hero-visual">
+                <div class="floating-dashboard">
+                    <div class="dashboard-element" style="--delay: 0s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.3s">
+                        <div class="element-glow"></div>
+                    </div>
+                    <div class="dashboard-element" style="--delay: 0.6s">
+                        <div class="element-glow"></div>
+                    </div>
+                </div>
+                <div class="data-flow">
+                    <div class="flow-line"></div>
+                    <div class="flow-node" style="--position: 1"></div>
+                    <div class="flow-node" style="--position: 2"></div>
+                    <div class="flow-node" style="--position: 3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Explorar Conteúdo</span>
+        </div>
+    </section>
+
+    <!-- 🔍 Categorias do Blog -->
+    <div class="container" style="position: sticky; top: 90px; z-index: 90;">
+        <div class="blog-categories">
+            <a href="#todos" class="category-btn active">
+                <i class="fas fa-th"></i>
+                Todos
+            </a>
+            <a href="#ia" class="category-btn">
+                <i class="fas fa-brain"></i>
+                Inteligência Artificial
+            </a>
+            <a href="#cloud" class="category-btn">
+                <i class="fas fa-cloud"></i>
+                Cloud Computing
+            </a>
+            <a href="#seguranca" class="category-btn">
+                <i class="fas fa-shield-alt"></i>
+                Segurança
+            </a>
+            <a href="#dev" class="category-btn">
+                <i class="fas fa-code"></i>
+                Desenvolvimento
+            </a>
+            <a href="#videos" class="category-btn">
+                <i class="fas fa-video"></i>
+                Vídeos
+            </a>
+            <a href="#noticias" class="category-btn">
+                <i class="fas fa-newspaper"></i>
+                Notícias
+            </a>
+        </div>
+    </div>
+    <!-- 📌 Post em Destaque -->
+    <div class="container" id="artigos">
+        <div class="featured-post">
+            <div class="featured-cover">
+                <div class="cover-image"
+                    style="background: linear-gradient(135deg, var(--azul-profundo), var(--azul-escuro)); height: 100%; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-robot" style="font-size: 8rem; color: rgba(255,255,255,0.2);"></i>
+                </div>
+                <div class="cover-overlay"></div>
+                <span class="post-category" style="background: var(--gradiente-vermelho); color: white;">DESTAQUE</span>
+                <span class="post-date"><i class="far fa-calendar"></i> 15 Mar 2025</span>
+            </div>
+            <div class="featured-content">
+                <span class="featured-badge"><i class="fas fa-fire"></i> NOVO</span>
+                <h2 class="featured-title">O Futuro da IA Generativa nos Negócios</h2>
+                <p class="featured-description">
+                    Como empresas estão utilizando GPT-4, DALL-E e outras IAs generativas para revolucionar
+                    processos criativos, atendimento ao cliente e desenvolvimento de produtos.
+                </p>
+                <div style="display: flex; gap: var(--espaco-md);">
+                    <a href="post-ia-generativa.html" class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        Ler Artigo Completo
+                    </a>
+                    <button class="btn-icon" style="width: 50px; height: 50px;">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 📰 Grid Principal de Posts -->
+    <section class="blog-section">
+        <div class="container">
+            <!-- Seção: Inteligência Artificial -->
+            <div class="section-header" id="ia" style="scroll-margin-top: 100px;">
+                <div class="section-badge">
+                    <span>INTELIGÊNCIA ARTIFICIAL</span>
+                </div>
+                <h2 class="section-title">
+                    Inovação com <span class="text-gradient">IA</span>
+                </h2>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Post 1: IA Generativa (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #E63946, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-brain"></i> IA Generativa</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Dra. Ana Costa</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Como usar GPT-4 para automatizar seu atendimento</h3>
+                        <p class="post-excerpt">
+                            Guia prático para implementar chatbots inteligentes com IA generativa,
+                            reduzindo custos e melhorando a experiência do cliente.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-gpt4.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 2.4k</span>
+                                <span><i class="far fa-comment"></i> 45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2: Machine Learning (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #1D3557, #0A192F);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-chart-line"></i> Machine Learning</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 7 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Dr. Carlos Lima</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Previsão de demanda com ML: case de sucesso no varejo</h3>
+                        <p class="post-excerpt">
+                            Como implementamos um modelo preditivo que aumentou em 35% a precisão do
+                            estoque de uma rede varejista.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-ml-varejo.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 1.8k</span>
+                                <span><i class="far fa-comment"></i> 32</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3: Vídeo sobre IA -->
+                <div class="blog-post-card video-card">
+                    <div class="post-cover video-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #2A4B7C, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span class="post-category"><i class="fas fa-video"></i> Vídeo</span>
+                        <span class="video-duration">12:34</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Canal Acionet</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Webinar: Introdução à IA para empresas</h3>
+                        <p class="post-excerpt">
+                            Assista à gravação do nosso webinar completo sobre como começar a usar
+                            inteligência artificial no seu negócio.
+                        </p>
+                        <div class="post-footer">
+                            <a href="#" class="read-more" onclick="openVideo('https://youtube.com/watch?v=exemplo')">
+                                Assistir <i class="fas fa-play"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 5.2k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Cloud Computing -->
+            <div class="section-header" id="cloud" style="scroll-margin-top: 100px; margin-top: var(--espaco-3xl);">
+                <div class="section-badge">
+                    <span>CLOUD COMPUTING</span>
+                </div>
+                <h2 class="section-title">
+                    Infraestrutura na <span class="text-gradient">nuvem</span>
+                </h2>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Post 4: Migração Cloud (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #FFD166, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-cloud-upload-alt"></i> Migração</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 8 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Juliana Ferreira</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Guia definitivo para migrar seu datacenter para AWS</h3>
+                        <p class="post-excerpt">
+                            Passo a passo completo para migrar sua infraestrutura com segurança,
+                            minimizando downtime e otimizando custos.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-migracao-aws.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 3.1k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 5: Kubernetes (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #06D6A0, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-cubes"></i> Kubernetes</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Paulo Cesar</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Orquestração de containers com Kubernetes na prática</h3>
+                        <p class="post-excerpt">
+                            Aprenda a configurar um cluster Kubernetes para aplicações escaláveis
+                            e de alta disponibilidade.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-kubernetes.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 2.2k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 6: Vídeo sobre Cloud -->
+                <div class="blog-post-card video-card">
+                    <div class="post-cover video-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #2A4B7C, #0A192F);"></div>
+                        <div class="cover-overlay"></div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span class="post-category"><i class="fas fa-video"></i> Vídeo</span>
+                        <span class="video-duration">08:45</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Canal Acionet</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Comparativo: AWS vs Azure vs Google Cloud</h3>
+                        <p class="post-excerpt">
+                            Análise completa das principais diferenças entre as três maiores
+                            plataformas de nuvem do mercado.
+                        </p>
+                        <div class="post-footer">
+                            <a href="#" class="read-more" onclick="openVideo('https://youtube.com/watch?v=exemplo2')">
+                                Assistir <i class="fas fa-play"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 4.5k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Segurança -->
+            <div class="section-header" id="seguranca" style="scroll-margin-top: 100px; margin-top: var(--espaco-3xl);">
+                <div class="section-badge">
+                    <span>SEGURANÇA</span>
+                </div>
+                <h2 class="section-title">
+                    Proteção <span class="text-gradient">digital</span>
+                </h2>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Post 7: LGPD (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #E63946, #2A4B7C);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-shield-alt"></i> LGPD</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Fernanda Costa</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Checklist para adequação à LGPD em empresas de TI</h3>
+                        <p class="post-excerpt">
+                            Lista completa de ações necessárias para garantir conformidade com a
+                            Lei Geral de Proteção de Dados.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-lgpd.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 3.8k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 8: Ransomware (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #0A192F, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-virus"></i> Ransomware</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Marcos Alves</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Como proteger sua empresa contra ataques de ransomware</h3>
+                        <p class="post-excerpt">
+                            Estratégias preventivas e plano de resposta para ataques de sequestro de dados.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-ransomware.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 2.9k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 9: Vídeo sobre Segurança -->
+                <div class="blog-post-card video-card">
+                    <div class="post-cover video-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #2A4B7C, #E63946);"></div>
+                        <div class="cover-overlay"></div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span class="post-category"><i class="fas fa-video"></i> Vídeo</span>
+                        <span class="video-duration">15:20</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Canal Acionet</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Live: Os maiores ataques cibernéticos de 2025</h3>
+                        <p class="post-excerpt">
+                            Análise dos principais incidentes de segurança do ano e lições aprendidas.
+                        </p>
+                        <div class="post-footer">
+                            <a href="#" class="read-more" onclick="openVideo('https://youtube.com/watch?v=exemplo3')">
+                                Assistir <i class="fas fa-play"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 6.1k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Desenvolvimento -->
+            <div class="section-header" id="dev" style="scroll-margin-top: 100px; margin-top: var(--espaco-3xl);">
+                <div class="section-badge">
+                    <span>DESENVOLVIMENTO</span>
+                </div>
+                <h2 class="section-title">
+                    Código e <span class="text-gradient">arquitetura</span>
+                </h2>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Post 10: React (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #61DAFB, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fab fa-react"></i> React</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 4 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Lucas Mendes</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Boas práticas em React para aplicações escaláveis</h3>
+                        <p class="post-excerpt">
+                            Como organizar componentes, gerenciar estado e otimizar performance
+                            em aplicações React de grande porte.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-react.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 4.2k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 11: APIs (Artigo) -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #68A063, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-plug"></i> APIs</span>
+                        <span class="post-date"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Camila Rodrigues</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Design de APIs RESTful: guia definitivo</h3>
+                        <p class="post-excerpt">
+                            Princípios de design, versionamento, documentação e segurança para
+                            criar APIs robustas e escaláveis.
+                        </p>
+                        <div class="post-footer">
+                            <a href="post-apis.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 3.4k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 12: Vídeo sobre Dev -->
+                <div class="blog-post-card video-card">
+                    <div class="post-cover video-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #2A4B7C, #61DAFB);"></div>
+                        <div class="cover-overlay"></div>
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <span class="post-category"><i class="fas fa-video"></i> Vídeo</span>
+                        <span class="video-duration">10:15</span>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <div class="post-author">
+                                <div class="author-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <span class="author-name">Canal Acionet</span>
+                            </div>
+                        </div>
+                        <h3 class="post-title">Tutorial: Criando uma API com Node.js e Express</h3>
+                        <p class="post-excerpt">
+                            Aprenda na prática como desenvolver uma API completa do zero.
+                        </p>
+                        <div class="post-footer">
+                            <a href="#" class="read-more" onclick="openVideo('https://youtube.com/watch?v=exemplo4')">
+                                Assistir <i class="fas fa-play"></i>
+                            </a>
+                            <div class="post-stats">
+                                <span><i class="far fa-eye"></i> 7.3k</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção: Notícias -->
+            <div class="section-header" id="noticias" style="scroll-margin-top: 100px; margin-top: var(--espaco-3xl);">
+                <div class="section-badge">
+                    <span>NOTÍCIAS</span>
+                </div>
+                <h2 class="section-title">
+                    Últimas do <span class="text-gradient">mercado</span>
+                </h2>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Post 13: Notícia 1 -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #E63946, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-newspaper"></i> Notícia</span>
+                        <span class="post-date"><i class="far fa-calendar"></i> 10 Mar 2025</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">Acionet é eleita uma das melhores empresas de TI para se trabalhar</h3>
+                        <p class="post-excerpt">
+                            Prêmio Great Place to Work reconhece ambiente de trabalho inovador e inclusivo da empresa.
+                        </p>
+                        <div class="post-footer">
+                            <a href="noticia-premio.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 14: Notícia 2 -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #1D3557, #0A192F);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-newspaper"></i> Notícia</span>
+                        <span class="post-date"><i class="far fa-calendar"></i> 5 Mar 2025</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">Acionet anuncia parceria estratégica com AWS</h3>
+                        <p class="post-excerpt">
+                            Novo acordo visa acelerar migrações cloud para clientes da região sul.
+                        </p>
+                        <div class="post-footer">
+                            <a href="noticia-aws.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 15: Notícia 3 -->
+                <div class="blog-post-card">
+                    <div class="post-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #2A4B7C, #E63946);"></div>
+                        <div class="cover-overlay"></div>
+                        <span class="post-category"><i class="fas fa-newspaper"></i> Notícia</span>
+                        <span class="post-date"><i class="far fa-calendar"></i> 1 Mar 2025</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">Acionet expande operações para o mercado europeu</h3>
+                        <p class="post-excerpt">
+                            Nova sede em Lisboa atenderá clientes em Portugal e demais países da UE.
+                        </p>
+                        <div class="post-footer">
+                            <a href="noticia-expansao.html" class="read-more">
+                                Ler mais <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📺 Seção de Vídeos em Destaque -->
+            <div class="section-header" id="videos" style="scroll-margin-top: 100px; margin-top: var(--espaco-3xl);">
+                <div class="section-badge">
+                    <span>VÍDEOS</span>
+                </div>
+                <h2 class="section-title">
+                    Conteúdo em <span class="text-gradient">movimento</span>
+                </h2>
+            </div>
+
+            <div class="blog-grid">
+                <!-- Vídeo 1: YouTube -->
+                <div class="blog-post-card video-card">
+                    <div class="post-cover video-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #FF0000, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <div class="play-button">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <span class="post-category"><i class="fab fa-youtube"></i> YouTube</span>
+                        <span class="video-duration">18:30</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">Acionet Talks: O futuro da inteligência artificial</h3>
+                        <p class="post-excerpt">
+                            Debate com especialistas sobre as tendências da IA para os próximos anos.
+                        </p>
+                        <div class="post-footer">
+                            <a href="#" class="read-more" onclick="openVideo('https://youtube.com/watch?v=acionet1')">
+                                Assistir no YouTube <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vídeo 2: Vimeo -->
+                <div class="blog-post-card video-card">
+                    <div class="post-cover video-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #1AB7EA, #1D3557);"></div>
+                        <div class="cover-overlay"></div>
+                        <div class="play-button">
+                            <i class="fab fa-vimeo-v"></i>
+                        </div>
+                        <span class="post-category"><i class="fab fa-vimeo-v"></i> Vimeo</span>
+                        <span class="video-duration">22:15</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">Workshop: Kubernetes na prática</h3>
+                        <p class="post-excerpt">
+                            Workshop completo com demonstrações ao vivo de orquestração de containers.
+                        </p>
+                        <div class="post-footer">
+                            <a href="#" class="read-more" onclick="openVideo('https://vimeo.com/acionet1')">
+                                Assistir no Vimeo <i class="fab fa-vimeo-v"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vídeo 3: Link externo -->
+                <div class="blog-post-card video-card">
+                    <div class="post-cover video-cover">
+                        <div class="cover-image" style="background: linear-gradient(135deg, #2A4B7C, #06D6A0);"></div>
+                        <div class="cover-overlay"></div>
+                        <div class="play-button">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <span class="post-category"><i class="fas fa-link"></i> Externo</span>
+                        <span class="video-duration">45:00</span>
+                    </div>
+                    <div class="post-content">
+                        <h3 class="post-title">Palestra: Transformação Digital no setor financeiro</h3>
+                        <p class="post-excerpt">
+                            Palestra completa do nosso CTO no evento FinTech Summit 2025.
+                        </p>
+                        <div class="post-footer">
+                            <a href="#" class="read-more" onclick="openVideo('https://externo.com/palestra')">
+                                Assistir <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📧 Newsletter Personalizada -->
+            <div class="blog-newsletter">
+                <div>
+                    <h3 style="font-family: var(--fonte-secundaria); font-size: 2rem; margin-bottom: var(--espaco-md);">
+                        Receba nossos <span class="text-gradient">insights</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">
+                        Inscreva-se na nossa newsletter e receba semanalmente os melhores artigos,
+                        vídeos e notícias sobre tecnologia e inovação.
+                    </p>
+                </div>
+                <div>
+                    <form class="newsletter-form" style="max-width: 100%;">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <input type="email" placeholder="seu@email.com" required
+                                    style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white;">
+                                <i class="fas fa-envelope input-icon" style="color: rgba(255,255,255,0.7);"></i>
+                            </div>
+                            <button type="submit" class="btn btn-submit">
+                                <span>Inscrever-se</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="form-note" style="color: rgba(255,255,255,0.6);">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Sem spam. Cancelamento fácil.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Paginação -->
+            <div class="pagination">
+                <button class="pagination-btn prev" disabled>
+                    <i class="fas fa-chevron-left"></i>
+                    Anterior
+                </button>
+                <div class="page-numbers">
+                    <button class="page-number active">1</button>
+                    <button class="page-number">2</button>
+                    <button class="page-number">3</button>
+                    <button class="page-number">4</button>
+                    <button class="page-number">5</button>
+                </div>
+                <button class="pagination-btn next">
+                    Próxima
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <a href="index.html" class="footer-logo">
+                            <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+                            <span class="logo-text">ACIONET</span>
+                        </a>
+                        <p class="footer-about">
+                            Conteúdo exclusivo sobre tecnologia, inovação e cases de sucesso.
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Categorias</h4>
+                        <ul class="footer-links">
+                            <li><a href="#ia">Inteligência Artificial</a></li>
+                            <li><a href="#cloud">Cloud Computing</a></li>
+                            <li><a href="#seguranca">Segurança</a></li>
+                            <li><a href="#dev">Desenvolvimento</a></li>
+                            <li><a href="#videos">Vídeos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Redes Sociais</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        © 2025 Acionet. Todos os direitos reservados.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Função para abrir vídeos
+        function openVideo(url) {
+            window.open(url, '_blank');
+        }
+
+        // Loading screen
+        window.addEventListener('load', function () {
+            const loading = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.style.display = 'none', 500);
+            }, 800);
+        });
+
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            navToggle?.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Filtros de categoria
+            const categoryBtns = document.querySelectorAll('.category-btn');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
