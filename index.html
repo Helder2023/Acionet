@@ -1263,239 +1263,267 @@
                 </a>
             </div>
 
-            <div class="blog-grid">
-                <!-- Artigo 1 - IA Generativa -->
-                <article class="blog-card">
-                    <div class="card-visual">
-                        <!-- Imagem do artigo -->
-                        <div class="card-image">
+            <!-- Grid de Posts do Blog (mesma estrutura dos projetos) -->
+            <div class="projects-grid">
+                <!-- Post 1: IA Generativa -->
+                <div class="project-card project-card-featured">
+                    <div class="project-visual">
+                        <!-- Imagem do post -->
+                        <div class="project-image">
+                            <div class="image-overlay"></div>
                             <img src="assets/images/blog/ai-generative-business.jpg"
-                                alt="IA Generativa transformando negócios" class="article-image"
-                                onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='flex';">
+                                alt="IA Generativa transformando negócios" class="project-img"
+                                onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='block';">
                             <!-- Fallback visual -->
                             <div class="image-fallback">
-                                <div class="fallback-icon">
+                                <div class="fallback-content">
                                     <i class="fas fa-robot"></i>
+                                    <span>IA Generativa</span>
                                 </div>
                             </div>
 
-                            <!-- Overlay gradient -->
-                            <div class="image-overlay"></div>
-
-                            <!-- Categoria e data -->
-                            <div class="card-meta-overlay">
-                                <span class="category-tag ai">
-                                    <i class="fas fa-brain"></i>
-                                    Inteligência Artificial
-                                </span>
-                                <time class="article-date" datetime="2025-06-15">
-                                    <i class="far fa-calendar"></i>
-                                    15 Jun, 2025
-                                </time>
+                            <!-- Badge de destaque -->
+                            <div class="project-badge">
+                                <i class="fas fa-fire"></i>
+                                <span>TRENDING</span>
                             </div>
 
-                            <!-- Leitura rápida -->
-                            <div class="read-time">
-                                <i class="far fa-clock"></i>
-                                <span>5 min</span>
+                            <!-- Categoria e data flutuantes -->
+                            <div class="floating-tech">
+                                <span class="tech-bubble">IA</span>
+                                <span class="tech-bubble">GPT-4</span>
+                                <span class="tech-bubble">Inovação</span>
                             </div>
                         </div>
 
-                        <!-- Efeito de brilho hover -->
-                        <div class="card-glow"></div>
+                        <!-- Animação de dados -->
+                        <div class="data-flow-animation">
+                            <div class="flow-line"></div>
+                            <div class="flow-node" style="--delay: 0s"></div>
+                            <div class="flow-node" style="--delay: 0.3s"></div>
+                            <div class="flow-node" style="--delay: 0.6s"></div>
+                        </div>
                     </div>
 
-                    <div class="card-content">
-                        <!-- Badge de trending -->
-                        <div class="trending-badge">
-                            <i class="fas fa-fire"></i>
-                            <span>TRENDING</span>
+                    <div class="project-content">
+                        <div class="project-category">
+                            <i class="fas fa-brain"></i>
+                            <span>Inteligência Artificial</span>
+                            <time class="article-date"
+                                style="margin-left: auto; font-size: 0.8rem; color: var(--cinza-medio);">
+                                <i class="far fa-calendar"></i> 15 Jun, 2025
+                            </time>
                         </div>
 
-                        <h3 class="card-title">
+                        <h3 class="project-title">
                             Revolução IA: Como a Generative AI está Redefinindo a Produtividade Empresarial
                         </h3>
 
-                        <p class="card-excerpt">
+                        <p class="project-description">
                             Explore como modelos como GPT-4 e DALL-E estão automatizando processos criativos,
                             gerando conteúdo em escala e proporcionando ganhos de eficiência de até 300% em
                             departamentos de marketing e desenvolvimento.
                         </p>
 
-                        <!-- Estatísticas do artigo -->
-                        <div class="article-stats">
-                            <div class="stat">
-                                <i class="far fa-eye"></i>
-                                <span class="metric-value" data-count="2.4">0</span>
-                                <span class="stat-label">K views</span>
+                        <!-- Métricas do post -->
+                        <div class="project-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value" data-count="2.4">0</div>
+                                <div class="metric-suffix">K</div>
+                                <div class="metric-label">views</div>
+                                <div class="metric-trend up">
+                                    <i class="fas fa-eye"></i>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <i class="far fa-comment"></i>
-                                <span class="metric-value" data-count="142">0</span>
-                                <span class="stat-label">comentários</span>
+                            <div class="metric-card">
+                                <div class="metric-value" data-count="142">0</div>
+                                <div class="metric-label">comentários</div>
+                                <div class="metric-trend neutral">
+                                    <i class="far fa-comment"></i>
+                                </div>
                             </div>
-                            <div class="stat">
-                                <i class="fas fa-share"></i>
-                                <span class="metric-value" data-count="89">0</span>
-                                <span class="stat-label">shares</span>
+                            <div class="metric-card">
+                                <div class="metric-value" data-count="89">0</div>
+                                <div class="metric-label">shares</div>
+                                <div class="metric-trend neutral">
+                                    <i class="fas fa-share"></i>
+                                </div>
                             </div>
                         </div>
 
                         <!-- Tags do artigo -->
-                        <div class="article-tags">
-                            <span class="tag">Generative AI</span>
-                            <span class="tag">Produtividade</span>
-                            <span class="tag">Automação</span>
-                            <span class="tag">GPT-4</span>
+                        <div class="project-stack">
+                            <div class="stack-title">
+                                <i class="fas fa-tags"></i>
+                                <span>Tags:</span>
+                            </div>
+                            <div class="stack-items">
+                                <span class="stack-item" data-tooltip="Generative AI">GenAI</span>
+                                <span class="stack-item" data-tooltip="Produtividade">Prod</span>
+                                <span class="stack-item" data-tooltip="Automação">Auto</span>
+                                <span class="stack-item" data-tooltip="GPT-4">GPT</span>
+                            </div>
                         </div>
 
-                        <!-- Autor e ação -->
-                        <div class="card-footer">
-                            <div class="author-info">
-                                <div class="author-avatar">
+                        <!-- Autor e ações -->
+                        <div class="project-actions"
+                            style="border-top: 1px solid var(--cinza-claro); padding-top: var(--espaco-lg);">
+                            <div class="author-info"
+                                style="display: flex; align-items: center; gap: var(--espaco-sm); flex: 1;">
+                                <div class="author-avatar"
+                                    style="width: 40px; height: 40px; background: var(--gradiente-azul); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                                     <i class="fas fa-user-circle"></i>
                                 </div>
-                                <div class="author-details">
-                                    <span class="author-name">Dr. Carlos Silva</span>
-                                    <span class="author-role">Chief AI Officer</span>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--azul-profundo);">Dr. Carlos Silva</div>
+                                    <div style="font-size: 0.75rem; color: var(--cinza-medio);">Chief AI Officer</div>
                                 </div>
                             </div>
-
-                            <a href="blog-post-ai-generativa.html" class="read-link">
-                                <span>Ler Artigo Completo</span>
-                                <div class="link-arrow">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
+                            <a href="blog-post-ai-generativa.html" class="btn btn-outline" style="flex: 0 0 auto;">
+                                <i class="fas fa-eye"></i>
+                                Ler Artigo
                             </a>
+                            <button class="btn btn-icon" data-action="share" aria-label="Compartilhar">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Efeito de brilho lateral -->
-                    <div class="card-shine"></div>
-                </article>
-
-                <!-- Artigo 2 - Cloud Migration -->
-                <article class="blog-card">
-                    <div class="card-visual">
-                        <!-- Imagem do artigo -->
-                        <div class="card-image">
+                <!-- Post 2: Cloud Migration -->
+                <div class="project-card">
+                    <div class="project-visual">
+                        <!-- Imagem do post -->
+                        <div class="project-image">
+                            <div class="image-overlay"></div>
                             <img src="assets/images/blog/cloud-migration-case.jpg" alt="Migração Cloud para varejo"
-                                class="article-image"
-                                onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='flex';">
+                                class="project-img"
+                                onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='block';">
                             <!-- Fallback visual -->
                             <div class="image-fallback">
-                                <div class="fallback-icon">
+                                <div class="fallback-content">
                                     <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Cloud Migration</span>
                                 </div>
                             </div>
 
-                            <!-- Overlay gradient -->
-                            <div class="image-overlay"></div>
-
-                            <!-- Categoria e data -->
-                            <div class="card-meta-overlay">
-                                <span class="category-tag cloud">
-                                    <i class="fas fa-cloud"></i>
-                                    Cloud Computing
-                                </span>
-                                <time class="article-date" datetime="2025-06-12">
-                                    <i class="far fa-calendar"></i>
-                                    12 Jun, 2025
-                                </time>
+                            <!-- Badge de destaque -->
+                            <div class="project-badge innovation">
+                                <i class="fas fa-chart-line"></i>
+                                <span>CASE STUDY</span>
                             </div>
 
-                            <!-- Leitura rápida -->
-                            <div class="read-time">
-                                <i class="far fa-clock"></i>
-                                <span>7 min</span>
+                            <!-- Tecnologias flutuantes -->
+                            <div class="floating-tech">
+                                <span class="tech-bubble">AWS</span>
+                                <span class="tech-bubble">Azure</span>
+                                <span class="tech-bubble">K8s</span>
                             </div>
                         </div>
 
-                        <!-- Efeito de brilho hover -->
-                        <div class="card-glow"></div>
+                        <!-- Animação de conexões (nuvem) -->
+                        <div class="iot-connections">
+                            <div class="connection-line"></div>
+                            <div class="connection-pulse" style="--delay: 0s"></div>
+                            <div class="connection-pulse" style="--delay: 1s"></div>
+                            <div class="connection-pulse" style="--delay: 2s"></div>
+                        </div>
                     </div>
 
-                    <div class="card-content">
-                        <!-- Badge de case study -->
-                        <div class="case-badge">
-                            <i class="fas fa-chart-line"></i>
-                            <span>CASE STUDY</span>
+                    <div class="project-content">
+                        <div class="project-category">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud Computing</span>
+                            <time class="article-date"
+                                style="margin-left: auto; font-size: 0.8rem; color: var(--cinza-medio);">
+                                <i class="far fa-calendar"></i> 12 Jun, 2025
+                            </time>
                         </div>
 
-                        <h3 class="card-title">
+                        <h3 class="project-title">
                             Transformação Digital: Como Migramos 500 Lojas para a Nuvem em 90 Dias
                         </h3>
 
-                        <p class="card-excerpt">
+                        <p class="project-description">
                             Caso real da rede varejista ModaPlus: redução de 40% em custos de infraestrutura,
                             aumento de 60% na performance e escalabilidade para Black Friday com zero downtime.
                             Arquitetura multi-cloud AWS + Azure.
                         </p>
 
                         <!-- Métricas do case -->
-                        <div class="case-metrics">
-                            <div class="case-metric">
-                                <div class="metric-icon">
-                                    <i class="fas fa-percentage"></i>
-                                </div>
-                                <div class="metric-content">
-                                    <div class="metric-value" data-count="40">0</div>
-                                    <div class="metric-label">Redução de Custos</div>
-                                </div>
-                            </div>
-                            <div class="case-metric">
-                                <div class="metric-icon">
-                                    <i class="fas fa-rocket"></i>
-                                </div>
-                                <div class="metric-content">
-                                    <div class="metric-value" data-count="60">0</div>
-                                    <div class="metric-label">+ Performance</div>
+                        <div class="project-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value" data-count="40">0</div>
+                                <div class="metric-suffix">%</div>
+                                <div class="metric-label">Redução Custos</div>
+                                <div class="metric-trend down">
+                                    <i class="fas fa-arrow-down"></i>
                                 </div>
                             </div>
-                            <div class="case-metric">
-                                <div class="metric-icon">
+                            <div class="metric-card">
+                                <div class="metric-value" data-count="60">0</div>
+                                <div class="metric-suffix">%</div>
+                                <div class="metric-label">+ Performance</div>
+                                <div class="metric-trend up">
+                                    <i class="fas fa-arrow-up"></i>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value" data-count="90">0</div>
+                                <div class="metric-label">Dias Go-Live</div>
+                                <div class="metric-trend neutral">
                                     <i class="fas fa-calendar-check"></i>
-                                </div>
-                                <div class="metric-content">
-                                    <div class="metric-value" data-count="90">0</div>
-                                    <div class="metric-label">Dias para Go-Live</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Tecnologias usadas -->
-                        <div class="tech-used">
-                            <span class="tech-label">
-                                <i class="fas fa-cogs"></i>
-                                Stack Utilizada:
-                            </span>
-                            <div class="tech-icons">
-                                <i class="fab fa-aws" title="Amazon Web Services"></i>
-                                <i class="fab fa-microsoft" title="Microsoft Azure"></i>
-                                <i class="fab fa-docker" title="Docker"></i>
-                                <i class="fab fa-kubernetes" title="Kubernetes"></i>
-                                <i class="fas fa-database" title="Cloud Databases"></i>
+                        <div class="project-stack">
+                            <div class="stack-title">
+                                <i class="fas fa-layer-group"></i>
+                                <span>Tech Stack:</span>
+                            </div>
+                            <div class="stack-items">
+                                <div class="stack-item" data-tooltip="Amazon Web Services">
+                                    <i class="fab fa-aws"></i>
+                                </div>
+                                <div class="stack-item" data-tooltip="Microsoft Azure">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <div class="stack-item" data-tooltip="Docker">
+                                    <i class="fab fa-docker"></i>
+                                </div>
+                                <div class="stack-item" data-tooltip="Kubernetes">
+                                    <i class="fa-brands fa-kubernetes"></i>
+                                </div>
+                                <div class="stack-item" data-tooltip="Databases">
+                                    <i class="fas fa-database"></i>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Autor e ação -->
-                        <div class="card-footer">
-                            <div class="author-info">
-                                <div class="author-avatar">
+                        <!-- Autor e ações -->
+                        <div class="project-actions"
+                            style="border-top: 1px solid var(--cinza-claro); padding-top: var(--espaco-lg);">
+                            <div class="author-info"
+                                style="display: flex; align-items: center; gap: var(--espaco-sm); flex: 1;">
+                                <div class="author-avatar"
+                                    style="width: 40px; height: 40px; background: var(--gradiente-vermelho); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
                                     <i class="fas fa-user-circle"></i>
                                 </div>
-                                <div class="author-details">
-                                    <span class="author-name">Ana Rodrigues</span>
-                                    <span class="author-role">Cloud Architect Lead</span>
+                                <div>
+                                    <div style="font-weight: 600; color: var(--azul-profundo);">Ana Rodrigues</div>
+                                    <div style="font-size: 0.75rem; color: var(--cinza-medio);">Cloud Architect Lead
+                                    </div>
                                 </div>
                             </div>
-
-                            <a href="blog-post-cloud-migration.html" class="read-link">
-                                <span>Ver Estudo Completo</span>
-                                <div class="link-arrow">
-                                    <i class="fas fa-arrow-right"></i>
-                                </div>
+                            <a href="blog-post-cloud-migration.html" class="btn btn-outline" style="flex: 0 0 auto;">
+                                <i class="fas fa-eye"></i>
+                                Ver Estudo
                             </a>
+                            <button class="btn btn-icon" data-action="share" aria-label="Compartilhar">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -1505,7 +1533,7 @@
                         <div class="cloud" style="--delay: 1s"></div>
                         <div class="cloud" style="--delay: 2s"></div>
                     </div>
-                </article>
+                </div>
             </div>
 
             <!-- CTA para newsletter -->
@@ -2178,127 +2206,127 @@
 
     <script>
         // ============================
-// CONFIGURAÇÃO
-// ============================
-const solutionsGrid = document.getElementById('solutionsGrid');
-const solutionCards = Array.from(document.querySelectorAll('.solution-card'));
-const filterButtons = document.querySelectorAll('.filter-btn');
-const prevBtn = document.querySelector('.pagination-btn.prev');
-const nextBtn = document.querySelector('.pagination-btn.next');
-const pageIndicators = document.querySelectorAll('.page-indicator');
-const currentRange = document.querySelector('.current-range');
-const totalItems = document.querySelector('.total-items');
+        // CONFIGURAÇÃO
+        // ============================
+        const solutionsGrid = document.getElementById('solutionsGrid');
+        const solutionCards = Array.from(document.querySelectorAll('.solution-card'));
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const prevBtn = document.querySelector('.pagination-btn.prev');
+        const nextBtn = document.querySelector('.pagination-btn.next');
+        const pageIndicators = document.querySelectorAll('.page-indicator');
+        const currentRange = document.querySelector('.current-range');
+        const totalItems = document.querySelector('.total-items');
 
-let filteredCards = solutionCards.slice();
-let currentPage = 1;
-const cardsPerPage = 3;
+        let filteredCards = solutionCards.slice();
+        let currentPage = 1;
+        const cardsPerPage = 3;
 
-// ============================
-// FUNÇÃO PARA MOSTRAR CARDS
-// ============================
-function showCards(page = 1) {
-    const start = (page - 1) * cardsPerPage;
-    const end = start + cardsPerPage;
+        // ============================
+        // FUNÇÃO PARA MOSTRAR CARDS
+        // ============================
+        function showCards(page = 1) {
+            const start = (page - 1) * cardsPerPage;
+            const end = start + cardsPerPage;
 
-    // Esconde todos os cards
-    solutionCards.forEach(card => card.style.display = 'none');
+            // Esconde todos os cards
+            solutionCards.forEach(card => card.style.display = 'none');
 
-    // Mostra apenas os cards filtrados na página
-    filteredCards.slice(start, end).forEach(card => card.style.display = 'block');
+            // Mostra apenas os cards filtrados na página
+            filteredCards.slice(start, end).forEach(card => card.style.display = 'block');
 
-    updatePaginationInfo(start, end);
-    updatePaginationButtons();
-    updatePageIndicators();
-}
-
-// ============================
-// ATUALIZA INFORMAÇÃO DA PAGINAÇÃO
-// ============================
-function updatePaginationInfo(start, end) {
-    totalItems.textContent = filteredCards.length;
-    const displayEnd = end > filteredCards.length ? filteredCards.length : end;
-    currentRange.textContent = `${start + 1}-${displayEnd}`;
-}
-
-// ============================
-// ATUALIZA BOTÕES DE PAGINAÇÃO
-// ============================
-function updatePaginationButtons() {
-    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages || totalPages === 0;
-}
-
-// ============================
-// ATUALIZA INDICADORES DE PÁGINA
-// ============================
-function updatePageIndicators() {
-    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
-    pageIndicators.forEach((btn, index) => {
-        if (index < totalPages) {
-            btn.style.display = 'inline-block';
-        } else {
-            btn.style.display = 'none';
-        }
-        btn.classList.toggle('active', index + 1 === currentPage);
-    });
-}
-
-// ============================
-// FILTRO POR CATEGORIA
-// ============================
-filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.getAttribute('data-filter');
-
-        if (filter === 'all') {
-            filteredCards = solutionCards.slice();
-        } else {
-            filteredCards = solutionCards.filter(card => card.getAttribute('data-category') === filter);
+            updatePaginationInfo(start, end);
+            updatePaginationButtons();
+            updatePageIndicators();
         }
 
-        currentPage = 1;
-        showCards(currentPage);
-    });
-});
+        // ============================
+        // ATUALIZA INFORMAÇÃO DA PAGINAÇÃO
+        // ============================
+        function updatePaginationInfo(start, end) {
+            totalItems.textContent = filteredCards.length;
+            const displayEnd = end > filteredCards.length ? filteredCards.length : end;
+            currentRange.textContent = `${start + 1}-${displayEnd}`;
+        }
 
-// ============================
-// BOTÕES ANTERIOR/PRÓXIMA
-// ============================
-prevBtn.addEventListener('click', () => {
-    if (currentPage > 1) {
-        currentPage--;
-        showCards(currentPage);
-    }
-});
+        // ============================
+        // ATUALIZA BOTÕES DE PAGINAÇÃO
+        // ============================
+        function updatePaginationButtons() {
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+        }
 
-nextBtn.addEventListener('click', () => {
-    const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
-    if (currentPage < totalPages) {
-        currentPage++;
-        showCards(currentPage);
-    }
-});
+        // ============================
+        // ATUALIZA INDICADORES DE PÁGINA
+        // ============================
+        function updatePageIndicators() {
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+            pageIndicators.forEach((btn, index) => {
+                if (index < totalPages) {
+                    btn.style.display = 'inline-block';
+                } else {
+                    btn.style.display = 'none';
+                }
+                btn.classList.toggle('active', index + 1 === currentPage);
+            });
+        }
 
-// ============================
-// INDICADORES DE PÁGINA
-// ============================
-pageIndicators.forEach(btn => {
-    btn.addEventListener('click', () => {
-        currentPage = parseInt(btn.getAttribute('data-page'));
-        showCards(currentPage);
-    });
-});
+        // ============================
+        // FILTRO POR CATEGORIA
+        // ============================
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-// ============================
-// INICIALIZAÇÃO
-// ============================
-document.addEventListener('DOMContentLoaded', () => {
-    showCards(currentPage);
-});
+                const filter = btn.getAttribute('data-filter');
+
+                if (filter === 'all') {
+                    filteredCards = solutionCards.slice();
+                } else {
+                    filteredCards = solutionCards.filter(card => card.getAttribute('data-category') === filter);
+                }
+
+                currentPage = 1;
+                showCards(currentPage);
+            });
+        });
+
+        // ============================
+        // BOTÕES ANTERIOR/PRÓXIMA
+        // ============================
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                showCards(currentPage);
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const totalPages = Math.ceil(filteredCards.length / cardsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                showCards(currentPage);
+            }
+        });
+
+        // ============================
+        // INDICADORES DE PÁGINA
+        // ============================
+        pageIndicators.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentPage = parseInt(btn.getAttribute('data-page'));
+                showCards(currentPage);
+            });
+        });
+
+        // ============================
+        // INICIALIZAÇÃO
+        // ============================
+        document.addEventListener('DOMContentLoaded', () => {
+            showCards(currentPage);
+        });
 
     </script>
     <!-- 📝 Scripts Corrigidos -->
