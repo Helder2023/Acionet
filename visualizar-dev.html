@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto | Plataforma de Análise de Crédito com IA | Acionet</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Case de sucesso: Sistema preditivo de machine learning para fintech. Resultados: 240% de eficiência, 65% menos erros e R$ 2.8M de economia anual.">
+    <meta name="keywords"
+        content="fintech, IA, machine learning, análise de crédito, scoring, inteligência artificial, Acionet">
+    <meta name="author" content="Acionet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acionet.com.br/projeto/fintech-ia">
+    <meta property="og:title" content="Plataforma de Análise de Crédito com IA | Acionet">
+    <meta property="og:description"
+        content="Sistema preditivo que revolucionou a análise de risco de uma das maiores fintechs do Brasil.">
+    <meta property="og:image" content="assets/imgs/projetos/fintech-ia.jpg">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/logo.png">
+
+    <style>
+        /* ============================================
+           PÁGINA DE PROJETO INDIVIDUAL
+        ============================================ */
+        
+        /* Hero do Projeto */
+        .project-hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, #1D3557, #E63946);
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(230, 57, 70, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(29, 53, 87, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M20 20 L80 20 L80 80 L20 80 Z" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="2"/></svg>');
+            background-size: 60px;
+            pointer-events: none;
+        }
+
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+        }
+
+        .project-hero-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: var(--espaco-lg);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .project-hero-breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .project-hero-breadcrumb a:hover {
+            color: var(--vermelho-acionet);
+        }
+
+        .project-hero-breadcrumb i {
+            font-size: 0.75rem;
+        }
+
+        .project-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--espaco-lg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .project-hero-badge i {
+            color: #FFD700;
+        }
+
+        .project-hero-title {
+            font-family: var(--fonte-secundaria);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--espaco-md);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .project-hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--espaco-xl);
+            max-width: 600px;
+        }
+
+        .project-hero-meta {
+            display: flex;
+            gap: var(--espaco-xl);
+            flex-wrap: wrap;
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--espaco-sm);
+        }
+
+        .hero-meta-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--vermelho-acionet);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-meta-item .meta-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-meta-item .meta-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-meta-item .meta-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Container principal */
+        .project-main {
+            padding: var(--espaco-3xl) 0;
+            background: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--espaco-2xl);
+        }
+
+        /* Galeria do Projeto */
+        .project-gallery {
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .gallery-main {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #1D3557, #E63946);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--espaco-md);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: 1px solid var(--cinza-claro);
+            box-shadow: var(--sombra-forte);
+        }
+
+        .gallery-main i {
+            font-size: 5rem;
+            opacity: 0.3;
+        }
+
+        .gallery-main .dashboard-preview {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-lg);
+            padding: var(--espaco-md);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .gallery-main .dashboard-preview .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.5rem;
+            height: 50px;
+            margin-top: 0.5rem;
+        }
+
+        .gallery-main .dashboard-preview .bar {
+            flex: 1;
+            background: var(--gradiente-vermelho);
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+            animation: growBar 1s ease-out;
+        }
+
+        .gallery-main .play-button {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: 0 0 30px rgba(230, 57, 70, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .gallery-main .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--espaco-sm);
+        }
+
+        .gallery-thumb {
+            height: 80px;
+            background: linear-gradient(135deg, #1D3557, #2A4B7C);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0.7;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .gallery-thumb:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-forte);
+        }
+
+        .gallery-thumb.active {
+            border-color: var(--vermelho-acionet);
+            opacity: 1;
+        }
+
+        /* Informações do Projeto */
+        .project-section-title {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.8rem;
+            color: var(--azul-profundo);
+            margin-bottom: var(--espaco-lg);
+            position: relative;
+            padding-bottom: var(--espaco-sm);
+        }
+
+        .project-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradiente-vermelho);
+            border-radius: var(--radius-full);
+        }
+
+        .project-description-full {
+            color: var(--cinza-medio);
+            line-height: 1.8;
+            margin-bottom: var(--espaco-xl);
+            font-size: 1.05rem;
+        }
+
+        .project-description-full p {
+            margin-bottom: var(--espaco-md);
+        }
+
+        .project-description-full .highlight-box {
+            background: var(--cinza-claro);
+            border-left: 4px solid var(--vermelho-acionet);
+            padding: var(--espaco-lg);
+            border-radius: var(--radius-lg);
+            margin: var(--espaco-lg) 0;
+        }
+
+        .project-description-full .highlight-box strong {
+            color: var(--azul-profundo);
+            display: block;
+            margin-bottom: var(--espaco-sm);
+            font-size: 1.1rem;
+        }
+
+        /* Lista de Benefícios */
+        .benefits-list {
+            list-style: none;
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--espaco-md);
+            margin-bottom: var(--espaco-md);
+            padding: var(--espaco-sm);
+            background: var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+        }
+
+        .benefits-list li:hover {
+            transform: translateX(10px);
+            background: white;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .benefits-list i {
+            width: 30px;
+            height: 30px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .benefits-list strong {
+            color: var(--azul-profundo);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .benefits-list span {
+            color: var(--cinza-medio);
+            font-size: 0.95rem;
+        }
+
+        /* Especificações Técnicas */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--espaco-md);
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .spec-item {
+            background: var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            padding: var(--espaco-md);
+            transition: all var(--transition-normal);
+        }
+
+        .spec-item:hover {
+            transform: translateY(-3px);
+            background: white;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .spec-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--azul-profundo);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .spec-label i {
+            color: var(--vermelho-acionet);
+        }
+
+        .spec-value {
+            color: var(--cinza-medio);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Arquitetura da Solução */
+        .architecture-diagram {
+            background: var(--azul-escuro);
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            margin-bottom: var(--espaco-xl);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .architecture-diagram::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espaco-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .arch-item {
+            text-align: center;
+            padding: var(--espaco-lg);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .arch-item i {
+            font-size: 2.5rem;
+            color: var(--vermelho-acionet);
+            margin-bottom: var(--espaco-sm);
+        }
+
+        .arch-item h4 {
+            font-family: var(--fonte-secundaria);
+            margin-bottom: var(--espaco-sm);
+        }
+
+        .arch-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Resultados e Métricas */
+        .results-showcase {
+            background: linear-gradient(135deg, #1D3557, #0A192F);
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            color: white;
+            margin-bottom: var(--espaco-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espaco-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-family: var(--fonte-secundaria);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .result-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .result-trend.up {
+            background: rgba(6, 214, 160, 0.2);
+            color: #06D6A0;
+        }
+
+        .result-trend.down {
+            background: rgba(230, 57, 70, 0.2);
+            color: var(--vermelho-acionet);
+        }
+
+        /* Tecnologias Utilizadas */
+        .tech-showcase {
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .tech-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--espaco-sm);
+            margin-top: var(--espaco-md);
+        }
+
+        .tech-cloud-item {
+            background: var(--cinza-claro);
+            color: var(--azul-profundo);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .tech-cloud-item:hover {
+            background: var(--gradiente-vermelho);
+            color: white;
+            transform: translateY(-3px);
+            border-color: white;
+            box-shadow: var(--sombra-forte);
+        }
+
+        /* Sidebar */
+        .project-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        /* Card de Contato */
+        .contact-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            box-shadow: var(--sombra-forte);
+            border: 1px solid var(--cinza-claro);
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .contact-card h3 {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.3rem;
+            color: var(--azul-profundo);
+            margin-bottom: var(--espaco-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-card h3 i {
+            color: var(--vermelho-acionet);
+        }
+
+        .contact-card p {
+            color: var(--cinza-medio);
+            margin-bottom: var(--espaco-lg);
+            line-height: 1.6;
+        }
+
+        .contact-form-mini {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espaco-md);
+        }
+
+        .contact-form-mini input,
+        .contact-form-mini textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            font-family: var(--fonte-principal);
+            transition: all var(--transition-normal);
+        }
+
+        .contact-form-mini input:focus,
+        .contact-form-mini textarea:focus {
+            outline: none;
+            border-color: var(--vermelho-acionet);
+            box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradiente-vermelho);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-block:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-forte);
+        }
+
+        /* Timeline do Projeto */
+        .timeline-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            box-shadow: var(--sombra-forte);
+            border: 1px solid var(--cinza-claro);
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .timeline-card h3 {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.3rem;
+            color: var(--azul-profundo);
+            margin-bottom: var(--espaco-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espaco-lg);
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: var(--espaco-md);
+            position: relative;
+            padding-left: var(--espaco-lg);
+        }
+
+        .timeline-step:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 25px;
+            bottom: -15px;
+            width: 2px;
+            background: var(--cinza-claro);
+        }
+
+        .step-marker {
+            position: absolute;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            top: 5px;
+            box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.2);
+        }
+
+        .step-content h4 {
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            color: var(--cinza-medio);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .step-date {
+            display: inline-block;
+            background: var(--cinza-claro);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            color: var(--cinza-medio);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Documentos e Downloads */
+        .docs-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            box-shadow: var(--sombra-forte);
+            border: 1px solid var(--cinza-claro);
+        }
+
+        .docs-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espaco-sm);
+        }
+
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: var(--espaco-md);
+            padding: var(--espaco-md);
+            background: var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+        }
+
+        .doc-item:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: var(--sombra-suave);
+        }
+
+        .doc-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-name {
+            font-weight: 600;
+            color: var(--azul-profundo);
+            margin-bottom: 0.2rem;
+        }
+
+        .doc-meta {
+            font-size: 0.8rem;
+            color: var(--cinza-medio);
+        }
+
+        .doc-download {
+            color: var(--vermelho-acionet);
+            font-size: 1.2rem;
+        }
+
+        /* Projetos Relacionados */
+        .related-projects {
+            padding: var(--espaco-3xl) 0;
+            background: linear-gradient(135deg, var(--cinza-claro) 0%, white 100%);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espaco-xl);
+            margin-top: var(--espaco-2xl);
+        }
+
+        .related-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--sombra-card);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            border: 1px solid var(--cinza-claro);
+        }
+
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-forte);
+            border-color: var(--vermelho-acionet);
+        }
+
+        .related-image {
+            height: 150px;
+            background: linear-gradient(135deg, #1D3557, #E63946);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .related-image i {
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .related-content {
+            padding: var(--espaco-lg);
+        }
+
+        .related-category {
+            color: var(--vermelho-acionet);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-title {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.1rem;
+            color: var(--azul-profundo);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .related-metrics {
+            display: flex;
+            gap: var(--espaco-sm);
+            color: var(--cinza-medio);
+            font-size: 0.8rem;
+        }
+
+        /* Depoimento */
+        .testimonial-card {
+            background: linear-gradient(135deg, #1D3557, #0A192F);
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            color: white;
+            margin-top: var(--espaco-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card i {
+            font-size: 4rem;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            opacity: 0.1;
+            color: white;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: var(--espaco-md);
+            margin-top: var(--espaco-lg);
+        }
+
+        .testimonial-card .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-sidebar {
+                position: static;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-hero-title {
+                font-size: 2.5rem;
+            }
+
+            .architecture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero-meta {
+                flex-direction: column;
+                gap: var(--espaco-md);
+            }
+
+            .gallery-thumbs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: var(--espaco-md);
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animações */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes growBar {
+            from { height: 0; }
+            to { height: 100%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(230, 57, 70, 0.5);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 40px rgba(230, 57, 70, 0.8);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 🔝 Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Carregando projeto de IA...</p>
+        </div>
+    </div>
+
+    <!-- 🎮 Navegação Principal -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
+
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="nav-dropdown">
+                        <a href="portfolio.html" class="nav-link active" data-text="Projetos">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projetos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="nav-dropdown">
+                        <a href="sobre.html" class="nav-link" data-text="Sobre">
+                            <i class="fas fa-users"></i>
+                            <span>Sobre</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO DO PROJETO - FINTECH IA -->
+    <!-- ============================================ -->
+    <section class="project-hero">
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+        <div class="container">
+            <div class="project-hero-content">
+                <!-- Breadcrumb -->
+                <div class="project-hero-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="portfolio.html">Projetos</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="portfolio.html#desenvolvimento">Desenvolvimento</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>FinTech IA</span>
+                </div>
+
+                <!-- Badge -->
+                <div class="project-hero-badge">
+                    <i class="fas fa-trophy"></i>
+                    <span>PROJETO PREMIADO - FINANCIAL TIMES 2025</span>
+                </div>
+
+                <!-- Título -->
+                <h1 class="project-hero-title">
+                    Plataforma de Análise de Crédito com IA
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="project-hero-subtitle">
+                    Sistema preditivo de machine learning que reduz tempo de análise de crédito de dias para minutos,
+                    com 98% de acurácia na detecção de fraudes.
+                </p>
+
+                <!-- Meta informações -->
+                <div class="project-hero-meta">
+                    <div class="hero-meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Ano de Conclusão</span>
+                            <span class="meta-value">2025</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Duração</span>
+                            <span class="meta-value">6 meses</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <i class="fas fa-users"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Equipe</span>
+                            <span class="meta-value">8 especialistas</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <i class="fas fa-university"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Cliente</span>
+                            <span class="meta-value">FinTech Innov</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTEÚDO PRINCIPAL DO PROJETO -->
+    <!-- ============================================ -->
+    <section class="project-main">
+        <div class="container">
+            <div class="project-grid">
+                <!-- COLUNA PRINCIPAL (ESQUERDA) -->
+                <div class="project-main-col">
+                    <!-- Galeria do Projeto -->
+                    <div class="project-gallery">
+                        <div class="gallery-main" id="mainImage">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="dashboard-preview">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span>Score de Crédito</span>
+                                    <span>Alta Precisão</span>
+                                </div>
+                                <div class="chart-bars">
+                                    <div class="bar" style="height: 40px;"></div>
+                                    <div class="bar" style="height: 60px;"></div>
+                                    <div class="bar" style="height: 80px;"></div>
+                                    <div class="bar" style="height: 45px;"></div>
+                                    <div class="bar" style="height: 90px;"></div>
+                                    <div class="bar" style="height: 70px;"></div>
+                                    <div class="bar" style="height: 55px;"></div>
+                                </div>
+                            </div>
+                            <div class="play-button" id="playVideo">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbs">
+                            <div class="gallery-thumb active"><i class="fas fa-chart-line"></i></div>
+                            <div class="gallery-thumb"><i class="fas fa-robot"></i></div>
+                            <div class="gallery-thumb"><i class="fas fa-database"></i></div>
+                            <div class="gallery-thumb"><i class="fas fa-chart-pie"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Sobre o Projeto -->
+                    <h2 class="project-section-title">Sobre o Projeto</h2>
+                    <div class="project-description-full">
+                        <p>
+                            A <strong>FinTech Innov</strong>, uma das maiores plataformas de crédito do Brasil,
+                            enfrentava um desafio crítico: o processo de análise de crédito era manual e demorado,
+                            levando até 3 dias para aprovação de empréstimos. Além disso, a taxa de inadimplência
+                            estava acima da média do mercado devido à limitação dos modelos tradicionais de scoring.
+                        </p>
+                        
+                        <div class="highlight-box">
+                            <strong>O Desafio:</strong>
+                            <p>Criar um sistema automatizado de análise de crédito que pudesse processar milhares de solicitações por minuto, com alta precisão na detecção de fraudes e capacidade de aprendizado contínuo.</p>
+                        </div>
+
+                        <p>
+                            A Acionet foi contratada para desenvolver uma plataforma de inteligência artificial
+                            que utilizasse machine learning para analisar dados de crédito, comportamento do cliente,
+                            histórico financeiro e variáveis macroeconômicas em tempo real.
+                        </p>
+                    </div>
+
+                    <!-- Arquitetura da Solução -->
+                    <h2 class="project-section-title">Arquitetura da Solução</h2>
+                    <div class="architecture-diagram">
+                        <div class="architecture-grid">
+                            <div class="arch-item">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <h4>Ingestão de Dados</h4>
+                                <p>APIs em tempo real processam dados de bureaus de crédito, redes sociais e histórico bancário</p>
+                            </div>
+                            <div class="arch-item">
+                                <i class="fas fa-brain"></i>
+                                <h4>Modelos Preditivos</h4>
+                                <p>Ensemble de Random Forest, XGBoost e Redes Neurais para scoring</p>
+                            </div>
+                            <div class="arch-item">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Dashboard Analytics</h4>
+                                <p>Visualização em tempo real com métricas de risco e performance</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Funcionalidades Principais -->
+                    <h2 class="project-section-title">Funcionalidades Principais</h2>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <strong>Análise em Tempo Real</strong>
+                                <span>Processamento de até 10.000 solicitações por minuto com latência < 500ms</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <strong>Detecção de Fraudes</strong>
+                                <span>Modelos especializados identificam padrões suspeitos com 98% de acurácia</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-bar"></i>
+                            <div>
+                                <strong>Scoring Personalizado</strong>
+                                <span>Algoritmos adaptativos que aprendem com o comportamento de cada cliente</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-sync-alt"></i>
+                            <div>
+                                <strong>Aprendizado Contínuo</strong>
+                                <span>Modelos re-treinados automaticamente a cada 24 horas com novos dados</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Especificações Técnicas -->
+                    <h2 class="project-section-title">Especificações Técnicas</h2>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fab fa-python"></i>
+                                <span>Linguagens</span>
+                            </div>
+                            <div class="spec-value">Python 3.11, TypeScript</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-brain"></i>
+                                <span>Frameworks ML</span>
+                            </div>
+                            <div class="spec-value">TensorFlow, PyTorch, Scikit-learn</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-database"></i>
+                                <span>Bancos de Dados</span>
+                            </div>
+                            <div class="spec-value">PostgreSQL, MongoDB, Redis</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fab fa-aws"></i>
+                                <span>Infraestrutura</span>
+                            </div>
+                            <div class="spec-value">AWS SageMaker, EKS, Lambda</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-chart-line"></i>
+                                <span>APIs</span>
+                            </div>
+                            <div class="spec-value">RESTful, GraphQL, WebSocket</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-clock"></i>
+                                <span>Tempo de Resposta</span>
+                            </div>
+                            <div class="spec-value">< 500ms (p95)</div>
+                        </div>
+                    </div>
+
+                    <!-- Resultados -->
+                    <div class="results-showcase">
+                        <div class="results-grid">
+                            <div class="result-item">
+                                <div class="result-value" data-count="240">0</div>
+                                <div class="result-label">% Aumento Eficiência</div>
+                                <div class="result-trend up">
+                                    <i class="fas fa-arrow-up"></i> +240%
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value" data-count="65">0</div>
+                                <div class="result-label">% Menos Erros</div>
+                                <div class="result-trend down">
+                                    <i class="fas fa-arrow-down"></i> 65%
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <div class="result-value" data-count="2.8">0</div>
+                                <div class="result-label">M Economia/Ano</div>
+                                <div class="result-trend up">
+                                    <i class="fas fa-dollar-sign"></i> R$ 2.8M
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tecnologias Utilizadas -->
+                    <h2 class="project-section-title">Stack Tecnológica</h2>
+                    <div class="tech-showcase">
+                        <div class="tech-cloud">
+                            <span class="tech-cloud-item">Python</span>
+                            <span class="tech-cloud-item">TensorFlow</span>
+                            <span class="tech-cloud-item">PyTorch</span>
+                            <span class="tech-cloud-item">Scikit-learn</span>
+                            <span class="tech-cloud-item">React</span>
+                            <span class="tech-cloud-item">Node.js</span>
+                            <span class="tech-cloud-item">AWS SageMaker</span>
+                            <span class="tech-cloud-item">Docker</span>
+                            <span class="tech-cloud-item">Kubernetes</span>
+                            <span class="tech-cloud-item">PostgreSQL</span>
+                            <span class="tech-cloud-item">Redis</span>
+                            <span class="tech-cloud-item">GraphQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento do Cliente -->
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-right"></i>
+                        <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: var(--espaco-lg);">
+                            "A plataforma desenvolvida pela Acionet transformou completamente nossa operação de crédito.
+                            O que antes levava dias, agora acontece em minutos. A precisão dos modelos superou todas as
+                            nossas expectativas e a taxa de inadimplência caiu drasticamente."
+                        </p>
+                        <div class="author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <strong style="color: white; font-size: 1.1rem;">Ana Paula</strong>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">CEO, FinTech Innov</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUNA LATERAL (DIREITA) -->
+                <div class="project-sidebar">
+                    <!-- Card de Contato Rápido -->
+                    <div class="contact-card">
+                        <h3><i class="fas fa-headset"></i> Fale com um Especialista</h3>
+                        <p>Interessado em uma solução similar para sua fintech? Deixe seus dados que um especialista em IA entrará em contato.</p>
+                        <form class="contact-form-mini" id="sidebarForm">
+                            <input type="text" placeholder="Seu nome" required>
+                            <input type="email" placeholder="Seu e-mail" required>
+                            <input type="tel" placeholder="Seu telefone" required>
+                            <textarea placeholder="Mensagem (opcional)" rows="2"></textarea>
+                            <button type="submit" class="btn-block">
+                                <i class="fas fa-paper-plane"></i>
+                                Solicitar Contato
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Timeline do Projeto -->
+                    <div class="timeline-card">
+                        <h3><i class="fas fa-clock"></i> Timeline do Projeto</h3>
+                        <div class="timeline-steps">
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Jan 2025</span>
+                                    <h4>Descoberta e Planejamento</h4>
+                                    <p>Análise de dados históricos, definição de métricas e arquitetura</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Fev 2025</span>
+                                    <h4>Desenvolvimento dos Modelos</h4>
+                                    <p>Treinamento e validação de 15 modelos preditivos diferentes</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Mar 2025</span>
+                                    <h4>Desenvolvimento Frontend</h4>
+                                    <p>Criação do dashboard e APIs de integração</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Abr 2025</span>
+                                    <h4>Testes e Homologação</h4>
+                                    <p>Testes A/B, validação com dados reais e ajustes finos</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Mai 2025</span>
+                                    <h4>Go-Live</h4>
+                                    <p>Implantação em produção com rollout gradual</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Jun 2025</span>
+                                    <h4>Otimização Contínua</h4>
+                                    <p>Acompanhamento e refinamento dos modelos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documentos e Downloads -->
+                    <div class="docs-card">
+                        <h3><i class="fas fa-download"></i> Documentos</h3>
+                        <div class="docs-list">
+                            <a href="#" class="doc-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="doc-info">
+                                    <div class="doc-name">Whitepaper Técnico</div>
+                                    <div class="doc-meta">PDF • 3.2 MB</div>
+                                </div>
+                                <div class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="doc-item">
+                                <i class="fas fa-chart-bar"></i>
+                                <div class="doc-info">
+                                    <div class="doc-name">Relatório de Performance</div>
+                                    <div class="doc-meta">PDF • 2.1 MB</div>
+                                </div>
+                                <div class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="doc-item">
+                                <i class="fas fa-code"></i>
+                                <div class="doc-info">
+                                    <div class="doc-name">Documentação da API</div>
+                                    <div class="doc-meta">HTML • 5.4 MB</div>
+                                </div>
+                                <div class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="doc-item">
+                                <i class="fas fa-image"></i>
+                                <div class="doc-info">
+                                    <div class="doc-name">Dashboard Preview</div>
+                                    <div class="doc-meta">ZIP • 8.7 MB</div>
+                                </div>
+                                <div class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROJETOS RELACIONADOS -->
+    <!-- ============================================ -->
+    <section class="related-projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>PROJETOS RELACIONADOS</span>
+                </div>
+                <h2 class="section-title">
+                    Outros cases de <span class="text-gradient">desenvolvimento</span>
+                </h2>
+                <p class="section-description">
+                    Conheça mais projetos da categoria Desenvolvimento de Software
+                </p>
+            </div>
+
+            <div class="related-grid">
+                <!-- Projeto Relacionado 1: HealthTech IoT -->
+                <a href="projeto-healthtech.html" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">HealthTech</div>
+                        <h3 class="related-title">Monitoramento Remoto de Pacientes com IoT</h3>
+                        <div class="related-metrics">
+                            <span><i class="fas fa-chart-line"></i> 99.7% precisão</span>
+                            <span><i class="fas fa-users"></i> 20K+ pacientes</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Projeto Relacionado 2: E-commerce -->
+                <a href="projeto-ecommerce.html" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">Varejo</div>
+                        <h3 class="related-title">Marketplace Multicanal - Rede de Moda</h3>
+                        <div class="related-metrics">
+                            <span><i class="fas fa-store"></i> 150 lojas</span>
+                            <span><i class="fas fa-chart-line"></i> 200% crescimento</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Projeto Relacionado 3: Indústria 4.0 -->
+                <a href="projeto-industria.html" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">Indústria 4.0</div>
+                        <h3 class="related-title">Sistema de Manufatura Inteligente</h3>
+                        <div class="related-metrics">
+                            <span><i class="fas fa-chart-line"></i> 35% produtividade</span>
+                            <span><i class="fas fa-robot"></i> IoT + ML</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📧 Newsletter -->
+    <section class="newsletter-section">
+        <div class="container newsletter-container">
+            <div class="newsletter-visual">
+                <div class="orbit-animation">
+                    <div class="orbit-ring"></div>
+                    <div class="satellite" style="--angle: 0deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 120deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 240deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newsletter-content">
+                <h3 class="newsletter-title">
+                    Receba mais <span class="text-gradient">cases</span> como este
+                </h3>
+                <p class="newsletter-subtitle">
+                    Inscreva-se e receba mensalmente os melhores cases de sucesso da Acionet.
+                </p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <input type="email" placeholder="seu@email.com" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Inscrever-se</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <a href="index.html" class="footer-logo">
+                            <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+                            <span class="logo-text">ACIONET</span>
+                        </a>
+                        <p class="footer-about">
+                            Transformando negócios através da tecnologia com soluções inovadoras e resultados mensuráveis.
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Projetos</h4>
+                        <ul class="footer-links">
+                            <li><a href="portfolio.html#infraestrutura">Infraestrutura</a></li>
+                            <li><a href="portfolio.html#desenvolvimento">Desenvolvimento</a></li>
+                            <li><a href="portfolio.html#seguranca">Segurança</a></li>
+                            <li><a href="portfolio.html#consultoria">Consultoria</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contato</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>projetos@acionet.com.br</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 9999-9999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        © 2025 Acionet. Todos os direitos reservados.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.style.display = 'none', 500);
+            }, 800);
+        });
+
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            navToggle?.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Galeria de imagens
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbs = document.querySelectorAll('.gallery-thumb');
+            const mainImage = document.getElementById('mainImage');
+            const playButton = document.getElementById('playVideo');
+
+            thumbs.forEach((thumb, index) => {
+                thumb.addEventListener('click', function() {
+                    // Remove active de todas
+                    thumbs.forEach(t => t.classList.remove('active'));
+                    // Adiciona active na clicada
+                    this.classList.add('active');
+
+                    // Muda a imagem principal (simulado)
+                    const icon = this.querySelector('i').cloneNode(true);
+                    mainImage.innerHTML = '';
+                    mainImage.appendChild(icon);
+                    
+                    // Recria o dashboard preview (apenas para primeira imagem)
+                    if (index === 0) {
+                        const dashboardPreview = document.createElement('div');
+                        dashboardPreview.className = 'dashboard-preview';
+                        dashboardPreview.innerHTML = `
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span>Score de Crédito</span>
+                                <span>Alta Precisão</span>
+                            </div>
+                            <div class="chart-bars">
+                                <div class="bar" style="height: 40px;"></div>
+                                <div class="bar" style="height: 60px;"></div>
+                                <div class="bar" style="height: 80px;"></div>
+                                <div class="bar" style="height: 45px;"></div>
+                                <div class="bar" style="height: 90px;"></div>
+                                <div class="bar" style="height: 70px;"></div>
+                                <div class="bar" style="height: 55px;"></div>
+                            </div>
+                        `;
+                        mainImage.appendChild(dashboardPreview);
+                    }
+                    
+                    // Recria o botão de play
+                    const newPlayButton = document.createElement('div');
+                    newPlayButton.className = 'play-button';
+                    newPlayButton.id = 'playVideo';
+                    newPlayButton.innerHTML = '<i class="fas fa-play"></i>';
+                    mainImage.appendChild(newPlayButton);
+
+                    // Reatribui evento ao novo botão
+                    document.getElementById('playVideo').addEventListener('click', function() {
+                        alert('Vídeo de demonstração da plataforma seria reproduzido aqui!');
+                    });
+                });
+            });
+
+            // Evento do botão play
+            if (playButton) {
+                playButton.addEventListener('click', function() {
+                    alert('Vídeo de demonstração da plataforma seria reproduzido aqui!');
+                });
+            }
+
+            // Contadores animados
+            const counters = document.querySelectorAll('.result-value[data-count]');
+            
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (target % 1 !== 0) {
+                            counter.textContent = current.toFixed(1);
+                        } else {
+                            counter.textContent = Math.ceil(current);
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        if (target % 1 !== 0) {
+                            counter.textContent = target.toFixed(1);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(counter);
+            });
+
+            // Formulário da sidebar
+            const sidebarForm = document.getElementById('sidebarForm');
+            if (sidebarForm) {
+                sidebarForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Solicitação enviada! Em breve um especialista em IA entrará em contato.');
+                    this.reset();
+                });
+            }
+
+            // Efeito de hover nas tech clouds
+            const techItems = document.querySelectorAll('.tech-cloud-item');
+            techItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

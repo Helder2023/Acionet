@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto | Backhaul 10Gbps para Operadora Regional | Acionet</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Case de sucesso: Implantação de 35 enlaces de rádio digital para backhaul 4G/5G. Resultados: 99.99% de disponibilidade e 10Gbps de capacidade.">
+    <meta name="keywords"
+        content="microwave link, backhaul, operadora telecom, rádio digital, 5G, Acionet">
+    <meta name="author" content="Acionet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acionet.com.br/projeto/microwave-link">
+    <meta property="og:title" content="Backhaul 10Gbps para Operadora Regional | Acionet">
+    <meta property="og:description"
+        content="Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para rede 4G/5G.">
+    <meta property="og:image" content="assets/imgs/projetos/microwave-link.jpg">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/logo.png">
+
+</head>
+
+<body>
+    <!-- 🔝 Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Carregando projeto...</p>
+        </div>
+    </div>
+
+    <!-- 🎮 Navegação Principal -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+            </a>
+
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
+
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="nav-dropdown">
+                        <a href="portfolio.html" class="nav-link active" data-text="Projetos">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projetos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="nav-dropdown">
+                        <a href="sobre.html" class="nav-link" data-text="Sobre">
+                            <i class="fas fa-users"></i>
+                            <span>Sobre</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO DO PROJETO - MICROWAVE LINK -->
+    <!-- ============================================ -->
+    <section class="project-hero">
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+        <div class="container">
+            <div class="project-hero-content">
+                <!-- Breadcrumb -->
+                <div class="project-hero-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="portfolio.html">Projetos</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="portfolio.html#infraestrutura">Infraestrutura</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Microwave Link</span>
+                </div>
+
+                <!-- Badge -->
+                <div class="project-hero-badge">
+                    <i class="fas fa-trophy"></i>
+                    <span>PROJETO DESTAQUE 2025</span>
+                </div>
+
+                <!-- Título -->
+                <h1 class="project-hero-title">
+                    Backhaul 10Gbps para Operadora Regional
+                </h1>
+
+                <!-- Subtítulo -->
+                <p class="project-hero-subtitle">
+                    Implantação de 35 enlaces de rádio digital para expansão da rede 4G/5G
+                    em regiões remotas do interior paulista.
+                </p>
+
+                <!-- Meta informações -->
+                <div class="project-hero-meta">
+                    <div class="hero-meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Ano de Conclusão</span>
+                            <span class="meta-value">2025</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Duração</span>
+                            <span class="meta-value">8 meses</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <i class="fas fa-users"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Equipe</span>
+                            <span class="meta-value">12 especialistas</span>
+                        </div>
+                    </div>
+                    <div class="hero-meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="meta-text">
+                            <span class="meta-label">Localização</span>
+                            <span class="meta-value">Interior de SP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTEÚDO PRINCIPAL DO PROJETO -->
+    <!-- ============================================ -->
+    <section class="project-main">
+        <div class="container">
+            <div class="project-grid">
+                <!-- COLUNA PRINCIPAL (ESQUERDA) -->
+                <div class="project-main-col">
+                    <!-- Galeria do Projeto -->
+                    <div class="project-gallery">
+                        <div class="gallery-main" id="mainImage">
+                            <i class="fas fa-satellite-dish"></i>
+                            <div class="play-button" id="playVideo">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-thumbs">
+                            <div class="gallery-thumb active"><i class="fas fa-satellite-dish"></i></div>
+                            <div class="gallery-thumb"><i class="fas fa-tower-cell"></i></div>
+                            <div class="gallery-thumb"><i class="fas fa-chart-line"></i></div>
+                            <div class="gallery-thumb"><i class="fas fa-map-marked-alt"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Sobre o Projeto -->
+                    <h2 class="project-section-title">Sobre o Projeto</h2>
+                    <div class="project-description-full">
+                        <p>
+                            A Operadora Regional, uma das maiores prestadoras de serviços de telecomunicações
+                            do interior paulista, enfrentava desafios de conectividade em áreas remotas para
+                            expansão de sua rede 4G e preparação para o 5G. A falta de infraestrutura de fibra
+                            óptica em determinadas regiões impedia a entrega de backhaul de alta capacidade.
+                        </p>
+                        <p>
+                            A Acionet foi contratada para projetar e implementar uma solução de rádio enlace
+                            ponto a ponto (microwave link) que pudesse interligar as torres de telefonia móvel
+                            com alta capacidade, baixa latência e máxima disponibilidade, mesmo em condições
+                            adversas de terreno e clima.
+                        </p>
+                    </div>
+
+                    <!-- Desafios -->
+                    <h2 class="project-section-title">Desafios Superados</h2>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-mountain"></i>
+                            <div>
+                                <strong>Terreno acidentado</strong>
+                                <span>Regiões serranas com obstrução de linha de visada exigiram estudos topográficos detalhados e torres de até 80m.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-cloud-rain"></i>
+                            <strong>Condições climáticas</strong>
+                            <span>Fortes chuvas na região exigiram dimensionamento de enlaces com alta disponibilidade (99.99%) e técnicas de diversidade.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-bolt"></i>
+                            <strong>Interferência eletromagnética</strong>
+                            <span>Presença de outras operadoras na mesma faixa exigiu planejamento espectral rigoroso e filtros especiais.</span>
+                        </li>
+                    </ul>
+
+                    <!-- Especificações Técnicas -->
+                    <h2 class="project-section-title">Especificações Técnicas</h2>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-satellite-dish"></i>
+                                <span>Frequências</span>
+                            </div>
+                            <div class="spec-value">11GHz e 18GHz (licenciadas)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Capacidade</span>
+                            </div>
+                            <div class="spec-value">10Gbps por enlace (agregação)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-ruler"></i>
+                                <span>Alcance Máximo</span>
+                            </div>
+                            <div class="spec-value">45km (com repetidores)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Disponibilidade</span>
+                            </div>
+                            <div class="spec-value">99.99% (classe ETSI)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-lock"></i>
+                                <span>Criptografia</span>
+                            </div>
+                            <div class="spec-value">AES-256 (FIPS 140-2)</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">
+                                <i class="fas fa-clock"></i>
+                                <span>Latência</span>
+                            </div>
+                            <div class="spec-value">< 0.5ms por enlace</div>
+                        </div>
+                    </div>                 
+
+                    <!-- Tecnologias Utilizadas -->
+                    <h2 class="project-section-title">Tecnologias Utilizadas</h2>
+                    <div class="tech-showcase">
+                        <div class="tech-cloud">
+                            <span class="tech-cloud-item">Microwave 11GHz</span>
+                            <span class="tech-cloud-item">Microwave 18GHz</span>
+                            <span class="tech-cloud-item">SDH/SONET</span>
+                            <span class="tech-cloud-item">Ethernet/IP</span>
+                            <span class="tech-cloud-item">MIMO 2x2</span>
+                            <span class="tech-cloud-item">Adaptive Modulation</span>
+                            <span class="tech-cloud-item">QPSK a 256QAM</span>
+                            <span class="tech-cloud-item">AES-256</span>
+                            <span class="tech-cloud-item">Ceragon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUNA LATERAL (DIREITA) -->
+                <div class="project-sidebar">
+                    <!-- Card de Contato Rápido -->
+                    <div class="contact-card">
+                        <h3><i class="fas fa-headset"></i> Fale com um Especialista</h3>
+                        <p>Interessado em uma solução similar? Deixe seus dados que um especialista entrará em contato.</p>
+                        <form class="contact-form-mini" id="sidebarForm">
+                            <input type="text" placeholder="Seu nome" required>
+                            <input type="email" placeholder="Seu e-mail" required>
+                            <input type="tel" placeholder="Seu telefone" required>
+                            <textarea placeholder="Mensagem (opcional)" rows="2"></textarea>
+                            <button type="submit" class="btn-block">
+                                <i class="fas fa-paper-plane"></i>
+                                Solicitar Contato
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Timeline do Projeto -->
+                    <div class="timeline-card">
+                        <h3><i class="fas fa-clock"></i> Timeline do Projeto</h3>
+                        <div class="timeline-steps">
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Jan 2024</span>
+                                    <h4>Estudos e Planejamento</h4>
+                                    <p>Levantamento topográfico, estudos de viabilidade e licenciamento.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Mar 2024</span>
+                                    <h4>Infraestrutura das Torres</h4>
+                                    <p>Construção e adequação de 12 torres para suporte dos rádios.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Jun 2024</span>
+                                    <h4>Instalação dos Enlaces</h4>
+                                    <p>Instalação de 35 rádios em configuração protegida 1+1.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Ago 2024</span>
+                                    <h4>Comissionamento e Testes</h4>
+                                    <p>Testes de throughput, latência e handover.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-marker"></div>
+                                <div class="step-content">
+                                    <span class="step-date">Set 2024</span>
+                                    <h4>Go-Live</h4>
+                                    <p>Entrada em operação comercial.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Documentos e Downloads -->
+                    <div class="docs-card">
+                        <h3><i class="fas fa-download"></i> Documentos</h3>
+                        <div class="docs-list">
+                            <a href="#" class="doc-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <div class="doc-info">
+                                    <div class="doc-name">Estudo de Caso Completo</div>
+                                    <div class="doc-meta">PDF • 2.4 MB</div>
+                                </div>
+                                <div class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="doc-item">
+                                <i class="fas fa-chart-bar"></i>
+                                <div class="doc-info">
+                                    <div class="doc-name">Relatório de Resultados</div>
+                                    <div class="doc-meta">PDF • 1.8 MB</div>
+                                </div>
+                                <div class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                            </a>
+                            <a href="#" class="doc-item">
+                                <i class="fas fa-image"></i>
+                                <div class="doc-info">
+                                    <div class="doc-name">Fotos em Alta Resolução</div>
+                                    <div class="doc-meta">ZIP • 15 MB</div>
+                                </div>
+                                <div class="doc-download">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROJETOS RELACIONADOS -->
+    <!-- ============================================ -->
+    <section class="related-projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>PROJETOS RELACIONADOS</span>
+                </div>
+                <h2 class="section-title">
+                    Outros casos de <span class="text-gradient">sucesso</span>
+                </h2>
+                <p class="section-description">
+                    Conheça mais projetos da categoria Infraestrutura de Redes
+                </p>
+            </div>
+
+            <div class="related-grid">
+                <!-- Projeto Relacionado 1: Fibra Óptica -->
+                <a href="projeto-fibra.html" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">Fibra Óptica</div>
+                        <h3 class="related-title">Rede Metropolitana de Fibra - 120km</h3>
+                        <div class="related-metrics">
+                            <span><i class="fas fa-ruler"></i> 120km</span>
+                            <span><i class="fas fa-building"></i> 45 pontos</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Projeto Relacionado 2: Datacenter -->
+                <a href="projeto-datacenter.html" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">Datacenter</div>
+                        <h3 class="related-title">Modernização de Datacenter - Banco Regional</h3>
+                        <div class="related-metrics">
+                            <span><i class="fas fa-server"></i> 120 servidores</span>
+                            <span><i class="fas fa-chart-line"></i> 70% redução</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Projeto Relacionado 3: 5G -->
+                <a href="projeto-5g.html" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-broadcast-tower"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">RF Drive Test</div>
+                        <h3 class="related-title">Otimização de Cobertura 5G - Grande SP</h3>
+                        <div class="related-metrics">
+                            <span><i class="fas fa-road"></i> 150km</span>
+                            <span><i class="fas fa-signal"></i> 98% cobertura</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📧 Newsletter -->
+    <section class="newsletter-section">
+        <div class="container newsletter-container">
+            <div class="newsletter-visual">
+                <div class="orbit-animation">
+                    <div class="orbit-ring"></div>
+                    <div class="satellite" style="--angle: 0deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 120deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="satellite" style="--angle: 240deg">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="newsletter-content">
+                <h3 class="newsletter-title">
+                    Receba mais <span class="text-gradient">cases</span> como este
+                </h3>
+                <p class="newsletter-subtitle">
+                    Inscreva-se e receba mensalmente os melhores cases de sucesso da Acionet.
+                </p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <div class="input-wrapper">
+                            <input type="email" placeholder="seu@email.com" required>
+                            <i class="fas fa-envelope input-icon"></i>
+                        </div>
+                        <button type="submit" class="btn btn-submit">
+                            <span>Inscrever-se</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 👣 Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <a href="index.html" class="footer-logo">
+                            <img src="assets/imgs/logo.png" alt="Acionet" class="logo-image">
+                            <span class="logo-text">ACIONET</span>
+                        </a>
+                        <p class="footer-about">
+                            Transformando negócios através da tecnologia com soluções inovadoras e resultados mensuráveis.
+                        </p>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Projetos</h4>
+                        <ul class="footer-links">
+                            <li><a href="portfolio.html#infraestrutura">Infraestrutura</a></li>
+                            <li><a href="portfolio.html#desenvolvimento">Desenvolvimento</a></li>
+                            <li><a href="portfolio.html#seguranca">Segurança</a></li>
+                            <li><a href="portfolio.html#consultoria">Consultoria</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contato</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>projetos@acionet.com.br</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 9999-9999</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="bottom-content">
+                    <div class="copyright">
+                        © 2025 Acionet. Todos os direitos reservados.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.style.display = 'none', 500);
+            }, 800);
+        });
+
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            navToggle?.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Galeria de imagens
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbs = document.querySelectorAll('.gallery-thumb');
+            const mainImage = document.getElementById('mainImage');
+            const playButton = document.getElementById('playVideo');
+
+            thumbs.forEach((thumb, index) => {
+                thumb.addEventListener('click', function() {
+                    // Remove active de todas
+                    thumbs.forEach(t => t.classList.remove('active'));
+                    // Adiciona active na clicada
+                    this.classList.add('active');
+
+                    // Muda a imagem principal (simulado)
+                    const icon = this.querySelector('i').cloneNode(true);
+                    mainImage.innerHTML = '';
+                    mainImage.appendChild(icon);
+                    
+                    // Recria o botão de play
+                    const newPlayButton = document.createElement('div');
+                    newPlayButton.className = 'play-button';
+                    newPlayButton.id = 'playVideo';
+                    newPlayButton.innerHTML = '<i class="fas fa-play"></i>';
+                    mainImage.appendChild(newPlayButton);
+
+                    // Reatribui evento ao novo botão
+                    document.getElementById('playVideo').addEventListener('click', function() {
+                        alert('Vídeo do projeto seria reproduzido aqui!');
+                    });
+                });
+            });
+
+            // Evento do botão play
+            if (playButton) {
+                playButton.addEventListener('click', function() {
+                    alert('Vídeo do projeto seria reproduzido aqui!');
+                });
+            }
+
+            // Contadores animados
+            const counters = document.querySelectorAll('.result-value[data-count]');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (target % 1 !== 0) {
+                            counter.textContent = current.toFixed(2);
+                        } else {
+                            counter.textContent = Math.ceil(current);
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        if (target % 1 !== 0) {
+                            counter.textContent = target.toFixed(2);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observer.observe(counter);
+            });
+
+            // Formulário da sidebar
+            const sidebarForm = document.getElementById('sidebarForm');
+            if (sidebarForm) {
+                sidebarForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Solicitação enviada! Em breve um especialista entrará em contato.');
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+
+    <style>
+        /* ============================================
+           PÁGINA DE PROJETO INDIVIDUAL
+        ============================================ */
+        
+        /* Hero do Projeto */
+        .project-hero {
+            min-height: 70vh;
+            background: var(--gradiente-dashboard);
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(230, 57, 70, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(168, 218, 220, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .project-hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            max-width: 800px;
+        }
+
+        .project-hero-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: var(--espaco-lg);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .project-hero-breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .project-hero-breadcrumb a:hover {
+            color: var(--vermelho-acionet);
+        }
+
+        .project-hero-breadcrumb i {
+            font-size: 0.75rem;
+        }
+
+        .project-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(230, 57, 70, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--espaco-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-hero-title {
+            font-family: var(--fonte-secundaria);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--espaco-md);
+        }
+
+        .project-hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--espaco-xl);
+            max-width: 600px;
+        }
+
+        .project-hero-meta {
+            display: flex;
+            gap: var(--espaco-xl);
+            flex-wrap: wrap;
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--espaco-sm);
+        }
+
+        .hero-meta-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(230, 57, 70, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--vermelho-acionet);
+        }
+
+        .hero-meta-item .meta-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-meta-item .meta-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-meta-item .meta-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Container principal */
+        .project-main {
+            padding: var(--espaco-3xl) 0;
+            background: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--espaco-2xl);
+        }
+
+        /* Galeria do Projeto */
+        .project-gallery {
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .gallery-main {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--azul-profundo), var(--azul-escuro));
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--espaco-md);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: 1px solid var(--cinza-claro);
+        }
+
+        .gallery-main i {
+            font-size: 5rem;
+            opacity: 0.3;
+        }
+
+        .gallery-main .play-button {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: 0 0 30px rgba(230, 57, 70, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .gallery-main .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-thumbs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--espaco-sm);
+        }
+
+        .gallery-thumb {
+            height: 80px;
+            background: linear-gradient(135deg, var(--azul-claro-tech), var(--azul-profundo));
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .gallery-thumb:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        .gallery-thumb.active {
+            border-color: var(--vermelho-acionet);
+            opacity: 1;
+        }
+
+        /* Informações do Projeto */
+        .project-section-title {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.8rem;
+            color: var(--azul-profundo);
+            margin-bottom: var(--espaco-lg);
+            position: relative;
+            padding-bottom: var(--espaco-sm);
+        }
+
+        .project-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gradiente-vermelho);
+            border-radius: var(--radius-full);
+        }
+
+        .project-description-full {
+            color: var(--cinza-medio);
+            line-height: 1.8;
+            margin-bottom: var(--espaco-xl);
+            font-size: 1.05rem;
+        }
+
+        .project-description-full p {
+            margin-bottom: var(--espaco-md);
+        }
+
+        /* Lista de Benefícios */
+        .benefits-list {
+            list-style: none;
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--espaco-md);
+            margin-bottom: var(--espaco-md);
+            padding: var(--espaco-sm);
+            background: var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+        }
+
+        .benefits-list li:hover {
+            transform: translateX(10px);
+            background: white;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .benefits-list i {
+            width: 30px;
+            height: 30px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .benefits-list strong {
+            color: var(--azul-profundo);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .benefits-list span {
+            color: var(--cinza-medio);
+            font-size: 0.95rem;
+        }
+
+        /* Especificações Técnicas */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--espaco-md);
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .spec-item {
+            background: var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            padding: var(--espaco-md);
+            transition: all var(--transition-normal);
+        }
+
+        .spec-item:hover {
+            transform: translateY(-3px);
+            background: white;
+            box-shadow: var(--sombra-suave);
+        }
+
+        .spec-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--azul-profundo);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .spec-label i {
+            color: var(--vermelho-acionet);
+        }
+
+        .spec-value {
+            color: var(--cinza-medio);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Resultados e Métricas */
+        .results-showcase {
+            background: var(--gradiente-azul);
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            color: white;
+            margin-bottom: var(--espaco-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results-showcase::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espaco-lg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-family: var(--fonte-secundaria);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .result-trend {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .result-trend.up {
+            background: rgba(6, 214, 160, 0.2);
+            color: #06D6A0;
+        }
+
+        .result-trend.down {
+            background: rgba(230, 57, 70, 0.2);
+            color: var(--vermelho-acionet);
+        }
+
+        /* Tecnologias Utilizadas */
+        .tech-showcase {
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .tech-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--espaco-sm);
+            margin-top: var(--espaco-md);
+        }
+
+        .tech-cloud-item {
+            background: var(--cinza-claro);
+            color: var(--azul-profundo);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            transition: all var(--transition-normal);
+            border: 2px solid transparent;
+        }
+
+        .tech-cloud-item:hover {
+            background: var(--gradiente-vermelho);
+            color: white;
+            transform: translateY(-3px);
+            border-color: white;
+        }
+
+        /* Sidebar */
+        .project-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        /* Card de Contato */
+        .contact-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            box-shadow: var(--sombra-forte);
+            border: 1px solid var(--cinza-claro);
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .contact-card h3 {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.3rem;
+            color: var(--azul-profundo);
+            margin-bottom: var(--espaco-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-card h3 i {
+            color: var(--vermelho-acionet);
+        }
+
+        .contact-card p {
+            color: var(--cinza-medio);
+            margin-bottom: var(--espaco-lg);
+            line-height: 1.6;
+        }
+
+        .contact-form-mini {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espaco-md);
+        }
+
+        .contact-form-mini input,
+        .contact-form-mini textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            font-family: var(--fonte-principal);
+            transition: all var(--transition-normal);
+        }
+
+        .contact-form-mini input:focus,
+        .contact-form-mini textarea:focus {
+            outline: none;
+            border-color: var(--vermelho-acionet);
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradiente-vermelho);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-block:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-forte);
+        }
+
+        /* Timeline do Projeto */
+        .timeline-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            box-shadow: var(--sombra-forte);
+            border: 1px solid var(--cinza-claro);
+            margin-bottom: var(--espaco-xl);
+        }
+
+        .timeline-card h3 {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.3rem;
+            color: var(--azul-profundo);
+            margin-bottom: var(--espaco-lg);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .timeline-steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espaco-lg);
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: var(--espaco-md);
+            position: relative;
+            padding-left: var(--espaco-lg);
+        }
+
+        .timeline-step:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 25px;
+            bottom: -15px;
+            width: 2px;
+            background: var(--cinza-claro);
+        }
+
+        .step-marker {
+            position: absolute;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--gradiente-vermelho);
+            border-radius: 50%;
+            top: 5px;
+        }
+
+        .step-content h4 {
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 0.25rem;
+        }
+
+        .step-content p {
+            color: var(--cinza-medio);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .step-date {
+            display: inline-block;
+            background: var(--cinza-claro);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            color: var(--cinza-medio);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Documentos e Downloads */
+        .docs-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--espaco-xl);
+            box-shadow: var(--sombra-forte);
+            border: 1px solid var(--cinza-claro);
+        }
+
+        .docs-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--espaco-sm);
+        }
+
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: var(--espaco-md);
+            padding: var(--espaco-md);
+            background: var(--cinza-claro);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+        }
+
+        .doc-item:hover {
+            background: white;
+            transform: translateX(5px);
+            box-shadow: var(--sombra-suave);
+        }
+
+        .doc-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gradiente-azul);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-name {
+            font-weight: 600;
+            color: var(--azul-profundo);
+            margin-bottom: 0.2rem;
+        }
+
+        .doc-meta {
+            font-size: 0.8rem;
+            color: var(--cinza-medio);
+        }
+
+        .doc-download {
+            color: var(--vermelho-acionet);
+            font-size: 1.2rem;
+        }
+
+        /* Projetos Relacionados */
+        .related-projects {
+            padding: var(--espaco-3xl) 0;
+            background: var(--cinza-claro);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--espaco-xl);
+            margin-top: var(--espaco-2xl);
+        }
+
+        .related-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--sombra-card);
+            transition: all var(--transition-normal);
+            text-decoration: none;
+            border: 1px solid var(--cinza-claro);
+        }
+
+        .related-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sombra-forte);
+            border-color: var(--vermelho-acionet);
+        }
+
+        .related-image {
+            height: 150px;
+            background: linear-gradient(135deg, var(--azul-profundo), var(--azul-escuro));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .related-image i {
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+
+        .related-content {
+            padding: var(--espaco-lg);
+        }
+
+        .related-category {
+            color: var(--vermelho-acionet);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .related-title {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.1rem;
+            color: var(--azul-profundo);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .related-metrics {
+            display: flex;
+            gap: var(--espaco-sm);
+            color: var(--cinza-medio);
+            font-size: 0.8rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-sidebar {
+                position: static;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero-meta {
+                flex-direction: column;
+                gap: var(--espaco-md);
+            }
+
+            .gallery-thumbs {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: var(--espaco-md);
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-hero-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animações */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</html>
