@@ -1271,6 +1271,836 @@
         <div class="top-glow"></div>
     </button>
 
+<script>
+    // ============================================
+// MODAL DE SOLICITAÇÃO DE PROJETO
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ============================================
+    // CRIAR ESTRUTURA DO MODAL
+    // ============================================
+    function createModal() {
+        // Verifica se o modal já existe
+        if (document.getElementById('solicitacaoModal')) return;
+
+        const modalHTML = `
+            <div class="modal-overlay" id="solicitacaoModal">
+                <div class="modal-container">
+                    <!-- Cabeçalho do Modal -->
+                    <div class="modal-header">
+                        <div class="modal-icon">
+                            <i class="fas fa-file-signature"></i>
+                            <div class="icon-halo"></div>
+                        </div>
+                        <h2 class="modal-title">Solicitar Projeto</h2>
+                        <button class="modal-close" id="closeModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+
+                    <!-- Corpo do Modal -->
+                    <div class="modal-body">
+                        <div class="modal-category-badge" id="modalCategory">
+                            <i class="fas fa-tag"></i>
+                            <span>Categoria: <strong id="categoryName">Infraestrutura</strong></span>
+                        </div>
+
+                        <form id="solicitacaoForm" class="modal-form">
+                            <!-- Tipo de Projeto (pré-selecionado) -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-cube"></i>
+                                    Tipo de Solução *
+                                </label>
+                                <input type="text" class="form-control" id="tipoSolucao" readonly>
+                            </div>
+
+                            <!-- Nome -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    Nome Completo *
+                                </label>
+                                <input type="text" class="form-control" id="nome" placeholder="Seu nome completo" required>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-envelope"></i>
+                                    E-mail *
+                                </label>
+                                <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+                            </div>
+
+                            <!-- Telefone -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-phone"></i>
+                                    Telefone *
+                                </label>
+                                <input type="tel" class="form-control" id="telefone" placeholder="(11) 99999-9999" required>
+                            </div>
+
+                            <!-- Empresa -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-building"></i>
+                                    Empresa
+                                </label>
+                                <input type="text" class="form-control" id="empresa" placeholder="Nome da empresa">
+                            </div>
+
+                            <!-- Descrição do Projeto -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-comment"></i>
+                                    Descrição do Projeto *
+                                </label>
+                                <textarea class="form-control" id="descricao" rows="4" placeholder="Descreva sua necessidade ou projeto..." required></textarea>
+                            </div>
+
+                            <!-- Orçamento Estimado -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    Orçamento Estimado
+                                </label>
+                                <select class="form-control" id="orcamento">
+                                    <option value="" disabled selected>Selecione uma faixa</option>
+                                    <option value="ate-10k">Até R$ 10.000</option>
+                                    <option value="10k-50k">R$ 10.000 a R$ 50.000</option>
+                                    <option value="50k-100k">R$ 50.000 a R$ 100.000</option>
+                                    <option value="100k-500k">R$ 100.000 a R$ 500.000</option>
+                                    <option value="acima-500k">Acima de R$ 500.000</option>
+                                    <option value="sob-consulta">Sob consulta</option>
+                                </select>
+                            </div>
+
+                            <!-- Prazo -->
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-clock"></i>
+                                    Prazo Desejado
+                                </label>
+                                <select class="form-control" id="prazo">
+                                    <option value="" disabled selected>Selecione um prazo</option>
+                                    <option value="urgente">Urgente (até 1 mês)</option>
+                                    <option value="curto">Curto prazo (1-3 meses)</option>
+                                    <option value="medio">Médio prazo (3-6 meses)</option>
+                                    <option value="longo">Longo prazo (6+ meses)</option>
+                                    <option value="indefinido">A definir</option>
+                                </select>
+                            </div>
+
+                            <!-- Checkbox LGPD -->
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="lgpd" required>
+                                <label class="form-check-label" for="lgpd">
+                                    Concordo com a <a href="politica-privacidade.html" target="_blank">Política de Privacidade</a> e autorizo o uso dos meus dados para contato.
+                                </label>
+                            </div>
+
+                            <!-- Botões -->
+                            <div class="modal-actions">
+                                <button type="button" class="btn-cancel" id="cancelModal">
+                                    <i class="fas fa-times"></i>
+                                    Cancelar
+                                </button>
+                                <button type="submit" class="btn-submit" id="submitSolicitacao">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Enviar Solicitação
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Adiciona o modal ao body
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+
+    // ============================================
+    // FUNÇÕES DO MODAL
+    // ============================================
+    
+    // Abrir modal
+    function openModal(categoria, tipoSolucao) {
+        const modal = document.getElementById('solicitacaoModal');
+        if (!modal) return;
+
+        // Atualiza os campos com a categoria selecionada
+        document.getElementById('categoryName').textContent = categoria;
+        document.getElementById('tipoSolucao').value = `${categoria} - ${tipoSolucao}`;
+        
+        // Adiciona classe para animação
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Impede scroll da página
+    }
+
+    // Fechar modal
+    function closeModal() {
+        const modal = document.getElementById('solicitacaoModal');
+        if (!modal) return;
+
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restaura scroll
+        
+        // Limpa o formulário
+        document.getElementById('solicitacaoForm').reset();
+    }
+
+    // ============================================
+    // MÁSCARA DE TELEFONE
+    // ============================================
+    function mascaraTelefone(telefone) {
+        const texto = telefone.value;
+        const textoApenasNumeros = texto.replace(/\D/g, '').substring(0, 11);
+        
+        let telefoneFormatado = textoApenasNumeros.replace(/^(\d{2})(\d)/g, '($1) $2');
+        telefoneFormatado = telefoneFormatado.replace(/(\d)(\d{4})$/, '$1-$2');
+        
+        telefone.value = telefoneFormatado;
+    }
+
+    // ============================================
+    // VALIDAÇÃO DE EMAIL
+    // ============================================
+    function validarEmail(email) {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+
+    // ============================================
+    // ENVIO DO FORMULÁRIO (SIMULAÇÃO)
+    // ============================================
+    function enviarSolicitacao(event) {
+        event.preventDefault();
+
+        const form = document.getElementById('solicitacaoForm');
+        const submitBtn = document.getElementById('submitSolicitacao');
+        
+        // Validações básicas
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefone = document.getElementById('telefone').value.trim();
+        const descricao = document.getElementById('descricao').value.trim();
+        const lgpd = document.getElementById('lgpd').checked;
+
+        if (!nome || !email || !telefone || !descricao || !lgpd) {
+            showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
+            return;
+        }
+
+        if (!validarEmail(email)) {
+            showNotification('Por favor, insira um e-mail válido.', 'error');
+            return;
+        }
+
+        // Simula envio
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+        // Coleta os dados do formulário
+        const formData = {
+            categoria: document.getElementById('categoryName').textContent,
+            tipoSolucao: document.getElementById('tipoSolucao').value,
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            empresa: document.getElementById('empresa').value.trim(),
+            descricao: descricao,
+            orcamento: document.getElementById('orcamento').value,
+            prazo: document.getElementById('prazo').value,
+            data: new Date().toLocaleString('pt-BR')
+        };
+
+        console.log('Dados da solicitação:', formData); // Para debug
+
+        setTimeout(() => {
+            // Simula sucesso no envio
+            showNotification('Solicitação enviada com sucesso! Em breve um especialista entrará em contato.', 'success');
+            
+            // Fecha o modal
+            closeModal();
+            
+            // Restaura o botão
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Solicitação';
+            
+            // Aqui você pode adicionar a lógica para enviar os dados para um backend
+            // fetch('/api/solicitar-projeto', { method: 'POST', body: JSON.stringify(formData) })
+            
+        }, 2000);
+    }
+
+    // ============================================
+    // NOTIFICAÇÃO
+    // ============================================
+    function showNotification(message, type = 'success') {
+        // Remove notificação existente
+        const existingNotification = document.querySelector('.modal-notification');
+        if (existingNotification) existingNotification.remove();
+
+        const notification = document.createElement('div');
+        notification.className = `modal-notification ${type}`;
+        notification.innerHTML = `
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.classList.add('show');
+        }, 10);
+
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+    }
+
+    // ============================================
+    // INICIALIZAÇÃO
+    // ============================================
+    
+    // Cria o modal
+    createModal();
+
+    // ============================================
+    // ADICIONA EVENTOS A TODOS OS LINKS "Solicitar Proposta"
+    // ============================================
+    const solicitarLinks = document.querySelectorAll('.card-link[href="#contato"]');
+    
+    solicitarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Encontra a categoria mais próxima
+            const categoriaSection = this.closest('.category-section');
+            const categoriaHeader = categoriaSection?.querySelector('.category-title');
+            const solutionCard = this.closest('.solution-detailed-card');
+            const solutionTitle = solutionCard?.querySelector('.solution-title')?.textContent || 'Projeto Personalizado';
+            
+            let categoria = 'Infraestrutura';
+            
+            if (categoriaHeader) {
+                categoria = categoriaHeader.textContent;
+            } else {
+                // Fallback baseado no ID da seção
+                if (categoriaSection?.id === 'infraestrutura') categoria = 'Infraestrutura de Redes';
+                else if (categoriaSection?.id === 'desenvolvimento') categoria = 'Desenvolvimento de Software';
+                else if (categoriaSection?.id === 'seguranca') categoria = 'Segurança Eletrônica';
+                else if (categoriaSection?.id === 'consultoria') categoria = 'Consultoria em TI';
+            }
+
+            // Abre o modal com a categoria e solução
+            openModal(categoria, solutionTitle);
+        });
+    });
+
+    // ============================================
+    // EVENTOS DO MODAL
+    // ============================================
+    
+    // Fechar modal com botão X
+    const closeBtn = document.getElementById('closeModal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    // Fechar modal com botão Cancelar
+    const cancelBtn = document.getElementById('cancelModal');
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeModal);
+    }
+
+    // Fechar modal clicando no overlay
+    const modalOverlay = document.getElementById('solicitacaoModal');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    }
+
+    // Máscara de telefone
+    const telefoneInput = document.getElementById('telefone');
+    if (telefoneInput) {
+        telefoneInput.addEventListener('input', function() {
+            mascaraTelefone(this);
+        });
+    }
+
+    // Submit do formulário
+    const solicitacaoForm = document.getElementById('solicitacaoForm');
+    if (solicitacaoForm) {
+        solicitacaoForm.addEventListener('submit', enviarSolicitacao);
+    }
+
+    // Fechar modal com tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    console.log('✅ Modal de solicitação inicializado!');
+});
+</script>
+
+<style>
+    /* ============================================
+   MODAL DE SOLICITAÇÃO DE PROJETO
+   ============================================ */
+
+/* Overlay do Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-max);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal);
+    padding: var(--espaco-md);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Container do Modal */
+.modal-container {
+    background: white;
+    border-radius: var(--radius-xl);
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--sombra-forte);
+    transform: translateY(30px) scale(0.95);
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.modal-overlay.active .modal-container {
+    transform: translateY(0) scale(1);
+}
+
+/* Cabeçalho do Modal */
+.modal-header {
+    padding: var(--espaco-xl);
+    border-bottom: 1px solid var(--cinza-claro);
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-md);
+    position: relative;
+    background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-escuro) 100%);
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    color: white;
+}
+
+.modal-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradiente-vermelho);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    position: relative;
+}
+
+.modal-icon .icon-halo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--vermelho-acionet);
+    opacity: 0.3;
+    filter: blur(10px);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.modal-title {
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex: 1;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-size: 1.2rem;
+}
+
+.modal-close:hover {
+    background: white;
+    color: var(--azul-profundo);
+    border-color: white;
+    transform: rotate(90deg);
+}
+
+/* Corpo do Modal */
+.modal-body {
+    padding: var(--espaco-xl);
+}
+
+/* Badge de Categoria */
+.modal-category-badge {
+    background: var(--cinza-claro);
+    padding: var(--espaco-md);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--espaco-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-sm);
+    border-left: 4px solid var(--vermelho-acionet);
+}
+
+.modal-category-badge i {
+    color: var(--vermelho-acionet);
+    font-size: 1.1rem;
+}
+
+.modal-category-badge span {
+    color: var(--cinza-medio);
+    font-size: 0.95rem;
+}
+
+.modal-category-badge strong {
+    color: var(--azul-profundo);
+    font-weight: 700;
+}
+
+/* Formulário */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espaco-xs);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--azul-profundo);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-label i {
+    color: var(--vermelho-acionet);
+    font-size: 0.9rem;
+}
+
+.form-control {
+    padding: 1rem;
+    border: 2px solid var(--cinza-claro);
+    border-radius: var(--radius-lg);
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    transition: all var(--transition-normal);
+    color: var(--azul-profundo) !important;
+    box-shadow: 0 0 0 2px rgba(230, 57, 71, 0.349);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--vermelho-acionet);
+    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+}
+
+.form-control.is-invalid {
+    border-color: var(--vermelho-acionet);
+    background: rgba(230, 57, 70, 0.02);
+}
+
+.form-control.is-valid {
+    border-color: #06D6A0;
+    background: rgba(6, 214, 160, 0.02);
+}
+
+.form-control[readonly] {
+    background: var(--cinza-claro);
+    cursor: not-allowed;
+    opacity: 0.8;
+    border-color: var(--cinza-claro);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 100px;
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235C5F6B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+}
+
+/* Checkbox */
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--espaco-sm);
+    padding: var(--espaco-md);
+    background: var(--cinza-claro);
+    border-radius: var(--radius-lg);
+    margin: var(--espaco-sm) 0;
+}
+
+.form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-top: 0.2rem;
+    accent-color: var(--vermelho-acionet);
+    cursor: pointer;
+}
+
+.form-check-label {
+    color: var(--cinza-medio);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.form-check-label a {
+    color: var(--vermelho-acionet);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-check-label a:hover {
+    text-decoration: underline;
+}
+
+/* Ações do Modal */
+.modal-actions {
+    display: flex;
+    gap: var(--espaco-md);
+    margin-top: var(--espaco-lg);
+}
+
+.btn-cancel {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid var(--cinza-claro);
+    background: white;
+    color: var(--cinza-medio);
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-cancel:hover {
+    border-color: var(--vermelho-acionet);
+    color: var(--vermelho-acionet);
+    transform: translateY(-2px);
+}
+
+.btn-submit {
+    flex: 2;
+    padding: 1rem;
+    background: var(--gradiente-vermelho);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-forte);
+}
+
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.btn-submit i {
+    transition: transform var(--transition-normal);
+}
+
+.btn-submit:hover:not(:disabled) i {
+    transform: translateX(5px);
+}
+
+/* Notificação */
+.modal-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-full);
+    background: white;
+    box-shadow: var(--sombra-forte);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: calc(var(--z-max) + 1);
+    transform: translateX(120%);
+    transition: transform var(--transition-normal);
+    border-left: 4px solid;
+    max-width: 400px;
+}
+
+.modal-notification.show {
+    transform: translateX(0);
+}
+
+.modal-notification.success {
+    border-left-color: #06D6A0;
+}
+
+.modal-notification.success i {
+    color: #06D6A0;
+}
+
+.modal-notification.error {
+    border-left-color: var(--vermelho-acionet);
+}
+
+.modal-notification.error i {
+    color: var(--vermelho-acionet);
+}
+
+.modal-notification i {
+    font-size: 1.3rem;
+}
+
+.modal-notification span {
+    color: var(--azul-profundo);
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Scrollbar do Modal */
+.modal-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+    background: var(--cinza-claro);
+    border-radius: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: var(--azul-claro-tech);
+    border-radius: 4px;
+}
+
+.modal-container::-webkit-scrollbar-thumb:hover {
+    background: var(--azul-profundo);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .modal-container {
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: var(--espaco-lg);
+    }
+
+    .modal-body {
+        padding: var(--espaco-lg);
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .btn-cancel,
+    .btn-submit {
+        width: 100%;
+    }
+
+    .modal-notification {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-header {
+        flex-wrap: wrap;
+    }
+
+    .modal-title {
+        font-size: 1.2rem;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: var(--espaco-md);
+        right: var(--espaco-md);
+    }
+
+    .form-control {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .form-check-label {
+        font-size: 0.85rem;
+    }
+}
+</style>
+
     <!-- 📝 Scripts -->
     <script src="assets/js/main.js"></script>
     <script>

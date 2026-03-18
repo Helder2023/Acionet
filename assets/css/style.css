@@ -433,7 +433,13 @@ body {
 
 .dropdown-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--espaco-lg);
+}
+
+.dropdown-grid2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--espaco-lg);
 }
 
@@ -3391,9 +3397,6 @@ body {
 /* Footer */
 .solutions-footer {
     text-align: center;
-    margin-top: var(--espaco-2xl);
-    padding-top: var(--espaco-xl);
-    border-top: 1px solid var(--cinza-claro);
 }
 
 /* Animação para cards */
