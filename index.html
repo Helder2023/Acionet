@@ -29,6 +29,8 @@
 
     <!-- Favicon -->
     <link rel="icon" href="assets/imgs/logo.png">
+        <script src="assets/js/js.js"></script>
+
 </head>
 
 <body class="home-page">
@@ -642,34 +644,15 @@
             <!-- Grid de Projetos -->
             <div class="projects-grid">
                 <!-- Projeto 1: FinTech com IA -->
-                <div class="project-card project-card-featured">
+                <div class="project-card">
                     <div class="project-visual">
                         <!-- Imagem do projeto com overlay -->
                         <div class="project-image">
                             <div class="image-overlay"></div>
-                            <img src="assets/images/projects/fintech-ai-dashboard.jpg"
+                            <img src="assets/imgs/nav-logo.jpeg"
                                 alt="Dashboard de IA para Fintech" class="project-img"
                                 onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='block';">
-                            <!-- Fallback visual se imagem não carregar -->
-                            <div class="image-fallback">
-                                <div class="fallback-content">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>FinTech Analytics</span>
-                                </div>
-                            </div>
 
-                            <!-- Badge de destaque -->
-                            <div class="project-badge">
-                                <i class="fas fa-trophy"></i>
-                                <span>Case Premiado</span>
-                            </div>
-
-                            <!-- Tecnologias flutuantes -->
-                            <div class="floating-tech">
-                                <span class="tech-bubble">AI</span>
-                                <span class="tech-bubble">ML</span>
-                                <span class="tech-bubble">React</span>
-                            </div>
                         </div>
 
                         <!-- Animação de dados -->
@@ -682,11 +665,6 @@
                     </div>
 
                     <div class="project-content">
-                        <div class="project-category">
-                            <i class="fas fa-university"></i>
-                            <span>Fintech & Banking</span>
-                        </div>
-
                         <h3 class="project-title">
                             Plataforma de Análise de Crédito com IA
                         </h3>
@@ -696,29 +674,6 @@
                             de risco de uma das maiores fintechs do Brasil, reduzindo tempo
                             de avaliação de dias para minutos.
                         </p>
-
-                        <!-- Métricas em destaque -->
-                        <div class="project-metrics">
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="240">0</div>
-                                <div class="metric-label">% Eficiência</div>
-                                <div class="metric-trend up">
-                                    <i class="fas fa-arrow-up"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="65">0</div>
-                                <div class="metric-label">% Menos Erros</div>
-                                <div class="metric-trend down">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="2.8">0</div>
-                                <div class="metric-suffix">M</div>
-                                <div class="metric-label">Economia/Ano</div>
-                            </div>
-                        </div>
 
                         <!-- Stack tecnológica -->
                         <div class="project-stack">
@@ -747,13 +702,11 @@
 
                         <!-- Call to Action -->
                         <div class="project-actions">
-                            <a href="case-fintech.html" class="btn btn-outline">
+                            <a href="visualizar-projeto.html" class="btn btn-outline">
                                 <i class="fas fa-eye"></i>
                                 Ver Detalhes
                             </a>
-                            <button class="btn btn-icon" data-action="share" aria-label="Compartilhar">
-                                <i class="fas fa-share-alt"></i>
-                            </button>
+                          
                         </div>
                     </div>
                 </div>
@@ -767,32 +720,7 @@
                             <img src="assets/images/projects/healthcare-iot.jpg" alt="Sistema de Monitoramento de Saúde"
                                 class="project-img"
                                 onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='block';">
-                            <!-- Fallback visual -->
-                            <div class="image-fallback">
-                                <div class="fallback-content">
-                                    <i class="fas fa-heartbeat"></i>
-                                    <span>HealthTech IoT</span>
-                                </div>
-                            </div>
-
-                            <!-- Badge de inovação -->
-                            <div class="project-badge innovation">
-                                <i class="fas fa-lightbulb"></i>
-                                <span>Inovação Radical</span>
-                            </div>
-
-                            <!-- Dispositivos IoT animados -->
-                            <div class="iot-devices">
-                                <div class="device" style="--position: 1">
-                                    <i class="fas fa-microchip"></i>
-                                </div>
-                                <div class="device" style="--position: 2">
-                                    <i class="fas fa-wifi"></i>
-                                </div>
-                                <div class="device" style="--position: 3">
-                                    <i class="fas fa-tablet-alt"></i>
-                                </div>
-                            </div>
+                          
                         </div>
 
                         <!-- Animação de conexões IoT -->
@@ -805,10 +733,7 @@
                     </div>
 
                     <div class="project-content">
-                        <div class="project-category">
-                            <i class="fas fa-heartbeat"></i>
-                            <span>HealthTech & Biotech</span>
-                        </div>
+                      
 
                         <h3 class="project-title">
                             Monitoramento Remoto de Pacientes com IoT
@@ -820,31 +745,7 @@
                             automáticos para equipes médicas.
                         </p>
 
-                        <!-- Métricas -->
-                        <div class="project-metrics">
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="99.7">0</div>
-                                <div class="metric-suffix">%</div>
-                                <div class="metric-label">Precisão</div>
-                                <div class="metric-trend up">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="45">0</div>
-                                <div class="metric-label">% Redução Internações</div>
-                                <div class="metric-trend down">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="20">0</div>
-                                <div class="metric-label">K+ Pacientes</div>
-                                <div class="metric-trend neutral">
-                                    <i class="fas fa-users"></i>
-                                </div>
-                            </div>
-                        </div>
+                       
 
                         <!-- Stack tecnológica -->
                         <div class="project-stack">
@@ -877,9 +778,7 @@
                                 <i class="fas fa-eye"></i>
                                 Ver Detalhes
                             </a>
-                            <button class="btn btn-icon" data-action="share" aria-label="Compartilhar">
-                                <i class="fas fa-share-alt"></i>
-                            </button>
+                           
                         </div>
                     </div>
                 </div>
@@ -889,7 +788,7 @@
 
             <!-- Link para ver todos -->
             <div class="projects-footer">
-                <a href="portfolio.html" class="btn btn-secondary">
+                <a href="visualizar-projeto.html" class="btn btn-secondary">
                     <i class="fas fa-briefcase"></i>
                     Ver Todos os Projetos
                     <span class="btn-counter">+15</span>
@@ -921,7 +820,7 @@
             <!-- Grid de Posts do Blog (mesma estrutura dos projetos) -->
             <div class="projects-grid">
                 <!-- Post 1: IA Generativa -->
-                <div class="project-card project-card-featured">
+                <div class="project-card">
                     <div class="project-visual">
                         <!-- Imagem do post -->
                         <div class="project-image">
@@ -929,47 +828,14 @@
                             <img src="assets/images/blog/ai-generative-business.jpg"
                                 alt="IA Generativa transformando negócios" class="project-img"
                                 onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='block';">
-                            <!-- Fallback visual -->
-                            <div class="image-fallback">
-                                <div class="fallback-content">
-                                    <i class="fas fa-robot"></i>
-                                    <span>IA Generativa</span>
-                                </div>
-                            </div>
-
-                            <!-- Badge de destaque -->
-                            <div class="project-badge">
-                                <i class="fas fa-fire"></i>
-                                <span>TRENDING</span>
-                            </div>
-
-                            <!-- Categoria e data flutuantes -->
-                            <div class="floating-tech">
-                                <span class="tech-bubble">IA</span>
-                                <span class="tech-bubble">GPT-4</span>
-                                <span class="tech-bubble">Inovação</span>
-                            </div>
+                           
                         </div>
 
-                        <!-- Animação de dados -->
-                        <div class="data-flow-animation">
-                            <div class="flow-line"></div>
-                            <div class="flow-node" style="--delay: 0s"></div>
-                            <div class="flow-node" style="--delay: 0.3s"></div>
-                            <div class="flow-node" style="--delay: 0.6s"></div>
-                        </div>
+                       
                     </div>
 
                     <div class="project-content">
-                        <div class="project-category">
-                            <i class="fas fa-brain"></i>
-                            <span>Inteligência Artificial</span>
-                            <time class="article-date"
-                                style="margin-left: auto; font-size: 0.8rem; color: var(--cinza-medio);">
-                                <i class="far fa-calendar"></i> 15 Jun, 2025
-                            </time>
-                        </div>
-
+                         
                         <h3 class="project-title">
                             Revolução IA: Como a Generative AI está Redefinindo a Produtividade Empresarial
                         </h3>
@@ -980,31 +846,6 @@
                             departamentos de marketing e desenvolvimento.
                         </p>
 
-                        <!-- Métricas do post -->
-                        <div class="project-metrics">
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="2.4">0</div>
-                                <div class="metric-suffix">K</div>
-                                <div class="metric-label">views</div>
-                                <div class="metric-trend up">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="142">0</div>
-                                <div class="metric-label">comentários</div>
-                                <div class="metric-trend neutral">
-                                    <i class="far fa-comment"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="89">0</div>
-                                <div class="metric-label">shares</div>
-                                <div class="metric-trend neutral">
-                                    <i class="fas fa-share"></i>
-                                </div>
-                            </div>
-                        </div>
 
                         <!-- Tags do artigo -->
                         <div class="project-stack">
@@ -1038,9 +879,7 @@
                                 <i class="fas fa-eye"></i>
                                 Ler Artigo
                             </a>
-                            <button class="btn btn-icon" data-action="share" aria-label="Compartilhar">
-                                <i class="fas fa-share-alt"></i>
-                            </button>
+                           
                         </div>
                     </div>
                 </div>
@@ -1054,46 +893,15 @@
                             <img src="assets/images/blog/cloud-migration-case.jpg" alt="Migração Cloud para varejo"
                                 class="project-img"
                                 onerror="this.style.display='none'; this.parentElement.querySelector('.image-fallback').style.display='block';">
-                            <!-- Fallback visual -->
-                            <div class="image-fallback">
-                                <div class="fallback-content">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                    <span>Cloud Migration</span>
-                                </div>
-                            </div>
+                          
 
-                            <!-- Badge de destaque -->
-                            <div class="project-badge innovation">
-                                <i class="fas fa-chart-line"></i>
-                                <span>CASE STUDY</span>
-                            </div>
-
-                            <!-- Tecnologias flutuantes -->
-                            <div class="floating-tech">
-                                <span class="tech-bubble">AWS</span>
-                                <span class="tech-bubble">Azure</span>
-                                <span class="tech-bubble">K8s</span>
-                            </div>
                         </div>
 
-                        <!-- Animação de conexões (nuvem) -->
-                        <div class="iot-connections">
-                            <div class="connection-line"></div>
-                            <div class="connection-pulse" style="--delay: 0s"></div>
-                            <div class="connection-pulse" style="--delay: 1s"></div>
-                            <div class="connection-pulse" style="--delay: 2s"></div>
-                        </div>
+                       
                     </div>
 
                     <div class="project-content">
-                        <div class="project-category">
-                            <i class="fas fa-cloud"></i>
-                            <span>Cloud Computing</span>
-                            <time class="article-date"
-                                style="margin-left: auto; font-size: 0.8rem; color: var(--cinza-medio);">
-                                <i class="far fa-calendar"></i> 12 Jun, 2025
-                            </time>
-                        </div>
+                       
 
                         <h3 class="project-title">
                             Transformação Digital: Como Migramos 500 Lojas para a Nuvem em 90 Dias
@@ -1105,32 +913,7 @@
                             Arquitetura multi-cloud AWS + Azure.
                         </p>
 
-                        <!-- Métricas do case -->
-                        <div class="project-metrics">
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="40">0</div>
-                                <div class="metric-suffix">%</div>
-                                <div class="metric-label">Redução Custos</div>
-                                <div class="metric-trend down">
-                                    <i class="fas fa-arrow-down"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="60">0</div>
-                                <div class="metric-suffix">%</div>
-                                <div class="metric-label">+ Performance</div>
-                                <div class="metric-trend up">
-                                    <i class="fas fa-arrow-up"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <div class="metric-value" data-count="90">0</div>
-                                <div class="metric-label">Dias Go-Live</div>
-                                <div class="metric-trend neutral">
-                                    <i class="fas fa-calendar-check"></i>
-                                </div>
-                            </div>
-                        </div>
+                      
 
                         <!-- Tecnologias usadas -->
                         <div class="project-stack">
@@ -1176,9 +959,7 @@
                                 <i class="fas fa-eye"></i>
                                 Ver Estudo
                             </a>
-                            <button class="btn btn-icon" data-action="share" aria-label="Compartilhar">
-                                <i class="fas fa-share-alt"></i>
-                            </button>
+                          
                         </div>
                     </div>
 
@@ -1680,178 +1461,16 @@
         </div>
     </section>
 
-    <!-- 📧 Newsletter Futurista -->
-    <section class="newsletter-section" id="newsletter">
-        <div class="container newsletter-container">
-            <div class="newsletter-visual">
-                <div class="orbit-animation">
-                    <div class="orbit-ring"></div>
-                    <div class="satellite" style="--angle: 0deg">
-                        <i class="fas fa-satellite"></i>
-                    </div>
-                    <div class="satellite" style="--angle: 120deg">
-                        <i class="fas fa-satellite"></i>
-                    </div>
-                    <div class="satellite" style="--angle: 240deg">
-                        <i class="fas fa-satellite"></i>
-                    </div>
-                </div>
-            </div>
+<div data-include="componentes/newsletter.html"></div>
+<div data-include="componentes/footer.html"></div>
 
-            <div class="newsletter-content">
-                <h3 class="newsletter-title">
-                    Fique à Frente das
-                    <span class="text-gradient">Tendências</span>
-                </h3>
-
-                <p class="newsletter-subtitle">
-                    Receba insights exclusivos sobre IA, tecnologia e inovação
-                    diretamente no seu email. Conteúdo premium semanal.
-                </p>
-
-                <form class="newsletter-form" id="newsletterForm">
-                    <div class="input-group">
-                        <div class="input-wrapper">
-                            <input type="email" placeholder="seu@email.com" required aria-label="Seu endereço de email">
-                            <i class="fas fa-envelope input-icon"></i>
-                        </div>
-                        <button type="submit" class="btn btn-submit">
-                            <span>Inscrever-se</span>
-                            <i class="fas fa-paper-plane"></i>
-                            <div class="submit-effect"></div>
-                        </button>
-                    </div>
-
-                    <div class="form-note">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>
-                            Respeitamos sua privacidade. Sem spam.
-                            Você pode cancelar a qualquer momento.
-                        </span>
-                    </div>
-
-                    <div class="form-success" id="successMessage">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Inscrição realizada com sucesso!</span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- 👣 Footer -->
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="footer-grid">
-                    <!-- Coluna 1: Logo & Sobre -->
-                    <div class="footer-column">
-
-                        <a href="index.html" class="footer-logo">
-                            <img src="assets/imgs/logo.png" alt="Acionet - Soluções em Tecnologia" class="logo-image">
-                            <span class="logo-text">ACIONET</span>
-                        </a>
-
-                        <p class="footer-about">
-                            Empresa de tecnologia especializada em soluções
-                            inovadoras de IA, desenvolvimento de software e
-                            consultoria estratégica.
-                        </p>
-
-                        <div class="social-links">
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Facebook">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                            <a href="#" class="social-link" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Coluna 2: Links Rápidos -->
-                    <div class="footer-column">
-                        <h4 class="footer-title">Navegação</h4>
-                        <ul class="footer-links">
-                            <li><a href="index.html">Início</a></li>
-                            <li><a href="sobre.html">Sobre Nós</a></li>
-                            <li><a href="solucoes.html">Soluções</a></li>
-                            <li><a href="portfolio.html">Projetos</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="eventos.html">Eventos</a></li>
-                            <li><a href="contato.html">Contato</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Coluna 3: Serviços -->
-                    <div class="footer-column">
-                        <h4 class="footer-title">Serviços</h4>
-                        <ul class="footer-links">
-                            <li><a href="solucoes.html#ia">Inteligência Artificial</a></li>
-                            <li><a href="solucoes.html#dev">Desenvolvimento Customizado</a></li>
-                            <li><a href="solucoes.html#cloud">Cloud & DevOps</a></li>
-                            <li><a href="solucoes.html#consultoria">Consultoria em TI</a></li>
-                            <li><a href="solucoes.html#seguranca">Segurança Cibernética</a></li>
-                            <li><a href="solucoes.html#analytics">Análise de Dados</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Coluna 4: Contato -->
-                    <div class="footer-column">
-                        <h4 class="footer-title">Contato</h4>
-                        <div class="contact-info">
-                            <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>
-                                    Av. Paulista, 1000<br>
-                                    São Paulo - SP, 01310-100
-                                </span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <span>(11) 9999-9999</span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <span>contato@acionet.com.br</span>
-                            </div>
-                        </div>
-
-                        <div class="footer-newsletter">
-                            <h5>Receba nossas atualizações</h5>
-                            <form class="mini-form">
-                                <input type="email" placeholder="Seu email">
-                                <button type="submit">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="bottom-content">
-                    <div class="copyright">
-                        © 2025 Acionet. Todos os direitos reservados.
-                    </div>
-
-                    <div class="footer-legal">
-                        <a href="politica-privacidade.html">Política de Privacidade</a>
-                        <a href="termos-uso.html">Termos de Uso</a>
-                        <a href="cookies.html">Cookies</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<script>
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+    const file = el.getAttribute('data-include');
+    const res = await fetch(file);
+    el.innerHTML = await res.text();
+});
+</script>
 
     <!-- ⬆️ Back to Top -->
     <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo" type="button">

@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revolução IA: Como a Generative AI está Redefinindo a Produtividade Empresarial | Acionet</title>
+
+    <!-- Meta SEO -->
+    <meta name="description"
+        content="Artigo completo sobre como a IA Generativa está transformando negócios. Explore como GPT-4 e DALL-E estão automatizando processos criativos e gerando ganhos de eficiência.">
+    <meta name="keywords"
+        content="IA generativa, GPT-4, DALL-E, produtividade, automação, inteligência artificial, Acionet">
+    <meta name="author" content="Dr. Carlos Silva">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://acionet.com.br/blog/ia-generativa-produtividade">
+    <meta property="og:title" content="Revolução IA: Como a Generative AI está Redefinindo a Produtividade">
+    <meta property="og:description" content="Artigo completo sobre IA Generativa e seu impacto nos negócios.">
+    <meta property="og:image" content="assets/images/blog/ai-generative-business.jpg">
+
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/imgs/logo.png">
+
+
+</head>
+
+<body>
+    <!-- 🔝 Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-particle" style="--delay: 0s"></div>
+                <div class="logo-particle" style="--delay: 0.2s"></div>
+                <div class="logo-particle" style="--delay: 0.4s"></div>
+                <span class="logo-text">ACIONET</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="loading-message">Carregando artigo...</p>
+        </div>
+    </div>
+
+   <!-- 🎮 Navegação Principal -->
+    <nav class="navbar" id="mainNav">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <!-- Primeiro: imagem da logo -->
+                <img src="assets/imgs/logo.png" alt="Acionet - Soluções em Tecnologia" class="logo-image">
+
+            </a>
+
+            <!-- Menu Desktop -->
+            <div class="nav-menu" id="navMenu">
+                <div class="menu-left">
+                    <a href="index.html" class="nav-link" data-text="Início">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                        <div class="link-underline"></div>
+                    </a>
+
+                    <!-- Dropdown Soluções -->
+                    <div class="nav-dropdown">
+                        <a href="solucoes.html" class="nav-link" data-text="Soluções">
+                            <i class="fas fa-cogs"></i>
+                            <span>Soluções</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-cog"></i>
+                                        Infraestrutura
+                                    </h4>
+                                    <a href="solucoes.html#infraestrutura">...</a>
+
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Desenvolvimento
+                                    </h4>
+                                    <a href="solucoes.html#desenvolvimento">...</a>
+
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Segurança
+                                    </h4>
+                                    <a href="solucoes.html#seguranca">...</a>
+                                </div>
+
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-chart-line"></i>
+                                        Consultoria
+                                    </h4>
+                                    <a href="solucoes.html#consultoria">...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Projetos -->
+                    <div class="nav-dropdown">
+                        <a href="projetos.html" class="nav-link" data-text="Projetos">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>Projetos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-cog"></i>
+                                        Infraestrutura
+                                    </h4>
+                                    <a href="projetos.html#infraestrutura">...</a>
+
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-code"></i>
+                                        Desenvolvimento
+                                    </h4>
+                                    <a href="projetos.html#desenvolvimento">...</a>
+
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-shield-alt"></i>
+                                        Segurança
+                                    </h4>
+                                    <a href="projetos.html#seguranca">...</a>
+                                </div>
+
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-chart-line"></i>
+                                        Consultoria
+                                    </h4>
+                                    <a href="projetos.html#consultoria">...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Sobre -->
+                    <div class="nav-dropdown">
+                        <a href="sobre.html" class="nav-link" data-text="Sobre">
+                            <i class="fas fa-users"></i>
+                            <span>Sobre</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid2">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-building"></i>
+                                        A Empresa
+                                    </h4>
+                                    <a href="sobre.html#historia">Nossa História</a>
+                                    <a href="sobre.html#valores">Nossos Valores</a>
+
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users-cog"></i>
+                                        Equipe
+                                    </h4>
+                                    <a href="sobre.html#lideranca">Liderança</a>
+                                    <a href="sobre.html#equipe">Especialistas</a>
+                                    <a href="sobre.html#certificacoes">Certificações</a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-right">
+                    <!-- Dropdown Blog -->
+                    <div class="nav-dropdown">
+                        <a href="blog.html" class="nav-link active" data-text="Blog">
+                            <i class="fas fa-blog"></i>
+                            <span>Blog</span>
+                        </a>
+                       
+                    </div>
+
+                    <!-- Dropdown Eventos -->
+                    <div class="nav-dropdown">
+                        <a href="eventos.html" class="nav-link" data-text="Eventos">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Eventos</span>
+                            <i class="fas fa-chevron-down dropdown-icon"></i>
+                        </a>
+                        <div class="dropdown-content dropdown-content-right">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-video"></i>
+                                        Proximos Eventos
+                                    </h4>
+                                    <a href="eventos.html#">...</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-users"></i>
+                                        Presenciais
+                                    </h4>
+                                    <a href="eventos.html#conferencias">Conferências</a>
+                                    <a href="eventos.html#hackathons">Hackathons</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4 class="dropdown-title">
+                                        <i class="fas fa-calendar-check"></i>
+                                        Agenda
+                                    </h4>
+                                    <a href="eventos.html#calendario">Calendário Completo</a>
+                                    <a href="eventos.html#inscricoes">Minhas Inscrições</a>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="contato.html" class="nav-cta">
+                        <span>Fale com um Especialista</span>
+                        <i class="fas fa-rocket"></i>
+                        <div class="cta-pulse"></div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Botão Mobile -->
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" type="button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HERO DO ARTIGO -->
+    <!-- ============================================ -->
+    <section class="article-hero">
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+
+        <div class="container">
+            <div class="article-hero-content">
+                <div class="article-hero-breadcrumb">
+                    <a href="index.html">Home</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="blog.html">Blog</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <a href="blog.html#ia">Inteligência Artificial</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>IA Generativa</span>
+                </div>
+
+                <div class="article-category">
+                    <i class="fas fa-brain"></i>
+                    Inteligência Artificial
+                </div>
+
+                <h1 class="article-title">
+                    Revolução IA: Como a Generative AI está Redefinindo a Produtividade Empresarial
+                </h1>
+
+                <div class="article-meta">
+                    <div class="meta-item">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>15 de Junho, 2025</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="far fa-clock"></i>
+                        <span>8 minutos de leitura</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="far fa-eye"></i>
+                        <span>2.4k visualizações</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTEÚDO PRINCIPAL DO ARTIGO -->
+    <!-- ============================================ -->
+    <div class="article-container">
+        <!-- Imagem Destacada -->
+        <div class="featured-image">
+            <img src="assets/images/blog/ai-generative-business.jpg" alt="IA Generativa transformando negócios"
+                onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-robot\'></i>'">
+        </div>
+
+        <!-- Conteúdo do Artigo -->
+        <div class="article-content">
+            <p>
+                A inteligência artificial generativa está vivendo um momento de aceleração sem precedentes.
+                Modelos como GPT-4, DALL-E, Midjourney e Claude estão transformando radicalmente a forma como
+                empresas criam conteúdo, desenvolvem produtos e interagem com clientes. Este artigo explora
+                como essas tecnologias estão redefinindo a produtividade empresarial e quais estratégias as
+                organizações podem adotar para aproveitar ao máximo esse potencial.
+            </p>
+
+            <h2>O que é IA Generativa?</h2>
+            <p>
+                Diferente da IA tradicional, que analisa dados existentes para fazer previsões ou classificações,
+                a IA generativa cria conteúdo novo e original. Ela aprende padrões a partir de grandes volumes de
+                dados e utiliza esse conhecimento para gerar textos, imagens, códigos, músicas e até vídeos com
+                qualidade surpreendente.
+            </p>
+
+           
+
+            <h2>Aplicações Práticas nos Negócios</h2>
+            <h3>1. Marketing e Criação de Conteúdo</h3>
+            <p>
+                Equipes de marketing estão utilizando ferramentas como ChatGPT e Jasper para produzir artigos,
+                posts para redes sociais, e-mails marketing e campanhas publicitárias em escala. O tempo de criação
+                caiu drasticamente, permitindo que os profissionais foquem em estratégia e criatividade.
+            </p>
+
+            <h3>2. Desenvolvimento de Software</h3>
+            <p>
+                Ferramentas como GitHub Copilot e Amazon CodeWhisperer estão revolucionando a programação.
+                Desenvolvedores relatam aumento de até 55% na produtividade, com código mais limpo e menos bugs.
+                A IA ajuda a gerar código, documentar funções e até sugerir otimizações.
+            </p>
+
+            <h3>3. Atendimento ao Cliente</h3>
+            <p>
+                Chatbots alimentados por IA generativa oferecem respostas personalizadas e contextuais,
+                resolvendo problemas complexos sem intervenção humana. Empresas que implementaram essas soluções
+                reduziram o tempo de resposta em até 80% e aumentaram a satisfação dos clientes.
+            </p>
+
+            <blockquote>
+                <p>"A IA generativa não está substituindo humanos, está aumentando suas capacidades. O futuro
+                    pertence àqueles que souberem colaborar efetivamente com essas ferramentas." — Sam Altman, CEO da
+                    OpenAI</p>
+            </blockquote>
+
+            <h2>Desafios e Considerações Éticas</h2>
+            <p>
+                Apesar do enorme potencial, a adoção da IA generativa traz desafios importantes:
+            </p>
+            <ul>
+                <li><strong>Propriedade Intelectual:</strong> Quem detém os direitos sobre conteúdo gerado por IA?</li>
+                <li><strong>Vieses e Alucinações:</strong> Modelos podem gerar informações incorretas ou perpetuar
+                    vieses.</li>
+                <li><strong>Segurança e Privacidade:</strong> Dados sensíveis podem ser expostos se não houver
+                    governança adequada.</li>
+                <li><strong>Regulamentação:</strong> A União Europeia já está avançando com o AI Act, criando novas
+                    obrigações legais.</li>
+            </ul>
+
+            <h2>Como Começar na Sua Empresa</h2>
+            <p>
+                Para organizações que desejam iniciar sua jornada com IA generativa, recomendamos os seguintes passos:
+            </p>
+            <ol>
+                <li><strong>Identifique oportunidades de alto impacto:</strong> Mapeie processos repetitivos ou
+                    criativos que podem ser acelerados.</li>
+                <li><strong>Comece com projetos-piloto:</strong> Teste ferramentas em pequena escala antes de expandir.
+                </li>
+                <li><strong>Estabeleça governança:</strong> Crie políticas claras sobre uso ético e seguro da IA.</li>
+                <li><strong>Invista em capacitação:</strong> Treine sua equipe para trabalhar em conjunto com as
+                    ferramentas de IA.</li>
+            </ol>
+
+            <h2>O Futuro da IA Generativa</h2>
+            <p>
+                Estamos apenas arranhando a superfície do que é possível. Nos próximos anos, podemos esperar:
+            </p>
+            <ul>
+                <li>Modelos multimodais que integram texto, imagem, áudio e vídeo perfeitamente</li>
+                <li>Agentes de IA autônomos capazes de realizar tarefas complexas de ponta a ponta</li>
+                <li>Personalização em massa com conteúdo adaptado individualmente para cada usuário</li>
+                <li>Integração nativa em todos os softwares empresariais</li>
+            </ul>
+            <p>
+                A revolução da IA generativa já começou. As empresas que aprenderem a aproveitar essas ferramentas
+                de forma estratégica e ética terão uma vantagem competitiva significativa nos próximos anos.
+            </p>
+        </div>
+
+        <!-- Tags -->
+        <div class="article-tags">
+            <a href="#" class="article-tag">#IA Generativa</a>
+            <a href="#" class="article-tag">#GPT-4</a>
+            <a href="#" class="article-tag">#Produtividade</a>
+            <a href="#" class="article-tag">#Automação</a>
+            <a href="#" class="article-tag">#MachineLearning</a>
+        </div>
+
+        <!-- Autor -->
+        <div class="author-section">
+            <div class="author-avatar-large">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="author-info">
+                <h3>Dr. Carlos Silva</h3>
+                <div class="author-role">Chief AI Officer na Acionet</div>
+                <p class="author-bio">
+                    Doutor em Ciência da Computação pela USP, com pós-doutorado em Inteligência Artificial
+                    pelo MIT. Especialista em IA aplicada a negócios e autor de mais de 30 artigos científicos.
+                    Lidera a área de IA da Acionet, desenvolvendo soluções inovadoras para clientes em todo o Brasil.
+                </p>
+                <div class="author-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação entre Artigos -->
+        <div class="article-navigation">
+            <a href="#" class="nav-prev">
+                <div class="nav-label"><i class="fas fa-arrow-left"></i> Artigo Anterior</div>
+                <div class="nav-title">Como implementar ML no seu negócio</div>
+            </a>
+            <a href="#" class="nav-next">
+                <div class="nav-label">Próximo Artigo <i class="fas fa-arrow-right"></i></div>
+                <div class="nav-title">O futuro do trabalho com IA</div>
+            </a>
+        </div>
+
+        <!-- Seção de Comentários -->
+        <div class="comments-section">
+            <h3 class="comments-title">Comentários <span style="color: var(--cinza-medio); font-size: 1rem;">(3)</span>
+            </h3>
+
+            <div class="comment">
+                <div class="comment-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="comment-content">
+                    <div class="comment-author">Mariana Costa</div>
+                    <div class="comment-date">16 de Junho, 2025</div>
+                    <p class="comment-text">
+                        Artigo excelente! Estamos começando a explorar IA generativa na empresa e essas dicas são muito
+                        úteis.
+                        Principalmente sobre a parte de governança, que é um ponto crítico.
+                    </p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="comment-content">
+                    <div class="comment-author">Ricardo Almeida</div>
+                    <div class="comment-date">15 de Junho, 2025</div>
+                    <p class="comment-text">
+                        Ótimo conteúdo! Gostaria de saber mais sobre casos práticos de empresas brasileiras que já estão
+                        utilizando IA generativa. Vocês têm algum estudo de caso?
+                    </p>
+                </div>
+            </div>
+
+            <div class="comment">
+                <div class="comment-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="comment-content">
+                    <div class="comment-author">Fernanda Lima</div>
+                    <div class="comment-date">14 de Junho, 2025</div>
+                    <p class="comment-text">
+                        Muito completo! O exemplo do código no final é muito didático. Parabéns pelo artigo!
+                    </p>
+                </div>
+            </div>
+
+            <!-- Formulário de Comentário -->
+            <div class="comment-form">
+                <h4>Deixe seu comentário</h4>
+                <form id="commentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nome *</label>
+                            <input type="text" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail *</label>
+                            <input type="email" placeholder="seu@email.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Comentário *</label>
+                        <textarea rows="4" placeholder="Escreva seu comentário..." required></textarea>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="saveInfo">
+                        <label for="saveInfo">Salvar meus dados neste navegador para a próxima vez que eu
+                            comentar.</label>
+                    </div>
+                    <button type="submit" class="btn-submit-comment">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Comentário
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================ -->
+    <!-- ARTIGOS RELACIONADOS -->
+    <!-- ============================================ -->
+    <section class="related-articles">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span>LEIA TAMBÉM</span>
+                </div>
+                <h2 class="section-title">
+                    Artigos <span class="text-gradient">relacionados</span>
+                </h2>
+                <p class="section-description">
+                    Continue explorando conteúdo sobre Inteligência Artificial
+                </p>
+            </div>
+
+            <div class="related-grid">
+                <a href="#" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">Machine Learning</div>
+                        <h3 class="related-title">Previsão de demanda com ML: case de sucesso no varejo</h3>
+                        <div class="related-metrics">
+                            <span><i class="far fa-calendar"></i> 10 Jun, 2025</span>
+                            <span><i class="far fa-clock"></i> 7 min</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">IA na Prática</div>
+                        <h3 class="related-title">Como implementar IA em pequenas empresas</h3>
+                        <div class="related-metrics">
+                            <span><i class="far fa-calendar"></i> 5 Jun, 2025</span>
+                            <span><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="related-card">
+                    <div class="related-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="related-content">
+                        <div class="related-category">Segurança</div>
+                        <h3 class="related-title">Os desafios éticos da IA Generativa</h3>
+                        <div class="related-metrics">
+                            <span><i class="far fa-calendar"></i> 1 Jun, 2025</span>
+                            <span><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+ 
+    <div data-include="componentes/newsletter.html"></div>
+<div data-include="componentes/footer.html"></div>
+        <script src="assets/js/js.js"></script>
+
+<script>
+    document.querySelectorAll('[data-include]').forEach(async (el) => {
+    const file = el.getAttribute('data-include');
+    const res = await fetch(file);
+    el.innerHTML = await res.text();
+});
+</script>
+
+    <!-- ⬆️ Back to Top -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+        <div class="top-glow"></div>
+    </button>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Loading screen
+        window.addEventListener('load', function () {
+            const loading = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.style.display = 'none', 500);
+            }, 800);
+        });
+
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            navToggle?.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+
+            // Back to top
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Formulário de comentário
+        const commentForm = document.getElementById('commentForm');
+        if (commentForm) {
+            commentForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Comentário enviado com sucesso! Ele será exibido após aprovação.');
+                this.reset();
+            });
+        }
+
+        // Newsletter
+        const newsletterForm = document.querySelector('.newsletter-form-inline');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Inscrição realizada com sucesso! Você receberá nossos conteúdos por email.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+<style>
+    /* ============================================
+           PÁGINA DE ARTIGO
+        ============================================ */
+
+    /* Hero do Artigo */
+    .article-hero {
+        min-height: 60vh;
+        background: var(--gradiente-dashboard);
+        position: relative;
+        overflow: hidden;
+        padding-top: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .article-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 20% 30%, rgba(230, 57, 70, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(168, 218, 220, 0.1) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .article-hero-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .article-hero-breadcrumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: var(--espaco-lg);
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+    }
+
+    .article-hero-breadcrumb a {
+        color: white;
+        text-decoration: none;
+        transition: color var(--transition-fast);
+    }
+
+    .article-hero-breadcrumb a:hover {
+        color: var(--vermelho-acionet);
+    }
+
+    .article-category {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(230, 57, 70, 0.2);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-full);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: var(--espaco-lg);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .article-title {
+        font-family: var(--fonte-secundaria);
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: var(--espaco-md);
+    }
+
+    .article-meta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--espaco-xl);
+        flex-wrap: wrap;
+        margin-bottom: var(--espaco-xl);
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+    }
+
+    .meta-item i {
+        color: var(--vermelho-acionet);
+    }
+
+    /* Container Principal */
+    .article-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: var(--espaco-3xl) var(--espaco-lg);
+    }
+
+    /* Imagem Destacada */
+    .featured-image {
+        width: 100%;
+        height: 450px;
+        background: linear-gradient(135deg, var(--azul-profundo), var(--azul-escuro));
+        border-radius: var(--radius-xl);
+        margin-bottom: var(--espaco-2xl);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        box-shadow: var(--sombra-forte);
+    }
+
+    .featured-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .featured-image i {
+        font-size: 5rem;
+        opacity: 0.3;
+    }
+
+    /* Conteúdo do Artigo */
+    .article-content {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--cinza-escuro);
+    }
+
+    .article-content p {
+        margin-bottom: var(--espaco-lg);
+    }
+
+    .article-content h2 {
+        font-family: var(--fonte-secundaria);
+        font-size: 1.8rem;
+        color: var(--azul-profundo);
+        margin: var(--espaco-2xl) 0 var(--espaco-lg);
+    }
+
+    .article-content h3 {
+        font-family: var(--fonte-secundaria);
+        font-size: 1.4rem;
+        color: var(--azul-profundo);
+        margin: var(--espaco-xl) 0 var(--espaco-md);
+    }
+
+    .article-content blockquote {
+        background: var(--cinza-claro);
+        border-left: 4px solid var(--vermelho-acionet);
+        padding: var(--espaco-lg);
+        margin: var(--espaco-xl) 0;
+        border-radius: var(--radius-lg);
+        font-style: italic;
+        color: var(--cinza-medio);
+    }
+
+    .article-content blockquote p {
+        margin-bottom: 0;
+    }
+
+    .article-content ul,
+    .article-content ol {
+        margin: var(--espaco-lg) 0;
+        padding-left: var(--espaco-xl);
+    }
+
+    .article-content li {
+        margin-bottom: var(--espaco-xs);
+    }
+
+    .article-content .highlight-box {
+        background: var(--gradiente-azul);
+        color: white;
+        padding: var(--espaco-xl);
+        border-radius: var(--radius-xl);
+        margin: var(--espaco-xl) 0;
+    }
+
+    .article-content .highlight-box h4 {
+        color: white;
+        margin-bottom: var(--espaco-sm);
+    }
+
+    .article-content .highlight-box p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 0;
+    }
+
+    .article-content img {
+        width: 100%;
+        border-radius: var(--radius-lg);
+        margin: var(--espaco-lg) 0;
+        box-shadow: var(--sombra-suave);
+    }
+
+    .article-content .code-block {
+        background: var(--azul-escuro);
+        color: var(--azul-claro-tech);
+        padding: var(--espaco-lg);
+        border-radius: var(--radius-lg);
+        font-family: monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+        margin: var(--espaco-lg) 0;
+    }
+
+    /* Autor */
+    .author-section {
+        background: var(--cinza-claro);
+        border-radius: var(--radius-xl);
+        padding: var(--espaco-xl);
+        margin: var(--espaco-2xl) 0;
+        display: flex;
+        gap: var(--espaco-xl);
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .author-avatar-large {
+        width: 100px;
+        height: 100px;
+        background: var(--gradiente-vermelho);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2.5rem;
+        flex-shrink: 0;
+    }
+
+    .author-info h3 {
+        font-family: var(--fonte-secundaria);
+        color: var(--azul-profundo);
+        margin-bottom: 0.25rem;
+    }
+
+    .author-role {
+        color: var(--vermelho-acionet);
+        font-weight: 600;
+        margin-bottom: var(--espaco-sm);
+    }
+
+    .author-bio {
+        color: var(--cinza-medio);
+        line-height: 1.6;
+    }
+
+    .author-social {
+        display: flex;
+        gap: var(--espaco-sm);
+        margin-top: var(--espaco-md);
+    }
+
+    .author-social a {
+        width: 35px;
+        height: 35px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--azul-profundo);
+        transition: all var(--transition-fast);
+        text-decoration: none;
+    }
+
+    .author-social a:hover {
+        background: var(--gradiente-vermelho);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    /* Tags */
+    .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--espaco-sm);
+        margin: var(--espaco-xl) 0;
+        padding-top: var(--espaco-lg);
+        border-top: 1px solid var(--cinza-claro);
+    }
+
+    .article-tag {
+        background: var(--cinza-claro);
+        color: var(--azul-profundo);
+        padding: 0.5rem 1rem;
+        border-radius: var(--radius-full);
+        font-size: 0.85rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all var(--transition-fast);
+    }
+
+    .article-tag:hover {
+        background: var(--gradiente-vermelho);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Navegação entre artigos */
+    .article-navigation {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--espaco-lg);
+        margin: var(--espaco-2xl) 0;
+        padding: var(--espaco-lg);
+        background: var(--cinza-claro);
+        border-radius: var(--radius-xl);
+    }
+
+    .nav-prev,
+    .nav-next {
+        flex: 1;
+        text-decoration: none;
+        transition: all var(--transition-normal);
+    }
+
+    .nav-prev:hover,
+    .nav-next:hover {
+        transform: translateX(var(--translate, -5px));
+    }
+
+    .nav-next:hover {
+        --translate: 5px;
+    }
+
+    .nav-label {
+        font-size: 0.8rem;
+        color: var(--cinza-medio);
+        text-transform: uppercase;
+        margin-bottom: 0.25rem;
+    }
+
+    .nav-title {
+        font-weight: 600;
+        color: var(--azul-profundo);
+    }
+
+    .nav-next {
+        text-align: right;
+    }
+
+    /* Comentários */
+    .comments-section {
+        margin: var(--espaco-2xl) 0;
+    }
+
+    .comments-title {
+        font-family: var(--fonte-secundaria);
+        font-size: 1.5rem;
+        color: var(--azul-profundo);
+        margin-bottom: var(--espaco-xl);
+    }
+
+    .comment {
+        display: flex;
+        gap: var(--espaco-md);
+        margin-bottom: var(--espaco-xl);
+        padding-bottom: var(--espaco-xl);
+        border-bottom: 1px solid var(--cinza-claro);
+    }
+
+    .comment-avatar {
+        width: 50px;
+        height: 50px;
+        background: var(--gradiente-azul);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+
+    .comment-content {
+        flex: 1;
+    }
+
+    .comment-author {
+        font-weight: 700;
+        color: var(--azul-profundo);
+        margin-bottom: 0.25rem;
+    }
+
+    .comment-date {
+        font-size: 0.75rem;
+        color: var(--cinza-medio);
+        margin-bottom: var(--espaco-sm);
+    }
+
+    .comment-text {
+        color: var(--cinza-medio);
+        line-height: 1.6;
+    }
+
+    /* Formulário de Comentário */
+    .comment-form {
+        background: var(--cinza-claro);
+        border-radius: var(--radius-xl);
+        padding: var(--espaco-xl);
+        margin-top: var(--espaco-xl);
+    }
+
+    .comment-form h4 {
+        font-family: var(--fonte-secundaria);
+        color: var(--azul-profundo);
+        margin-bottom: var(--espaco-lg);
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--espaco-md);
+        margin-bottom: var(--espaco-md);
+    }
+
+    .form-group {
+        margin-bottom: var(--espaco-md);
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: var(--espaco-xs);
+        font-weight: 600;
+        color: var(--azul-profundo);
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid transparent;
+        border-radius: var(--radius-lg);
+        font-family: var(--fonte-principal);
+        transition: all var(--transition-normal);
+        background: white;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--vermelho-acionet);
+        box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+    }
+
+    .form-check {
+        display: flex;
+        align-items: center;
+        gap: var(--espaco-sm);
+        margin: var(--espaco-lg) 0;
+    }
+
+    .form-check input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--vermelho-acionet);
+    }
+
+    .btn-submit-comment {
+        background: var(--gradiente-vermelho);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: var(--radius-full);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .btn-submit-comment:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--sombra-forte);
+    }
+
+    /* Artigos Relacionados */
+    .related-articles {
+        padding: var(--espaco-3xl) 0;
+        background: var(--cinza-claro);
+    }
+
+    .related-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--espaco-xl);
+        margin-top: var(--espaco-2xl);
+    }
+
+    .related-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--sombra-card);
+        transition: all var(--transition-normal);
+        text-decoration: none;
+        border: 1px solid var(--cinza-claro);
+    }
+
+    .related-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--sombra-forte);
+        border-color: var(--vermelho-acionet);
+    }
+
+    .related-image {
+        height: 150px;
+        background: linear-gradient(135deg, var(--azul-profundo), var(--azul-escuro));
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .related-image i {
+        font-size: 3rem;
+        opacity: 0.3;
+    }
+
+    .related-content {
+        padding: var(--espaco-lg);
+    }
+
+    .related-category {
+        color: var(--vermelho-acionet);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+
+    .related-title {
+        font-family: var(--fonte-secundaria);
+        font-size: 1rem;
+        color: var(--azul-profundo);
+        margin-bottom: 0.5rem;
+        line-height: 1.4;
+    }
+
+    /* Newsletter */
+    .newsletter-inline {
+        background: linear-gradient(135deg, var(--azul-profundo), var(--azul-escuro));
+        border-radius: var(--radius-xl);
+        padding: var(--espaco-2xl);
+        margin: var(--espaco-2xl) 0;
+        color: white;
+        text-align: center;
+    }
+
+    .newsletter-inline h3 {
+        font-family: var(--fonte-secundaria);
+        margin-bottom: var(--espaco-sm);
+    }
+
+    .newsletter-inline p {
+        margin-bottom: var(--espaco-lg);
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .newsletter-form-inline {
+        display: flex;
+        max-width: 500px;
+        margin: 0 auto;
+        gap: var(--espaco-sm);
+    }
+
+    .newsletter-form-inline input {
+        flex: 1;
+        padding: 1rem;
+        border: none;
+        border-radius: var(--radius-full);
+        font-size: 1rem;
+    }
+
+    .newsletter-form-inline button {
+        padding: 1rem 2rem;
+        background: var(--gradiente-vermelho);
+        color: white;
+        border: none;
+        border-radius: var(--radius-full);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all var(--transition-normal);
+    }
+
+    .newsletter-form-inline button:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--sombra-forte);
+    }
+
+    /* Responsividade */
+    @media (max-width: 1024px) {
+        .article-title {
+            font-size: 2.2rem;
+        }
+
+        .related-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .article-title {
+            font-size: 1.8rem;
+        }
+
+        .article-meta {
+            flex-direction: column;
+            gap: var(--espaco-sm);
+        }
+
+        .featured-image {
+            height: 250px;
+        }
+
+        .article-container {
+            padding: var(--espaco-xl) var(--espaco-md);
+        }
+
+        .article-content {
+            font-size: 1rem;
+        }
+
+        .article-content h2 {
+            font-size: 1.5rem;
+        }
+
+        .article-navigation {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .nav-next {
+            text-align: center;
+        }
+
+        .author-section {
+            text-align: center;
+            justify-content: center;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .related-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .newsletter-form-inline {
+            flex-direction: column;
+        }
+    }
+</style>
+
+</html>
