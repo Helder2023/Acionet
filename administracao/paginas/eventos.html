@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Eventos | Acionet Control Center</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/style.css"><script src="../assets/js/js.js"></script>
+
+    <style>
+       
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all var(--transition-base);
+            z-index: var(--z-sticky);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .sidebar-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-logo i {
+            background: none;
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) 0;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-xl);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .nav-link:hover {
+            background: var(--glass-white);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-glass);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-section {
+            padding: var(--space-md) var(--space-xl);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-top: var(--space-lg);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .page-title {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .theme-switch-label {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input);
+            border-radius: 34px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 34px;
+        }
+
+        .theme-switch-thumb {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 3px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-icon {
+            position: absolute;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .light-icon {
+            opacity: 1;
+        }
+
+        .dark-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .theme-switch-thumb {
+            transform: translateX(28px);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .light-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* User Menu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-role {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: var(--space-xl);
+        }
+
+        /* ============================================
+           ESTILOS DA PÁGINA DE EVENTOS
+        ============================================ */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .page-header h1 {
+            margin-bottom: 0;
+            font-size: 1.8rem;
+        }
+
+        .page-header h1 i {
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+
+        .filters-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            padding: var(--space-lg);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+        }
+
+        .search-filter {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-input-wrapper i {
+            position: absolute;
+            left: var(--space-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-tertiary);
+        }
+
+        .search-input-wrapper input {
+            width: 100%;
+            padding: var(--space-md) var(--space-md) var(--space-md) calc(var(--space-md) + 25px);
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .search-input-wrapper input:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+        }
+
+        .filter-select {
+            padding: var(--space-md) var(--space-xl) var(--space-md) var(--space-md);
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+
+        .results-count {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            white-space: nowrap;
+            background: var(--glass-white);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+        }
+
+        .results-count span {
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .btn-add {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+        }
+
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+
+        /* Grid de Cards */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        /* Card de Evento */
+        .event-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-base);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-primary);
+            box-shadow: var(--glow-primary);
+        }
+
+        /* Data do Evento */
+        .event-date-badge {
+            background: var(--gradient-primary);
+            padding: var(--space-sm) var(--space-md);
+            text-align: center;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+
+        .event-date-day {
+            font-size: 1.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .event-date-month {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Conteúdo do Card */
+        .event-card-content {
+            padding: var(--space-lg);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-type {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            background: var(--glass-white);
+            border-radius: var(--radius-full);
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: fit-content;
+            margin-bottom: var(--space-sm);
+        }
+
+        .event-type i {
+            color: var(--accent-primary);
+        }
+
+        .event-title {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .event-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: var(--space-lg);
+            flex: 1;
+        }
+
+        .event-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-sm);
+            background: var(--glass-white);
+            border-radius: var(--radius-lg);
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        .event-detail i {
+            width: 20px;
+            color: var(--accent-primary);
+        }
+
+        .event-status {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-full);
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            width: fit-content;
+        }
+
+        .status-upcoming {
+            background: rgba(0, 255, 170, 0.1);
+            color: var(--accent-success);
+        }
+
+        .status-ongoing {
+            background: rgba(255, 217, 102, 0.1);
+            color: var(--accent-warning);
+        }
+
+        .status-past {
+            background: rgba(255, 51, 102, 0.1);
+            color: var(--accent-danger);
+        }
+
+        /* Ações */
+        .event-actions {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: auto;
+        }
+
+        .btn-link {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .btn-link:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-primary-link {
+            background: var(--gradient-primary);
+            border-color: transparent;
+            color: white;
+        }
+
+        .btn-primary-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+
+        /* Paginação */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-2xl);
+        }
+
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pagination-btn:hover:not(:disabled):not(.active) {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .pagination-btn.active {
+            background: var(--gradient-primary);
+            border-color: var(--accent-primary);
+            color: white;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .filters-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-filter {
+                flex-direction: column;
+            }
+
+            .search-input-wrapper {
+                width: 100%;
+            }
+
+            .results-count {
+                text-align: center;
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 200;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-add {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../home.html">
+                 <img src="../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../paginas/projetos.html" class="nav-link ">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/blog.html" class="nav-link ">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/eventos.html" class="nav-link active">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/mensagens.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../paginas/configuracoes.html" class="nav-link ">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/backup.html" class="nav-link ">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+           <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1>
+                        <i class="fas fa-calendar-alt"></i>
+                        Eventos
+                    </h1>
+                    <a href="adicionar/evento.html" class="btn-add">
+                        <i class="fas fa-plus"></i>
+                        Novo Evento
+                    </a>
+                </div>
+
+                <!-- Filters Bar -->
+                <div class="filters-bar">
+                    <div class="search-filter">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Buscar por título, descrição ou local...">
+                        </div>
+                        <select id="typeFilter" class="filter-select">
+                            <option value="all">Todos os tipos</option>
+                            <option value="webinar">Webinar</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="hackathon">Hackathon</option>
+                            <option value="conferencia">Conferência</option>
+                        </select>
+                        <select id="statusFilter" class="filter-select">
+                            <option value="all">Todos os status</option>
+                            <option value="upcoming">Próximos</option>
+                            <option value="ongoing">Em andamento</option>
+                            <option value="past">Encerrados</option>
+                        </select>
+                    </div>
+                    <div class="results-count" id="resultsCount">
+                        Mostrando <span id="showingCount">0</span> de <span id="totalCount">0</span> eventos
+                    </div>
+                </div>
+
+                <!-- Grid de Cards -->
+                <div class="events-grid" id="eventsGrid">
+                    <!-- Evento 1: Webinar IA (DESTAQUE) -->
+                    <div class="event-card" data-id="1" data-titulo="IA Generativa nos Negócios: Como Começar?" data-descricao="Aprenda como implementar ChatGPT, DALL-E e outras IAs generativas para aumentar a produtividade da sua empresa." data-tipo="webinar" data-status="upcoming">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">15</span>
+                            <span class="event-date-month">ABR</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-video"></i> Webinar</div>
+                            <div class="event-status status-upcoming"><i class="fas fa-hourglass-half"></i> Inscrições Abertas</div>
+                            <h3 class="event-title">IA Generativa nos Negócios: Como Começar?</h3>
+                            <p class="event-description">Aprenda como implementar ChatGPT, DALL-E e outras IAs generativas para aumentar a produtividade da sua empresa.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 19:00 - 21:00</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 15 de Abril de 2025</div>
+                                <div class="event-detail"><i class="fas fa-tag"></i> Online - Gratuito</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=1" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=1" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: IA Generativa')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 2: Workshop Kubernetes -->
+                    <div class="event-card" data-id="2" data-titulo="Workshop: Kubernetes na Prática" data-descricao="Mão na massa! Aprenda a orquestrar containers com Kubernetes em um laboratório prático com os especialistas da Acionet." data-tipo="workshop" data-status="upcoming">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">22</span>
+                            <span class="event-date-month">ABR</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-tools"></i> Workshop</div>
+                            <div class="event-status status-upcoming"><i class="fas fa-hourglass-half"></i> Últimas Vagas</div>
+                            <h3 class="event-title">Workshop: Kubernetes na Prática</h3>
+                            <p class="event-description">Mão na massa! Aprenda a orquestrar containers com Kubernetes em um laboratório prático com os especialistas da Acionet.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 09:00 - 18:00</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 22 de Abril de 2025</div>
+                                <div class="event-detail"><i class="fas fa-map-marker-alt"></i> São Paulo - SP</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=2" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=2" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: Kubernetes')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 3: Hackathon Inovação -->
+                    <div class="event-card" data-id="3" data-titulo="Hackathon Acionet: Soluções para o Varejo" data-descricao="Desafie-se a criar soluções inovadoras para o varejo usando IA, IoT e análise de dados. Prêmio de R$ 20.000 para o time vencedor." data-tipo="hackathon" data-status="upcoming">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">05</span>
+                            <span class="event-date-month">MAI</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-code"></i> Hackathon</div>
+                            <div class="event-status status-upcoming"><i class="fas fa-hourglass-half"></i> Inscrições Abertas</div>
+                            <h3 class="event-title">Hackathon Acionet: Soluções para o Varejo</h3>
+                            <p class="event-description">Desafie-se a criar soluções inovadoras para o varejo usando IA, IoT e análise de dados. Prêmio de R$ 20.000 para o time vencedor.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 48h (sexta a domingo)</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 05 a 07 de Maio de 2025</div>
+                                <div class="event-detail"><i class="fas fa-tag"></i> Híbrido (Presencial/Online)</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=3" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=3" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: Hackathon')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 4: Conferência Tech -->
+                    <div class="event-card" data-id="4" data-titulo="Conferência de Tecnologia 2025" data-descricao="O maior evento de tecnologia do ano! Palestras com experts, painéis de discussão e networking com líderes do setor." data-tipo="conferencia" data-status="upcoming">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">12</span>
+                            <span class="event-date-month">MAI</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-users"></i> Conferência</div>
+                            <div class="event-status status-upcoming"><i class="fas fa-hourglass-half"></i> Inscrições Abertas</div>
+                            <h3 class="event-title">Conferência de Tecnologia 2025</h3>
+                            <p class="event-description">O maior evento de tecnologia do ano! Palestras com experts, painéis de discussão e networking com líderes do setor.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 08:00 - 20:00</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 12 a 14 de Maio de 2025</div>
+                                <div class="event-detail"><i class="fas fa-map-marker-alt"></i> Expo Center Norte - SP</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=4" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=4" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: Conferência')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 5: Webinar Cybersecurity -->
+                    <div class="event-card" data-id="5" data-titulo="Introdução à Cybersecurity para Empresas" data-descricao="Aprenda os fundamentos de segurança da informação e como proteger sua empresa contra as principais ameaças cibernéticas." data-tipo="webinar" data-status="upcoming">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">10</span>
+                            <span class="event-date-month">MAI</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-video"></i> Webinar</div>
+                            <div class="event-status status-upcoming"><i class="fas fa-hourglass-half"></i> Inscrições Abertas</div>
+                            <h3 class="event-title">Introdução à Cybersecurity para Empresas</h3>
+                            <p class="event-description">Aprenda os fundamentos de segurança da informação e como proteger sua empresa contra as principais ameaças cibernéticas.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 19:00 - 20:30</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 10 de Maio de 2025</div>
+                                <div class="event-detail"><i class="fas fa-tag"></i> Online - Gratuito</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=5" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=5" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: Cybersecurity')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 6: Workshop Python -->
+                    <div class="event-card" data-id="6" data-titulo="Workshop: Python para Análise de Dados" data-descricao="Aprenda a usar pandas, numpy e matplotlib para análise e visualização de dados com Python." data-tipo="workshop" data-status="upcoming">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">05</span>
+                            <span class="event-date-month">JUN</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-tools"></i> Workshop</div>
+                            <div class="event-status status-upcoming"><i class="fas fa-hourglass-half"></i> Inscrições Abertas</div>
+                            <h3 class="event-title">Workshop: Python para Análise de Dados</h3>
+                            <p class="event-description">Aprenda a usar pandas, numpy e matplotlib para análise e visualização de dados com Python.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 09:00 - 18:00</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 05 de Junho de 2025</div>
+                                <div class="event-detail"><i class="fas fa-map-marker-alt"></i> Belo Horizonte - MG</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=6" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=6" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: Python')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 7: Webinar Cloud (Em andamento) -->
+                    <div class="event-card" data-id="7" data-titulo="Cloud Computing: Estratégias de Migração" data-descricao="Como migrar sua infraestrutura para a nuvem com segurança, reduzindo custos e aumentando a disponibilidade." data-tipo="webinar" data-status="ongoing">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">17</span>
+                            <span class="event-date-month">MAI</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-video"></i> Webinar</div>
+                            <div class="event-status status-ongoing"><i class="fas fa-play-circle"></i> Ao Vivo Agora</div>
+                            <h3 class="event-title">Cloud Computing: Estratégias de Migração</h3>
+                            <p class="event-description">Como migrar sua infraestrutura para a nuvem com segurança, reduzindo custos e aumentando a disponibilidade.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 19:00 - 21:00</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 17 de Maio de 2025</div>
+                                <div class="event-detail"><i class="fas fa-tag"></i> Online</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=7" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=7" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: Cloud')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evento 8: Hackathon Cidades (Encerrado) -->
+                    <div class="event-card" data-id="8" data-titulo="Hackathon: Cidades Inteligentes" data-descricao="Desenvolva soluções tecnológicas para problemas urbanos usando IoT, IA e dados abertos." data-tipo="hackathon" data-status="past">
+                        <div class="event-date-badge">
+                            <span class="event-date-day">19</span>
+                            <span class="event-date-month">JUN</span>
+                        </div>
+                        <div class="event-card-content">
+                            <div class="event-type"><i class="fas fa-code"></i> Hackathon</div>
+                            <div class="event-status status-past"><i class="fas fa-check-circle"></i> Encerrado</div>
+                            <h3 class="event-title">Hackathon: Cidades Inteligentes</h3>
+                            <p class="event-description">Desenvolva soluções tecnológicas para problemas urbanos usando IoT, IA e dados abertos.</p>
+                            <div class="event-details">
+                                <div class="event-detail"><i class="fas fa-clock"></i> 48h</div>
+                                <div class="event-detail"><i class="fas fa-calendar"></i> 19 a 21 de Junho de 2025</div>
+                                <div class="event-detail"><i class="fas fa-map-marker-alt"></i> Curitiba - PR</div>
+                            </div>
+                            <div class="event-actions">
+                                <a href="eventos-editar.html?id=8" class="btn-link"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="eventos-visualizar.html?id=8" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                                <button class="btn-link delete" onclick="alert('Excluir evento: Hackathon Cidades')"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paginação -->
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================
+        // PAGINAÇÃO E FILTROS
+        // ============================================
+        
+        // Elementos
+        const eventsGrid = document.getElementById('eventsGrid');
+        const allCards = Array.from(document.querySelectorAll('.event-card'));
+        const searchInput = document.getElementById('searchInput');
+        const typeFilter = document.getElementById('typeFilter');
+        const statusFilter = document.getElementById('statusFilter');
+        const showingCount = document.getElementById('showingCount');
+        const totalCountSpan = document.getElementById('totalCount');
+        const paginationDiv = document.getElementById('pagination');
+
+        // Estado
+        let currentPage = 1;
+        let itemsPerPage = 6;
+        let filteredCards = [...allCards];
+
+        function getCardSearchText(card) {
+            const titulo = card.getAttribute('data-titulo') || '';
+            const descricao = card.getAttribute('data-descricao') || '';
+            const tipo = card.getAttribute('data-tipo') || '';
+            return (titulo + ' ' + descricao + ' ' + tipo).toLowerCase();
+        }
+
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const type = typeFilter.value;
+            const status = statusFilter.value;
+
+            filteredCards = allCards.filter(card => {
+                const searchText = getCardSearchText(card);
+                const matchesSearch = searchTerm === '' || searchText.includes(searchTerm);
+                const cardType = card.getAttribute('data-tipo');
+                const matchesType = type === 'all' || cardType === type;
+                const cardStatus = card.getAttribute('data-status');
+                const matchesStatus = status === 'all' || cardStatus === status;
+                return matchesSearch && matchesType && matchesStatus;
+            });
+
+            currentPage = 1;
+            renderPage();
+            renderPagination();
+            updateResultsCount();
+        }
+
+        function renderPage() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageCards = filteredCards.slice(start, end);
+
+            allCards.forEach(card => card.style.display = 'none');
+            pageCards.forEach(card => card.style.display = 'flex');
+
+            const existingNoResults = document.querySelector('.no-results-message');
+            if (existingNoResults) existingNoResults.remove();
+
+            if (filteredCards.length === 0) {
+                const noResultsDiv = document.createElement('div');
+                noResultsDiv.className = 'no-results-message';
+                noResultsDiv.style.cssText = 'grid-column: 1/-1; text-align: center; padding: var(--space-2xl);';
+                noResultsDiv.innerHTML = `
+                    <i class="fas fa-inbox" style="font-size: 3rem; color: var(--text-tertiary); margin-bottom: var(--space-md); display: block;"></i>
+                    <p>Nenhum evento encontrado</p>
+                    <button class="btn-add" onclick="resetFilters()" style="margin-top: var(--space-md);">Limpar filtros</button>
+                `;
+                eventsGrid.appendChild(noResultsDiv);
+            }
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+            
+            if (totalPages <= 1) {
+                paginationDiv.innerHTML = '';
+                return;
+            }
+
+            let html = `
+                <button class="pagination-btn" id="prevPage" ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 4);
+
+            for (let i = startPage; i <= endPage; i++) {
+                html += `
+                    <button class="pagination-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            html += `
+                <button class="pagination-btn" id="nextPage" ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+
+            paginationDiv.innerHTML = html;
+
+            document.getElementById('prevPage')?.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage();
+                    renderPagination();
+                }
+            });
+
+            document.getElementById('nextPage')?.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderPage();
+                    renderPagination();
+                }
+            });
+
+            document.querySelectorAll('.pagination-btn[data-page]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentPage = parseInt(btn.getAttribute('data-page'));
+                    renderPage();
+                    renderPagination();
+                });
+            });
+        }
+
+        function updateResultsCount() {
+            const total = filteredCards.length;
+            showingCount.textContent = total;
+            totalCountSpan.textContent = allCards.length;
+        }
+
+        window.resetFilters = function() {
+            searchInput.value = '';
+            typeFilter.value = 'all';
+            statusFilter.value = 'all';
+            applyFilters();
+        };
+
+        searchInput.addEventListener('input', applyFilters);
+        typeFilter.addEventListener('change', applyFilters);
+        statusFilter.addEventListener('change', applyFilters);
+
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // TEMA (DARK/LIGHT)
+        // ============================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (themeToggle) {
+            themeToggle.checked = savedTheme === 'light';
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+
+        applyFilters();
+    </script>
+
+    <style>
+        .no-results-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: var(--space-2xl);
+        }
+        
+        .delete {
+            background: rgba(255, 51, 102, 0.15);
+        }
+        
+        .delete:hover {
+            background: var(--accent-danger);
+            color: white;
+        }
+    </style>
+</body>
+
+</html>

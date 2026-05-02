@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Projeto | Backhaul 10Gbps | Acionet Control Center</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/style.css"><script src="../../assets/js/js.js"></script>
+
+    <style>
+       
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all var(--transition-base);
+            z-index: var(--z-sticky);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .sidebar-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-logo i {
+            background: none;
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) 0;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-xl);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .nav-link:hover {
+            background: var(--glass-white);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-glass);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-section {
+            padding: var(--space-md) var(--space-xl);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-top: var(--space-lg);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .page-title {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .theme-switch-label {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input);
+            border-radius: 34px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 34px;
+        }
+
+        .theme-switch-thumb {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 3px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-icon {
+            position: absolute;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .light-icon {
+            opacity: 1;
+        }
+
+        .dark-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .theme-switch-thumb {
+            transform: translateX(28px);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .light-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* User Menu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-role {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: var(--space-xl);
+        }
+
+        /* ============================================
+           FORMULÁRIO DE EDIÇÃO DE PROJETO
+        ============================================ */
+        .form-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+        }
+
+        .form-section {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .form-section-title {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.3rem;
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--accent-primary);
+        }
+
+        .form-section-title i {
+            font-size: 1.2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .form-label i {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.875rem;
+            transition: all var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: var(--glow-primary);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Seletores */
+        .select-control {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300D4FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right var(--space-md) center;
+            background-size: 1rem;
+        }
+
+        /* Mídia do Projeto */
+        .media-upload {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            background: var(--bg-input);
+        }
+
+        .media-upload:hover {
+            border-color: var(--accent-primary);
+            background: var(--glass-white);
+        }
+
+        .media-upload i {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .media-upload p {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .media-preview {
+            margin-top: var(--space-lg);
+            display: none;
+        }
+
+        .media-preview.active {
+            display: block;
+        }
+
+        .media-preview img {
+            max-width: 100%;
+            border-radius: var(--radius-lg);
+        }
+
+        .video-preview {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-preview iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            border: none;
+        }
+
+        .media-type-selector {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .media-type-btn {
+            flex: 1;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            cursor: pointer;
+            text-align: center;
+            transition: all var(--transition-fast);
+        }
+
+        .media-type-btn.active {
+            background: var(--gradient-primary);
+            border-color: var(--accent-primary);
+            color: white;
+        }
+
+        /* Listas Dinâmicas */
+        .dynamic-list {
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+            padding: var(--space-md);
+            background: var(--glass-white);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-fast);
+        }
+
+        .list-item:hover {
+            background: rgba(0, 212, 255, 0.05);
+            transform: translateX(4px);
+        }
+
+        .list-item-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .list-item-content {
+            flex: 1;
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .list-item-content input {
+            flex: 1;
+            min-width: 150px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-primary);
+        }
+
+        .list-item-remove {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 51, 102, 0.15);
+            border: none;
+            border-radius: 50%;
+            color: var(--accent-danger);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .list-item-remove:hover {
+            background: var(--accent-danger);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .btn-add-item {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--accent-primary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .btn-add-item:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Timeline */
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--glass-white);
+            border-radius: var(--radius-lg);
+        }
+
+        .timeline-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        /* Documentos */
+        .docs-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+            padding: var(--space-md);
+            background: var(--glass-white);
+            border-radius: var(--radius-lg);
+        }
+
+        .docs-item-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .docs-item-content {
+            flex: 1;
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .docs-item-content select,
+        .docs-item-content input {
+            flex: 1;
+            min-width: 150px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-primary);
+        }
+
+        /* Badge de Status */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: rgba(0, 255, 170, 0.1);
+            color: var(--accent-success);
+        }
+
+        /* Botões de Ação */
+        .form-actions {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: flex-end;
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-color-light);
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-cancel:hover {
+            border-color: var(--accent-danger);
+            color: var(--accent-danger);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit {
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .timeline-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 200;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .form-card {
+                padding: var(--space-lg);
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions button {
+                width: 100%;
+            }
+
+            .list-item {
+                flex-wrap: wrap;
+            }
+
+            .list-item-content {
+                width: 100%;
+                order: 1;
+            }
+
+            .list-item-remove {
+                order: 2;
+            }
+
+            .list-item-icon {
+                order: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../../home.html">
+                 <img src="../../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../../paginas/projetos.html" class="nav-link active">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/blog.html" class="nav-link ">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/eventos.html" class="nav-link ">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/mensagens.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../../paginas/configuracoes.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/backup.html" class="nav-link">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+           <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="form-card">
+                    <div class="status-badge status-active" style="margin-bottom: var(--space-lg);">
+                        <i class="fas fa-circle"></i> Ativo
+                    </div>
+                    
+                    <form id="editarProjetoForm" onsubmit="event.preventDefault(); alert('Projeto atualizado com sucesso! (Demonstração)');">
+                        
+                        <!-- Seção 1: Informações Básicas -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-info-circle"></i>
+                                Informações Básicas
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-heading"></i> Título do Projeto *</label>
+                                    <input type="text" class="form-control" value="Backhaul 10Gbps para Operadora Regional" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-tag"></i> Categoria *</label>
+                                    <select class="form-control select-control" required>
+                                        <option value="">Selecione uma categoria</option>
+                                        <option value="infraestrutura" selected>Infraestrutura de Redes</option>
+                                        <option value="desenvolvimento">Desenvolvimento de Software</option>
+                                        <option value="seguranca">Segurança Eletrônica</option>
+                                        <option value="consultoria">Consultoria</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-calendar-alt"></i> Ano de Conclusão</label>
+                                    <input type="number" class="form-control" value="2025" min="2000" max="2030">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-clock"></i> Duração (meses)</label>
+                                    <input type="number" class="form-control" value="8">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-users"></i> Nº de Especialistas</label>
+                                    <input type="number" class="form-control" value="12">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-map-marker-alt"></i> Local do Projeto</label>
+                                    <input type="text" class="form-control" value="Interior de São Paulo">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label class="form-label"><i class="fas fa-align-left"></i> Descrição do Projeto *</label>
+                                    <textarea class="form-control" rows="4" required>Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar torres de telefonia móvel, garantindo backhaul de alta capacidade para rede 4G/5G. O projeto abrangeu uma área de mais de 500km² em regiões remotas do interior paulista, onde a infraestrutura de fibra óptica era inexistente.
+
+A solução de microwave link foi escolhida por sua alta disponibilidade, baixa latência e capacidade de transmissão de até 10Gbps por enlace, atendendo às demandas de expansão da operadora para suporte ao 5G.</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seção 2: Mídia do Projeto -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-image"></i>
+                                Mídia do Projeto
+                            </div>
+                            <div class="media-type-selector">
+                                <div class="media-type-btn active" data-type="imagem">📷 Imagem</div>
+                                <div class="media-type-btn" data-type="video">🎬 Vídeo (YouTube/Vimeo)</div>
+                            </div>
+                            
+                            <div id="imagemUpload" class="media-upload" onclick="document.getElementById('imagemInput').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Clique para alterar a imagem destacada</p>
+                                <p style="font-size: 0.7rem;">Formatos: JPG, PNG, WEBP. Máx: 5MB</p>
+                                <input type="file" id="imagemInput" accept="image/*" style="display: none;">
+                            </div>
+                            <div id="imagemPreview" class="media-preview active">
+                                <img id="previewImg" src="https://placehold.co/1200x600/1D3557/00D4FF?text=Backhaul+Microwave+Link" alt="Preview">
+                            </div>
+
+                            <div id="videoUpload" style="display: none;">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fab fa-youtube"></i> URL do Vídeo (YouTube/Vimeo)</label>
+                                    <input type="url" class="form-control" id="videoUrl" placeholder="https://www.youtube.com/watch?v=...">
+                                </div>
+                                <div id="videoPreview" class="media-preview"></div>
+                            </div>
+                        </div>
+
+                        <!-- Seção 3: Métricas do Projeto -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-chart-line"></i>
+                                Métricas do Projeto
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-chart-simple"></i> Métrica 1</label>
+                                    <input type="text" class="form-control" value="35 enlaces implantados">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-chart-simple"></i> Métrica 2</label>
+                                    <input type="text" class="form-control" value="99.99% disponibilidade">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-chart-simple"></i> Métrica 3</label>
+                                    <input type="text" class="form-control" value="40% redução de custos">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seção 4: Desafios Encontrados (Lista Dinâmica) -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-challenge"></i>
+                                Desafios Encontrados
+                            </div>
+                            <div id="desafiosContainer" class="dynamic-list">
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-mountain"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Título" value="Terreno acidentado" style="flex: 2;">
+                                        <input type="text" placeholder="Descrição" value="Regiões serranas com obstrução de linha de visada exigiram estudos topográficos detalhados" style="flex: 3;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-cloud-rain"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Título" value="Condições climáticas adversas" style="flex: 2;">
+                                        <input type="text" placeholder="Descrição" value="Fortes chuvas exigiram dimensionamento com alta disponibilidade (99.99%)" style="flex: 3;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-bolt"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Título" value="Interferência eletromagnética" style="flex: 2;">
+                                        <input type="text" placeholder="Descrição" value="Presença de outras operadoras exigiu planejamento espectral rigoroso" style="flex: 3;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-item" onclick="adicionarDesafio()">
+                                <i class="fas fa-plus"></i> Adicionar Desafio
+                            </button>
+                        </div>
+
+                        <!-- Seção 5: Especificações Técnicas (Lista Dinâmica) -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-microchip"></i>
+                                Especificações Técnicas
+                            </div>
+                            <div id="especificacoesContainer" class="dynamic-list">
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-satellite-dish"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Especificação" value="Frequências" style="flex: 1;">
+                                        <input type="text" placeholder="Valor" value="11GHz e 18GHz (licenciadas)" style="flex: 2;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Especificação" value="Capacidade" style="flex: 1;">
+                                        <input type="text" placeholder="Valor" value="10Gbps por enlace" style="flex: 2;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-shield-alt"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Especificação" value="Disponibilidade" style="flex: 1;">
+                                        <input type="text" placeholder="Valor" value="99.99% (classe ETSI)" style="flex: 2;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-item" onclick="adicionarEspecificacao()">
+                                <i class="fas fa-plus"></i> Adicionar Especificação
+                            </button>
+                        </div>
+
+                        <!-- Seção 6: Tecnologias Utilizadas -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-code"></i>
+                                Tecnologias Utilizadas
+                            </div>
+                            <div id="tecnologiasContainer" class="dynamic-list">
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-broadcast-tower"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Tecnologia" value="Microwave 11GHz" style="flex: 2;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-broadcast-tower"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Tecnologia" value="Microwave 18GHz" style="flex: 2;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-network-wired"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Tecnologia" value="SDH/SONET" style="flex: 2;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-item-icon"><i class="fas fa-shield-alt"></i></div>
+                                    <div class="list-item-content">
+                                        <input type="text" placeholder="Tecnologia" value="AES-256" style="flex: 2;">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-item" onclick="adicionarTecnologia()">
+                                <i class="fas fa-plus"></i> Adicionar Tecnologia
+                            </button>
+                        </div>
+
+                        <!-- Seção 7: Timeline do Projeto (Lista Dinâmica) -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-timeline"></i>
+                                Timeline do Projeto
+                            </div>
+                            <div id="timelineContainer" class="dynamic-list">
+                                <div class="timeline-item">
+                                    <div class="timeline-row">
+                                        <input type="text" class="form-control" placeholder="Data/Período" value="Jan 2024">
+                                        <input type="text" class="form-control" placeholder="Título" value="Planejamento e Estudos">
+                                        <input type="text" class="form-control" placeholder="Ícone (fa-...)" value="fa-chart-line">
+                                    </div>
+                                    <textarea class="form-control" rows="2" placeholder="Descrição">Levantamento topográfico, estudos de viabilidade e licenciamento das frequências.</textarea>
+                                    <button type="button" class="list-item-remove" style="align-self: flex-end;" onclick="this.closest('.timeline-item').remove()"><i class="fas fa-trash"></i> Remover</button>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-row">
+                                        <input type="text" class="form-control" placeholder="Data/Período" value="Mar 2024">
+                                        <input type="text" class="form-control" placeholder="Título" value="Infraestrutura das Torres">
+                                        <input type="text" class="form-control" placeholder="Ícone" value="fa-hard-hat">
+                                    </div>
+                                    <textarea class="form-control" rows="2" placeholder="Descrição">Construção e adequação de 12 torres para suporte dos rádios.</textarea>
+                                    <button type="button" class="list-item-remove" style="align-self: flex-end;" onclick="this.closest('.timeline-item').remove()"><i class="fas fa-trash"></i> Remover</button>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-row">
+                                        <input type="text" class="form-control" placeholder="Data/Período" value="Jun 2024">
+                                        <input type="text" class="form-control" placeholder="Título" value="Instalação dos Enlaces">
+                                        <input type="text" class="form-control" placeholder="Ícone" value="fa-satellite-dish">
+                                    </div>
+                                    <textarea class="form-control" rows="2" placeholder="Descrição">Instalação de 35 rádios em configuração protegida 1+1.</textarea>
+                                    <button type="button" class="list-item-remove" style="align-self: flex-end;" onclick="this.closest('.timeline-item').remove()"><i class="fas fa-trash"></i> Remover</button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-item" onclick="adicionarTimeline()">
+                                <i class="fas fa-plus"></i> Adicionar Etapa
+                            </button>
+                        </div>
+
+                        <!-- Seção 8: Documentos e Arquivos -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-file-alt"></i>
+                                Documentos e Arquivos
+                            </div>
+                            <div id="documentosContainer" class="dynamic-list">
+                                <div class="docs-item">
+                                    <div class="docs-item-icon"><i class="fas fa-file-pdf"></i></div>
+                                    <div class="docs-item-content">
+                                        <select>
+                                            <option>Estudo de Caso</option>
+                                            <option selected>Relatório de Resultados</option>
+                                            <option>Fotos do Projeto</option>
+                                            <option>Apresentação</option>
+                                        </select>
+                                        <input type="text" placeholder="Nome do arquivo" value="relatorio_resultados.pdf">
+                                        <input type="text" placeholder="URL ou caminho" value="/docs/resultados.pdf">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.docs-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="docs-item">
+                                    <div class="docs-item-icon"><i class="fas fa-image"></i></div>
+                                    <div class="docs-item-content">
+                                        <select>
+                                            <option>Estudo de Caso</option>
+                                            <option>Relatório de Resultados</option>
+                                            <option selected>Fotos do Projeto</option>
+                                            <option>Apresentação</option>
+                                        </select>
+                                        <input type="text" placeholder="Nome do arquivo" value="fotos_instalacao.zip">
+                                        <input type="text" placeholder="URL ou caminho" value="/images/fotos.zip">
+                                    </div>
+                                    <button type="button" class="list-item-remove" onclick="this.closest('.docs-item').remove()"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-item" onclick="adicionarDocumento()">
+                                <i class="fas fa-plus"></i> Adicionar Documento
+                            </button>
+                        </div>
+
+                        <!-- Botões de Ação -->
+                        <div class="form-actions">
+                            <a href="projetos-listar.html" class="btn-cancel" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                                Cancelar
+                            </a>
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-save"></i> Salvar Alterações
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================
+        // MÍDIA DO PROJETO (IMAGEM / VÍDEO)
+        // ============================================
+        const mediaTypeBtns = document.querySelectorAll('.media-type-btn');
+        const imagemUpload = document.getElementById('imagemUpload');
+        const imagemPreview = document.getElementById('imagemPreview');
+        const videoUpload = document.getElementById('videoUpload');
+        const videoUrl = document.getElementById('videoUrl');
+        const videoPreview = document.getElementById('videoPreview');
+        const imagemInput = document.getElementById('imagemInput');
+        const previewImg = document.getElementById('previewImg');
+
+        mediaTypeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                mediaTypeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const tipo = btn.getAttribute('data-type');
+                if (tipo === 'imagem') {
+                    imagemUpload.style.display = 'block';
+                    videoUpload.style.display = 'none';
+                    imagemPreview.classList.add('active');
+                } else {
+                    imagemUpload.style.display = 'none';
+                    videoUpload.style.display = 'block';
+                    imagemPreview.classList.remove('active');
+                }
+            });
+        });
+
+        imagemInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    previewImg.src = event.target.result;
+                    imagemPreview.classList.add('active');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        videoUrl.addEventListener('input', () => {
+            let url = videoUrl.value;
+            let embedUrl = '';
+            
+            if (url.includes('youtube.com/watch?v=')) {
+                let videoId = url.split('v=')[1].split('&')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            } else if (url.includes('youtu.be/')) {
+                let videoId = url.split('youtu.be/')[1].split('?')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            } else if (url.includes('vimeo.com/')) {
+                let videoId = url.split('vimeo.com/')[1].split('?')[0];
+                embedUrl = `https://player.vimeo.com/video/${videoId}`;
+            }
+            
+            if (embedUrl) {
+                videoPreview.querySelector('.video-preview').innerHTML = `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+                videoPreview.classList.add('active');
+            } else {
+                videoPreview.classList.remove('active');
+            }
+        });
+
+        // ============================================
+        // FUNÇÕES PARA ADICIONAR ITENS DINÂMICOS
+        // ============================================
+        
+        function adicionarDesafio() {
+            const container = document.getElementById('desafiosContainer');
+            const newItem = document.createElement('div');
+            newItem.className = 'list-item';
+            newItem.innerHTML = `
+                <div class="list-item-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="list-item-content">
+                    <input type="text" placeholder="Título" style="flex: 2;">
+                    <input type="text" placeholder="Descrição" style="flex: 3;">
+                </div>
+                <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+            `;
+            container.appendChild(newItem);
+        }
+
+        function adicionarEspecificacao() {
+            const container = document.getElementById('especificacoesContainer');
+            const newItem = document.createElement('div');
+            newItem.className = 'list-item';
+            newItem.innerHTML = `
+                <div class="list-item-icon"><i class="fas fa-microchip"></i></div>
+                <div class="list-item-content">
+                    <input type="text" placeholder="Especificação" style="flex: 1;">
+                    <input type="text" placeholder="Valor" style="flex: 2;">
+                </div>
+                <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+            `;
+            container.appendChild(newItem);
+        }
+
+        function adicionarTecnologia() {
+            const container = document.getElementById('tecnologiasContainer');
+            const newItem = document.createElement('div');
+            newItem.className = 'list-item';
+            newItem.innerHTML = `
+                <div class="list-item-icon"><i class="fas fa-code"></i></div>
+                <div class="list-item-content">
+                    <input type="text" placeholder="Tecnologia" style="flex: 2;">
+                </div>
+                <button type="button" class="list-item-remove" onclick="this.closest('.list-item').remove()"><i class="fas fa-trash"></i></button>
+            `;
+            container.appendChild(newItem);
+        }
+
+        function adicionarTimeline() {
+            const container = document.getElementById('timelineContainer');
+            const newItem = document.createElement('div');
+            newItem.className = 'timeline-item';
+            newItem.innerHTML = `
+                <div class="timeline-row">
+                    <input type="text" class="form-control" placeholder="Data/Período">
+                    <input type="text" class="form-control" placeholder="Título">
+                    <input type="text" class="form-control" placeholder="Ícone (ex: fa-rocket)">
+                </div>
+                <textarea class="form-control" rows="2" placeholder="Descrição detalhada"></textarea>
+                <button type="button" class="list-item-remove" style="align-self: flex-end;" onclick="this.closest('.timeline-item').remove()"><i class="fas fa-trash"></i> Remover</button>
+            `;
+            container.appendChild(newItem);
+        }
+
+        function adicionarDocumento() {
+            const container = document.getElementById('documentosContainer');
+            const newItem = document.createElement('div');
+            newItem.className = 'docs-item';
+            newItem.innerHTML = `
+                <div class="docs-item-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="docs-item-content">
+                    <select>
+                        <option>Estudo de Caso</option>
+                        <option>Relatório de Resultados</option>
+                        <option>Fotos do Projeto</option>
+                        <option>Apresentação</option>
+                    </select>
+                    <input type="text" placeholder="Nome do arquivo">
+                    <input type="text" placeholder="URL ou caminho">
+                </div>
+                <button type="button" class="list-item-remove" onclick="this.closest('.docs-item').remove()"><i class="fas fa-trash"></i></button>
+            `;
+            container.appendChild(newItem);
+        }
+
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // TEMA (DARK/LIGHT)
+        // ============================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (themeToggle) {
+            themeToggle.checked = savedTheme === 'light';
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
+</body>
+
+</html>

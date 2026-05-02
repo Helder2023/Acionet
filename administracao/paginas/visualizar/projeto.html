@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Projeto | Backhaul 10Gbps | Acionet Control Center</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/style.css"><script src="../../assets/js/js.js"></script>
+
+    <style>
+       
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all var(--transition-base);
+            z-index: var(--z-sticky);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .sidebar-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-logo i {
+            background: none;
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) 0;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-xl);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .nav-link:hover {
+            background: var(--glass-white);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-glass);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-section {
+            padding: var(--space-md) var(--space-xl);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-top: var(--space-lg);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .page-title {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .theme-switch-label {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input);
+            border-radius: 34px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 34px;
+        }
+
+        .theme-switch-thumb {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 3px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-icon {
+            position: absolute;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .light-icon {
+            opacity: 1;
+        }
+
+        .dark-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .theme-switch-thumb {
+            transform: translateX(28px);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .light-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* User Menu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-role {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: var(--space-xl);
+        }
+
+        /* ============================================
+           ESTILOS DA PÁGINA DE VISUALIZAÇÃO DE PROJETO
+        ============================================ */
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-header {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--glass-white);
+            padding: var(--space-xs) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-badge i {
+            color: var(--accent-primary);
+        }
+
+        .project-title {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+            line-height: 1.2;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .meta-item i {
+            color: var(--accent-primary);
+            width: 20px;
+        }
+
+        /* Mídia Principal */
+        .project-media {
+            margin-bottom: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: var(--bg-tertiary);
+        }
+
+        .project-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Grid de Conteúdo */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-2xl);
+        }
+
+        /* Descrição */
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .project-description p {
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-description h2 {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin: var(--space-xl) 0 var(--space-lg);
+        }
+
+        /* Desafios */
+        .challenges-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .challenge-item {
+            display: flex;
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            background: var(--glass-white);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+        }
+
+        .challenge-item:hover {
+            transform: translateX(5px);
+            background: var(--bg-card-hover);
+        }
+
+        .challenge-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .challenge-content {
+            flex: 1;
+        }
+
+        .challenge-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: var(--space-xs);
+            color: var(--text-primary);
+        }
+
+        .challenge-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Especificações Técnicas */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .spec-item {
+            background: var(--glass-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            transition: all var(--transition-fast);
+        }
+
+        .spec-item:hover {
+            transform: translateY(-3px);
+            background: var(--bg-card-hover);
+        }
+
+        .spec-label {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            font-size: 0.875rem;
+        }
+
+        .spec-value {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Tecnologias */
+        .tech-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .tech-tag {
+            background: var(--glass-white);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .tech-tag:hover {
+            background: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Timeline */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: var(--space-lg);
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 50px;
+            bottom: -25px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
+        .timeline-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-bottom: var(--space-md);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Documentos */
+        .docs-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md);
+            background: var(--glass-white);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-fast);
+            text-decoration: none;
+        }
+
+        .doc-item:hover {
+            transform: translateX(5px);
+            background: var(--bg-card-hover);
+        }
+
+        .doc-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .doc-meta {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        .doc-download {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
+        }
+
+        /* Resultados */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .result-card {
+            background: var(--gradient-primary);
+            background-size: 200% 100%;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            text-align: center;
+            color: white;
+        }
+
+        .result-value {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: var(--space-xs);
+        }
+
+        .result-label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Sidebar */
+        .sidebar-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .sidebar-card h3 {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.2rem;
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .sidebar-card h3 i {
+            color: var(--accent-primary);
+        }
+
+        .info-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .info-label {
+            color: var(--text-tertiary);
+            font-size: 0.8rem;
+        }
+
+        .info-value {
+            font-weight: 600;
+        }
+
+        /* Ações */
+        .project-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-color-light);
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .action-btn:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+        }
+
+        .action-btn.edit:hover {
+            background: var(--accent-secondary);
+        }
+
+        .action-btn.delete:hover {
+            background: var(--accent-danger);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 200;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .project-title {
+                font-size: 1.8rem;
+            }
+
+            .project-meta {
+                gap: var(--space-md);
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .challenge-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../../home.html">
+                 <img src="../../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../../paginas/projetos.html" class="nav-link active">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/blog.html" class="nav-link ">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/eventos.html" class="nav-link ">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/mensagens.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../../paginas/configuracoes.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/backup.html" class="nav-link">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="project-container">
+                    <!-- Header -->
+                    <div class="project-header">
+                        <div class="project-badge">
+                            <i class="fas fa-trophy"></i>
+                            PROJETO DESTAQUE 2025
+                        </div>
+                        <h1 class="project-title">Backhaul 10Gbps para Operadora Regional</h1>
+                        <div class="project-meta">
+                            <div class="meta-item"><i class="fas fa-calendar-alt"></i> Concluído em: Março 2025</div>
+                            <div class="meta-item"><i class="fas fa-clock"></i> Duração: 8 meses</div>
+                            <div class="meta-item"><i class="fas fa-users"></i> Equipe: 12 especialistas</div>
+                            <div class="meta-item"><i class="fas fa-map-marker-alt"></i> Local: Interior de SP</div>
+                        </div>
+                    </div>
+
+                    <!-- Ações -->
+                    <div class="project-actions">
+                        <a href="projetos-editar.html?id=1" class="action-btn edit"><i class="fas fa-edit"></i> Editar</a>
+                        <button class="action-btn delete" onclick="alert('Projeto excluído com sucesso! (Demonstração)')"><i class="fas fa-trash"></i> Excluir</button>
+                        <a href="projetos-listar.html" class="action-btn"><i class="fas fa-arrow-left"></i> Voltar</a>
+                    </div>
+
+                    <!-- Mídia Principal -->
+                    <div class="project-media">
+                        <img src="https://placehold.co/1200x600/1D3557/00D4FF?text=Backhaul+Microwave+Link" alt="Backhaul Microwave Link">
+                    </div>
+
+                    <!-- Grid Principal -->
+                    <div class="project-grid">
+                        <!-- Coluna Esquerda - Conteúdo Principal -->
+                        <div class="project-main">
+                            <!-- Descrição -->
+                            <div class="project-description">
+                                <p>Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar torres de telefonia móvel, garantindo backhaul de alta capacidade para rede 4G/5G. O projeto abrangeu uma área de mais de 500km² em regiões remotas do interior paulista, onde a infraestrutura de fibra óptica era inexistente.</p>
+                                <p>A solução de microwave link foi escolhida por sua alta disponibilidade, baixa latência e capacidade de transmissão de até 10Gbps por enlace, atendendo às demandas de expansão da operadora para suporte ao 5G.</p>
+                            </div>
+
+                            <!-- Desafios -->
+                            <h2>Desafios Encontrados</h2>
+                            <div class="challenges-list">
+                                <div class="challenge-item">
+                                    <div class="challenge-icon">
+                                        <i class="fas fa-mountain"></i>
+                                    </div>
+                                    <div class="challenge-content">
+                                        <div class="challenge-title">Terreno acidentado</div>
+                                        <div class="challenge-description">Regiões serranas com obstrução de linha de visada exigiram estudos topográficos detalhados e torres de até 80m para garantir enlaces livres.</div>
+                                    </div>
+                                </div>
+                                <div class="challenge-item">
+                                    <div class="challenge-icon">
+                                        <i class="fas fa-cloud-rain"></i>
+                                    </div>
+                                    <div class="challenge-content">
+                                        <div class="challenge-title">Condições climáticas adversas</div>
+                                        <div class="challenge-description">Fortes chuvas na região exigiram dimensionamento de enlaces com alta disponibilidade (99.99%) e técnicas de diversidade para mitigar atenuação por chuva.</div>
+                                    </div>
+                                </div>
+                                <div class="challenge-item">
+                                    <div class="challenge-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="challenge-content">
+                                        <div class="challenge-title">Interferência eletromagnética</div>
+                                        <div class="challenge-description">Presença de outras operadoras na mesma faixa de frequência exigiu planejamento espectral rigoroso e filtros especiais para evitar interferências.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Especificações Técnicas -->
+                            <h2>Especificações Técnicas</h2>
+                            <div class="specs-grid">
+                                <div class="spec-item">
+                                    <div class="spec-label"><i class="fas fa-satellite-dish"></i> Frequências</div>
+                                    <div class="spec-value">11GHz e 18GHz (licenciadas)</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label"><i class="fas fa-tachometer-alt"></i> Capacidade</div>
+                                    <div class="spec-value">10Gbps por enlace (agregação)</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label"><i class="fas fa-ruler"></i> Alcance Máximo</div>
+                                    <div class="spec-value">45km (com repetidores)</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label"><i class="fas fa-shield-alt"></i> Disponibilidade</div>
+                                    <div class="spec-value">99.99% (classe ETSI)</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label"><i class="fas fa-lock"></i> Criptografia</div>
+                                    <div class="spec-value">AES-256 (FIPS 140-2)</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-label"><i class="fas fa-clock"></i> Latência</div>
+                                    <div class="spec-value">< 0.5ms por enlace</div>
+                                </div>
+                            </div>
+
+                            <!-- Tecnologias Utilizadas -->
+                            <h2>Tecnologias Utilizadas</h2>
+                            <div class="tech-cloud">
+                                <span class="tech-tag">Microwave 11GHz</span>
+                                <span class="tech-tag">Microwave 18GHz</span>
+                                <span class="tech-tag">SDH/SONET</span>
+                                <span class="tech-tag">Ethernet/IP</span>
+                                <span class="tech-tag">MIMO 2x2</span>
+                                <span class="tech-tag">Adaptive Modulation</span>
+                                <span class="tech-tag">QPSK a 256QAM</span>
+                                <span class="tech-tag">AES-256</span>
+                                <span class="tech-tag">Ceragon</span>
+                            </div>
+
+                            <!-- Timeline -->
+                            <h2>Timeline do Projeto</h2>
+                            <div class="timeline-list">
+                                <div class="timeline-item">
+                                    <div class="timeline-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Jan 2024</div>
+                                        <div class="timeline-title">Planejamento e Estudos</div>
+                                        <div class="timeline-desc">Levantamento topográfico, estudos de viabilidade e licenciamento das frequências.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon"><i class="fas fa-hard-hat"></i></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Mar 2024</div>
+                                        <div class="timeline-title">Infraestrutura das Torres</div>
+                                        <div class="timeline-desc">Construção e adequação de 12 torres para suporte dos rádios, incluindo fundações e aterramento.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon"><i class="fas fa-satellite-dish"></i></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Jun 2024</div>
+                                        <div class="timeline-title">Instalação dos Enlaces</div>
+                                        <div class="timeline-desc">Instalação de 35 rádios em configuração protegida 1+1, alinhamento e comissionamento.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Ago 2024</div>
+                                        <div class="timeline-title">Testes e Comissionamento</div>
+                                        <div class="timeline-desc">Testes de throughput, latência, handover e validação de disponibilidade.</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-date">Set 2024</div>
+                                        <div class="timeline-title">Go-Live</div>
+                                        <div class="timeline-desc">Entrada em operação comercial e monitoramento contínuo.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Resultados -->
+                            <h2>Resultados Alcançados</h2>
+                            <div class="results-grid">
+                                <div class="result-card">
+                                    <div class="result-value">35</div>
+                                    <div class="result-label">Enlaces Implantados</div>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-value">99.99%</div>
+                                    <div class="result-label">Disponibilidade</div>
+                                </div>
+                                <div class="result-card">
+                                    <div class="result-value">40%</div>
+                                    <div class="result-label">Redução de Custos</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coluna Direita - Sidebar -->
+                        <div class="project-sidebar">
+                            <!-- Informações Rápidas -->
+                            <div class="sidebar-card">
+                                <h3><i class="fas fa-info-circle"></i> Informações Rápidas</h3>
+                                <div class="info-list">
+                                    <div class="info-item">
+                                        <span class="info-label">Cliente</span>
+                                        <span class="info-value">Operadora Regional</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Categoria</span>
+                                        <span class="info-value">Infraestrutura de Redes</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Investimento</span>
+                                        <span class="info-value">R$ 2.5M</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">ROI Estimado</span>
+                                        <span class="info-value">18 meses</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Status</span>
+                                        <span class="info-value" style="color: var(--accent-success);">Concluído</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Documentos -->
+                            <div class="sidebar-card">
+                                <h3><i class="fas fa-file-alt"></i> Documentos</h3>
+                                <div class="docs-list">
+                                    <a href="#" class="doc-item">
+                                        <div class="doc-icon"><i class="fas fa-file-pdf"></i></div>
+                                        <div class="doc-info">
+                                            <div class="doc-name">Estudo de Caso Completo</div>
+                                            <div class="doc-meta">PDF • 2.4 MB</div>
+                                        </div>
+                                        <div class="doc-download"><i class="fas fa-download"></i></div>
+                                    </a>
+                                    <a href="#" class="doc-item">
+                                        <div class="doc-icon"><i class="fas fa-chart-bar"></i></div>
+                                        <div class="doc-info">
+                                            <div class="doc-name">Relatório de Resultados</div>
+                                            <div class="doc-meta">PDF • 1.8 MB</div>
+                                        </div>
+                                        <div class="doc-download"><i class="fas fa-download"></i></div>
+                                    </a>
+                                    <a href="#" class="doc-item">
+                                        <div class="doc-icon"><i class="fas fa-image"></i></div>
+                                        <div class="doc-info">
+                                            <div class="doc-name">Fotos do Projeto</div>
+                                            <div class="doc-meta">ZIP • 15 MB</div>
+                                        </div>
+                                        <div class="doc-download"><i class="fas fa-download"></i></div>
+                                    </a>
+                                    <a href="#" class="doc-item">
+                                        <div class="doc-icon"><i class="fas fa-chart-line"></i></div>
+                                        <div class="doc-info">
+                                            <div class="doc-name">Métricas de Performance</div>
+                                            <div class="doc-meta">XLSX • 890 KB</div>
+                                        </div>
+                                        <div class="doc-download"><i class="fas fa-download"></i></div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Equipe do Projeto -->
+                            <div class="sidebar-card">
+                                <h3><i class="fas fa-users"></i> Equipe do Projeto</h3>
+                                <div class="info-list">
+                                    <div class="info-item">
+                                        <span class="info-label">Gerente</span>
+                                        <span class="info-value">Ricardo Mendes</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Arquiteto de Redes</span>
+                                        <span class="info-value">Marcos Oliveira</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Especialistas</span>
+                                        <span class="info-value">10 engenheiros</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Suporte</span>
+                                        <span class="info-value">Equipe 24/7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // TEMA (DARK/LIGHT)
+        // ============================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (themeToggle) {
+            themeToggle.checked = savedTheme === 'light';
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
+</body>
+
+</html>
