@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Post | Revolução IA | Acionet Control Center</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Quill Editor (Editor de Texto Rico) -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<link rel="stylesheet" href="../../assets/css/style.css"><script src="../../assets/js/js.js"></script>
+
+    <style>
+       
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all var(--transition-base);
+            z-index: var(--z-sticky);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .sidebar-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-logo i {
+            background: none;
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) 0;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-xl);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .nav-link:hover {
+            background: var(--glass-white);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-glass);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-section {
+            padding: var(--space-md) var(--space-xl);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-top: var(--space-lg);
+        }
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .page-title {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .theme-switch-label {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input);
+            border-radius: 34px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 34px;
+        }
+
+        .theme-switch-thumb {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 3px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-icon {
+            position: absolute;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .light-icon {
+            opacity: 1;
+        }
+
+        .dark-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .theme-switch-thumb {
+            transform: translateX(28px);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .light-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* User Menu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-role {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: var(--space-xl);
+        }
+
+        /* ============================================
+           FORMULÁRIO DE EDIÇÃO DE POST
+        ============================================ */
+        .form-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+        }
+
+        .form-section {
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-xl);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .form-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .form-section-title {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.3rem;
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--accent-primary);
+        }
+
+        .form-section-title i {
+            font-size: 1.2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .form-label i {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.875rem;
+            transition: all var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: var(--glow-primary);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Seletores */
+        .select-control {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300D4FF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right var(--space-md) center;
+            background-size: 1rem;
+        }
+
+        /* Mídia do Post */
+        .media-upload {
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            background: var(--bg-input);
+        }
+
+        .media-upload:hover {
+            border-color: var(--accent-primary);
+            background: var(--glass-white);
+        }
+
+        .media-upload i {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .media-upload p {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .media-preview {
+            margin-top: var(--space-lg);
+            display: none;
+        }
+
+        .media-preview.active {
+            display: block;
+        }
+
+        .media-preview img {
+            max-width: 100%;
+            border-radius: var(--radius-lg);
+        }
+
+        .video-preview {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-preview iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            border: none;
+        }
+
+        .media-type-selector {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .media-type-btn {
+            flex: 1;
+            padding: var(--space-sm) var(--space-md);
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            cursor: pointer;
+            text-align: center;
+            transition: all var(--transition-fast);
+        }
+
+        .media-type-btn.active {
+            background: var(--gradient-primary);
+            border-color: var(--accent-primary);
+            color: white;
+        }
+
+        /* Tags */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .tag-item {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--glass-white);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+        }
+
+        .tag-item i {
+            cursor: pointer;
+            color: var(--accent-danger);
+            font-size: 0.7rem;
+        }
+
+        .tag-input-group {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .tag-input-group input {
+            flex: 1;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            padding: var(--space-sm) var(--space-md);
+            color: var(--text-primary);
+        }
+
+        /* Badge de Status */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-published {
+            background: rgba(0, 255, 170, 0.1);
+            color: var(--accent-success);
+        }
+
+        .status-draft {
+            background: rgba(255, 217, 102, 0.1);
+            color: var(--accent-warning);
+        }
+
+        /* Botões de Ação */
+        .form-actions {
+            display: flex;
+            gap: var(--space-lg);
+            justify-content: flex-end;
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--border-color-light);
+        }
+
+        .btn-cancel {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-cancel:hover {
+            border-color: var(--accent-danger);
+            color: var(--accent-danger);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit {
+            background: var(--gradient-primary);
+            border: none;
+            color: white;
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+
+        .btn-draft {
+            background: transparent;
+            border: 1px solid var(--accent-warning);
+            color: var(--accent-warning);
+        }
+
+        .btn-draft:hover {
+            background: var(--accent-warning);
+            color: white;
+        }
+
+        /* Quill Editor */
+        .quill-editor {
+            background: var(--bg-input);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .ql-toolbar {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color) !important;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+
+        .ql-container {
+            border: 1px solid var(--border-color) !important;
+            border-top: none !important;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background: var(--bg-input);
+        }
+
+        .ql-editor {
+            min-height: 300px;
+        }
+
+        .ql-editor.ql-blank::before {
+            color: var(--text-tertiary);
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 200;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .form-card {
+                padding: var(--space-lg);
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+         <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../../home.html">
+                 <img src="../../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../../paginas/projetos.html" class="nav-link ">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/blog.html" class="nav-link active">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/eventos.html" class="nav-link">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/mensagens.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../../paginas/configuracoes.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/backup.html" class="nav-link">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+           <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="form-card">
+                    <div class="status-badge status-published" style="margin-bottom: var(--space-lg);">
+                        <i class="fas fa-circle"></i> Publicado
+                    </div>
+                    
+                    <form id="editarPostForm" onsubmit="event.preventDefault(); alert('Post atualizado com sucesso! (Demonstração)');">
+                        
+                        <!-- Seção 1: Informações Básicas -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-info-circle"></i>
+                                Informações Básicas
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-heading"></i> Título do Post *</label>
+                                    <input type="text" class="form-control" value="Revolução IA: Como a Generative AI está Redefinindo a Produtividade Empresarial" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-link"></i> Slug (URL amigável)</label>
+                                    <input type="text" class="form-control" value="revolucao-ia-generative-ai">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-tag"></i> Categoria *</label>
+                                    <select class="form-control select-control" required>
+                                        <option value="">Selecione uma categoria</option>
+                                        <option value="ia" selected>Inteligência Artificial</option>
+                                        <option value="cloud">Cloud Computing</option>
+                                        <option value="seguranca">Segurança</option>
+                                        <option value="desenvolvimento">Desenvolvimento</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-user"></i> Autor *</label>
+                                    <select class="form-control select-control" required>
+                                        <option value="">Selecione um autor</option>
+                                        <option value="1" selected>Dr. Carlos Silva - Chief AI Officer</option>
+                                        <option value="2">Ana Rodrigues - Cloud Architect Lead</option>
+                                        <option value="3">Fernanda Costa - Security Lead</option>
+                                        <option value="4">Lucas Mendes - Tech Lead</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-calendar-alt"></i> Data de Publicação</label>
+                                    <input type="date" class="form-control" value="2025-03-15">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-clock"></i> Tempo de Leitura (minutos)</label>
+                                    <input type="number" class="form-control" value="8">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label class="form-label"><i class="fas fa-align-left"></i> Resumo / Excerto *</label>
+                                    <textarea class="form-control" rows="3" required>Explore como modelos como GPT-4 e DALL-E estão automatizando processos criativos, gerando conteúdo em escala e proporcionando ganhos de eficiência de até 300% em departamentos de marketing e desenvolvimento.</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seção 2: Mídia do Post (Imagem ou Vídeo) -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-image"></i>
+                                Mídia do Post
+                            </div>
+                            <div class="media-type-selector">
+                                <div class="media-type-btn active" data-type="imagem">📷 Imagem</div>
+                                <div class="media-type-btn" data-type="video">🎬 Vídeo (YouTube/Vimeo)</div>
+                            </div>
+                            
+                            <!-- Upload de Imagem -->
+                            <div id="imagemUpload" class="media-upload" onclick="document.getElementById('imagemInput').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Clique para alterar a imagem destacada</p>
+                                <p style="font-size: 0.7rem;">Formatos: JPG, PNG, WEBP. Máx: 5MB</p>
+                                <input type="file" id="imagemInput" accept="image/*" style="display: none;">
+                            </div>
+                            <div id="imagemPreview" class="media-preview active">
+                                <img id="previewImg" src="https://placehold.co/1200x600/1D3557/00D4FF?text=IA+Generativa" alt="Preview">
+                            </div>
+
+                            <!-- Vídeo Embed -->
+                            <div id="videoUpload" style="display: none;">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fab fa-youtube"></i> URL do Vídeo (YouTube/Vimeo)</label>
+                                    <input type="url" class="form-control" id="videoUrl" placeholder="https://www.youtube.com/watch?v=... ou https://vimeo.com/...">
+                                </div>
+                                <div id="videoPreview" class="media-preview"></div>
+                            </div>
+                        </div>
+
+                        <!-- Seção 3: Conteúdo do Post (Editor Rico) -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-newspaper"></i>
+                                Conteúdo
+                            </div>
+                            <div id="editor" class="quill-editor" style="height: 400px;">
+                                <!-- Conteúdo HTML diretamente no editor - NÃO USA JS -->
+                                <p>A inteligência artificial generativa está vivendo um momento de aceleração sem precedentes.
+                                Modelos como GPT-4, DALL-E, Midjourney e Claude estão transformando radicalmente a forma como
+                                empresas criam conteúdo, desenvolvem produtos e interagem com clientes. Este artigo explora
+                                como essas tecnologias estão redefinindo a produtividade empresarial e quais estratégias as
+                                organizações podem adotar para aproveitar ao máximo esse potencial.</p>
+                                
+                                <h2>O que é IA Generativa?</h2>
+                                <p>Diferente da IA tradicional, que analisa dados existentes para fazer previsões ou classificações,
+                                a IA generativa cria conteúdo novo e original. Ela aprende padrões a partir de grandes volumes de
+                                dados e utiliza esse conhecimento para gerar textos, imagens, códigos, músicas e até vídeos com
+                                qualidade surpreendente.</p>
+                                
+                                <div class="highlight-box">
+                                    <h4>📊 Dados Relevantes</h4>
+                                    <p>De acordo com a McKinsey, a IA generativa pode adicionar até US$ 4,4 trilhões por ano à economia
+                                    global, impactando 75% das funções empresariais.</p>
+                                </div>
+                                
+                                <h2>Aplicações Práticas nos Negócios</h2>
+                                <h3>1. Marketing e Criação de Conteúdo</h3>
+                                <p>Equipes de marketing estão utilizando ferramentas como ChatGPT e Jasper para produzir artigos,
+                                posts para redes sociais, e-mails marketing e campanhas publicitárias em escala.</p>
+                                
+                                <h3>2. Desenvolvimento de Software</h3>
+                                <p>Ferramentas como GitHub Copilot e Amazon CodeWhisperer estão revolucionando a programação.
+                                Desenvolvedores relatam aumento de até 55% na produtividade.</p>
+                            </div>
+                        </div>
+
+                        <!-- Seção 4: Tags -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-tags"></i>
+                                Tags
+                            </div>
+                            <div id="tagsContainer" class="tags-container">
+                                <div class="tag-item">IA Generativa <i class="fas fa-times" onclick="this.parentElement.remove()"></i></div>
+                                <div class="tag-item">GPT-4 <i class="fas fa-times" onclick="this.parentElement.remove()"></i></div>
+                                <div class="tag-item">Produtividade <i class="fas fa-times" onclick="this.parentElement.remove()"></i></div>
+                                <div class="tag-item">Automação <i class="fas fa-times" onclick="this.parentElement.remove()"></i></div>
+                            </div>
+                            <div class="tag-input-group">
+                                <input type="text" id="tagInput" placeholder="Digite uma tag e pressione Enter">
+                                <button type="button" class="btn-add-item" onclick="adicionarTag()">Adicionar</button>
+                            </div>
+                        </div>
+
+                        <!-- Seção 5: SEO -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-chart-line"></i>
+                                SEO (Otimização para Buscadores)
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label"><i class="fas fa-meta"></i> Meta Título</label>
+                                <input type="text" class="form-control" value="Revolução IA: Como a Generative AI está Redefinindo a Produtividade Empresarial | Acionet">
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label"><i class="fas fa-description"></i> Meta Descrição</label>
+                                <textarea class="form-control" rows="2">Explore como modelos como GPT-4 e DALL-E estão automatizando processos criativos e gerando ganhos de eficiência de até 300%.</textarea>
+                            </div>
+                            <div class="form-group full-width">
+                                <label class="form-label"><i class="fas fa-key"></i> Palavras-chave</label>
+                                <input type="text" class="form-control" value="ia, inteligência artificial, produtividade, gpt-4, dall-e, automação">
+                            </div>
+                        </div>
+
+                        <!-- Seção 6: Status -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <i class="fas fa-flag-checkered"></i>
+                                Status
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-eye"></i> Status do Post</label>
+                                    <select class="form-control select-control">
+                                        <option value="rascunho">📝 Rascunho</option>
+                                        <option value="publicado" selected>🚀 Publicado</option>
+                                        <option value="agendado">📅 Agendado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label"><i class="fas fa-calendar-week"></i> Agendar para</label>
+                                    <input type="datetime-local" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botões de Ação -->
+                        <div class="form-actions">
+                            <a href="blog-listar.html" class="btn-cancel" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
+                                Cancelar
+                            </a>
+                            <button type="button" class="btn-submit btn-draft" onclick="alert('Post salvo como rascunho! (Demonstração)')">
+                                <i class="fas fa-save"></i> Salvar como Rascunho
+                            </button>
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-save"></i> Atualizar Post
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================
+        // INICIALIZAR QUILL EDITOR SEM CONTEÚDO DINÂMICO
+        // O conteúdo já está no HTML, apenas inicializa o editor
+        // ============================================
+        let quill;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Captura o conteúdo HTML existente dentro do #editor
+            const editorDiv = document.getElementById('editor');
+            const existingContent = editorDiv.innerHTML;
+            
+            // Inicializa o Quill
+            quill = new Quill('#editor', {
+                theme: 'snow',
+                placeholder: 'Escreva o conteúdo do seu post aqui...',
+                modules: {
+                    toolbar: [
+                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                        ['bold', 'italic', 'underline', 'strike'],
+                        ['blockquote', 'code-block'],
+                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                        [{ 'indent': '-1'}, { 'indent': '+1' }],
+                        ['link', 'image'],
+                        ['clean']
+                    ]
+                }
+            });
+            
+            // Carrega o conteúdo existente do HTML para o editor
+            if (existingContent) {
+                quill.root.innerHTML = existingContent;
+            }
+        });
+
+        // ============================================
+        // MÍDIA DO POST (IMAGEM / VÍDEO)
+        // ============================================
+        const mediaTypeBtns = document.querySelectorAll('.media-type-btn');
+        const imagemUpload = document.getElementById('imagemUpload');
+        const imagemPreview = document.getElementById('imagemPreview');
+        const videoUpload = document.getElementById('videoUpload');
+        const videoUrl = document.getElementById('videoUrl');
+        const videoPreview = document.getElementById('videoPreview');
+        const imagemInput = document.getElementById('imagemInput');
+        const previewImg = document.getElementById('previewImg');
+
+        mediaTypeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                mediaTypeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const tipo = btn.getAttribute('data-type');
+                if (tipo === 'imagem') {
+                    imagemUpload.style.display = 'block';
+                    videoUpload.style.display = 'none';
+                    imagemPreview.classList.add('active');
+                } else {
+                    imagemUpload.style.display = 'none';
+                    videoUpload.style.display = 'block';
+                    imagemPreview.classList.remove('active');
+                }
+            });
+        });
+
+        imagemInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    previewImg.src = event.target.result;
+                    imagemPreview.classList.add('active');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        videoUrl.addEventListener('input', () => {
+            let url = videoUrl.value;
+            let embedUrl = '';
+            
+            if (url.includes('youtube.com/watch?v=')) {
+                let videoId = url.split('v=')[1].split('&')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            } else if (url.includes('youtu.be/')) {
+                let videoId = url.split('youtu.be/')[1].split('?')[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            } else if (url.includes('vimeo.com/')) {
+                let videoId = url.split('vimeo.com/')[1].split('?')[0];
+                embedUrl = `https://player.vimeo.com/video/${videoId}`;
+            }
+            
+            if (embedUrl) {
+                videoPreview.querySelector('.video-preview').innerHTML = `<iframe src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+                videoPreview.classList.add('active');
+            } else {
+                videoPreview.classList.remove('active');
+            }
+        });
+
+        // ============================================
+        // TAGS
+        // ============================================
+        function adicionarTag() {
+            const input = document.getElementById('tagInput');
+            const tag = input.value.trim();
+            if (tag) {
+                const tagsContainer = document.getElementById('tagsContainer');
+                const tagElement = document.createElement('div');
+                tagElement.className = 'tag-item';
+                tagElement.innerHTML = `${tag} <i class="fas fa-times" onclick="this.parentElement.remove()"></i>`;
+                tagsContainer.appendChild(tagElement);
+                input.value = '';
+            }
+        }
+
+        document.getElementById('tagInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                adicionarTag();
+            }
+        });
+
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // TEMA (DARK/LIGHT)
+        // ============================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (themeToggle) {
+            themeToggle.checked = savedTheme === 'light';
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
+
+    <style>
+        .btn-add-item {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--accent-primary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .btn-add-item:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.1));
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            border-left: 3px solid var(--accent-primary);
+            margin: 1rem 0;
+        }
+        
+        /* Estilo para o editor Quill - garante que o conteúdo HTML seja exibido corretamente */
+        .ql-editor {
+            min-height: 300px;
+        }
+        
+        .ql-editor .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.1));
+            padding: 1rem;
+            border-radius: var(--radius-lg);
+            border-left: 3px solid var(--accent-primary);
+        }
+    </style>
+</body>
+
+</html>

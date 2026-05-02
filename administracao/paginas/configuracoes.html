@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações | Acionet Control Center</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/style.css">
+<script src="../assets/js/js.js"></script>
+
+    <style>
+       
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all var(--transition-base);
+            z-index: var(--z-sticky);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .sidebar-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-logo i {
+            background: none;
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) 0;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-xl);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .nav-link:hover {
+            background: var(--glass-white);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-glass);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-section {
+            padding: var(--space-md) var(--space-xl);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-top: var(--space-lg);
+        }
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .page-title {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .theme-switch-label {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input);
+            border-radius: 34px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 34px;
+        }
+
+        .theme-switch-thumb {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 3px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-icon {
+            position: absolute;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .light-icon {
+            opacity: 1;
+        }
+
+        .dark-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .theme-switch-thumb {
+            transform: translateX(28px);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .light-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* User Menu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-role {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: var(--space-xl);
+        }
+
+        /* ============================================
+           ESTILOS DA PÁGINA DE CONFIGURAÇÕES
+        ============================================ */
+        .page-header {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .page-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+        }
+
+        .page-header h1 i {
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+
+        /* Layout de Configurações */
+        .settings-wrapper {
+            display: flex;
+            gap: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        /* Menu Lateral de Configurações */
+        .settings-sidebar {
+            width: 280px;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .settings-menu {
+            list-style: none;
+        }
+
+        .settings-menu-item {
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .settings-menu-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-lg) var(--space-xl);
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+
+        .settings-menu-link i {
+            width: 24px;
+            font-size: 1.1rem;
+        }
+
+        .settings-menu-link:hover {
+            background: var(--glass-white);
+            color: var(--accent-primary);
+        }
+
+        .settings-menu-link.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-left-color: var(--accent-primary);
+        }
+
+        /* Conteúdo Principal */
+        .settings-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .settings-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .settings-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-header {
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .card-header h2 {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--accent-primary);
+        }
+
+        .card-header p {
+            color: var(--text-tertiary);
+            font-size: 0.8rem;
+            margin-top: var(--space-xs);
+        }
+
+        /* Formulários */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .form-label i {
+            color: var(--accent-primary);
+        }
+
+        .form-control {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.85rem;
+            transition: all var(--transition-fast);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: var(--glow-primary);
+        }
+
+        .form-control:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--bg-tertiary);
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: var(--accent-primary);
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
+
+        .toggle-label {
+            margin-left: var(--space-md);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Botões */
+        .btn-save {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+
+        .btn-danger {
+            background: transparent;
+            border: 1px solid var(--accent-danger);
+            color: var(--accent-danger);
+            padding: var(--space-md) var(--space-2xl);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-danger:hover {
+            background: var(--accent-danger);
+            color: white;
+        }
+
+        /* Avatar */
+        .avatar-section {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .avatar-preview {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .avatar-actions {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .btn-avatar {
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 0.8rem;
+        }
+
+        .btn-avatar:hover {
+            background: var(--accent-primary);
+            color: white;
+            border-color: var(--accent-primary);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: var(--space-xl);
+            right: var(--space-xl);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            z-index: 400;
+            animation: fadeInRight 0.3s ease;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .toast-success {
+            border-left: 4px solid var(--accent-success);
+        }
+
+        @keyframes fadeInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .settings-wrapper {
+                flex-direction: column;
+            }
+            .settings-sidebar {
+                width: 100%;
+                position: static;
+            }
+            .settings-menu {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .settings-menu-item {
+                flex: 1;
+                border-bottom: none;
+                border-right: 1px solid var(--border-color-light);
+            }
+            .settings-menu-item:last-child {
+                border-right: none;
+            }
+            .settings-menu-link {
+                justify-content: center;
+                padding: var(--space-md) var(--space-lg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 200;
+            }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .menu-toggle { display: block; }
+            .form-row { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .settings-menu { flex-direction: column; }
+            .settings-menu-item { border-right: none; border-bottom: 1px solid var(--border-color-light); }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+         <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../home.html">
+                 <img src="../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../paginas/projetos.html" class="nav-link ">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/blog.html" class="nav-link ">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/eventos.html" class="nav-link ">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/mensagens.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../paginas/configuracoes.html" class="nav-link active">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/backup.html" class="nav-link ">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="page-header">
+                    <h1>
+                        <i class="fas fa-cog"></i>
+                        Configurações do Sistema
+                    </h1>
+                </div>
+
+                <div class="settings-wrapper">
+                    <!-- Menu Lateral -->
+                    <div class="settings-sidebar">
+                        <ul class="settings-menu">
+                            <li class="settings-menu-item">
+                                <a href="#perfil" class="settings-menu-link active" data-tab="perfil">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span>Meu Perfil</span>
+                                </a>
+                            </li>
+                            <li class="settings-menu-item">
+                                <a href="#seguranca" class="settings-menu-link" data-tab="seguranca">
+                                    <i class="fas fa-lock"></i>
+                                    <span>Segurança</span>
+                                </a>
+                            </li>
+                            <li class="settings-menu-item">
+                                <a href="#geral" class="settings-menu-link" data-tab="geral">
+                                    <i class="fas fa-globe"></i>
+                                    <span>Configurações Gerais</span>
+                                </a>
+                            </li>
+                            <li class="settings-menu-item">
+                                <a href="#notificacoes" class="settings-menu-link" data-tab="notificacoes">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Notificações</span>
+                                </a>
+                            </li>
+                            <li class="settings-menu-item">
+                                <a href="#integracoes" class="settings-menu-link" data-tab="integracoes">
+                                    <i class="fas fa-plug"></i>
+                                    <span>Integrações</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Conteúdo Principal -->
+                    <div class="settings-content">
+                        <!-- Aba: Meu Perfil -->
+                        <div id="tab-perfil" class="settings-tab active">
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-user-circle"></i> Informações Pessoais</h2>
+                                    <p>Atualize seus dados de perfil</p>
+                                </div>
+
+                                <div class="avatar-section">
+                                    <div class="avatar-preview">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <div class="avatar-actions">
+                                        <button class="btn-avatar" onclick="alert('Selecionar nova foto (Demonstração)')">
+                                            <i class="fas fa-camera"></i> Alterar Foto
+                                        </button>
+                                        <button class="btn-avatar" onclick="alert('Remover foto (Demonstração)')">
+                                            <i class="fas fa-trash"></i> Remover
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-user"></i> Nome Completo</label>
+                                        <input type="text" class="form-control" value="Administrador do Sistema">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-envelope"></i> E-mail</label>
+                                        <input type="email" class="form-control" value="admin@acionet.com.br">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-phone"></i> Telefone</label>
+                                        <input type="tel" class="form-control" value="(11) 9999-9999">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-building"></i> Cargo</label>
+                                        <input type="text" class="form-control" value="Administrador">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label class="form-label"><i class="fas fa-align-left"></i> Bio</label>
+                                        <textarea class="form-control" rows="3">Administrador principal do sistema Acionet Control Center.</textarea>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end;">
+                                    <button class="btn-save" onclick="showToast('Perfil atualizado com sucesso!')">
+                                        <i class="fas fa-save"></i> Salvar Alterações
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Segurança -->
+                        <div id="tab-seguranca" class="settings-tab" style="display: none;">
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-lock"></i> Alterar Senha</h2>
+                                    <p>Mantenha sua conta segura</p>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label class="form-label"><i class="fas fa-key"></i> Senha Atual</label>
+                                        <input type="password" class="form-control" placeholder="Digite sua senha atual">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label class="form-label"><i class="fas fa-lock"></i> Nova Senha</label>
+                                        <input type="password" class="form-control" placeholder="Digite a nova senha">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group full-width">
+                                        <label class="form-label"><i class="fas fa-check-circle"></i> Confirmar Nova Senha</label>
+                                        <input type="password" class="form-control" placeholder="Confirme a nova senha">
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end;">
+                                    <button class="btn-save" onclick="showToast('Senha alterada com sucesso!')">
+                                        <i class="fas fa-save"></i> Alterar Senha
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-shield-alt"></i> Autenticação de Dois Fatores (2FA)</h2>
+                                    <p>Adicione uma camada extra de segurança</p>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-md);">
+                                    <div style="display: flex; align-items: center;">
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="twoFactorToggle">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                        <span class="toggle-label">Ativar autenticação de dois fatores</span>
+                                    </div>
+                                    <button class="btn-avatar" onclick="alert('Configurar 2FA (Demonstração)')">
+                                        <i class="fas fa-qrcode"></i> Configurar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-history"></i> Sessões Ativas</h2>
+                                    <p>Gerencie os dispositivos conectados à sua conta</p>
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-md); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <i class="fas fa-laptop-code"></i> <strong>Windows - Chrome</strong>
+                                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">São Paulo - SP • Ativo agora</div>
+                                        </div>
+                                        <button class="btn-avatar" style="border-color: var(--accent-danger); color: var(--accent-danger);" onclick="alert('Sessão encerrada (Demonstração)')">
+                                            <i class="fas fa-sign-out-alt"></i> Encerrar
+                                        </button>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: var(--space-md); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <i class="fab fa-apple"></i> <strong>iPhone - Safari</strong>
+                                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Rio de Janeiro - RJ • 2 dias atrás</div>
+                                        </div>
+                                        <button class="btn-avatar" style="border-color: var(--accent-danger); color: var(--accent-danger);" onclick="alert('Sessão encerrada (Demonstração)')">
+                                            <i class="fas fa-sign-out-alt"></i> Encerrar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div style="margin-top: var(--space-lg);">
+                                    <button class="btn-danger" onclick="alert('Todas as sessões encerradas (Demonstração)')">
+                                        <i class="fas fa-power-off"></i> Encerrar Todas as Sessões
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Configurações Gerais -->
+                        <div id="tab-geral" class="settings-tab" style="display: none;">
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-globe"></i> Preferências do Sistema</h2>
+                                    <p>Configure o sistema de acordo com suas preferências</p>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-language"></i> Idioma</label>
+                                        <select class="form-control">
+                                            <option>Português (Brasil)</option>
+                                            <option>English (US)</option>
+                                            <option>Español</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-calendar-alt"></i> Formato de Data</label>
+                                        <select class="form-control">
+                                            <option>DD/MM/YYYY</option>
+                                            <option>MM/DD/YYYY</option>
+                                            <option>YYYY-MM-DD</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-clock"></i> Fuso Horário</label>
+                                        <select class="form-control">
+                                            <option selected>America/Sao_Paulo (GMT-3)</option>
+                                            <option>America/New_York (GMT-4)</option>
+                                            <option>Europe/Lisbon (GMT+0)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label"><i class="fas fa-chart-line"></i> Dashboard Padrão</label>
+                                        <select class="form-control">
+                                            <option>Dashboard Principal</option>
+                                            <option>Analytics</option>
+                                            <option>Projetos</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: flex-end;">
+                                    <button class="btn-save" onclick="showToast('Configurações gerais salvas!')">
+                                        <i class="fas fa-save"></i> Salvar
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-palette"></i> Aparência</h2>
+                                    <p>Personalize a aparência do sistema</p>
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                                        <span><i class="fas fa-moon"></i> Modo Escuro</span>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="darkModeToggle" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                                        <span><i class="fas fa-compress"></i> Sidebar Compacta</span>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="compactSidebarToggle">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                                        <span><i class="fas fa-chart-line"></i> Mostrar métricas no Dashboard</span>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="showMetricsToggle" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Notificações -->
+                        <div id="tab-notificacoes" class="settings-tab" style="display: none;">
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-bell"></i> Preferências de Notificação</h2>
+                                    <p>Escolha quais notificações você deseja receber</p>
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: var(--space-sm); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <strong><i class="fas fa-envelope"></i> Novas mensagens de contato</strong>
+                                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Receber notificação quando alguém enviar uma mensagem</div>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: var(--space-sm); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <strong><i class="fas fa-clipboard-list"></i> Novas solicitações de serviço</strong>
+                                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Receber notificação quando um cliente solicitar serviço</div>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: var(--space-sm); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <strong><i class="fas fa-calendar-alt"></i> Lembretes de eventos</strong>
+                                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Receber lembretes sobre eventos próximos</div>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: var(--space-sm); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <strong><i class="fas fa-newspaper"></i> Novos posts no blog</strong>
+                                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Receber notificação quando novo artigo for publicado</div>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: var(--space-sm); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <strong><i class="fas fa-rocket"></i> Atualizações do sistema</strong>
+                                            <div style="font-size: 0.7rem; color: var(--text-tertiary);">Receber notificações sobre novas versões</div>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div style="margin-top: var(--space-xl); display: flex; justify-content: flex-end;">
+                                    <button class="btn-save" onclick="showToast('Preferências salvas!')">
+                                        <i class="fas fa-save"></i> Salvar Preferências
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Integrações -->
+                        <div id="tab-integracoes" class="settings-tab" style="display: none;">
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-plug"></i> APIs e Integrações</h2>
+                                    <p>Configure integrações com serviços externos</p>
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <i class="fab fa-google"></i> <strong>Google Analytics</strong>
+                                            <div style="font-size: 0.7rem;">Conectar com Google Analytics para rastrear visitantes</div>
+                                        </div>
+                                        <button class="btn-avatar" onclick="alert('Configurar Google Analytics (Demonstração)')">
+                                            <i class="fas fa-plug"></i> Conectar
+                                        </button>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <i class="fab fa-facebook"></i> <strong>Facebook Pixel</strong>
+                                            <div style="font-size: 0.7rem;">Conectar com Facebook Pixel para remarketing</div>
+                                        </div>
+                                        <button class="btn-avatar" onclick="alert('Configurar Facebook Pixel (Demonstração)')">
+                                            <i class="fas fa-plug"></i> Conectar
+                                        </button>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-md); padding: var(--space-md); background: var(--glass-white); border-radius: var(--radius-lg);">
+                                        <div>
+                                            <i class="fab fa-whatsapp"></i> <strong>WhatsApp Business</strong>
+                                            <div style="font-size: 0.7rem;">Integrar com WhatsApp para atendimento</div>
+                                        </div>
+                                        <button class="btn-avatar" onclick="alert('Configurar WhatsApp (Demonstração)')">
+                                            <i class="fas fa-plug"></i> Conectar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="settings-card">
+                                <div class="card-header">
+                                    <h2><i class="fas fa-key"></i> Chaves de API</h2>
+                                    <p>Gerencie suas chaves de acesso à API</p>
+                                </div>
+
+                                <div style="background: var(--glass-white); border-radius: var(--radius-lg); padding: var(--space-md); margin-bottom: var(--space-md);">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                                        <code style="color: var(--accent-primary);">sk_live_4eC39HqLyjWDarjtT1zdp7dc</code>
+                                        <button class="btn-avatar" style="border-color: var(--accent-danger); color: var(--accent-danger);" onclick="alert('Chave revogada (Demonstração)')">
+                                            <i class="fas fa-trash"></i> Revogar
+                                        </button>
+                                    </div>
+                                    <div style="font-size: 0.7rem; margin-top: var(--space-sm);">Criada em: 01/01/2025 • Último uso: Hoje</div>
+                                </div>
+                                <button class="btn-save" onclick="alert('Gerar nova chave (Demonstração)')">
+                                    <i class="fas fa-plus"></i> Gerar Nova Chave
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // TEMA (DARK/LIGHT)
+        // ============================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (themeToggle) {
+            themeToggle.checked = savedTheme === 'light';
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+
+        // ============================================
+        // TOAST NOTIFICATION
+        // ============================================
+        function showToast(message) {
+            const existingToast = document.querySelector('.toast');
+            if (existingToast) existingToast.remove();
+            
+            const toast = document.createElement('div');
+            toast.className = 'toast toast-success';
+            toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // ============================================
+        // TABS DE CONFIGURAÇÃO
+        // ============================================
+        const tabs = document.querySelectorAll('.settings-menu-link');
+        const tabContents = document.querySelectorAll('.settings-tab');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active de todos os tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Esconde todos os conteúdos
+                tabContents.forEach(content => content.style.display = 'none');
+                
+                // Mostra o conteúdo correspondente
+                const tabId = tab.getAttribute('data-tab');
+                const targetContent = document.getElementById(`tab-${tabId}`);
+                if (targetContent) {
+                    targetContent.style.display = 'block';
+                }
+            });
+        });
+
+        // ============================================
+        // DARK MODE TOGGLE NA PÁGINA
+        // ============================================
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('change', (e) => {
+                const isDark = e.target.checked;
+                const newTheme = isDark ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                if (themeToggle) themeToggle.checked = !isDark;
+                showToast(`Modo ${isDark ? 'escuro' : 'claro'} ativado!`);
+            });
+        }
+
+        // ============================================
+        // SIDEBAR COMPACTA (DEMONSTRAÇÃO)
+        // ============================================
+        const compactSidebarToggle = document.getElementById('compactSidebarToggle');
+        if (compactSidebarToggle) {
+            compactSidebarToggle.addEventListener('change', (e) => {
+                if (e.target.checked) {
+                    showToast('Sidebar compacta em desenvolvimento!');
+                } else {
+                    showToast('Sidebar normal ativada!');
+                }
+            });
+        }
+
+        // ============================================
+        // MOSTRAR MÉTRICAS (DEMONSTRAÇÃO)
+        // ============================================
+        const showMetricsToggle = document.getElementById('showMetricsToggle');
+        if (showMetricsToggle) {
+            showMetricsToggle.addEventListener('change', (e) => {
+                showToast(e.target.checked ? 'Métricas visíveis no Dashboard' : 'Métricas ocultas no Dashboard');
+            });
+        }
+    </script>
+</body>
+
+</html>

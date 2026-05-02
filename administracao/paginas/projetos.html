@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos | Acionet Control Center</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/projeto.css">
+    <script src="../assets/js/js.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../home.html">
+                 <img src="../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../paginas/projetos.html" class="nav-link active">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/blog.html" class="nav-link ">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/eventos.html" class="nav-link ">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/mensagens.html" class="nav-link ">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../paginas/configuracoes.html" class="nav-link ">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/backup.html" class="nav-link ">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1>
+                        <i class="fas fa-rocket"></i>
+                        Nossos Projetos
+                    </h1>
+                    <a href="adicionar/projeto.html" class="btn-add" style="background: var(--gradient-primary); color: white; padding: var(--space-md) var(--space-xl); border-radius: var(--radius-full); text-decoration: none; display: flex; align-items: center; gap: var(--space-sm);">
+                        <i class="fas fa-plus"></i>
+                        Novo Projeto
+                    </a>
+                </div>
+
+                <!-- Filters Bar -->
+                <div class="filters-bar">
+                    <div class="search-filter">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchInput" placeholder="Buscar por título, descrição ou categoria...">
+                        </div>
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="all">Todas as categorias</option>
+                            <option value="infraestrutura">Infraestrutura</option>
+                            <option value="desenvolvimento">Desenvolvimento</option>
+                            <option value="seguranca">Segurança</option>
+                            <option value="consultoria">Consultoria</option>
+                        </select>
+                    </div>
+                    <div class="results-count" id="resultsCount">
+                        Mostrando <span id="showingCount">0</span> de <span id="totalCount">0</span> projetos
+                    </div>
+                </div>
+
+                <!-- Grid de Cards - TODOS OS CARDS ESTÃO AQUI NO HTML -->
+                <div class="projects-grid" id="projectsGrid">
+                    
+                    <!-- Card 1: Backhaul 10Gbps (Infraestrutura - Imagem) -->
+                    <div class="project-card" data-id="1" data-titulo="Backhaul 10Gbps para Operadora Regional" data-descricao="Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar torres de telefonia móvel" data-categoria="infraestrutura">
+                        <div class="project-media">
+                            <img src="https://placehold.co/600x400/1D3557/00D4FF?text=Microwave+Link" alt="Backhaul 10Gbps">
+                            <div class="media-badge"><i class="fas fa-image"></i> Imagem</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-infra">
+                                <i class="fas fa-network-wired"></i> Infraestrutura
+                            </div>
+                            <h3 class="project-title">Backhaul 10Gbps para Operadora Regional</h3>
+                            <p class="project-description">Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar torres de telefonia móvel, garantindo backhaul de alta capacidade para rede 4G/5G.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">35</div><div class="metric-label">Enlaces</div></div>
+                                <div class="metric"><div class="metric-value">10Gbps</div><div class="metric-label">Capacidade</div></div>
+                                <div class="metric"><div class="metric-value">99.99%</div><div class="metric-label">Disponibilidade</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/microwave-link" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=1" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Rede Metropolitana de Fibra (Infraestrutura - Imagem) -->
+                    <div class="project-card" data-id="2" data-titulo="Rede Metropolitana de Fibra - 120km" data-descricao="Projeto e implantação de anel óptico metropolitano interligando 45 órgãos públicos" data-categoria="infraestrutura">
+                        <div class="project-media">
+                            <img src="https://placehold.co/600x400/2A4B7C/00D4FF?text=Fibra+Óptica" alt="Fibra Óptica">
+                            <div class="media-badge"><i class="fas fa-image"></i> Imagem</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-infra">
+                                <i class="fas fa-network-wired"></i> Infraestrutura
+                            </div>
+                            <h3 class="project-title">Rede Metropolitana de Fibra - 120km</h3>
+                            <p class="project-description">Projeto e implantação de anel óptico metropolitano interligando 45 órgãos públicos, incluindo prefeitura, hospitais, escolas e centros de segurança.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">120km</div><div class="metric-label">Fibra</div></div>
+                                <div class="metric"><div class="metric-value">45</div><div class="metric-label">Pontos</div></div>
+                                <div class="metric"><div class="metric-value">40%</div><div class="metric-label">Economia</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/fibra-optica" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=2" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Modernização de Datacenter (Infraestrutura - Imagem) -->
+                    <div class="project-card" data-id="3" data-titulo="Modernização de Datacenter - Banco Regional" data-descricao="Virtualização completa de 120 servidores físicos, implementação de storage all-flash e disaster recovery" data-categoria="infraestrutura">
+                        <div class="project-media">
+                            <img src="https://placehold.co/600x400/0A192F/00D4FF?text=Datacenter" alt="Datacenter">
+                            <div class="media-badge"><i class="fas fa-image"></i> Imagem</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-infra">
+                                <i class="fas fa-network-wired"></i> Infraestrutura
+                            </div>
+                            <h3 class="project-title">Modernização de Datacenter - Banco Regional</h3>
+                            <p class="project-description">Virtualização completa de 120 servidores físicos, implementação de storage all-flash e disaster recovery com replicação síncrona.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">70%</div><div class="metric-label">Redução Custos</div></div>
+                                <div class="metric"><div class="metric-value">99.999%</div><div class="metric-label">Disponibilidade</div></div>
+                                <div class="metric"><div class="metric-value">40ms</div><div class="metric-label">Latência DR</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/datacenter" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=3" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Plataforma de Análise de Crédito com IA (Desenvolvimento - Vídeo) -->
+                    <div class="project-card" data-id="4" data-titulo="Plataforma de Análise de Crédito com IA" data-descricao="Sistema preditivo de machine learning que revolucionou a análise de risco de fintechs" data-categoria="desenvolvimento">
+                        <div class="project-media">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="FinTech IA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-badge"><i class="fas fa-play"></i> Vídeo</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-dev">
+                                <i class="fas fa-code"></i> Desenvolvimento
+                            </div>
+                            <h3 class="project-title">Plataforma de Análise de Crédito com IA</h3>
+                            <p class="project-description">Sistema preditivo de machine learning que revolucionou a análise de risco de uma das maiores fintechs do Brasil, reduzindo tempo de avaliação de dias para minutos.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">240%</div><div class="metric-label">Eficiência</div></div>
+                                <div class="metric"><div class="metric-value">65%</div><div class="metric-label">Menos Erros</div></div>
+                                <div class="metric"><div class="metric-value">R$2.8M</div><div class="metric-label">Economia/Ano</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/fintech-ia" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=4" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Monitoramento Remoto de Pacientes com IoT (Desenvolvimento - Imagem) -->
+                    <div class="project-card" data-id="5" data-titulo="Monitoramento Remoto de Pacientes com IoT" data-descricao="Plataforma IoT para UTI móvel com wearables que monitoram sinais vitais em tempo real" data-categoria="desenvolvimento">
+                        <div class="project-media">
+                            <img src="https://placehold.co/600x400/06D6A0/1D3557?text=HealthTech+IoT" alt="HealthTech IoT">
+                            <div class="media-badge"><i class="fas fa-image"></i> Imagem</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-dev">
+                                <i class="fas fa-code"></i> Desenvolvimento
+                            </div>
+                            <h3 class="project-title">Monitoramento Remoto de Pacientes com IoT</h3>
+                            <p class="project-description">Plataforma IoT para UTI móvel com wearables que monitoram sinais vitais em tempo real, reduzindo em 45% as reinternações de pacientes crônicos.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">99.7%</div><div class="metric-label">Precisão</div></div>
+                                <div class="metric"><div class="metric-value">45%</div><div class="metric-label">Redução</div></div>
+                                <div class="metric"><div class="metric-value">20K+</div><div class="metric-label">Pacientes</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/healthtech-iot" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=5" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Sistema de Videomonitoramento - Aeroporto (Segurança - Imagem) -->
+                    <div class="project-card" data-id="6" data-titulo="Sistema de Videomonitoramento - Aeroporto" data-descricao="Implantação de 550 câmeras IP com análise inteligente de vídeo" data-categoria="seguranca">
+                        <div class="project-media">
+                            <img src="https://placehold.co/600x400/E63946/FFFFFF?text=CFTV+Aeroporto" alt="CFTV Aeroporto">
+                            <div class="media-badge"><i class="fas fa-image"></i> Imagem</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-seg">
+                                <i class="fas fa-shield-alt"></i> Segurança
+                            </div>
+                            <h3 class="project-title">Sistema de Videomonitoramento - Aeroporto</h3>
+                            <p class="project-description">Implantação de 550 câmeras IP com análise inteligente de vídeo, reconhecimento facial e integração com a Polícia Federal.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">550</div><div class="metric-label">Câmeras</div></div>
+                                <div class="metric"><div class="metric-value">98%</div><div class="metric-label">Cobertura</div></div>
+                                <div class="metric"><div class="metric-value">24/7</div><div class="metric-label">Monitoramento</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/cctv-aeroporto" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=6" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 7: Adequação à ISO 27001 e LGPD (Consultoria - Imagem) -->
+                    <div class="project-card" data-id="7" data-titulo="Adequação à ISO 27001 e LGPD" data-descricao="Consultoria completa para certificação ISO 27001 de empresa de tecnologia" data-categoria="consultoria">
+                        <div class="project-media">
+                            <img src="https://placehold.co/600x400/1D3557/FFD966?text=ISO+27001" alt="ISO 27001">
+                            <div class="media-badge"><i class="fas fa-image"></i> Imagem</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-consult">
+                                <i class="fas fa-chart-line"></i> Consultoria
+                            </div>
+                            <h3 class="project-title">Adequação à ISO 27001 e LGPD</h3>
+                            <p class="project-description">Consultoria completa para certificação ISO 27001 de empresa de tecnologia, incluindo políticas, procedimentos e implementação de controles.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">100%</div><div class="metric-label">Conformidade</div></div>
+                                <div class="metric"><div class="metric-value">6</div><div class="metric-label">Meses</div></div>
+                                <div class="metric"><div class="metric-value">0</div><div class="metric-label">Não-conformidades</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/iso-27001" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=7" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8: Marketplace Multicanal (Desenvolvimento - Imagem) -->
+                    <div class="project-card" data-id="8" data-titulo="Marketplace Multicanal - Rede de Moda" data-descricao="Plataforma omnichannel integrando 150 lojas físicas" data-categoria="desenvolvimento">
+                        <div class="project-media">
+                            <img src="https://placehold.co/600x400/FFD166/1D3557?text=E-commerce" alt="E-commerce">
+                            <div class="media-badge"><i class="fas fa-image"></i> Imagem</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-dev">
+                                <i class="fas fa-code"></i> Desenvolvimento
+                            </div>
+                            <h3 class="project-title">Marketplace Multicanal - Rede de Moda</h3>
+                            <p class="project-description">Desenvolvimento de plataforma omnichannel integrando 150 lojas físicas, e-commerce e marketplaces com gestão unificada de estoque e pedidos.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">200%</div><div class="metric-label">Crescimento</div></div>
+                                <div class="metric"><div class="metric-value">150</div><div class="metric-label">Lojas</div></div>
+                                <div class="metric"><div class="metric-value">98%</div><div class="metric-label">Disponibilidade</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/ecommerce" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=8" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 9: Sistema de Manufatura Inteligente (Desenvolvimento - Vídeo) -->
+                    <div class="project-card" data-id="9" data-titulo="Sistema de Manufatura Inteligente" data-descricao="Implementação de MES com IoT e machine learning para otimização de linha de produção" data-categoria="desenvolvimento">
+                        <div class="project-media">
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Indústria 4.0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-badge"><i class="fas fa-play"></i> Vídeo</div>
+                        </div>
+                        <div class="project-card-content">
+                            <div class="project-category category-dev">
+                                <i class="fas fa-code"></i> Desenvolvimento
+                            </div>
+                            <h3 class="project-title">Sistema de Manufatura Inteligente</h3>
+                            <p class="project-description">Implementação de MES com IoT e machine learning para otimização de linha de produção automotiva.</p>
+                            <div class="project-metrics">
+                                <div class="metric"><div class="metric-value">35%</div><div class="metric-label">Produtividade</div></div>
+                                <div class="metric"><div class="metric-value">50%</div><div class="metric-label">Redução Paradas</div></div>
+                                <div class="metric"><div class="metric-value">R$2.5M</div><div class="metric-label">ROI/Ano</div></div>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://acionet.com.br/projetos/industria-40" class="btn-link" target="_blank"><i class="fas fa-external-link-alt"></i> Site</a>
+                                <a href="projeto-visualizar.html?id=9" class="btn-link btn-primary-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Paginação -->
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================
+        // PAGINAÇÃO E FILTROS (APENAS JS, CARDS JÁ NO HTML)
+        // ============================================
+        
+        // Elementos
+        const projectsGrid = document.getElementById('projectsGrid');
+        const allCards = Array.from(document.querySelectorAll('.project-card'));
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const showingCount = document.getElementById('showingCount');
+        const totalCountSpan = document.getElementById('totalCount');
+        const paginationDiv = document.getElementById('pagination');
+
+        // Estado
+        let currentPage = 1;
+        let itemsPerPage = 12;
+        let filteredCards = [...allCards];
+
+        // Função para obter texto de busca (título + descrição + categoria)
+        function getCardSearchText(card) {
+            const titulo = card.getAttribute('data-titulo') || '';
+            const descricao = card.getAttribute('data-descricao') || '';
+            const categoria = card.getAttribute('data-categoria') || '';
+            return (titulo + ' ' + descricao + ' ' + categoria).toLowerCase();
+        }
+
+        // Aplicar filtros
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const category = categoryFilter.value;
+
+            filteredCards = allCards.filter(card => {
+                const searchText = getCardSearchText(card);
+                const matchesSearch = searchTerm === '' || searchText.includes(searchTerm);
+                const cardCategory = card.getAttribute('data-categoria');
+                const matchesCategory = category === 'all' || cardCategory === category;
+                return matchesSearch && matchesCategory;
+            });
+
+            currentPage = 1;
+            renderPage();
+            renderPagination();
+            updateResultsCount();
+        }
+
+        // Renderizar página atual
+        function renderPage() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageCards = filteredCards.slice(start, end);
+
+            // Esconde todos os cards primeiro
+            allCards.forEach(card => card.style.display = 'none');
+            
+            // Mostra apenas os cards da página atual
+            pageCards.forEach(card => card.style.display = 'flex');
+
+            // Remove mensagem de "nenhum resultado" se existir
+            const existingNoResults = document.querySelector('.no-results-message');
+            if (existingNoResults) existingNoResults.remove();
+
+            // Adiciona mensagem se não houver resultados
+            if (filteredCards.length === 0) {
+                const noResultsDiv = document.createElement('div');
+                noResultsDiv.className = 'no-results-message';
+                noResultsDiv.style.cssText = 'grid-column: 1/-1; text-align: center; padding: var(--space-2xl);';
+                noResultsDiv.innerHTML = `
+                    <i class="fas fa-inbox" style="font-size: 3rem; color: var(--text-tertiary); margin-bottom: var(--space-md); display: block;"></i>
+                    <p>Nenhum projeto encontrado</p>
+                    <button class="btn-add" onclick="resetFilters()" style="margin-top: var(--space-md); background: var(--gradient-primary);">Limpar filtros</button>
+                `;
+                projectsGrid.appendChild(noResultsDiv);
+            }
+        }
+
+        // Renderizar paginação
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+            
+            if (totalPages <= 1) {
+                paginationDiv.innerHTML = '';
+                return;
+            }
+
+            let html = `
+                <button class="pagination-btn" id="prevPage" ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            `;
+
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + 4);
+
+            if (endPage - startPage < 4) {
+                startPage = Math.max(1, endPage - 4);
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                html += `
+                    <button class="pagination-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">
+                        ${i}
+                    </button>
+                `;
+            }
+
+            html += `
+                <button class="pagination-btn" id="nextPage" ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            `;
+
+            paginationDiv.innerHTML = html;
+
+            // Eventos
+            document.getElementById('prevPage')?.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage();
+                    renderPagination();
+                }
+            });
+
+            document.getElementById('nextPage')?.addEventListener('click', () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderPage();
+                    renderPagination();
+                }
+            });
+
+            document.querySelectorAll('.pagination-btn[data-page]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentPage = parseInt(btn.getAttribute('data-page'));
+                    renderPage();
+                    renderPagination();
+                });
+            });
+        }
+
+        // Atualizar contador de resultados
+        function updateResultsCount() {
+            const total = filteredCards.length;
+            showingCount.textContent = total;
+            totalCountSpan.textContent = allCards.length;
+        }
+
+        // Resetar filtros
+        window.resetFilters = function() {
+            searchInput.value = '';
+            categoryFilter.value = 'all';
+            applyFilters();
+        };
+
+        // Event listeners
+        searchInput.addEventListener('input', applyFilters);
+        categoryFilter.addEventListener('change', applyFilters);
+
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // TEMA (DARK/LIGHT)
+        // ============================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (themeToggle) {
+            themeToggle.checked = savedTheme === 'light';
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+
+        // Inicialização
+        applyFilters();
+    </script>
+
+    <style>
+        .btn-add {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            text-decoration: none;
+        }
+
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .no-results-message {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: var(--space-2xl);
+        }
+    </style>
+</body>
+
+</html>

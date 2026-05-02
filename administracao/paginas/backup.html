@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acionet Control Center | Backup</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
+    <script src="../assets/js/js.js"></script>
+    <style>
+        /* ============================================
+           BACKUP PAGE SPECIFIC STYLES
+           ============================================ */
+        
+        /* Backup Header */
+        .backup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .backup-title-section h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .backup-title-section p {
+            color: var(--text-tertiary, #6B7280);
+            font-size: 0.875rem;
+        }
+        
+        /* Stats Grid */
+        .backup-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .backup-stat-card {
+            background: var(--bg-card, #FFFFFF);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--border-color, #E5E7EB);
+            transition: all 0.3s ease;
+        }
+        
+        .backup-stat-card:hover {
+            transform: translateY(-2px);
+            border-color: #00D4FF;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] .backup-stat-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .backup-stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .backup-stat-icon.database { background: rgba(0, 212, 255, 0.1); color: #00D4FF; }
+        .backup-stat-icon.schedule { background: rgba(168, 85, 247, 0.1); color: #A855F7; }
+        .backup-stat-icon.size { background: rgba(0, 255, 170, 0.1); color: #00FFAA; }
+        .backup-stat-icon.status { background: rgba(255, 51, 102, 0.1); color: #FF3366; }
+        
+        .backup-stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .backup-stat-label {
+            color: var(--text-tertiary, #6B7280);
+            font-size: 0.875rem;
+        }
+        
+        /* Buttons */
+        .backup-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .btn-backup {
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.875rem;
+            font-family: inherit;
+        }
+        
+        .btn-backup-primary {
+            background: linear-gradient(135deg, #00D4FF, #0099cc);
+            color: white;
+        }
+        
+        .btn-backup-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-backup-secondary {
+            background: var(--bg-input, #F3F4F6);
+            color: var(--text-primary, #111827);
+            border: 1px solid var(--border-color, #E5E7EB);
+        }
+        
+        [data-theme="dark"] .btn-backup-secondary {
+            background: #1F2937;
+            color: #F9FAFB;
+            border-color: #374151;
+        }
+        
+        .btn-backup-secondary:hover {
+            border-color: #00D4FF;
+            background: var(--bg-hover, #E5E7EB);
+        }
+        
+        .btn-backup-danger {
+            background: rgba(255, 51, 102, 0.1);
+            color: #FF3366;
+            border: 1px solid rgba(255, 51, 102, 0.3);
+        }
+        
+        .btn-backup-danger:hover {
+            background: rgba(255, 51, 102, 0.2);
+            border-color: #FF3366;
+        }
+        
+        /* Backup List Card */
+        .backup-list-card {
+            background: var(--bg-card, #FFFFFF);
+            border-radius: 16px;
+            border: 1px solid var(--border-color, #E5E7EB);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .backup-list-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-color, #E5E7EB);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .backup-list-header h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Tabela - CORRIGIDA */
+        .backup-table-wrapper {
+            overflow-x: auto;
+            width: 100%;
+        }
+        
+        .backup-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        .backup-table th,
+        .backup-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color, #E5E7EB);
+        }
+        
+        .backup-table th {
+            color: var(--text-tertiary, #6B7280);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--bg-hover, #F9FAFB);
+        }
+        
+        [data-theme="dark"] .backup-table th {
+            background: #1F2937;
+        }
+        
+        .backup-table tbody tr:hover {
+            background: var(--bg-hover, #F9FAFB);
+        }
+        
+        [data-theme="dark"] .backup-table tbody tr:hover {
+            background: #1F2937;
+        }
+        
+        /* Status Badge */
+        .backup-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .backup-status.success {
+            background: rgba(0, 255, 170, 0.1);
+            color: #00FFAA;
+        }
+        
+        .backup-status.pending {
+            background: rgba(255, 217, 102, 0.1);
+            color: #FFD966;
+        }
+        
+        .backup-status.failed {
+            background: rgba(255, 51, 102, 0.1);
+            color: #FF3366;
+        }
+        
+        /* Action Buttons */
+        .backup-actions-cell {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .backup-action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-tertiary, #6B7280);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            padding: 5px;
+            border-radius: 6px;
+        }
+        
+        .backup-action-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .backup-action-btn.download:hover { color: #00FFAA; background: rgba(0, 255, 170, 0.1); }
+        .backup-action-btn.restore:hover { color: #00D4FF; background: rgba(0, 212, 255, 0.1); }
+        .backup-action-btn.delete:hover { color: #FF3366; background: rgba(255, 51, 102, 0.1); }
+        
+        /* Schedule Card */
+        .schedule-config-card {
+            background: var(--bg-card, #FFFFFF);
+            border-radius: 16px;
+            border: 1px solid var(--border-color, #E5E7EB);
+            padding: 24px;
+        }
+        
+        .schedule-config-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .schedule-options {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        
+        .schedule-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-input, #F3F4F6);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        [data-theme="dark"] .schedule-option {
+            background: #1F2937;
+        }
+        
+        .schedule-option:hover {
+            border-color: #00D4FF;
+        }
+        
+        .schedule-option input {
+            accent-color: #00D4FF;
+            cursor: pointer;
+        }
+        
+        .schedule-time {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .schedule-time input {
+            padding: 8px 16px;
+            background: var(--bg-input, #F3F4F6);
+            border: 1px solid var(--border-color, #E5E7EB);
+            border-radius: 10px;
+            color: var(--text-primary, #111827);
+            font-family: inherit;
+        }
+        
+        [data-theme="dark"] .schedule-time input {
+            background: #1F2937;
+            border-color: #374151;
+            color: #F9FAFB;
+        }
+        
+       
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--bg-card, #FFFFFF);
+            border-radius: 16px;
+            padding: 28px;
+            max-width: 450px;
+            width: 90%;
+            border: 1px solid var(--border-color, #E5E7EB);
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .modal-header {
+            margin-bottom: 16px;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .modal-body {
+            margin-bottom: 24px;
+            color: var(--text-secondary, #4B5563);
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+        }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--bg-card, #FFFFFF);
+            border-left: 4px solid #00FFAA;
+            padding: 14px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1100;
+            animation: slideInRight 0.3s ease;
+            border: 1px solid var(--border-color, #E5E7EB);
+        }
+        
+        .toast.error {
+            border-left-color: #FF3366;
+        }
+        
+        .toast.warning {
+            border-left-color: #FFD966;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        /* User Info */
+        .user-info {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+        
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .user-role {
+            font-size: 0.7rem;
+            color: var(--text-tertiary, #6B7280);
+        }
+        
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+        
+        .theme-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+        
+        .theme-switch-label {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input, #F3F4F6);
+            border-radius: 34px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color, #E5E7EB);
+        }
+        
+        .theme-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #00D4FF, #A855F7);
+            opacity: 0.3;
+            border-radius: 34px;
+        }
+        
+        .theme-switch-thumb {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 3px;
+            background: #00D4FF;
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .theme-icon {
+            position: absolute;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .light-icon {
+            opacity: 1;
+        }
+        
+        .dark-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        
+        .theme-switch-input:checked + .theme-switch-label .theme-switch-thumb {
+            transform: translateX(28px);
+        }
+        
+        .theme-switch-input:checked + .theme-switch-label .light-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+        
+        .theme-switch-input:checked + .theme-switch-label .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../home.html">
+                 <img src="../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../paginas/projetos.html" class="nav-link ">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/blog.html" class="nav-link ">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/eventos.html" class="nav-link ">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/mensagens.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../paginas/configuracoes.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../paginas/backup.html" class="nav-link active">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Backup Header -->
+                <div class="backup-header">
+                    <div class="backup-title-section">
+                        <h1><i class="fas fa-database"></i> Backup e Recuperação</h1>
+                        <p>Gerencie backups do sistema, agendamentos e restore de dados</p>
+                    </div>
+                </div>
+                
+                <!-- Backup Stats -->
+                <div class="backup-stats-grid">
+                    <div class="backup-stat-card">
+                        <div class="backup-stat-icon database">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="backup-stat-value">12</div>
+                        <div class="backup-stat-label">Total de Backups</div>
+                    </div>
+                    <div class="backup-stat-card">
+                        <div class="backup-stat-icon schedule">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="backup-stat-value">30/03/2025</div>
+                        <div class="backup-stat-label">Último Backup</div>
+                    </div>
+                    <div class="backup-stat-card">
+                        <div class="backup-stat-icon size">
+                            <i class="fas fa-hdd"></i>
+                        </div>
+                        <div class="backup-stat-value">2.8 GB</div>
+                        <div class="backup-stat-label">Espaço Utilizado</div>
+                    </div>
+                    <div class="backup-stat-card">
+                        <div class="backup-stat-icon status">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="backup-stat-value">92%</div>
+                        <div class="backup-stat-label">Taxa de Sucesso</div>
+                    </div>
+                </div>
+                
+                <!-- Backup Actions -->
+                <div class="backup-actions">
+                    <button class="btn-backup btn-backup-primary" id="newBackupBtn">
+                        <i class="fas fa-plus"></i> Novo Backup
+                    </button>
+                    <button class="btn-backup btn-backup-secondary" id="refreshBackupsBtn">
+                        <i class="fas fa-sync-alt"></i> Atualizar
+                    </button>
+                    <button class="btn-backup btn-backup-secondary" id="exportLogsBtn">
+                        <i class="fas fa-file-export"></i> Exportar Logs
+                    </button>
+                    <button class="btn-backup btn-backup-danger" id="cleanupBackupsBtn">
+                        <i class="fas fa-trash-alt"></i> Limpar Antigos
+                    </button>
+                </div>
+                
+                <!-- Backups List - TABELA COM HTML PURO -->
+                <div class="backup-list-card">
+                    <div class="backup-list-header">
+                        <h3><i class="fas fa-history"></i> Histórico de Backups</h3>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="searchBackup" placeholder="Buscar backup...">
+                        </div>
+                    </div>
+                    <div class="backup-table-wrapper">
+                        <table class="backup-table" id="backupsTable">
+                            <thead>
+                                <tr>
+                                    <th>Nome do Backup</th>
+                                    <th>Data</th>
+                                    <th>Tamanho</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="backupsTableBody">
+                                <!-- Dados em HTML puro - sem JS -->
+                                <tr>
+                                    <td><i class="fas fa-file-archive"></i> backup_20250330_020001.sql</td>
+                                    <td>30/03/2025 02:00</td>
+                                    <td>245.3 MB</td>
+                                    <td><span class="backup-status success"><i class="fas fa-check-circle"></i> Sucesso</span></td>
+                                    <td class="backup-actions-cell">
+                                        <button class="backup-action-btn download" data-id="1" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="backup-action-btn restore" data-id="1" title="Restaurar"><i class="fas fa-undo-alt"></i></button>
+                                        <button class="backup-action-btn delete" data-id="1" title="Excluir"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-archive"></i> backup_20250329_020002.sql</td>
+                                    <td>29/03/2025 02:00</td>
+                                    <td>243.8 MB</td>
+                                    <td><span class="backup-status success"><i class="fas fa-check-circle"></i> Sucesso</span></td>
+                                    <td class="backup-actions-cell">
+                                        <button class="backup-action-btn download" data-id="2" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="backup-action-btn restore" data-id="2" title="Restaurar"><i class="fas fa-undo-alt"></i></button>
+                                        <button class="backup-action-btn delete" data-id="2" title="Excluir"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-archive"></i> backup_20250328_020001.sql</td>
+                                    <td>28/03/2025 02:00</td>
+                                    <td>244.1 MB</td>
+                                    <td><span class="backup-status success"><i class="fas fa-check-circle"></i> Sucesso</span></td>
+                                    <td class="backup-actions-cell">
+                                        <button class="backup-action-btn download" data-id="3" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="backup-action-btn restore" data-id="3" title="Restaurar"><i class="fas fa-undo-alt"></i></button>
+                                        <button class="backup-action-btn delete" data-id="3" title="Excluir"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-archive"></i> backup_20250327_020003.sql</td>
+                                    <td>27/03/2025 02:00</td>
+                                    <td>242.5 MB</td>
+                                    <td><span class="backup-status failed"><i class="fas fa-exclamation-circle"></i> Falha</span></td>
+                                    <td class="backup-actions-cell">
+                                        <button class="backup-action-btn download" data-id="4" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="backup-action-btn restore" data-id="4" title="Restaurar"><i class="fas fa-undo-alt"></i></button>
+                                        <button class="backup-action-btn delete" data-id="4" title="Excluir"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-archive"></i> backup_20250326_020001.sql</td>
+                                    <td>26/03/2025 02:00</td>
+                                    <td>241.9 MB</td>
+                                    <td><span class="backup-status success"><i class="fas fa-check-circle"></i> Sucesso</span></td>
+                                    <td class="backup-actions-cell">
+                                        <button class="backup-action-btn download" data-id="5" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="backup-action-btn restore" data-id="5" title="Restaurar"><i class="fas fa-undo-alt"></i></button>
+                                        <button class="backup-action-btn delete" data-id="5" title="Excluir"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><i class="fas fa-file-archive"></i> backup_20250325_020002.sql</td>
+                                    <td>25/03/2025 02:00</td>
+                                    <td>240.7 MB</td>
+                                    <td><span class="backup-status success"><i class="fas fa-check-circle"></i> Sucesso</span></td>
+                                    <td class="backup-actions-cell">
+                                        <button class="backup-action-btn download" data-id="6" title="Download"><i class="fas fa-download"></i></button>
+                                        <button class="backup-action-btn restore" data-id="6" title="Restaurar"><i class="fas fa-undo-alt"></i></button>
+                                        <button class="backup-action-btn delete" data-id="6" title="Excluir"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Schedule Configuration -->
+                <div class="schedule-config-card">
+                    <h3><i class="fas fa-calendar-alt"></i> Agendamento Automático</h3>
+                    <div class="schedule-options">
+                        <label class="schedule-option">
+                            <input type="radio" name="schedule" value="daily"> Diário
+                        </label>
+                        <label class="schedule-option">
+                            <input type="radio" name="schedule" value="weekly"> Semanal
+                        </label>
+                        <label class="schedule-option">
+                            <input type="radio" name="schedule" value="monthly"> Mensal
+                        </label>
+                        <label class="schedule-option">
+                            <input type="radio" name="schedule" value="disabled" checked> Desativado
+                        </label>
+                    </div>
+                    <div class="schedule-time" id="scheduleTimeContainer" style="display: none;">
+                        <span>Horário:</span>
+                        <input type="time" id="scheduleTime" value="02:00">
+                        <button class="btn-backup btn-backup-primary" id="saveScheduleBtn" style="padding: 8px 20px;">Salvar Agendamento</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modal Confirmação -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Confirmar Ação</h3>
+            </div>
+            <div class="modal-body" id="modalMessage">
+                Tem certeza que deseja realizar esta ação?
+            </div>
+            <div class="modal-actions">
+                <button class="btn-backup btn-backup-secondary" id="modalCancelBtn">Cancelar</button>
+                <button class="btn-backup btn-backup-primary" id="modalConfirmBtn">Confirmar</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ============================================
+        // JAVASCRIPT APENAS PARA INTERATIVIDADE
+        // OS DADOS DA TABELA ESTÃO NO HTML
+        // ============================================
+        
+        let pendingAction = null;
+        
+        function showToast(message, type = 'success') {
+            const existingToast = document.querySelector('.toast');
+            if (existingToast) existingToast.remove();
+            
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : (type === 'error' ? 'fa-exclamation-triangle' : 'fa-info-circle')}"></i>
+                <span>${message}</span>
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideInRight 0.3s ease reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+        
+        function showModal(title, message, onConfirm) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+            pendingAction = onConfirm;
+            document.getElementById('confirmModal').classList.add('active');
+        }
+        
+        function closeModal() {
+            document.getElementById('confirmModal').classList.remove('active');
+            pendingAction = null;
+        }
+        
+        // Função de busca/filtro
+        function filterBackups() {
+            const searchTerm = document.getElementById('searchBackup').value.toLowerCase();
+            const rows = document.querySelectorAll('#backupsTableBody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        // Eventos dos botões da tabela
+        function handleTableActions() {
+            // Download
+            document.querySelectorAll('.backup-action-btn.download').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const row = btn.closest('tr');
+                    const name = row.querySelector('td:first-child').textContent.trim();
+                    showToast(`Download de ${name} iniciado`, 'success');
+                });
+            });
+            
+            // Restore
+            document.querySelectorAll('.backup-action-btn.restore').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const row = btn.closest('tr');
+                    const name = row.querySelector('td:first-child').textContent.trim();
+                    showModal('Restaurar Backup', `Tem certeza que deseja restaurar o backup "${name}"? Esta ação irá sobrescrever os dados atuais.`, () => {
+                        showToast(`Restaurando backup ${name}...`, 'warning');
+                        setTimeout(() => {
+                            showToast(`Backup ${name} restaurado com sucesso!`, 'success');
+                            closeModal();
+                        }, 2000);
+                    });
+                });
+            });
+            
+            // Delete
+            document.querySelectorAll('.backup-action-btn.delete').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const row = btn.closest('tr');
+                    const name = row.querySelector('td:first-child').textContent.trim();
+                    showModal('Excluir Backup', `Tem certeza que deseja excluir o backup "${name}"? Esta ação não pode ser desfeita.`, () => {
+                        row.remove();
+                        showToast(`Backup ${name} excluído`, 'success');
+                        closeModal();
+                    });
+                });
+            });
+        }
+        
+        // Novo Backup
+        function createNewBackup() {
+            showToast('Iniciando novo backup...', 'warning');
+            setTimeout(() => {
+                const tbody = document.getElementById('backupsTableBody');
+                const newRow = document.createElement('tr');
+                const now = new Date();
+                const dateStr = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR');
+                const size = (240 + Math.random() * 20).toFixed(1);
+                const success = Math.random() > 0.1;
+                
+                newRow.innerHTML = `
+                    <td><i class="fas fa-file-archive"></i> backup_${now.toISOString().slice(0,10).replace(/-/g,'')}_${Math.floor(Math.random()*100000)}.sql</td>
+                    <td>${dateStr}</td>
+                    <td>${size} MB</td>
+                    <td><span class="backup-status ${success ? 'success' : 'failed'}"><i class="fas ${success ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i> ${success ? 'Sucesso' : 'Falha'}</span></td>
+                    <td class="backup-actions-cell">
+                        <button class="backup-action-btn download" title="Download"><i class="fas fa-download"></i></button>
+                        <button class="backup-action-btn restore" title="Restaurar"><i class="fas fa-undo-alt"></i></button>
+                        <button class="backup-action-btn delete" title="Excluir"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.insertBefore(newRow, tbody.firstChild);
+                handleTableActions();
+                showToast(`Backup ${success ? 'concluído com sucesso' : 'falhou'}`, success ? 'success' : 'error');
+            }, 1500);
+        }
+        
+        // Exportar Logs
+        function exportLogs() {
+            const rows = document.querySelectorAll('#backupsTableBody tr');
+            let logs = '';
+            rows.forEach(row => {
+                if (row.style.display !== 'none') {
+                    const cells = row.querySelectorAll('td');
+                    const name = cells[0]?.textContent.trim() || '';
+                    const date = cells[1]?.textContent.trim() || '';
+                    const status = cells[3]?.textContent.trim() || '';
+                    logs += `${date} - ${name} - ${status}\n`;
+                }
+            });
+            
+            const blob = new Blob([logs], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `backup_logs_${new Date().toISOString().slice(0,10)}.txt`;
+            link.click();
+            URL.revokeObjectURL(link.href);
+            showToast('Logs exportados com sucesso', 'success');
+        }
+        
+        // Limpar Backups Antigos
+        function cleanupOldBackups() {
+            const rows = document.querySelectorAll('#backupsTableBody tr');
+            if (rows.length <= 5) {
+                showToast('Não há backups antigos suficientes para limpar', 'warning');
+                return;
+            }
+            
+            const toDelete = rows.length - 5;
+            showModal('Limpar Backups Antigos', `Esta ação irá excluir ${toDelete} backups antigos (mantendo os 5 mais recentes). Deseja continuar?`, () => {
+                const rowsList = Array.from(document.querySelectorAll('#backupsTableBody tr'));
+                const toRemove = rowsList.slice(5);
+                toRemove.forEach(row => row.remove());
+                showToast(`${toDelete} backups antigos removidos`, 'success');
+                closeModal();
+            });
+        }
+        
+        // Tema
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const toggle = document.getElementById('themeToggle');
+            if (toggle) {
+                toggle.checked = savedTheme === 'light';
+                toggle.addEventListener('change', (e) => {
+                    const newTheme = e.target.checked ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+        }
+        
+        // Agendamento
+        function initSchedule() {
+            const savedSchedule = localStorage.getItem('backupSchedule');
+            if (savedSchedule) {
+                const schedule = JSON.parse(savedSchedule);
+                const radio = document.querySelector(`input[name="schedule"][value="${schedule.type}"]`);
+                if (radio) radio.checked = true;
+                if (schedule.type !== 'disabled') {
+                    document.getElementById('scheduleTimeContainer').style.display = 'flex';
+                    document.getElementById('scheduleTime').value = schedule.time;
+                }
+            }
+            
+            document.querySelectorAll('input[name="schedule"]').forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    const container = document.getElementById('scheduleTimeContainer');
+                    container.style.display = e.target.value === 'disabled' ? 'none' : 'flex';
+                });
+            });
+            
+            document.getElementById('saveScheduleBtn').addEventListener('click', () => {
+                const selected = document.querySelector('input[name="schedule"]:checked').value;
+                const time = document.getElementById('scheduleTime').value;
+                const schedule = { type: selected, time: time };
+                localStorage.setItem('backupSchedule', JSON.stringify(schedule));
+                showToast(`Agendamento ${selected === 'disabled' ? 'desativado' : `salvo para ${selected} às ${time}`}`, 'success');
+            });
+        }
+        
+        // Menu Mobile
+        function initMobileMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            if (menuToggle && sidebar) {
+                menuToggle.addEventListener('click', () => sidebar.classList.toggle('active'));
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            }
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            initMobileMenu();
+            initSchedule();
+            handleTableActions();
+            
+            document.getElementById('newBackupBtn').addEventListener('click', createNewBackup);
+            document.getElementById('refreshBackupsBtn').addEventListener('click', () => {
+                showToast('Lista atualizada', 'success');
+            });
+            document.getElementById('exportLogsBtn').addEventListener('click', exportLogs);
+            document.getElementById('cleanupBackupsBtn').addEventListener('click', cleanupOldBackups);
+            document.getElementById('searchBackup').addEventListener('input', filterBackups);
+            document.getElementById('modalCancelBtn').addEventListener('click', closeModal);
+            document.getElementById('modalConfirmBtn').addEventListener('click', () => {
+                if (pendingAction) pendingAction();
+            });
+            document.getElementById('confirmModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('confirmModal')) closeModal();
+            });
+            
+            console.log('✅ Página de Backup inicializada com sucesso!');
+        });
+    </script>
+</body>
+</html>
