@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -1261,4 +1262,1269 @@ print(response.choices[0].message.content)
     </script>
 </body>
 
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Post | Revolução IA | Acionet Control Center</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../../assets/css/style.css"><script src="../../assets/js/js.js"></script>
+
+    <style>
+       
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: all var(--transition-base);
+            z-index: var(--z-sticky);
+        }
+        
+        .sidebar-header {
+            padding: var(--space-xl);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        
+        .sidebar-logo {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .sidebar-logo i {
+            background: none;
+            color: var(--accent-primary);
+            margin-right: var(--space-sm);
+        }
+        
+        .sidebar-nav {
+            padding: var(--space-lg) 0;
+        }
+        
+        .nav-item {
+            margin-bottom: var(--space-xs);
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) var(--space-xl);
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-link i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .nav-link:hover {
+            background: var(--glass-white);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-link.active {
+            background: var(--gradient-glass);
+            color: var(--accent-primary);
+            border-left-color: var(--accent-primary);
+        }
+        
+        .nav-section {
+            padding: var(--space-md) var(--space-xl);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            margin-top: var(--space-lg);
+        }
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: var(--space-md) var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .page-title {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Theme Switch */
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-switch {
+            position: relative;
+            width: 60px;
+            height: 32px;
+        }
+
+        .theme-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .theme-switch-label {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-input);
+            border-radius: 34px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .theme-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 34px;
+        }
+
+        .theme-switch-thumb {
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 4px;
+            bottom: 3px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-icon {
+            position: absolute;
+            font-size: 12px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .light-icon {
+            opacity: 1;
+        }
+
+        .dark-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .theme-switch-thumb {
+            transform: translateX(28px);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .light-icon {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .theme-switch-input:checked+.theme-switch-label .dark-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* User Menu */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-role {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+        }
+
+        /* Content Area */
+        .content-area {
+            padding: var(--space-xl);
+        }
+
+        /* ============================================
+           ESTILOS DA PÁGINA DE VISUALIZAÇÃO DE POST
+        ============================================ */
+        .post-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .post-header {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .post-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--glass-white);
+            padding: var(--space-xs) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+        }
+
+        .post-badge i {
+            color: var(--accent-primary);
+        }
+
+        .post-title {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .meta-item i {
+            color: var(--accent-primary);
+            width: 20px;
+        }
+
+        /* Mídia Principal */
+        .post-media {
+            margin-bottom: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: var(--bg-tertiary);
+        }
+
+        .post-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Conteúdo */
+        .post-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .post-content p {
+            margin-bottom: var(--space-lg);
+        }
+
+        .post-content h2 {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin: var(--space-2xl) 0 var(--space-lg);
+        }
+
+        .post-content h3 {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin: var(--space-xl) 0 var(--space-md);
+        }
+
+        .post-content blockquote {
+            background: var(--glass-white);
+            border-left: 4px solid var(--accent-primary);
+            padding: var(--space-lg);
+            margin: var(--space-xl) 0;
+            border-radius: var(--radius-lg);
+            font-style: italic;
+        }
+
+        .post-content ul, .post-content ol {
+            margin: var(--space-lg) 0;
+            padding-left: var(--space-xl);
+        }
+
+        .post-content li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .post-content .highlight-box {
+            background: var(--gradient-primary);
+            background-size: 200% 100%;
+            color: white;
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .post-content .highlight-box h4 {
+            color: white;
+            margin-bottom: var(--space-sm);
+        }
+
+        .post-content .code-block {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin: var(--space-xl) 0;
+        }
+
+        /* Tags */
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-color-light);
+        }
+
+        .tag {
+            background: var(--glass-white);
+            padding: var(--space-xs) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .tag:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Autor */
+        .author-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            display: flex;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.3rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .author-role {
+            color: var(--accent-primary);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .author-bio {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .author-social {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .author-social a {
+            width: 32px;
+            height: 32px;
+            background: var(--glass-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+
+        .author-social a:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Navegação entre posts */
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .nav-post {
+            flex: 1;
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+        }
+
+        .nav-post:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-3px);
+        }
+
+        .nav-label {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            margin-bottom: var(--space-xs);
+        }
+
+        .nav-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .nav-next {
+            text-align: right;
+        }
+
+        /* Ações */
+        .post-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: var(--space-md);
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--glass-white);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .action-btn:hover {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: white;
+        }
+
+        .action-btn.edit:hover {
+            background: var(--accent-secondary);
+        }
+
+        .action-btn.delete:hover {
+            background: var(--accent-danger);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 200;
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .post-title {
+                font-size: 1.8rem;
+            }
+
+            .post-meta {
+                gap: var(--space-md);
+            }
+
+            .post-navigation {
+                flex-direction: column;
+            }
+
+            .nav-post {
+                text-align: center;
+            }
+
+            .author-card {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">    
+            <div class="sidebar-header">
+                  <a href="../../home.html">
+                 <img src="../../assets/imgs/logo.png" alt="" width="50" height="50">
+                  <div class="sidebar-logo">
+                    ACIONET
+                </div>
+                </a>
+                <div class="sidebar-version">Control Center</div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">PRINCIPAL</div>
+                <div class="nav-item">
+                    <a href="../../home.html" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" target="_blank" class="nav-link">
+                        <i class="fas fa-code"></i>
+                        <span>Ver site</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">CONTEÚDO</div>
+                
+                <div class="nav-item">
+                    <a href="../../paginas/projetos.html" class="nav-link ">
+                        <i class="fas fa-rocket"></i>
+                        <span>Projetos</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/blog.html" class="nav-link active">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/eventos.html" class="nav-link ">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Eventos</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">GERENCIAR</div>
+                <div class="nav-item">
+                    <a href="../../RH/admin/admins.html" class="nav-link">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Administradores</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../RH/funcionario/funcionarios.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Funcionários</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/visitantes.html" class="nav-link">
+                        <i class="fas fa-user-clock"></i>
+                        <span>Visitantes</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/mensagens.html" class="nav-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Mensagens</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="../../paginas/solicitacoes.html" class="nav-link">
+                        <i class="fas fa-tasks"></i>
+                        <span>Solicitações</span>
+                        <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
+                    </a>
+                </div>
+                
+                <div class="nav-section">SISTEMA</div>
+                <div class="nav-item">
+                    <a href="../../paginas/configuracoes.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/relatorio.html" class="nav-link">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="../../paginas/backup.html" class="nav-link">
+                        <i class="fas fa-database"></i>
+                        <span>Backup</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+           <!-- Top Bar -->
+            <div class="top-bar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <h2 class="page-title">Dashboard</h2>
+
+                <div class="top-bar-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Pesquisar...">
+                    </div>
+
+                    <!-- Dropdown de Notificação -->
+                    <div class="notification-btn dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+
+                        <div class="dropdown-menu notification-dropdown">
+                            <div class="dropdown-header">
+                                <strong>Notificações</strong>
+                                <small>3 novas</small>
+                            </div>
+                            <div class="dropdown-body">
+                                <!-- Notificação 1 - Solicitação -->
+                                <div class="notification-item unread" data-type="requests"
+                                    data-url="paginas/solicitacoes.html?id=245">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    <div class="notification-content">
+                                        <p>Nova solicitação #245</p>
+                                        <span>5 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 2 - Visitante -->
+                                <div class="notification-item unread" data-type="visitors"
+                                    data-url="paginas/visitantes.html?checkin=67890">
+                                    <i class="fas fa-user-plus"></i>
+                                    <div class="notification-content">
+                                        <p>Novo visitante registrado</p>
+                                        <span>15 minutos atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Notificação 3 - Mensagem -->
+                                <div class="notification-item unread" data-type="messages"
+                                    data-url="paginas/mensagens.html?chat=joao-silva">
+                                    <i class="fas fa-envelope"></i>
+                                    <div class="notification-content">
+                                        <p>Mensagem de João Silva</p>
+                                        <span>1 hora atrás</span>
+                                    </div>
+                                    <div class="notification-status">
+                                        <span class="status-dot unread"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-footer">
+                                <a href="#" id="viewAllNotifications">Ver todas notificações</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-switch-wrapper" id="themeToggleWrapper">
+                        <div class="theme-switch">
+                            <input type="checkbox" class="theme-switch-input" id="themeToggle">
+                            <label class="theme-switch-label" for="themeToggle">
+                                <div class="theme-switch-track">
+                                    <div class="theme-switch-thumb">
+                                        <i class="fas fa-sun theme-icon light-icon"></i>
+                                        <i class="fas fa-moon theme-icon dark-icon"></i>
+                                    </div>
+                                </div>
+                                <div class="theme-switch-glow"></div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown do Usuário -->
+                    <div class="user-menu dropdown">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Administrador</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                        <i class="fas fa-chevron-down user-arrow"></i>
+
+                        <div class="dropdown-menu user-dropdown">
+                            <div class="dropdown-body">
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-user-cog"></i>
+                                    Meu Perfil
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-envelope"></i>
+                                    Mensagens
+                                    <span class="badge">2</span>
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-ticket-alt"></i>
+                                    Minhas Solicitações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-cog"></i>
+                                    Configurações
+                                </a>
+                                <a href="#" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Sair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Todas as Notificações -->
+            <div class="modal-overlay" id="notificationsModal">
+                <div class="modal-container">
+                    <div class="modal-header">
+                        <h3><i class="fas fa-bell"></i> Todas as Notificações</h3>
+                        <button class="modal-close" id="closeNotificationsModal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-filters">
+                            <button class="filter-btn active" data-filter="all">Todas</button>
+                            <button class="filter-btn" data-filter="unread">Não lidas</button>
+                            <button class="filter-btn" data-filter="requests">Solicitações</button>
+                            <button class="filter-btn" data-filter="messages">Mensagens</button>
+                            <button class="filter-btn" data-filter="visitors">Visitantes</button>
+                            <button class="filter-btn" data-filter="admin">Admin</button>
+                        </div>
+
+                        <div class="notifications-list">
+                            <!-- Notificação 1 - Solicitação -->
+                            <div class="modal-notification-item unread" data-type="requests"
+                                data-url="../solicitacoes.html?id=245">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Nova Solicitação #245</strong>
+                                        <span class="notification-time">5 minutos atrás</span>
+                                    </div>
+                                    <p>João Silva solicitou acesso ao módulo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-approve" data-action="approve">Aprovar</button>
+                                        <button class="btn-action btn-reject" data-action="reject">Recusar</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 2 - Mensagem -->
+                            <div class="modal-notification-item unread" data-type="messages"
+                                data-url="../mensagens.html?chat=maria-santos">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Mensagem de Maria Santos</strong>
+                                        <span class="notification-time">15 minutos atrás</span>
+                                    </div>
+                                    <p>Olá, preciso de ajuda com o relatório mensal de visitantes...</p>
+                                    <span class="notification-link">Ir para Mensagens →</span>
+                                    <div class="notification-actions">
+                                        <button class="btn-action btn-reply" data-action="reply">Responder</button>
+                                    </div>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot unread"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 3 - Visitante -->
+                            <div class="modal-notification-item read" data-type="visitors"
+                                data-url="../visitantes.html?checkin=67890">
+                                <div class="notification-icon visitor">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Visitante Registrado</strong>
+                                        <span class="notification-time">1 hora atrás</span>
+                                    </div>
+                                    <p>Carlos Oliveira fez check-in na portaria principal</p>
+                                    <span class="notification-link">Ir para Visitantes →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 4 - Mensagem Chat -->
+                            <div class="modal-notification-item read" data-type="messages"
+                                data-url="../mensagens.html?chat=suporte&ticket=238">
+                                <div class="notification-icon message">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Chat do Suporte</strong>
+                                        <span class="notification-time">2 horas atrás</span>
+                                    </div>
+                                    <p>Ticket #238 foi atualizado com novo comentário</p>
+                                    <span class="notification-link">Ir para Chat →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 5 - Admin -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/admin/admins.html?permissao=novo-admin">
+                                <div class="notification-icon admin">
+                                    <i class="fas fa-user-shield"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Administrador Adicionado</strong>
+                                        <span class="notification-time">3 horas atrás</span>
+                                    </div>
+                                    <p>Pedro Costa foi adicionado como Administrador do Sistema</p>
+                                    <span class="notification-link">Ir para Administradores →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 6 - Solicitação Aprovada -->
+                            <div class="modal-notification-item read" data-type="requests"
+                                data-url="paginas/solicitacoes.html?id=230">
+                                <div class="notification-icon request">
+                                    <i class="fas fa-file-signature"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Solicitação Aprovada #230</strong>
+                                        <span class="notification-time">1 dia atrás</span>
+                                    </div>
+                                    <p>Seu pedido de compra foi aprovado pelo financeiro</p>
+                                    <span class="notification-link">Ir para Solicitações →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+
+                            <!-- Notificação 7 - Funcionário -->
+                            <div class="modal-notification-item read" data-type="admin"
+                                data-url="RH/funcionario/funcionarios.html?acao=novo-cadastro">
+                                <div class="notification-icon employee">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="notification-info">
+                                    <div class="notification-header">
+                                        <strong>Novo Funcionário Cadastrado</strong>
+                                        <span class="notification-time">2 dias atrás</span>
+                                    </div>
+                                    <p>Ana Beatriz foi registrada no departamento de RH</p>
+                                    <span class="notification-link">Ir para Funcionários →</span>
+                                </div>
+                                <div class="notification-status">
+                                    <span class="status-dot read"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-mark-all-read">Marcar todas como lidas</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="post-container">
+                    <!-- Post Header -->
+                    <div class="post-header">
+                        <div class="post-badge">
+                            <i class="fas fa-brain"></i>
+                            Inteligência Artificial
+                        </div>
+                        <h1 class="post-title">Revolução IA: Como a Generative AI está Redefinindo a Produtividade Empresarial</h1>
+                        <div class="post-meta">
+                            <div class="meta-item"><i class="far fa-calendar-alt"></i> 15 de Março, 2025</div>
+                            <div class="meta-item"><i class="far fa-clock"></i> 8 minutos de leitura</div>
+                            <div class="meta-item"><i class="far fa-eye"></i> 2.4k visualizações</div>
+                            <div class="meta-item"><i class="far fa-comment"></i> 45 comentários</div>
+                        </div>
+                    </div>
+
+                    <!-- Ações -->
+                    <div class="post-actions">
+                        <a href="blog-editar.html?id=1" class="action-btn edit"><i class="fas fa-edit"></i> Editar</a>
+                        <button class="action-btn delete" onclick="alert('Post excluído com sucesso! (Demonstração)')"><i class="fas fa-trash"></i> Excluir</button>
+                        <a href="blog-listar.html" class="action-btn"><i class="fas fa-arrow-left"></i> Voltar</a>
+                    </div>
+
+                    <!-- Mídia Principal -->
+                    <div class="post-media">
+                        <img src="https://placehold.co/1200x600/1D3557/00D4FF?text=IA+Generativa" alt="IA Generativa">
+                    </div>
+
+                    <!-- Conteúdo -->
+                    <div class="post-content">
+                        <p>
+                            A inteligência artificial generativa está vivendo um momento de aceleração sem precedentes.
+                            Modelos como GPT-4, DALL-E, Midjourney e Claude estão transformando radicalmente a forma como
+                            empresas criam conteúdo, desenvolvem produtos e interagem com clientes. Este artigo explora
+                            como essas tecnologias estão redefinindo a produtividade empresarial e quais estratégias as
+                            organizações podem adotar para aproveitar ao máximo esse potencial.
+                        </p>
+
+                        <h2>O que é IA Generativa?</h2>
+                        <p>
+                            Diferente da IA tradicional, que analisa dados existentes para fazer previsões ou classificações,
+                            a IA generativa cria conteúdo novo e original. Ela aprende padrões a partir de grandes volumes de
+                            dados e utiliza esse conhecimento para gerar textos, imagens, códigos, músicas e até vídeos com
+                            qualidade surpreendente.
+                        </p>
+
+                        <div class="highlight-box">
+                            <h4>📊 Dados Relevantes</h4>
+                            <p>De acordo com a McKinsey, a IA generativa pode adicionar até US$ 4,4 trilhões por ano à economia
+                            global, impactando 75% das funções empresariais. Empresas que adotaram a tecnologia relatam ganhos
+                            de produtividade de até 300% em áreas específicas.</p>
+                        </div>
+
+                        <h2>Aplicações Práticas nos Negócios</h2>
+                        <h3>1. Marketing e Criação de Conteúdo</h3>
+                        <p>
+                            Equipes de marketing estão utilizando ferramentas como ChatGPT e Jasper para produzir artigos,
+                            posts para redes sociais, e-mails marketing e campanhas publicitárias em escala. O tempo de criação
+                            caiu drasticamente, permitindo que os profissionais foquem em estratégia e criatividade.
+                        </p>
+
+                        <h3>2. Desenvolvimento de Software</h3>
+                        <p>
+                            Ferramentas como GitHub Copilot e Amazon CodeWhisperer estão revolucionando a programação.
+                            Desenvolvedores relatam aumento de até 55% na produtividade, com código mais limpo e menos bugs.
+                            A IA ajuda a gerar código, documentar funções e até sugerir otimizações.
+                        </p>
+
+                        <div class="code-block">
+                            <code>
+# Exemplo de uso com API da OpenAI
+import openai
+
+response = openai.ChatCompletion.create(
+    model="gpt-4",
+    messages=[
+        {"role": "system", "content": "Você é um assistente especialista em IA."},
+        {"role": "user", "content": "Explique como IA generativa pode ajudar marketing."}
+    ]
+)
+
+print(response.choices[0].message.content)
+                            </code>
+                        </div>
+
+                        <h3>3. Atendimento ao Cliente</h3>
+                        <p>
+                            Chatbots alimentados por IA generativa oferecem respostas personalizadas e contextuais,
+                            resolvendo problemas complexos sem intervenção humana. Empresas que implementaram essas soluções
+                            reduziram o tempo de resposta em até 80% e aumentaram a satisfação dos clientes.
+                        </p>
+
+                        <blockquote>
+                            <p>"A IA generativa não está substituindo humanos, está aumentando suas capacidades. O futuro
+                            pertence àqueles que souberem colaborar efetivamente com essas ferramentas." — Sam Altman, CEO da OpenAI</p>
+                        </blockquote>
+
+                        <h2>Desafios e Considerações Éticas</h2>
+                        <p>
+                            Apesar do enorme potencial, a adoção da IA generativa traz desafios importantes:
+                        </p>
+                        <ul>
+                            <li><strong>Propriedade Intelectual:</strong> Quem detém os direitos sobre conteúdo gerado por IA?</li>
+                            <li><strong>Vieses e Alucinações:</strong> Modelos podem gerar informações incorretas ou perpetuar vieses.</li>
+                            <li><strong>Segurança e Privacidade:</strong> Dados sensíveis podem ser expostos se não houver governança adequada.</li>
+                            <li><strong>Regulamentação:</strong> A União Europeia já está avançando com o AI Act, criando novas obrigações legais.</li>
+                        </ul>
+
+                        <h2>Como Começar na Sua Empresa</h2>
+                        <p>
+                            Para organizações que desejam iniciar sua jornada com IA generativa, recomendamos os seguintes passos:
+                        </p>
+                        <ol>
+                            <li><strong>Identifique oportunidades de alto impacto:</strong> Mapeie processos repetitivos ou criativos que podem ser acelerados.</li>
+                            <li><strong>Comece com projetos-piloto:</strong> Teste ferramentas em pequena escala antes de expandir.</li>
+                            <li><strong>Estabeleça governança:</strong> Crie políticas claras sobre uso ético e seguro da IA.</li>
+                            <li><strong>Invista em capacitação:</strong> Treine sua equipe para trabalhar em conjunto com as ferramentas de IA.</li>
+                        </ol>
+
+                        <h2>O Futuro da IA Generativa</h2>
+                        <p>
+                            Estamos apenas arranhando a superfície do que é possível. Nos próximos anos, podemos esperar:
+                        </p>
+                        <ul>
+                            <li>Modelos multimodais que integram texto, imagem, áudio e vídeo perfeitamente</li>
+                            <li>Agentes de IA autônomos capazes de realizar tarefas complexas de ponta a ponta</li>
+                            <li>Personalização em massa com conteúdo adaptado individualmente para cada usuário</li>
+                            <li>Integração nativa em todos os softwares empresariais</li>
+                        </ul>
+                        <p>
+                            A revolução da IA generativa já começou. As empresas que aprenderem a aproveitar essas ferramentas
+                            de forma estratégica e ética terão uma vantagem competitiva significativa nos próximos anos.
+                        </p>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="post-tags">
+                        <a href="#" class="tag">#IA Generativa</a>
+                        <a href="#" class="tag">#GPT-4</a>
+                        <a href="#" class="tag">#Produtividade</a>
+                        <a href="#" class="tag">#Automação</a>
+                        <a href="#" class="tag">#MachineLearning</a>
+                    </div>
+
+                    <!-- Autor -->
+                    <div class="author-card">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="author-info">
+                            <h3 class="author-name">Dr. Carlos Silva</h3>
+                            <div class="author-role">Chief AI Officer na Acionet</div>
+                            <p class="author-bio">Doutor em Ciência da Computação pela USP, com pós-doutorado em Inteligência Artificial pelo MIT. Especialista em IA aplicada a negócios e autor de mais de 30 artigos científicos.</p>
+                            <div class="author-social">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navegação entre posts -->
+                    <div class="post-navigation">
+                        <a href="#" class="nav-post">
+                            <div class="nav-label"><i class="fas fa-arrow-left"></i> Anterior</div>
+                            <div class="nav-title">Como implementar ML no seu negócio</div>
+                        </a>
+                        <a href="#" class="nav-post nav-next">
+                            <div class="nav-label">Próximo <i class="fas fa-arrow-right"></i></div>
+                            <div class="nav-title">O futuro do trabalho com IA</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // ============================================
+        // MENU MOBILE
+        // ============================================
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            });
+        }
+
+        // ============================================
+        // TEMA (DARK/LIGHT)
+        // ============================================
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (themeToggle) {
+            themeToggle.checked = savedTheme === 'light';
+            themeToggle.addEventListener('change', (e) => {
+                const newTheme = e.target.checked ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        }
+    </script>
+</body>
+
+>>>>>>> 628b1f00c66b0bb34d29f5ce4a36bbddc5cfa827
 </html>
