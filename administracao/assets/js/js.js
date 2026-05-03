@@ -794,3 +794,24 @@ document.addEventListener('DOMContentLoaded', function() {
         
         console.log('🚀 Sistema de Navegação Responsiva Ativado - ACIONET Control Center');
     });
+
+
+
+
+
+
+
+
+    // Remove loading após carregamento
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loadingScreen");
+
+    setTimeout(() => {
+        loader.classList.add("hide");
+
+        setTimeout(() => {
+            loader.style.display = "none";
+        }, 600);
+
+    }, 2500); // tempo simulado de loading
+});

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -12,10 +11,10 @@
 
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-<link rel="stylesheet" href="../../assets/css/style.css"><script src="../assets/js/js.js"></script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <script src="../assets/js/js.js"></script>
 
     <style>
-       
         /* Sidebar */
         .sidebar {
             width: var(--sidebar-width);
@@ -28,13 +27,13 @@
             transition: all var(--transition-base);
             z-index: var(--z-sticky);
         }
-        
+
         .sidebar-header {
             padding: var(--space-xl);
             border-bottom: 1px solid var(--border-color);
             text-align: center;
         }
-        
+
         .sidebar-logo {
             font-family: var(--font-secondary);
             font-size: 1.5rem;
@@ -45,21 +44,21 @@
             color: transparent;
             letter-spacing: 1px;
         }
-        
+
         .sidebar-logo i {
             background: none;
             color: var(--accent-primary);
             margin-right: var(--space-sm);
         }
-        
+
         .sidebar-nav {
             padding: var(--space-lg) 0;
         }
-        
+
         .nav-item {
             margin-bottom: var(--space-xs);
         }
-        
+
         .nav-link {
             display: flex;
             align-items: center;
@@ -69,24 +68,24 @@
             transition: all var(--transition-fast);
             border-left: 3px solid transparent;
         }
-        
+
         .nav-link i {
             width: 24px;
             font-size: 1.2rem;
         }
-        
+
         .nav-link:hover {
             background: var(--glass-white);
             color: var(--accent-primary);
             border-left-color: var(--accent-primary);
         }
-        
+
         .nav-link.active {
             background: var(--gradient-glass);
             color: var(--accent-primary);
             border-left-color: var(--accent-primary);
         }
-        
+
         .nav-section {
             padding: var(--space-md) var(--space-xl);
             font-size: 0.7rem;
@@ -95,6 +94,7 @@
             color: var(--text-tertiary);
             margin-top: var(--space-lg);
         }
+
         /* Main Content */
         .main-content {
             flex: 1;
@@ -552,6 +552,7 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .charts-grid {
                 grid-template-columns: 1fr;
             }
@@ -562,6 +563,7 @@
                 flex-direction: column;
                 align-items: stretch;
             }
+
             .visitors-search {
                 width: 100%;
             }
@@ -573,36 +575,75 @@
                 position: fixed;
                 z-index: 200;
             }
+
             .sidebar.active {
                 transform: translateX(0);
             }
+
             .main-content {
                 margin-left: 0;
             }
+
             .menu-toggle {
                 display: block;
             }
+
             .stats-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+<!-- ================================
+     LOADING SCREEN ACIONET
+================================ -->
+<div id="loadingScreen" class="loading-screen">
+    
+    <!-- Fundo animado -->
+    <div class="loading-bg"></div>
 
+    <!-- Partículas -->
+    <div class="loading-particles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Conteúdo central -->
+    <div class="loading-content">
+
+        <!-- LOGO -->
+        <div class="loading-logo">
+            <img src="../../assets/imgs/logo.png" alt="ACIONET Logo">
+        </div>
+
+        <!-- Spinner futurista -->
+        <div class="loading-spinner"></div>
+
+        <!-- Texto -->
+        <h2 class="loading-title">ACIONET</h2>
+        <p class="loading-text">A carregar sistema...</p>
+
+        <!-- Barra de progresso -->
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+
+    </div>
+</div>
 <body>
     <div class="dashboard-wrapper">
         <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">    
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                  <a href="../home.html">
-                 <img src="../assets/imgs/logo.png" alt="" width="50" height="50">
-                  <div class="sidebar-logo">
-                    ACIONET
-                </div>
+                <a href="../home.html">
+                    <img src="../assets/imgs/logo.png" alt="" width="50" height="50">
+                    <div class="sidebar-logo">
+                        ACIONET
+                    </div>
                 </a>
                 <div class="sidebar-version">Control Center</div>
             </div>
-            
+
             <nav class="sidebar-nav">
                 <div class="nav-section">PRINCIPAL</div>
                 <div class="nav-item">
@@ -617,9 +658,9 @@
                         <span>Ver site</span>
                     </a>
                 </div>
-                
+
                 <div class="nav-section">CONTEÚDO</div>
-                
+
                 <div class="nav-item">
                     <a href="../paginas/projetos.html" class="nav-link ">
                         <i class="fas fa-rocket"></i>
@@ -638,7 +679,7 @@
                         <span>Eventos</span>
                     </a>
                 </div>
-                
+
                 <div class="nav-section">GERENCIAR</div>
                 <div class="nav-item">
                     <a href="../RH/admin/admins.html" class="nav-link">
@@ -675,7 +716,7 @@
                         <span class="notification-badge" style="position: static; margin-left: auto;">12</span>
                     </a>
                 </div>
-                
+
                 <div class="nav-section">SISTEMA</div>
                 <div class="nav-item">
                     <a href="../paginas/configuracoes.html" class="nav-link ">
@@ -1082,114 +1123,131 @@
                             </thead>
                             <tbody id="visitorsTableBody">
                                 <!-- Dados HTML estáticos -->
-                                <tr data-ip="189.45.23.101" data-pais="Brasil" data-navegador="Chrome" data-dispositivo="Desktop">
+                                <tr data-ip="189.45.23.101" data-pais="Brasil" data-navegador="Chrome"
+                                    data-dispositivo="Desktop">
                                     <td>189.45.23.101</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - São Paulo</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - São
+                                            Paulo</span></td>
                                     <td><span class="badge-browser"><i class="fab fa-chrome"></i> Chrome 120</span></td>
                                     <td><span class="badge-os"><i class="fab fa-windows"></i> Windows 11</span></td>
                                     <td>Desktop</td>
                                     <td>04/04/2025 09:30</td>
                                     <td>5</td>
                                 </tr>
-                                <tr data-ip="201.12.45.67" data-pais="Brasil" data-navegador="Firefox" data-dispositivo="Desktop">
+                                <tr data-ip="201.12.45.67" data-pais="Brasil" data-navegador="Firefox"
+                                    data-dispositivo="Desktop">
                                     <td>201.12.45.67</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Rio de Janeiro</span></td>
-                                    <td><span class="badge-browser"><i class="fab fa-firefox"></i> Firefox 124</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Rio de
+                                            Janeiro</span></td>
+                                    <td><span class="badge-browser"><i class="fab fa-firefox"></i> Firefox 124</span>
+                                    </td>
                                     <td><span class="badge-os"><i class="fab fa-apple"></i> macOS 14</span></td>
                                     <td>Desktop</td>
                                     <td>04/04/2025 08:15</td>
                                     <td>3</td>
                                 </tr>
-                                <tr data-ip="177.89.34.12" data-pais="Brasil" data-navegador="Edge" data-dispositivo="Desktop">
+                                <tr data-ip="177.89.34.12" data-pais="Brasil" data-navegador="Edge"
+                                    data-dispositivo="Desktop">
                                     <td>177.89.34.12</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Belo Horizonte</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Belo
+                                            Horizonte</span></td>
                                     <td><span class="badge-browser"><i class="fab fa-edge"></i> Edge 122</span></td>
                                     <td><span class="badge-os"><i class="fab fa-windows"></i> Windows 10</span></td>
                                     <td>Desktop</td>
                                     <td>03/04/2025 18:45</td>
                                     <td>7</td>
                                 </tr>
-                                <tr data-ip="45.67.89.123" data-pais="Estados Unidos" data-navegador="Chrome" data-dispositivo="Desktop">
+                                <tr data-ip="45.67.89.123" data-pais="Estados Unidos" data-navegador="Chrome"
+                                    data-dispositivo="Desktop">
                                     <td>45.67.89.123</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag-usa"></i> Estados Unidos - New York</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag-usa"></i> Estados Unidos - New
+                                            York</span></td>
                                     <td><span class="badge-browser"><i class="fab fa-chrome"></i> Chrome 120</span></td>
                                     <td><span class="badge-os"><i class="fab fa-windows"></i> Windows 11</span></td>
                                     <td>Desktop</td>
                                     <td>03/04/2025 14:20</td>
                                     <td>4</td>
                                 </tr>
-                                <tr data-ip="189.23.45.67" data-pais="Brasil" data-navegador="Safari" data-dispositivo="Mobile">
+                                <tr data-ip="189.23.45.67" data-pais="Brasil" data-navegador="Safari"
+                                    data-dispositivo="Mobile">
                                     <td>189.23.45.67</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Porto Alegre</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Porto
+                                            Alegre</span></td>
                                     <td><span class="badge-browser"><i class="fab fa-safari"></i> Safari 17</span></td>
                                     <td><span class="badge-os"><i class="fab fa-apple"></i> iOS 17</span></td>
                                     <td>Mobile</td>
                                     <td>03/04/2025 11:30</td>
                                     <td>2</td>
                                 </tr>
-                                <tr data-ip="200.150.30.40" data-pais="Argentina" data-navegador="Chrome" data-dispositivo="Mobile">
+                                <tr data-ip="200.150.30.40" data-pais="Argentina" data-navegador="Chrome"
+                                    data-dispositivo="Mobile">
                                     <td>200.150.30.40</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Argentina - Buenos Aires</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Argentina - Buenos
+                                            Aires</span></td>
                                     <td><span class="badge-browser"><i class="fab fa-chrome"></i> Chrome 119</span></td>
                                     <td><span class="badge-os"><i class="fab fa-android"></i> Android 14</span></td>
                                     <td>Mobile</td>
                                     <td>03/04/2025 10:00</td>
                                     <td>3</td>
                                 </tr>
-                                <tr data-ip="189.10.20.30" data-pais="Brasil" data-navegador="Firefox" data-dispositivo="Desktop">
+                                <tr data-ip="189.10.20.30" data-pais="Brasil" data-navegador="Firefox"
+                                    data-dispositivo="Desktop">
                                     <td>189.10.20.30</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Curitiba</span></td>
-                                    <td><span class="badge-browser"><i class="fab fa-firefox"></i> Firefox 123</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Curitiba</span>
+                                    </td>
+                                    <td><span class="badge-browser"><i class="fab fa-firefox"></i> Firefox 123</span>
+                                    </td>
                                     <td><span class="badge-os"><i class="fab fa-windows"></i> Windows 10</span></td>
                                     <td>Desktop</td>
                                     <td>02/04/2025 20:15</td>
                                     <td>6</td>
                                 </tr>
-                                <tr data-ip="177.33.22.11" data-pais="Portugal" data-navegador="Edge" data-dispositivo="Desktop">
+                                <tr data-ip="177.33.22.11" data-pais="Portugal" data-navegador="Edge"
+                                    data-dispositivo="Desktop">
                                     <td>177.33.22.11</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Portugal - Lisboa</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Portugal - Lisboa</span>
+                                    </td>
                                     <td><span class="badge-browser"><i class="fab fa-edge"></i> Edge 121</span></td>
                                     <td><span class="badge-os"><i class="fab fa-windows"></i> Windows 11</span></td>
                                     <td>Desktop</td>
                                     <td>02/04/2025 16:30</td>
                                     <td>5</td>
                                 </tr>
-                                <tr data-ip="201.55.66.77" data-pais="Brasil" data-navegador="Chrome" data-dispositivo="Mobile">
+                                <tr data-ip="201.55.66.77" data-pais="Brasil" data-navegador="Chrome"
+                                    data-dispositivo="Mobile">
                                     <td>201.55.66.77</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Salvador</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Salvador</span>
+                                    </td>
                                     <td><span class="badge-browser"><i class="fab fa-chrome"></i> Chrome 120</span></td>
                                     <td><span class="badge-os"><i class="fab fa-android"></i> Android 14</span></td>
                                     <td>Mobile</td>
                                     <td>02/04/2025 13:45</td>
                                     <td>2</td>
                                 </tr>
-                                <tr data-ip="45.67.12.34" data-pais="Reino Unido" data-navegador="Safari" data-dispositivo="Desktop">
+                                <tr data-ip="45.67.12.34" data-pais="Reino Unido" data-navegador="Safari"
+                                    data-dispositivo="Desktop">
                                     <td>45.67.12.34</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Reino Unido - Londres</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Reino Unido -
+                                            Londres</span></td>
                                     <td><span class="badge-browser"><i class="fab fa-safari"></i> Safari 17</span></td>
                                     <td><span class="badge-os"><i class="fab fa-apple"></i> macOS 14</span></td>
                                     <td>Desktop</td>
                                     <td>02/04/2025 11:20</td>
                                     <td>4</td>
                                 </tr>
-                                <tr data-ip="189.44.55.66" data-pais="Brasil" data-navegador="Firefox" data-dispositivo="Desktop">
+                                <tr data-ip="189.44.55.66" data-pais="Brasil" data-navegador="Firefox"
+                                    data-dispositivo="Desktop">
                                     <td>189.44.55.66</td>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Brasília</span></td>
-                                    <td><span class="badge-browser"><i class="fab fa-firefox"></i> Firefox 124</span></td>
+                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Brasil - Brasília</span>
+                                    </td>
+                                    <td><span class="badge-browser"><i class="fab fa-firefox"></i> Firefox 124</span>
+                                    </td>
                                     <td><span class="badge-os"><i class="fab fa-windows"></i> Windows 11</span></td>
                                     <td>Desktop</td>
                                     <td>01/04/2025 15:30</td>
                                     <td>8</td>
                                 </tr>
-                                <tr data-ip="200.100.50.30" data-pais="Chile" data-navegador="Chrome" data-dispositivo="Mobile">
-                                    <td>200.100.50.30</div>
-                                    <td><span class="badge-country"><i class="fas fa-flag"></i> Chile - Santiago</span></div>
-                                    <td><span class="badge-browser"><i class="fab fa-chrome"></i> Chrome 119</span></div>
-                                    <td><span class="badge-os"><i class="fab fa-android"></i> Android 13</span></div>
-                                    <td>Mobile</div>
-                                    <td>01/04/2025 12:10</div>
-                                    <td>3</div>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -1293,7 +1351,7 @@
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             const textColor = isDark ? '#FFFFFF' : '#0A0C15';
             const gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
-            
+
             if (visitsChart) {
                 visitsChart.options.plugins.legend.labels.color = textColor;
                 visitsChart.options.scales.x.ticks.color = textColor;
@@ -1302,7 +1360,7 @@
                 visitsChart.options.scales.y.grid.color = gridColor;
                 visitsChart.update();
             }
-            
+
             if (devicesChart) {
                 devicesChart.options.plugins.legend.labels.color = textColor;
                 devicesChart.update();
@@ -1339,13 +1397,13 @@
                 const pais = row.querySelector('td:nth-child(2)')?.textContent.toLowerCase() || '';
                 const navegador = row.querySelector('td:nth-child(3)')?.textContent.toLowerCase() || '';
                 const dispositivo = row.getAttribute('data-dispositivo') || '';
-                
+
                 const matchesSearch = searchTerm === '' || ip.includes(searchTerm) || pais.includes(searchTerm) || navegador.includes(searchTerm);
                 const matchesDevice = deviceFilter === 'all' || dispositivo === deviceFilter;
-                
+
                 return matchesSearch && matchesDevice;
             });
-            
+
             currentPage = 1;
             renderPage();
             renderPagination();
@@ -1373,7 +1431,7 @@
 
         function renderPagination() {
             const totalPages = Math.ceil(filteredRows.length / itemsPerPage);
-            
+
             if (totalPages <= 1) {
                 paginationDiv.innerHTML = '';
                 return;
@@ -1457,4 +1515,3 @@
         initCharts();
     </script>
 </body>
-

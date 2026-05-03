@@ -13,7 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
         rel="stylesheet">
-
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/js.js"></script>
     <style>
         * {
             margin: 0;
@@ -553,7 +554,42 @@
         }
     </style>
 </head>
+<!-- ================================
+     LOADING SCREEN ACIONET
+================================ -->
+<div id="loadingScreen" class="loading-screen">
+    
+    <!-- Fundo animado -->
+    <div class="loading-bg"></div>
 
+    <!-- Partículas -->
+    <div class="loading-particles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Conteúdo central -->
+    <div class="loading-content">
+
+        <!-- LOGO -->
+        <div class="loading-logo">
+            <img src="../assets/imgs/logo.png" alt="ACIONET Logo">
+        </div>
+
+        <!-- Spinner futurista -->
+        <div class="loading-spinner"></div>
+
+        <!-- Texto -->
+        <h2 class="loading-title">ACIONET</h2>
+        <p class="loading-text">A carregar sistema...</p>
+
+        <!-- Barra de progresso -->
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+
+    </div>
+</div>
 <body>
     <!-- Fundo Futurista -->
     <div class="login-background">

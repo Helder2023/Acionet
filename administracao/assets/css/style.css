@@ -1804,3 +1804,163 @@ select.form-control {
             padding: 2px 6px;
             border-radius: var(--radius-full);
         }
+
+        
+
+
+
+
+
+
+
+
+
+
+        /* ============================================
+   LOADING SCREEN ACIONET
+============================================ */
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-max);
+    overflow: hidden;
+}
+
+/* Fundo animado */
+.loading-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(0,212,255,0.15), transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(168,85,247,0.15), transparent 40%);
+    animation: bgMove 6s ease-in-out infinite alternate;
+}
+
+/* Partículas */
+.loading-particles span {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: floatParticles 8s linear infinite;
+}
+
+.loading-particles span:nth-child(odd) {
+    background: var(--accent-secondary);
+}
+
+.loading-particles span:nth-child(1) { top:10%; left:20%; }
+.loading-particles span:nth-child(2) { top:30%; left:80%; }
+.loading-particles span:nth-child(3) { top:60%; left:10%; }
+.loading-particles span:nth-child(4) { top:80%; left:50%; }
+.loading-particles span:nth-child(5) { top:40%; left:40%; }
+
+/* Conteúdo */
+.loading-content {
+    text-align: center;
+    z-index: 2;
+}
+
+/* LOGO */
+.loading-logo img {
+    width: 110px;
+    filter: drop-shadow(0 0 20px var(--accent-primary));
+    animation: logoPulse 2s infinite;
+}
+
+/* Spinner futurista */
+.loading-spinner {
+    width: 70px;
+    height: 70px;
+    margin: var(--space-lg) auto;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top: 3px solid var(--accent-primary);
+    border-right: 3px solid var(--accent-secondary);
+    animation: spin 1s linear infinite;
+    box-shadow: var(--glow-primary);
+}
+
+/* Texto */
+.loading-title {
+    font-size: 1.8rem;
+    margin-top: var(--space-md);
+    letter-spacing: 3px;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.loading-text {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Barra de progresso */
+.loading-bar {
+    width: 240px;
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: var(--radius-full);
+    margin: var(--space-lg) auto 0;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0%;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-full);
+    animation: loadProgress 3s ease forwards;
+}
+
+/* ============================================
+   ANIMAÇÕES
+============================================ */
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes logoPulse {
+    0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px var(--accent-primary)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 30px var(--accent-secondary)); }
+}
+
+@keyframes loadProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+@keyframes bgMove {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+@keyframes floatParticles {
+    0% {
+        transform: translateY(0);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* Fade out ao sair */
+.loading-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+}
