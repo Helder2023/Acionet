@@ -124,7 +124,7 @@
                             <i class="fas fa-project-diagram"></i>
                             <span>Projetos</span>
                         </a>
-                      
+
                     </div>
 
                     <!-- Dropdown Sobre -->
@@ -261,6 +261,7 @@
         </div>
     </nav>
 
+
     <!-- 🌟 Hero Section Projetos (igual à home) -->
     <section class="hero-section" style="margin-bottom: 70px;">
         <canvas class="particles-canvas" id="particlesCanvas"></canvas>
@@ -371,366 +372,371 @@
     </div>
 
     <!-- ============================================ -->
-<!-- SEÇÃO DE PROJETOS COM PAGINAÇÃO E PESQUISA -->
-<!-- ============================================ -->
-<section class="projects-section" style="margin-top: -200px; padding-bottom: 0;">
-    <div class="container">
-        <!-- INFRAESTRUTURA - 4 Projetos -->
-        <section class="category-section" id="infraestrutura" style="scroll-margin-top: 100px;">
-            <div class="category-header">
-                <div class="category-icon">
-                    <i class="fas fa-network-wired"></i>
-                    <div class="icon-halo"></div>
-                </div>
-                <div>
-                    <h2 class="category-title">Infraestrutura de Redes</h2>
-                    <p class="category-subtitle">Conectividade robusta e de alta performance</p>
-                </div>
-            </div>
-
-            <!-- Controles da categoria: Pesquisa e contador -->
-            <div class="category-controls">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" class="search-input" id="search-infra"
-                        placeholder="Pesquisar em Infraestrutura..." data-category="infraestrutura">
-                </div>
-                <div class="results-count" id="count-infra">
-                    Mostrando <span id="infra-showing">4</span> de <span id="infra-total">4</span> projetos
-                </div>
-            </div>
-
-            <!-- Grid de projetos Infraestrutura -->
-            <div class="projects-grid" id="grid-infraestrutura">
-                <!-- Projeto 1: Microwave Link - Operadora Telecom (DESTAQUE) -->
-                <div class="project-card project-card-featured" data-title="Backhaul 10Gbps para Operadora Regional"
-                    data-description="Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar torres de telefonia móvel">
-                    <div class="project-visual">
-                        <div class="project-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-fallback"
-                                style="display: flex; background: linear-gradient(135deg, #1D3557, #0A192F);">
-                                <div class="fallback-content">
-                                    <i class="fas fa-satellite-dish" style="font-size: 3rem;"></i>
-                                    <span>Microwave Link</span>
-                                </div>
-                            </div>
-                        </div>
+    <!-- SEÇÃO DE PROJETOS COM PAGINAÇÃO E PESQUISA -->
+    <!-- ============================================ -->
+    <section class="projects-section" style="margin-top: -200px; padding-bottom: 0;">
+        <div class="container">
+            <!-- INFRAESTRUTURA - 4 Projetos -->
+            <section class="category-section" id="infraestrutura" style="scroll-margin-top: 100px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-network-wired"></i>
+                        <div class="icon-halo"></div>
                     </div>
-
-                    <div class="project-content">
-                       
-                        <h3 class="project-title">
-                            Backhaul 10Gbps para Operadora Regional
-                        </h3>
-
-                        <p class="project-description">
-                            Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar
-                            torres de telefonia móvel, garantindo backhaul de alta capacidade para rede 4G/5G.
-                        </p>
-
-                        <div class="project-stack">
-                            <div class="stack-title">
-                                <i class="fas fa-layer-group"></i>
-                                <span>Tecnologias:</span>
-                            </div>
-                            <div class="stack-items">
-                                <div class="stack-item" data-tooltip="Ceragon">C</div>
-                                <div class="stack-item" data-tooltip="11GHz">11G</div>
-                                <div class="stack-item" data-tooltip="18GHz">18G</div>
-                                <div class="stack-item" data-tooltip="SDH">SDH</div>
-                            </div>
-                        </div>
-
-                        <div class="project-actions">
-                            <a href="visualizar-infra.html" class="btn-outline">
-                                <i class="fas fa-eye"></i>
-                                Ver Detalhes
-                            </a>
-                          
-                        </div>
+                    <div>
+                        <h2 class="category-title">Infraestrutura de Redes</h2>
+                        <p class="category-subtitle">Conectividade robusta e de alta performance</p>
                     </div>
                 </div>
 
-                
-
-            </div>
-
-            <!-- Paginação da categoria Infraestrutura -->
-            <div class="category-pagination" id="pagination-infraestrutura" style="margin-top: -50px; margin-bottom: 30px;">
-                <button class="nav-btn" id="prev-infra" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-               
-                <div class="pagination-btns" id="page-btns-infra">
-                    <!-- Botões serão gerados dinamicamente pelo JS -->
-                </div>
-                <button class="nav-btn" id="next-infra">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- DESENVOLVIMENTO - 4 Projetos -->
-        <section class="category-section" id="desenvolvimento"
-            style="scroll-margin-top: 100px; margin-top: -250px;">
-            <div class="category-header">
-                <div class="category-icon">
-                    <i class="fas fa-code"></i>
-                    <div class="icon-halo"></div>
-                </div>
-                <div>
-                    <h2 class="category-title">Desenvolvimento de Software</h2>
-                    <p class="category-subtitle">Soluções customizadas com tecnologia de ponta</p>
-                </div>
-            </div>
-
-            <!-- Controles da categoria -->
-            <div class="category-controls">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" class="search-input" id="search-dev"
-                        placeholder="Pesquisar em Desenvolvimento..." data-category="desenvolvimento">
-                </div>
-                <div class="results-count" id="count-dev">
-                    Mostrando <span id="dev-showing">4</span> de <span id="dev-total">4</span> projetos
-                </div>
-            </div>
-
-            <div class="projects-grid" id="grid-desenvolvimento">
-                <!-- Projeto 5: FinTech IA (DESTAQUE) -->
-                <div class="project-card project-card-featured" data-title="Plataforma de Análise de Crédito com IA"
-                    data-description="Sistema preditivo de machine learning que revolucionou a análise de risco de uma das maiores fintechs do Brasil">
-                    <div class="project-visual">
-                        <div class="project-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-fallback"
-                                style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
-                                <div class="fallback-content">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>FinTech IA</span>
-                                </div>
-                            </div>
-                           
-                        </div>
+                <!-- Controles da categoria: Pesquisa e contador -->
+                <div class="category-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" id="search-infra"
+                            placeholder="Pesquisar em Infraestrutura..." data-category="infraestrutura">
                     </div>
+                    <div class="results-count" id="count-infra">
+                        Mostrando <span id="infra-showing">4</span> de <span id="infra-total">4</span> projetos
+                    </div>
+                </div>
 
-                    <div class="project-content">
-                        <h3 class="project-title">
-                            Plataforma de Análise de Crédito com IA
-                        </h3>
-
-                        <p class="project-description">
-                            Sistema preditivo de machine learning que revolucionou a análise
-                            de risco de uma das maiores fintechs do Brasil, reduzindo tempo
-                            de avaliação de dias para minutos.
-                        </p>
-
-                        <div class="project-stack">
-                            <div class="stack-items">
-                                <div class="stack-item" data-tooltip="Python">
-                                    <i class="fab fa-python"></i>
-                                </div>
-                                <div class="stack-item" data-tooltip="TensorFlow">
-                                    <i class="fas fa-brain"></i>
-                                </div>
-                                <div class="stack-item" data-tooltip="React">
-                                    <i class="fab fa-react"></i>
-                                </div>
-                                <div class="stack-item" data-tooltip="AWS">
-                                    <i class="fab fa-aws"></i>
+                <!-- Grid de projetos Infraestrutura -->
+                <div class="projects-grid" id="grid-infraestrutura">
+                    <!-- Projeto 1: Microwave Link - Operadora Telecom (DESTAQUE) -->
+                    <div class="project-card project-card-featured" data-title="Backhaul 10Gbps para Operadora Regional"
+                        data-description="Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar torres de telefonia móvel">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback"
+                                    style="display: flex; background: linear-gradient(135deg, #1D3557, #0A192F);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-satellite-dish" style="font-size: 3rem;"></i>
+                                        <span>Microwave Link</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="project-actions">
-                            <a href="visualizar-dev.html" class="btn-outline">
-                                <i class="fas fa-eye"></i>
-                                Ver Detalhes
-                            </a>
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <div class="project-content">
 
-            <!-- Paginação da categoria Desenvolvimento -->
-            <div class="category-pagination" id="pagination-desenvolvimento" style="margin-top: -50px; margin-bottom: 30px; background-color: transparent; box-shadow: none;">
-                <button class="nav-btn" id="prev-dev" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="pagination-btns" id="page-btns-dev">
-                    <!-- Botões serão gerados dinamicamente pelo JS -->
-                </div>
-                <button class="nav-btn" id="next-dev">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
+                            <h3 class="project-title">
+                                Backhaul 10Gbps para Operadora Regional
+                            </h3>
 
-        <!-- SEGURANÇA - 2 Projetos -->
-        <section class="category-section" id="seguranca" style="scroll-margin-top: 100px; margin-top: -250px;">
-            <div class="category-header">
-                <div class="category-icon">
-                    <i class="fas fa-shield-alt"></i>
-                    <div class="icon-halo"></div>
-                </div>
-                <div>
-                    <h2 class="category-title">Segurança Eletrônica</h2>
-                    <p class="category-subtitle">Proteção física e lógica para seu patrimônio</p>
-                </div>
-            </div>
+                            <p class="project-description">
+                                Implantação de 35 enlaces de rádio digital em 11GHz e 18GHz para interligar
+                                torres de telefonia móvel, garantindo backhaul de alta capacidade para rede 4G/5G.
+                            </p>
 
-            <!-- Controles da categoria -->
-            <div class="category-controls">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" class="search-input" id="search-security"
-                        placeholder="Pesquisar em Segurança..." data-category="seguranca">
-                </div>
-                <div class="results-count" id="count-security">
-                    Mostrando <span id="security-showing">2</span> de <span id="security-total">2</span> projetos
-                </div>
-            </div>
-
-            <div class="projects-grid" id="grid-seguranca">
-                <!-- Projeto 9: CFTV IP Aeroporto (DESTAQUE) -->
-                <div class="project-card project-card-featured"
-                    data-title="Sistema de Videomonitoramento - Aeroporto Internacional"
-                    data-description="Implantação de 550 câmeras IP com análise inteligente de vídeo">
-                    <div class="project-visual">
-                        <div class="project-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-fallback"
-                                style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
-                                <div class="fallback-content">
-                                    <i class="fas fa-video"></i>
-                                    <span>CFTV IP</span>
+                            <div class="project-stack">
+                                <div class="stack-title">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Tecnologias:</span>
+                                </div>
+                                <div class="stack-items">
+                                    <div class="stack-item" data-tooltip="Ceragon">C</div>
+                                    <div class="stack-item" data-tooltip="11GHz">11G</div>
+                                    <div class="stack-item" data-tooltip="18GHz">18G</div>
+                                    <div class="stack-item" data-tooltip="SDH">SDH</div>
                                 </div>
                             </div>
-                            
+
+                            <div class="project-actions">
+                                <a href="visualizar-infra.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+
+                            </div>
                         </div>
                     </div>
 
-                    <div class="project-content">
-                       
 
-                        <h3 class="project-title">
-                            Sistema de Videomonitoramento - Aeroporto Internacional
-                        </h3>
 
-                        <p class="project-description">
-                            Implantação de 550 câmeras IP com análise inteligente de vídeo, reconhecimento
-                            facial e integração com a Polícia Federal.
-                        </p>
+                </div>
 
-                        <div class="project-actions">
-                            <a href="visualizar-infra.html" class="btn-outline">
-                                <i class="fas fa-eye"></i>
-                                Ver Detalhes
-                            </a>
-                           
-                        </div>
+                <!-- Paginação da categoria Infraestrutura -->
+                <div class="category-pagination" id="pagination-infraestrutura"
+                    style="margin-top: -50px; margin-bottom: 30px;">
+                    <button class="nav-btn" id="prev-infra" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="pagination-btns" id="page-btns-infra">
+                        <!-- Botões serão gerados dinamicamente pelo JS -->
+                    </div>
+                    <button class="nav-btn" id="next-infra">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- DESENVOLVIMENTO - 4 Projetos -->
+            <section class="category-section" id="desenvolvimento"
+                style="scroll-margin-top: 100px; margin-top: -250px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <div>
+                        <h2 class="category-title">Desenvolvimento de Software</h2>
+                        <p class="category-subtitle">Soluções customizadas com tecnologia de ponta</p>
                     </div>
                 </div>
 
-            </div>
+                <!-- Controles da categoria -->
+                <div class="category-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" id="search-dev"
+                            placeholder="Pesquisar em Desenvolvimento..." data-category="desenvolvimento">
+                    </div>
+                    <div class="results-count" id="count-dev">
+                        Mostrando <span id="dev-showing">4</span> de <span id="dev-total">4</span> projetos
+                    </div>
+                </div>
 
-            <!-- Paginação da categoria Segurança -->
-            <div class="category-pagination" id="pagination-seguranca" style="margin-top: -50px; margin-bottom: 30px; background-color: transparent; box-shadow: none;">
-                <button class="nav-btn" id="prev-security" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="pagination-btns" id="page-btns-security">
-                    <!-- Botões serão gerados dinamicamente pelo JS -->
-                </div>
-                <button class="nav-btn" id="next-security" disabled>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
+                <div class="projects-grid" id="grid-desenvolvimento">
+                    <!-- Projeto 5: FinTech IA (DESTAQUE) -->
+                    <div class="project-card project-card-featured" data-title="Plataforma de Análise de Crédito com IA"
+                        data-description="Sistema preditivo de machine learning que revolucionou a análise de risco de uma das maiores fintechs do Brasil">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback"
+                                    style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-chart-line"></i>
+                                        <span>FinTech IA</span>
+                                    </div>
+                                </div>
 
-        <!-- CONSULTORIA - 2 Projetos -->
-        <section class="category-section" id="consultoria" style="scroll-margin-top: 100px; margin-top: -250px;">
-            <div class="category-header">
-                <div class="category-icon">
-                    <i class="fas fa-chart-line"></i>
-                    <div class="icon-halo"></div>
-                </div>
-                <div>
-                    <h2 class="category-title">Consultoria Estratégica</h2>
-                    <p class="category-subtitle">Transformação digital e governança</p>
-                </div>
-            </div>
+                            </div>
+                        </div>
 
-            <!-- Controles da categoria -->
-            <div class="category-controls">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" class="search-input" id="search-consulting"
-                        placeholder="Pesquisar em Consultoria..." data-category="consultoria">
-                </div>
-                <div class="results-count" id="count-consulting">
-                    Mostrando <span id="consulting-showing">2</span> de <span id="consulting-total">2</span> projetos
-                </div>
-            </div>
+                        <div class="project-content">
+                            <h3 class="project-title">
+                                Plataforma de Análise de Crédito com IA
+                            </h3>
 
-            <div class="projects-grid" id="grid-consultoria">
-                <!-- Projeto 11: ISO 27001 (DESTAQUE) -->
-                <div class="project-card" data-title="Adequação à ISO 27001 e LGPD"
-                    data-description="Consultoria completa para certificação ISO 27001 de empresa de tecnologia">
-                    <div class="project-visual">
-                        <div class="project-image">
-                            <div class="image-overlay"></div>
-                            <div class="image-fallback"
-                                style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
-                                <div class="fallback-content">
-                                    <i class="fas fa-certificate"></i>
-                                    <span>ISO 27001</span>
+                            <p class="project-description">
+                                Sistema preditivo de machine learning que revolucionou a análise
+                                de risco de uma das maiores fintechs do Brasil, reduzindo tempo
+                                de avaliação de dias para minutos.
+                            </p>
+
+                            <div class="project-stack">
+                                <div class="stack-items">
+                                    <div class="stack-item" data-tooltip="Python">
+                                        <i class="fab fa-python"></i>
+                                    </div>
+                                    <div class="stack-item" data-tooltip="TensorFlow">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <div class="stack-item" data-tooltip="React">
+                                        <i class="fab fa-react"></i>
+                                    </div>
+                                    <div class="stack-item" data-tooltip="AWS">
+                                        <i class="fab fa-aws"></i>
+                                    </div>
                                 </div>
                             </div>
-                           
-                        </div>
-                    </div>
 
-                    <div class="project-content">
-                       
-                        <h3 class="project-title">
-                            Adequação à ISO 27001 e LGPD
-                        </h3>
+                            <div class="project-actions">
+                                <a href="visualizar-dev.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
 
-                        <p class="project-description">
-                            Consultoria completa para certificação ISO 27001 de empresa de tecnologia,
-                            incluindo políticas, procedimentos e implementação de controles.
-                        </p>
-
-                        <div class="project-actions">
-                            <a href="visualizar-consult.html" class="btn-outline">
-                                <i class="fas fa-eye"></i>
-                                Ver Detalhes
-                            </a>
-                           
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-            <!-- Paginação da categoria Consultoria -->
-            <div class="category-pagination" id="pagination-consultoria" style="margin-top: -50px; margin-bottom: -30px; background-color: transparent; box-shadow: none;">
-                <button class="nav-btn" id="prev-consulting" disabled>
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="pagination-btns" id="page-btns-consulting">
-                    <!-- Botões serão gerados dinamicamente pelo JS -->
+                <!-- Paginação da categoria Desenvolvimento -->
+                <div class="category-pagination" id="pagination-desenvolvimento"
+                    style="margin-top: -50px; margin-bottom: 30px; background-color: transparent; box-shadow: none;">
+                    <button class="nav-btn" id="prev-dev" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="pagination-btns" id="page-btns-dev">
+                        <!-- Botões serão gerados dinamicamente pelo JS -->
+                    </div>
+                    <button class="nav-btn" id="next-dev">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <button class="nav-btn" id="next-consulting" disabled>
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </section>
-    </div>
-</section>
+            </section>
+
+            <!-- SEGURANÇA - 2 Projetos -->
+            <section class="category-section" id="seguranca" style="scroll-margin-top: 100px; margin-top: -250px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <div>
+                        <h2 class="category-title">Segurança Eletrônica</h2>
+                        <p class="category-subtitle">Proteção física e lógica para seu patrimônio</p>
+                    </div>
+                </div>
+
+                <!-- Controles da categoria -->
+                <div class="category-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" id="search-security"
+                            placeholder="Pesquisar em Segurança..." data-category="seguranca">
+                    </div>
+                    <div class="results-count" id="count-security">
+                        Mostrando <span id="security-showing">2</span> de <span id="security-total">2</span> projetos
+                    </div>
+                </div>
+
+                <div class="projects-grid" id="grid-seguranca">
+                    <!-- Projeto 9: CFTV IP Aeroporto (DESTAQUE) -->
+                    <div class="project-card project-card-featured"
+                        data-title="Sistema de Videomonitoramento - Aeroporto Internacional"
+                        data-description="Implantação de 550 câmeras IP com análise inteligente de vídeo">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback"
+                                    style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-video"></i>
+                                        <span>CFTV IP</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+
+
+                            <h3 class="project-title">
+                                Sistema de Videomonitoramento - Aeroporto Internacional
+                            </h3>
+
+                            <p class="project-description">
+                                Implantação de 550 câmeras IP com análise inteligente de vídeo, reconhecimento
+                                facial e integração com a Polícia Federal.
+                            </p>
+
+                            <div class="project-actions">
+                                <a href="visualizar-infra.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Paginação da categoria Segurança -->
+                <div class="category-pagination" id="pagination-seguranca"
+                    style="margin-top: -50px; margin-bottom: 30px; background-color: transparent; box-shadow: none;">
+                    <button class="nav-btn" id="prev-security" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="pagination-btns" id="page-btns-security">
+                        <!-- Botões serão gerados dinamicamente pelo JS -->
+                    </div>
+                    <button class="nav-btn" id="next-security" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- CONSULTORIA - 2 Projetos -->
+            <section class="category-section" id="consultoria" style="scroll-margin-top: 100px; margin-top: -250px;">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="icon-halo"></div>
+                    </div>
+                    <div>
+                        <h2 class="category-title">Consultoria Estratégica</h2>
+                        <p class="category-subtitle">Transformação digital e governança</p>
+                    </div>
+                </div>
+
+                <!-- Controles da categoria -->
+                <div class="category-controls">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" id="search-consulting"
+                            placeholder="Pesquisar em Consultoria..." data-category="consultoria">
+                    </div>
+                    <div class="results-count" id="count-consulting">
+                        Mostrando <span id="consulting-showing">2</span> de <span id="consulting-total">2</span>
+                        projetos
+                    </div>
+                </div>
+
+                <div class="projects-grid" id="grid-consultoria">
+                    <!-- Projeto 11: ISO 27001 (DESTAQUE) -->
+                    <div class="project-card" data-title="Adequação à ISO 27001 e LGPD"
+                        data-description="Consultoria completa para certificação ISO 27001 de empresa de tecnologia">
+                        <div class="project-visual">
+                            <div class="project-image">
+                                <div class="image-overlay"></div>
+                                <div class="image-fallback"
+                                    style="display: flex; background: linear-gradient(135deg, #E63946, #1D3557);">
+                                    <div class="fallback-content">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>ISO 27001</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="project-content">
+
+                            <h3 class="project-title">
+                                Adequação à ISO 27001 e LGPD
+                            </h3>
+
+                            <p class="project-description">
+                                Consultoria completa para certificação ISO 27001 de empresa de tecnologia,
+                                incluindo políticas, procedimentos e implementação de controles.
+                            </p>
+
+                            <div class="project-actions">
+                                <a href="visualizar-consult.html" class="btn-outline">
+                                    <i class="fas fa-eye"></i>
+                                    Ver Detalhes
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Paginação da categoria Consultoria -->
+                <div class="category-pagination" id="pagination-consultoria"
+                    style="margin-top: -50px; margin-bottom: -30px; background-color: transparent; box-shadow: none;">
+                    <button class="nav-btn" id="prev-consulting" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="pagination-btns" id="page-btns-consulting">
+                        <!-- Botões serão gerados dinamicamente pelo JS -->
+                    </div>
+                    <button class="nav-btn" id="next-consulting" disabled>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </section>
 
     <!-- 💬 Depoimentos -->
     <section class="testimonials"
@@ -805,17 +811,17 @@
             </div>
         </div>
     </section>
-<div data-include="componentes/newsletter.html"></div>
-<div data-include="componentes/footer.html"></div>
+    <div data-include="componentes/newsletter.html"></div>
+    <div data-include="componentes/footer.html"></div>
 
-<script>
-    document.querySelectorAll('[data-include]').forEach(async (el) => {
-    const file = el.getAttribute('data-include');
-    const res = await fetch(file);
-    el.innerHTML = await res.text();
-});
-</script>
-        <script src="assets/js/js.js"></script>
+    <script>
+        document.querySelectorAll('[data-include]').forEach(async (el) => {
+            const file = el.getAttribute('data-include');
+            const res = await fetch(file);
+            el.innerHTML = await res.text();
+        });
+    </script>
+    <script src="assets/js/js.js"></script>
 
     <!-- ⬆️ Back to Top -->
     <button class="back-to-top" id="backToTop">
@@ -1852,660 +1858,669 @@
    CONTROLES DE CATEGORIA - PESQUISA E PAGINAÇÃO
    ============================================ */
 
-/* Container dos controles */
-.category-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: var(--espaco-xl);
-    flex-wrap: wrap;
-    gap: var(--espaco-md);
-    padding: var(--espaco-sm) 0;
-}
+        /* Container dos controles */
+        .category-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--espaco-xl);
+            flex-wrap: wrap;
+            gap: var(--espaco-md);
+            padding: var(--espaco-sm) 0;
+        }
 
-/* ============================================
+        /* ============================================
    INPUT DE PESQUISA
    ============================================ */
-.search-box {
-    position: relative;
-    min-width: 350px;
-    flex: 1;
-    max-width: 500px;
-}
+        .search-box {
+            position: relative;
+            min-width: 350px;
+            flex: 1;
+            max-width: 500px;
+        }
 
-.search-box i {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--cinza-medio);
-    font-size: 1rem;
-    transition: color var(--transition-fast);
-    z-index: 1;
-}
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--cinza-medio);
+            font-size: 1rem;
+            transition: color var(--transition-fast);
+            z-index: 1;
+        }
 
-.search-input {
-    width: 100%;
-    padding: 1rem 1rem 1rem 3rem;
-    border: 2px solid var(--cinza-claro);
-    border-radius: var(--radius-full);
-    font-family: var(--fonte-principal);
-    font-size: 1rem;
-    transition: all var(--transition-normal);
-    background: white;
-    color: var(--azul-profundo);
-}
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid var(--cinza-claro);
+            border-radius: var(--radius-full);
+            font-family: var(--fonte-principal);
+            font-size: 1rem;
+            transition: all var(--transition-normal);
+            background: white;
+            color: var(--azul-profundo);
+        }
 
-.search-input:hover {
-    border-color: var(--azul-claro-tech);
-}
+        .search-input:hover {
+            border-color: var(--azul-claro-tech);
+        }
 
-.search-input:focus {
-    outline: none;
-    border-color: var(--vermelho-acionet);
-    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
-}
+        .search-input:focus {
+            outline: none;
+            border-color: var(--vermelho-acionet);
+            box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+        }
 
-.search-input:focus + i {
-    color: var(--vermelho-acionet);
-}
+        .search-input:focus+i {
+            color: var(--vermelho-acionet);
+        }
 
-.search-input::placeholder {
-    color: var(--cinza-medio);
-    opacity: 0.7;
-    font-size: 0.95rem;
-}
+        .search-input::placeholder {
+            color: var(--cinza-medio);
+            opacity: 0.7;
+            font-size: 0.95rem;
+        }
 
-/* Input com valor preenchido */
-.search-input:not(:placeholder-shown) {
-    border-color: var(--azul-profundo);
-    background-color: rgba(29, 53, 87, 0.02);
-}
+        /* Input com valor preenchido */
+        .search-input:not(:placeholder-shown) {
+            border-color: var(--azul-profundo);
+            background-color: rgba(29, 53, 87, 0.02);
+        }
 
-/* ============================================
+        /* ============================================
    CONTADOR DE RESULTADOS
    ============================================ */
-.results-count {
-    color: var(--cinza-medio);
-    font-size: 0.9rem;
-    background: var(--cinza-claro);
-    padding: 0.5rem 1.2rem;
-    border-radius: var(--radius-full);
-    font-weight: 500;
-    white-space: nowrap;
-    border: 1px solid transparent;
-    transition: all var(--transition-fast);
-}
+        .results-count {
+            color: var(--cinza-medio);
+            font-size: 0.9rem;
+            background: var(--cinza-claro);
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius-full);
+            font-weight: 500;
+            white-space: nowrap;
+            border: 1px solid transparent;
+            transition: all var(--transition-fast);
+        }
 
-.results-count:hover {
-    border-color: var(--azul-claro-tech);
-    background: white;
-}
+        .results-count:hover {
+            border-color: var(--azul-claro-tech);
+            background: white;
+        }
 
-.results-count span {
-    font-weight: 700;
-    color: var(--azul-profundo);
-    margin: 0 0.2rem;
-}
+        .results-count span {
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin: 0 0.2rem;
+        }
 
-.results-count span:first-of-type {
-    color: var(--vermelho-acionet);
-}
+        .results-count span:first-of-type {
+            color: var(--vermelho-acionet);
+        }
 
-/* ============================================
+        /* ============================================
    PAGINAÇÃO POR CATEGORIA
    ============================================ */
-.category-pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--espaco-lg);
-    margin-top: var(--espaco-2xl);
-    padding: var(--espaco-lg) var(--espaco-xl);
-    background: white;
-    border-radius: var(--radius-xl);
-    border: 1px solid var(--cinza-claro);
-    box-shadow: var(--sombra-suave);
-    flex-wrap: wrap;
-}
+        .category-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--espaco-lg);
+            margin-top: var(--espaco-2xl);
+            padding: var(--espaco-lg) var(--espaco-xl);
+            background: white;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--cinza-claro);
+            box-shadow: var(--sombra-suave);
+            flex-wrap: wrap;
+        }
 
-/* Informação da página */
-.pagination-info {
-    color: var(--cinza-medio);
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.3rem 0.8rem;
-    background: var(--cinza-claro);
-    border-radius: var(--radius-full);
-}
+        /* Informação da página */
+        .pagination-info {
+            color: var(--cinza-medio);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.3rem 0.8rem;
+            background: var(--cinza-claro);
+            border-radius: var(--radius-full);
+        }
 
-.pagination-info span {
-    font-weight: 700;
-    color: var(--azul-profundo);
-    margin: 0 0.2rem;
-}
+        .pagination-info span {
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin: 0 0.2rem;
+        }
 
-.pagination-info span:first-of-type {
-    color: var(--vermelho-acionet);
-}
+        .pagination-info span:first-of-type {
+            color: var(--vermelho-acionet);
+        }
 
-/* Container dos botões de página */
-.pagination-btns {
-    display: flex;
-    gap: var(--espaco-xs);
-    flex-wrap: wrap;
-    justify-content: center;
-}
+        /* Container dos botões de página */
+        .pagination-btns {
+            display: flex;
+            gap: var(--espaco-xs);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-/* Botões de página numérica */
-.page-btn {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--cinza-claro);
-    background: white;
-    color: var(--azul-profundo);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    position: relative;
-    overflow: hidden;
-}
+        /* Botões de página numérica */
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--cinza-claro);
+            background: white;
+            color: var(--azul-profundo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
 
-.page-btn:hover:not(:disabled):not(.active) {
-    border-color: var(--azul-claro-tech);
-    color: var(--azul-profundo);
-    transform: scale(1.1);
-    box-shadow: var(--sombra-suave);
-}
+        .page-btn:hover:not(:disabled):not(.active) {
+            border-color: var(--azul-claro-tech);
+            color: var(--azul-profundo);
+            transform: scale(1.1);
+            box-shadow: var(--sombra-suave);
+        }
 
-.page-btn.active {
-    background: var(--gradiente-vermelho);
-    color: white;
-    border-color: var(--vermelho-acionet);
-    transform: scale(1.1);
-    box-shadow: var(--sombra-forte);
-    cursor: default;
-}
+        .page-btn.active {
+            background: var(--gradiente-vermelho);
+            color: white;
+            border-color: var(--vermelho-acionet);
+            transform: scale(1.1);
+            box-shadow: var(--sombra-forte);
+            cursor: default;
+        }
 
-.page-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
 
-/* Botões de navegação (anterior/próximo) */
-.nav-btn {
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--cinza-claro);
-    background: white;
-    color: var(--azul-profundo);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    font-size: 1rem;
-}
+        /* Botões de navegação (anterior/próximo) */
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--cinza-claro);
+            background: white;
+            color: var(--azul-profundo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-size: 1rem;
+        }
 
-.nav-btn:hover:not(:disabled) {
-    border-color: var(--vermelho-acionet);
-    color: var(--vermelho-acionet);
-    transform: scale(1.1);
-    box-shadow: var(--sombra-suave);
-}
+        .nav-btn:hover:not(:disabled) {
+            border-color: var(--vermelho-acionet);
+            color: var(--vermelho-acionet);
+            transform: scale(1.1);
+            box-shadow: var(--sombra-suave);
+        }
 
-.nav-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    background: var(--cinza-claro);
-}
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: var(--cinza-claro);
+        }
 
-/* ============================================
+        /* ============================================
    MENSAGEM DE NENHUM RESULTADO
    ============================================ */
-.no-results {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: var(--espaco-2xl) var(--espaco-xl);
-    background: white;
-    border-radius: var(--radius-xl);
-    color: var(--cinza-medio);
-    border: 2px dashed var(--cinza-claro);
-    margin: var(--espaco-xl) 0;
-    animation: fadeIn 0.5s ease;
-}
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: var(--espaco-2xl) var(--espaco-xl);
+            background: white;
+            border-radius: var(--radius-xl);
+            color: var(--cinza-medio);
+            border: 2px dashed var(--cinza-claro);
+            margin: var(--espaco-xl) 0;
+            animation: fadeIn 0.5s ease;
+        }
 
-.no-results i {
-    font-size: 4rem;
-    color: var(--cinza-medio);
-    margin-bottom: var(--espaco-md);
-    opacity: 0.5;
-}
+        .no-results i {
+            font-size: 4rem;
+            color: var(--cinza-medio);
+            margin-bottom: var(--espaco-md);
+            opacity: 0.5;
+        }
 
-.no-results h3 {
-    font-family: var(--fonte-secundaria);
-    font-size: 1.5rem;
-    color: var(--azul-profundo);
-    margin-bottom: var(--espaco-sm);
-}
+        .no-results h3 {
+            font-family: var(--fonte-secundaria);
+            font-size: 1.5rem;
+            color: var(--azul-profundo);
+            margin-bottom: var(--espaco-sm);
+        }
 
-.no-results p {
-    color: var(--cinza-medio);
-    margin-bottom: var(--espaco-lg);
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-}
+        .no-results p {
+            color: var(--cinza-medio);
+            margin-bottom: var(--espaco-lg);
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-/* Botão de limpar pesquisa */
-.btn-reset {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--gradiente-vermelho);
-    color: white;
-    border: none;
-    border-radius: var(--radius-full);
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all var(--transition-normal);
-    box-shadow: var(--sombra-suave);
-}
+        /* Botão de limpar pesquisa */
+        .btn-reset {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--gradiente-vermelho);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: var(--sombra-suave);
+        }
 
-.btn-reset:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-forte);
-}
+        .btn-reset:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-forte);
+        }
 
-.btn-reset i {
-    font-size: 0.9rem;
-    margin: 0;
-    color: white;
-    opacity: 1;
-}
+        .btn-reset i {
+            font-size: 0.9rem;
+            margin: 0;
+            color: white;
+            opacity: 1;
+        }
 
-/* ============================================
+        /* ============================================
    TOAST NOTIFICATION
    ============================================ */
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-}
-
-.project-toast {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--azul-profundo);
-    color: white;
-    padding: 1rem 1.5rem;
-    border-radius: var(--radius-full);
-    box-shadow: var(--sombra-forte);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    font-weight: 500;
-    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
-    border-left: 4px solid var(--vermelho-acionet);
-    max-width: 400px;
-}
-
-.project-toast i {
-    font-size: 1.2rem;
-    margin-right: 0.8rem;
-}
-
-/* ============================================
-   ESTADOS DOS CARDS
-   ============================================ */
-.project-card.hidden {
-    display: none !important;
-}
-
-/* Loading state durante pesquisa */
-.search-loading {
-    position: relative;
-    pointer-events: none;
-}
-
-.search-loading::after {
-    content: '';
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--cinza-claro);
-    border-top-color: var(--vermelho-acionet);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: translateY(-50%) rotate(360deg); }
-}
-
-/* ============================================
-   ANIMAÇÕES ADICIONAIS
-   ============================================ */
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-}
-
-/* Destaque quando há poucos resultados */
-.results-count span:first-of-type[data-count="0"] {
-    color: var(--vermelho-acionet);
-    animation: pulse 1s ease-in-out;
-}
-
-/* Efeito de foco no input */
-.search-input:focus {
-    animation: inputFocus 0.3s ease;
-}
-
-@keyframes inputFocus {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.02);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* ============================================
-   BOTÕES DESABILITADOS
-   ============================================ */
-.page-btn:disabled,
-.nav-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-/* ============================================
-   RESPONSIVIDADE
-   ============================================ */
-@media (max-width: 1024px) {
-    .category-controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .search-box {
-        min-width: 100%;
-        max-width: 100%;
-    }
-
-    .results-count {
-        text-align: center;
-        white-space: normal;
-    }
-}
-
-@media (max-width: 768px) {
-    .category-pagination {
-        flex-direction: column;
-        gap: var(--espaco-md);
-        padding: var(--espaco-md);
-    }
-
-    .pagination-info {
-        width: 100%;
-        text-align: center;
-    }
-
-    .pagination-btns {
-        order: 2;
-    }
-
-    .nav-btn {
-        width: 45px;
-        height: 45px;
-    }
-
-    .page-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 0.85rem;
-    }
-
-    .no-results {
-        padding: var(--espaco-xl);
-    }
-
-    .no-results i {
-        font-size: 3rem;
-    }
-
-    .no-results h3 {
-        font-size: 1.2rem;
-    }
-
-    .project-toast {
-        left: 20px;
-        right: 20px;
-        max-width: none;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .search-input {
-        padding: 0.8rem 0.8rem 0.8rem 2.8rem;
-        font-size: 0.95rem;
-    }
-
-    .search-box i {
-        left: 0.8rem;
-        font-size: 0.9rem;
-    }
-
-    .results-count {
-        font-size: 0.85rem;
-        padding: 0.4rem 1rem;
-    }
-
-    .category-pagination {
-        gap: var(--espaco-sm);
-    }
-
-    .pagination-btns {
-        gap: 0.2rem;
-    }
-
-    .page-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 0.8rem;
-    }
-
-    .nav-btn {
-        width: 40px;
-        height: 40px;
-    }
-}  
-    </style>
-    <script>
-// ============================================
-// SISTEMA DE PAGINAÇÃO E PESQUISA POR CATEGORIA
-// ============================================
-document.addEventListener('DOMContentLoaded', function () {
-
-    // Configuração das categorias
-    const categories = [
-        {
-            id: 'infra',
-            name: 'infraestrutura',
-            gridId: 'grid-infraestrutura',
-            itemsPerPage: 2,
-            searchId: 'search-infra',
-            showingId: 'infra-showing',
-            totalId: 'infra-total',
-            currentPageId: 'current-page-infra',
-            totalPagesId: 'total-pages-infra',
-            prevId: 'prev-infra',
-            nextId: 'next-infra',
-            pageBtnsId: 'page-btns-infra'
-        },
-        {
-            id: 'dev',
-            name: 'desenvolvimento',
-            gridId: 'grid-desenvolvimento',
-            itemsPerPage: 2,
-            searchId: 'search-dev',
-            showingId: 'dev-showing',
-            totalId: 'dev-total',
-            currentPageId: 'current-page-dev',
-            totalPagesId: 'total-pages-dev',
-            prevId: 'prev-dev',
-            nextId: 'next-dev',
-            pageBtnsId: 'page-btns-dev'
-        },
-        {
-            id: 'security',
-            name: 'seguranca',
-            gridId: 'grid-seguranca',
-            itemsPerPage: 2,
-            searchId: 'search-security',
-            showingId: 'security-showing',
-            totalId: 'security-total',
-            currentPageId: 'current-page-security',
-            totalPagesId: 'total-pages-security',
-            prevId: 'prev-security',
-            nextId: 'next-security',
-            pageBtnsId: 'page-btns-security'
-        },
-        {
-            id: 'consulting',
-            name: 'consultoria',
-            gridId: 'grid-consultoria',
-            itemsPerPage: 2,
-            searchId: 'search-consulting',
-            showingId: 'consulting-showing',
-            totalId: 'consulting-total',
-            currentPageId: 'current-page-consulting',
-            totalPagesId: 'total-pages-consulting',
-            prevId: 'prev-consulting',
-            nextId: 'next-consulting',
-            pageBtnsId: 'page-btns-consulting'
-        }
-    ];
-
-    // ============================================
-    // FUNÇÃO PARA INICIALIZAR PAGINAÇÃO DE UMA CATEGORIA
-    // ============================================
-    function initCategoryPagination(category) {
-        const grid = document.getElementById(category.gridId);
-        if (!grid) return;
-
-        // Elementos da UI
-        const prevBtn = document.getElementById(category.prevId);
-        const nextBtn = document.getElementById(category.nextId);
-        const currentPageSpan = document.getElementById(category.currentPageId);
-        const totalPagesSpan = document.getElementById(category.totalPagesId);
-        const pageBtnsContainer = document.getElementById(category.pageBtnsId);
-        const searchInput = document.getElementById(category.searchId);
-        const showingSpan = document.getElementById(category.showingId);
-        const totalSpan = document.getElementById(category.totalId);
-
-        // Cards da categoria
-        const cards = Array.from(grid.querySelectorAll('.project-card'));
-        const totalCards = cards.length;
-
-        // Estado da categoria
-        let currentPage = 1;
-        let filteredCards = cards;
-
-        // Atualiza total de cards
-        if (totalSpan) totalSpan.textContent = totalCards;
-
-        // ============================================
-        // FUNÇÃO PARA FILTRAR CARDS
-        // ============================================
-        function filterCards(searchTerm) {
-            if (!searchTerm || searchTerm.trim() === '') {
-                filteredCards = cards;
-            } else {
-                const term = searchTerm.toLowerCase().trim();
-                filteredCards = cards.filter(card => {
-                    const title = card.getAttribute('data-title')?.toLowerCase() || '';
-                    const description = card.getAttribute('data-description')?.toLowerCase() || '';
-                    return title.includes(term) || description.includes(term);
-                });
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
             }
 
-            // Atualiza contador
-            if (showingSpan) showingSpan.textContent = filteredCards.length;
-
-            // Reseta para primeira página
-            currentPage = 1;
-
-            // Renderiza a página
-            renderPage();
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+        }
+
+        .project-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--azul-profundo);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-full);
+            box-shadow: var(--sombra-forte);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+            border-left: 4px solid var(--vermelho-acionet);
+            max-width: 400px;
+        }
+
+        .project-toast i {
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+        }
+
+        /* ============================================
+   ESTADOS DOS CARDS
+   ============================================ */
+        .project-card.hidden {
+            display: none !important;
+        }
+
+        /* Loading state durante pesquisa */
+        .search-loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .search-loading::after {
+            content: '';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--cinza-claro);
+            border-top-color: var(--vermelho-acionet);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: translateY(-50%) rotate(360deg);
+            }
+        }
+
+        /* ============================================
+   ANIMAÇÕES ADICIONAIS
+   ============================================ */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Destaque quando há poucos resultados */
+        .results-count span:first-of-type[data-count="0"] {
+            color: var(--vermelho-acionet);
+            animation: pulse 1s ease-in-out;
+        }
+
+        /* Efeito de foco no input */
+        .search-input:focus {
+            animation: inputFocus 0.3s ease;
+        }
+
+        @keyframes inputFocus {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* ============================================
+   BOTÕES DESABILITADOS
+   ============================================ */
+        .page-btn:disabled,
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+        @media (max-width: 1024px) {
+            .category-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            .results-count {
+                text-align: center;
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .category-pagination {
+                flex-direction: column;
+                gap: var(--espaco-md);
+                padding: var(--espaco-md);
+            }
+
+            .pagination-info {
+                width: 100%;
+                text-align: center;
+            }
+
+            .pagination-btns {
+                order: 2;
+            }
+
+            .nav-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .page-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.85rem;
+            }
+
+            .no-results {
+                padding: var(--espaco-xl);
+            }
+
+            .no-results i {
+                font-size: 3rem;
+            }
+
+            .no-results h3 {
+                font-size: 1.2rem;
+            }
+
+            .project-toast {
+                left: 20px;
+                right: 20px;
+                max-width: none;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-input {
+                padding: 0.8rem 0.8rem 0.8rem 2.8rem;
+                font-size: 0.95rem;
+            }
+
+            .search-box i {
+                left: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .results-count {
+                font-size: 0.85rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .category-pagination {
+                gap: var(--espaco-sm);
+            }
+
+            .pagination-btns {
+                gap: 0.2rem;
+            }
+
+            .page-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+    <script>
         // ============================================
-        // FUNÇÃO PARA RENDERIZAR PÁGINA ATUAL
+        // SISTEMA DE PAGINAÇÃO E PESQUISA POR CATEGORIA
         // ============================================
-        function renderPage() {
-            const start = (currentPage - 1) * category.itemsPerPage;
-            const end = start + category.itemsPerPage;
-            const pageCards = filteredCards.slice(start, end);
+        document.addEventListener('DOMContentLoaded', function () {
 
-            // Esconde todos os cards primeiro
-            cards.forEach(card => {
-                card.style.display = 'none';
-                card.classList.add('hidden');
-            });
+            // Configuração das categorias
+            const categories = [
+                {
+                    id: 'infra',
+                    name: 'infraestrutura',
+                    gridId: 'grid-infraestrutura',
+                    itemsPerPage: 2,
+                    searchId: 'search-infra',
+                    showingId: 'infra-showing',
+                    totalId: 'infra-total',
+                    currentPageId: 'current-page-infra',
+                    totalPagesId: 'total-pages-infra',
+                    prevId: 'prev-infra',
+                    nextId: 'next-infra',
+                    pageBtnsId: 'page-btns-infra'
+                },
+                {
+                    id: 'dev',
+                    name: 'desenvolvimento',
+                    gridId: 'grid-desenvolvimento',
+                    itemsPerPage: 2,
+                    searchId: 'search-dev',
+                    showingId: 'dev-showing',
+                    totalId: 'dev-total',
+                    currentPageId: 'current-page-dev',
+                    totalPagesId: 'total-pages-dev',
+                    prevId: 'prev-dev',
+                    nextId: 'next-dev',
+                    pageBtnsId: 'page-btns-dev'
+                },
+                {
+                    id: 'security',
+                    name: 'seguranca',
+                    gridId: 'grid-seguranca',
+                    itemsPerPage: 2,
+                    searchId: 'search-security',
+                    showingId: 'security-showing',
+                    totalId: 'security-total',
+                    currentPageId: 'current-page-security',
+                    totalPagesId: 'total-pages-security',
+                    prevId: 'prev-security',
+                    nextId: 'next-security',
+                    pageBtnsId: 'page-btns-security'
+                },
+                {
+                    id: 'consulting',
+                    name: 'consultoria',
+                    gridId: 'grid-consultoria',
+                    itemsPerPage: 2,
+                    searchId: 'search-consulting',
+                    showingId: 'consulting-showing',
+                    totalId: 'consulting-total',
+                    currentPageId: 'current-page-consulting',
+                    totalPagesId: 'total-pages-consulting',
+                    prevId: 'prev-consulting',
+                    nextId: 'next-consulting',
+                    pageBtnsId: 'page-btns-consulting'
+                }
+            ];
 
-            // Mostra apenas os cards da página atual
-            pageCards.forEach(card => {
-                card.style.display = 'flex';
-                card.classList.remove('hidden');
-            });
+            // ============================================
+            // FUNÇÃO PARA INICIALIZAR PAGINAÇÃO DE UMA CATEGORIA
+            // ============================================
+            function initCategoryPagination(category) {
+                const grid = document.getElementById(category.gridId);
+                if (!grid) return;
 
-            // Gerencia mensagem de "nenhum resultado"
-            const existingNoResults = grid.querySelector('.no-results');
+                // Elementos da UI
+                const prevBtn = document.getElementById(category.prevId);
+                const nextBtn = document.getElementById(category.nextId);
+                const currentPageSpan = document.getElementById(category.currentPageId);
+                const totalPagesSpan = document.getElementById(category.totalPagesId);
+                const pageBtnsContainer = document.getElementById(category.pageBtnsId);
+                const searchInput = document.getElementById(category.searchId);
+                const showingSpan = document.getElementById(category.showingId);
+                const totalSpan = document.getElementById(category.totalId);
 
-            if (filteredCards.length === 0) {
-                if (!existingNoResults) {
-                    const noResultsMsg = document.createElement('div');
-                    noResultsMsg.className = 'no-results';
-                    noResultsMsg.innerHTML = `
+                // Cards da categoria
+                const cards = Array.from(grid.querySelectorAll('.project-card'));
+                const totalCards = cards.length;
+
+                // Estado da categoria
+                let currentPage = 1;
+                let filteredCards = cards;
+
+                // Atualiza total de cards
+                if (totalSpan) totalSpan.textContent = totalCards;
+
+                // ============================================
+                // FUNÇÃO PARA FILTRAR CARDS
+                // ============================================
+                function filterCards(searchTerm) {
+                    if (!searchTerm || searchTerm.trim() === '') {
+                        filteredCards = cards;
+                    } else {
+                        const term = searchTerm.toLowerCase().trim();
+                        filteredCards = cards.filter(card => {
+                            const title = card.getAttribute('data-title')?.toLowerCase() || '';
+                            const description = card.getAttribute('data-description')?.toLowerCase() || '';
+                            return title.includes(term) || description.includes(term);
+                        });
+                    }
+
+                    // Atualiza contador
+                    if (showingSpan) showingSpan.textContent = filteredCards.length;
+
+                    // Reseta para primeira página
+                    currentPage = 1;
+
+                    // Renderiza a página
+                    renderPage();
+                }
+
+                // ============================================
+                // FUNÇÃO PARA RENDERIZAR PÁGINA ATUAL
+                // ============================================
+                function renderPage() {
+                    const start = (currentPage - 1) * category.itemsPerPage;
+                    const end = start + category.itemsPerPage;
+                    const pageCards = filteredCards.slice(start, end);
+
+                    // Esconde todos os cards primeiro
+                    cards.forEach(card => {
+                        card.style.display = 'none';
+                        card.classList.add('hidden');
+                    });
+
+                    // Mostra apenas os cards da página atual
+                    pageCards.forEach(card => {
+                        card.style.display = 'flex';
+                        card.classList.remove('hidden');
+                    });
+
+                    // Gerencia mensagem de "nenhum resultado"
+                    const existingNoResults = grid.querySelector('.no-results');
+
+                    if (filteredCards.length === 0) {
+                        if (!existingNoResults) {
+                            const noResultsMsg = document.createElement('div');
+                            noResultsMsg.className = 'no-results';
+                            noResultsMsg.innerHTML = `
                         <i class="fas fa-search"></i>
                         <h3>Nenhum projeto encontrado</h3>
                         <p>Tente buscar por outros termos ou limpe a pesquisa.</p>
@@ -2514,276 +2529,276 @@ document.addEventListener('DOMContentLoaded', function () {
                             Limpar pesquisa
                         </button>
                     `;
-                    grid.appendChild(noResultsMsg);
-                }
-            } else {
-                if (existingNoResults) existingNoResults.remove();
-            }
-
-            // Atualiza controles de paginação
-            const totalPages = Math.ceil(filteredCards.length / category.itemsPerPage) || 1;
-
-            if (currentPageSpan) currentPageSpan.textContent = currentPage;
-            if (totalPagesSpan) totalPagesSpan.textContent = totalPages;
-
-            // Atualiza botões de página
-            updatePageButtons(totalPages);
-
-            // Atualiza estado dos botões de navegação
-            if (prevBtn) prevBtn.disabled = currentPage === 1;
-            if (nextBtn) nextBtn.disabled = currentPage === totalPages || totalPages === 0;
-        }
-
-        // ============================================
-        // FUNÇÃO PARA ATUALIZAR BOTÕES DE PÁGINA
-        // ============================================
-        function updatePageButtons(totalPages) {
-            if (!pageBtnsContainer) return;
-
-            pageBtnsContainer.innerHTML = '';
-
-            // Mostra no máximo 5 botões de página
-            const maxButtons = 5;
-            let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
-            let endPage = Math.min(totalPages, startPage + maxButtons - 1);
-
-            if (endPage - startPage + 1 < maxButtons) {
-                startPage = Math.max(1, endPage - maxButtons + 1);
-            }
-
-            for (let i = startPage; i <= endPage; i++) {
-                const btn = document.createElement('button');
-                btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-                btn.textContent = i;
-                btn.setAttribute('data-page', i);
-                btn.addEventListener('click', function () {
-                    currentPage = parseInt(this.getAttribute('data-page'));
-                    renderPage();
-
-                    // Scroll suave para o topo da categoria
-                    const categorySection = document.getElementById(category.name);
-                    if (categorySection) {
-                        categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            grid.appendChild(noResultsMsg);
+                        }
+                    } else {
+                        if (existingNoResults) existingNoResults.remove();
                     }
-                });
-                pageBtnsContainer.appendChild(btn);
-            }
-        }
 
-        // ============================================
-        // EVENT LISTENERS
-        // ============================================
+                    // Atualiza controles de paginação
+                    const totalPages = Math.ceil(filteredCards.length / category.itemsPerPage) || 1;
 
-        // Botão anterior
-        if (prevBtn) {
-            prevBtn.addEventListener('click', function () {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderPage();
+                    if (currentPageSpan) currentPageSpan.textContent = currentPage;
+                    if (totalPagesSpan) totalPagesSpan.textContent = totalPages;
 
-                    // Scroll suave para o topo da categoria
-                    const categorySection = document.getElementById(category.name);
-                    if (categorySection) {
-                        categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Atualiza botões de página
+                    updatePageButtons(totalPages);
+
+                    // Atualiza estado dos botões de navegação
+                    if (prevBtn) prevBtn.disabled = currentPage === 1;
+                    if (nextBtn) nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+                }
+
+                // ============================================
+                // FUNÇÃO PARA ATUALIZAR BOTÕES DE PÁGINA
+                // ============================================
+                function updatePageButtons(totalPages) {
+                    if (!pageBtnsContainer) return;
+
+                    pageBtnsContainer.innerHTML = '';
+
+                    // Mostra no máximo 5 botões de página
+                    const maxButtons = 5;
+                    let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+                    let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+                    if (endPage - startPage + 1 < maxButtons) {
+                        startPage = Math.max(1, endPage - maxButtons + 1);
+                    }
+
+                    for (let i = startPage; i <= endPage; i++) {
+                        const btn = document.createElement('button');
+                        btn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
+                        btn.textContent = i;
+                        btn.setAttribute('data-page', i);
+                        btn.addEventListener('click', function () {
+                            currentPage = parseInt(this.getAttribute('data-page'));
+                            renderPage();
+
+                            // Scroll suave para o topo da categoria
+                            const categorySection = document.getElementById(category.name);
+                            if (categorySection) {
+                                categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        });
+                        pageBtnsContainer.appendChild(btn);
                     }
                 }
-            });
-        }
 
-        // Botão próximo
-        if (nextBtn) {
-            nextBtn.addEventListener('click', function () {
-                const totalPages = Math.ceil(filteredCards.length / category.itemsPerPage);
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderPage();
+                // ============================================
+                // EVENT LISTENERS
+                // ============================================
 
-                    // Scroll suave para o topo da categoria
-                    const categorySection = document.getElementById(category.name);
-                    if (categorySection) {
-                        categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
-        }
+                // Botão anterior
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function () {
+                        if (currentPage > 1) {
+                            currentPage--;
+                            renderPage();
 
-        // Input de pesquisa com debounce
-        if (searchInput) {
-            let debounceTimer;
-            searchInput.addEventListener('input', function (e) {
-                clearTimeout(debounceTimer);
-                debounceTimer = setTimeout(() => {
-                    filterCards(e.target.value);
-                }, 300);
-            });
-
-            // Limpar pesquisa com a tecla ESC
-            searchInput.addEventListener('keydown', function (e) {
-                if (e.key === 'Escape') {
-                    this.value = '';
-                    filterCards('');
-                }
-            });
-        }
-
-        // Renderização inicial
-        renderPage();
-
-        // Exporta função para limpar pesquisa (será chamada pelo botão)
-        window[`clearSearch_${category.id}`] = function () {
-            if (searchInput) {
-                searchInput.value = '';
-                filterCards('');
-            }
-        };
-    }
-
-    // ============================================
-    // FUNÇÃO GLOBAL PARA LIMPAR PESQUISA
-    // ============================================
-    window.clearSearch = function (categoryId) {
-        const func = window[`clearSearch_${categoryId}`];
-        if (func) func();
-    };
-
-    // ============================================
-    // INICIALIZA TODAS AS CATEGORIAS
-    // ============================================
-    categories.forEach(category => initCategoryPagination(category));
-
-    // ============================================
-    // SISTEMA DE CONTADORES ANIMADOS
-    // ============================================
-    function initAnimatedCounters() {
-        const counters = document.querySelectorAll('.metric-value[data-count]');
-
-        counters.forEach(counter => {
-            const target = parseFloat(counter.getAttribute('data-count'));
-            const hasSuffix = counter.nextElementSibling?.classList.contains('metric-suffix');
-            const suffix = counter.nextElementSibling;
-            const isK = suffix && suffix.textContent === 'K';
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(counter, target, isK);
-                        observer.unobserve(counter);
-                    }
-                });
-            }, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
-
-            observer.observe(counter);
-        });
-    }
-
-    function animateCounter(element, target, isK = false) {
-        let current = 0;
-        const steps = 50;
-        let step = 0;
-
-        // Para valores em K, ajusta o target real
-        let actualTarget = target;
-        if (isK) {
-            actualTarget = target * 1000;
-        }
-
-        const stepValue = actualTarget / steps;
-
-        function update() {
-            if (step < steps) {
-                current += stepValue;
-                step++;
-
-                // Formata o valor baseado no tipo
-                if (isK) {
-                    element.textContent = (current / 1000).toFixed(1);
-                } else if (target % 1 !== 0) {
-                    element.textContent = current.toFixed(1);
-                } else {
-                    element.textContent = Math.floor(current);
-                }
-
-                requestAnimationFrame(update);
-            } else {
-                // Valor final
-                if (isK) {
-                    element.textContent = target.toFixed(1);
-                } else if (target % 1 !== 0) {
-                    element.textContent = target.toFixed(1);
-                } else {
-                    element.textContent = Math.floor(target);
-                }
-
-                // Efeito visual ao completar
-                element.style.transition = 'color 0.3s ease';
-                element.style.color = 'var(--vermelho-acionet)';
-                setTimeout(() => {
-                    element.style.color = '';
-                }, 500);
-            }
-        }
-
-        update();
-    }
-
-    // ============================================
-    // BOTÕES DE COMPARTILHAMENTO
-    // ============================================
-    const shareButtons = document.querySelectorAll('[data-action="share"]');
-
-    shareButtons.forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const card = this.closest('.project-card');
-            if (card) {
-                const title = card.querySelector('.project-title')?.textContent || 'Projeto Acionet';
-                const url = window.location.href;
-
-                // Tenta usar a API de compartilhamento nativa
-                if (navigator.share) {
-                    navigator.share({
-                        title: title,
-                        url: url
-                    }).catch(() => {
-                        // Fallback para copiar link
-                        fallbackShare(url);
+                            // Scroll suave para o topo da categoria
+                            const categorySection = document.getElementById(category.name);
+                            if (categorySection) {
+                                categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }
                     });
-                } else {
-                    // Fallback para copiar link
-                    fallbackShare(url);
                 }
+
+                // Botão próximo
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function () {
+                        const totalPages = Math.ceil(filteredCards.length / category.itemsPerPage);
+                        if (currentPage < totalPages) {
+                            currentPage++;
+                            renderPage();
+
+                            // Scroll suave para o topo da categoria
+                            const categorySection = document.getElementById(category.name);
+                            if (categorySection) {
+                                categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }
+                    });
+                }
+
+                // Input de pesquisa com debounce
+                if (searchInput) {
+                    let debounceTimer;
+                    searchInput.addEventListener('input', function (e) {
+                        clearTimeout(debounceTimer);
+                        debounceTimer = setTimeout(() => {
+                            filterCards(e.target.value);
+                        }, 300);
+                    });
+
+                    // Limpar pesquisa com a tecla ESC
+                    searchInput.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape') {
+                            this.value = '';
+                            filterCards('');
+                        }
+                    });
+                }
+
+                // Renderização inicial
+                renderPage();
+
+                // Exporta função para limpar pesquisa (será chamada pelo botão)
+                window[`clearSearch_${category.id}`] = function () {
+                    if (searchInput) {
+                        searchInput.value = '';
+                        filterCards('');
+                    }
+                };
             }
-        });
-    });
 
-    function fallbackShare(url) {
-        // Copia URL para clipboard
-        navigator.clipboard.writeText(url).then(() => {
-            showToast('Link copiado para a área de transferência!');
-        }).catch(() => {
-            showToast('Clique com botão direito para copiar o link');
-        });
-    }
+            // ============================================
+            // FUNÇÃO GLOBAL PARA LIMPAR PESQUISA
+            // ============================================
+            window.clearSearch = function (categoryId) {
+                const func = window[`clearSearch_${categoryId}`];
+                if (func) func();
+            };
 
-    // ============================================
-    // TOAST NOTIFICATION
-    // ============================================
-    function showToast(message) {
-        // Remove toast existente
-        const existingToast = document.querySelector('.project-toast');
-        if (existingToast) existingToast.remove();
+            // ============================================
+            // INICIALIZA TODAS AS CATEGORIAS
+            // ============================================
+            categories.forEach(category => initCategoryPagination(category));
 
-        // Cria novo toast
-        const toast = document.createElement('div');
-        toast.className = 'project-toast';
-        toast.innerHTML = `
+            // ============================================
+            // SISTEMA DE CONTADORES ANIMADOS
+            // ============================================
+            function initAnimatedCounters() {
+                const counters = document.querySelectorAll('.metric-value[data-count]');
+
+                counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-count'));
+                    const hasSuffix = counter.nextElementSibling?.classList.contains('metric-suffix');
+                    const suffix = counter.nextElementSibling;
+                    const isK = suffix && suffix.textContent === 'K';
+
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                animateCounter(counter, target, isK);
+                                observer.unobserve(counter);
+                            }
+                        });
+                    }, { threshold: 0.3, rootMargin: '0px 0px -50px 0px' });
+
+                    observer.observe(counter);
+                });
+            }
+
+            function animateCounter(element, target, isK = false) {
+                let current = 0;
+                const steps = 50;
+                let step = 0;
+
+                // Para valores em K, ajusta o target real
+                let actualTarget = target;
+                if (isK) {
+                    actualTarget = target * 1000;
+                }
+
+                const stepValue = actualTarget / steps;
+
+                function update() {
+                    if (step < steps) {
+                        current += stepValue;
+                        step++;
+
+                        // Formata o valor baseado no tipo
+                        if (isK) {
+                            element.textContent = (current / 1000).toFixed(1);
+                        } else if (target % 1 !== 0) {
+                            element.textContent = current.toFixed(1);
+                        } else {
+                            element.textContent = Math.floor(current);
+                        }
+
+                        requestAnimationFrame(update);
+                    } else {
+                        // Valor final
+                        if (isK) {
+                            element.textContent = target.toFixed(1);
+                        } else if (target % 1 !== 0) {
+                            element.textContent = target.toFixed(1);
+                        } else {
+                            element.textContent = Math.floor(target);
+                        }
+
+                        // Efeito visual ao completar
+                        element.style.transition = 'color 0.3s ease';
+                        element.style.color = 'var(--vermelho-acionet)';
+                        setTimeout(() => {
+                            element.style.color = '';
+                        }, 500);
+                    }
+                }
+
+                update();
+            }
+
+            // ============================================
+            // BOTÕES DE COMPARTILHAMENTO
+            // ============================================
+            const shareButtons = document.querySelectorAll('[data-action="share"]');
+
+            shareButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const card = this.closest('.project-card');
+                    if (card) {
+                        const title = card.querySelector('.project-title')?.textContent || 'Projeto Acionet';
+                        const url = window.location.href;
+
+                        // Tenta usar a API de compartilhamento nativa
+                        if (navigator.share) {
+                            navigator.share({
+                                title: title,
+                                url: url
+                            }).catch(() => {
+                                // Fallback para copiar link
+                                fallbackShare(url);
+                            });
+                        } else {
+                            // Fallback para copiar link
+                            fallbackShare(url);
+                        }
+                    }
+                });
+            });
+
+            function fallbackShare(url) {
+                // Copia URL para clipboard
+                navigator.clipboard.writeText(url).then(() => {
+                    showToast('Link copiado para a área de transferência!');
+                }).catch(() => {
+                    showToast('Clique com botão direito para copiar o link');
+                });
+            }
+
+            // ============================================
+            // TOAST NOTIFICATION
+            // ============================================
+            function showToast(message) {
+                // Remove toast existente
+                const existingToast = document.querySelector('.project-toast');
+                if (existingToast) existingToast.remove();
+
+                // Cria novo toast
+                const toast = document.createElement('div');
+                toast.className = 'project-toast';
+                toast.innerHTML = `
             <i class="fas fa-check-circle" style="color: #06D6A0; margin-right: 0.5rem;"></i>
             ${message}
         `;
 
-        // Estilo do toast
-        toast.style.cssText = `
+                // Estilo do toast
+                toast.style.cssText = `
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -2799,81 +2814,81 @@ document.addEventListener('DOMContentLoaded', function () {
             font-weight: 500;
         `;
 
-        document.body.appendChild(toast);
+                document.body.appendChild(toast);
 
-        // Remove após 3 segundos
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
-    }
-
-    // ============================================
-    // ANIMAÇÕES DE HOVER NOS CARDS
-    // ============================================
-    const projectCards = document.querySelectorAll('.project-card');
-
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            const techBubbles = this.querySelectorAll('.tech-bubble');
-            techBubbles.forEach((bubble, index) => {
-                bubble.style.animation = `float 2s ease-in-out infinite ${index * 0.1}s`;
-            });
-        });
-
-        card.addEventListener('mouseleave', function () {
-            const techBubbles = this.querySelectorAll('.tech-bubble');
-            techBubbles.forEach(bubble => {
-                bubble.style.animation = '';
-            });
-        });
-    });
-
-    // ============================================
-    // VERIFICA SE EXISTEM FILTROS RÁPIDOS ANTES DE USAR
-    // ============================================
-    const filterLinks = document.querySelectorAll('.quick-filters .filter-btn');
-    if (filterLinks.length > 0) {
-        filterLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                // Remove active de todos
-                filterLinks.forEach(l => l.classList.remove('active'));
-                // Adiciona active no clicado
-                this.classList.add('active');
-            });
-        });
-
-        // Verifica hash na URL
-        if (window.location.hash) {
-            const hash = window.location.hash.substring(1);
-            const targetLink = document.querySelector(`.quick-filters .filter-btn[href="#${hash}"]`);
-            if (targetLink) {
-                document.querySelectorAll('.quick-filters .filter-btn').forEach(l => l.classList.remove('active'));
-                targetLink.classList.add('active');
+                // Remove após 3 segundos
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
             }
-        }
-    }
 
-    // ============================================
-    // INICIALIZA CONTADORES
-    // ============================================
-    initAnimatedCounters();
+            // ============================================
+            // ANIMAÇÕES DE HOVER NOS CARDS
+            // ============================================
+            const projectCards = document.querySelectorAll('.project-card');
 
-    console.log('✅ Sistema de paginação e pesquisa inicializado com sucesso!');
-});
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    const techBubbles = this.querySelectorAll('.tech-bubble');
+                    techBubbles.forEach((bubble, index) => {
+                        bubble.style.animation = `float 2s ease-in-out infinite ${index * 0.1}s`;
+                    });
+                });
 
-// ============================================
-// REINICIALIZA APÓS CARREGAMENTO DE CONTEÚDO DINÂMICO
-// ============================================
-window.addEventListener('load', function () {
-    // Garante que todos os cards estejam visíveis corretamente
-    const hiddenCards = document.querySelectorAll('.project-card.hidden');
-    hiddenCards.forEach(card => {
-        if (card.style.display === 'none') {
-            // Mantém hidden
-        }
-    });
-});
-</script>
+                card.addEventListener('mouseleave', function () {
+                    const techBubbles = this.querySelectorAll('.tech-bubble');
+                    techBubbles.forEach(bubble => {
+                        bubble.style.animation = '';
+                    });
+                });
+            });
+
+            // ============================================
+            // VERIFICA SE EXISTEM FILTROS RÁPIDOS ANTES DE USAR
+            // ============================================
+            const filterLinks = document.querySelectorAll('.quick-filters .filter-btn');
+            if (filterLinks.length > 0) {
+                filterLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        // Remove active de todos
+                        filterLinks.forEach(l => l.classList.remove('active'));
+                        // Adiciona active no clicado
+                        this.classList.add('active');
+                    });
+                });
+
+                // Verifica hash na URL
+                if (window.location.hash) {
+                    const hash = window.location.hash.substring(1);
+                    const targetLink = document.querySelector(`.quick-filters .filter-btn[href="#${hash}"]`);
+                    if (targetLink) {
+                        document.querySelectorAll('.quick-filters .filter-btn').forEach(l => l.classList.remove('active'));
+                        targetLink.classList.add('active');
+                    }
+                }
+            }
+
+            // ============================================
+            // INICIALIZA CONTADORES
+            // ============================================
+            initAnimatedCounters();
+
+            console.log('✅ Sistema de paginação e pesquisa inicializado com sucesso!');
+        });
+
+        // ============================================
+        // REINICIALIZA APÓS CARREGAMENTO DE CONTEÚDO DINÂMICO
+        // ============================================
+        window.addEventListener('load', function () {
+            // Garante que todos os cards estejam visíveis corretamente
+            const hiddenCards = document.querySelectorAll('.project-card.hidden');
+            hiddenCards.forEach(card => {
+                if (card.style.display === 'none') {
+                    // Mantém hidden
+                }
+            });
+        });
+    </script>
 
 
 </body>

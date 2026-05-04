@@ -1,3 +1,32 @@
+const cacheTime = 60 * 1000; // 1 minuto
+
+function getCache(key) {
+  const cached = localStorage.getItem(key);
+  if (!cached) return null;
+
+  const { data, timestamp } = JSON.parse(cached);
+
+  if (Date.now() - timestamp > cacheTime) {
+    localStorage.removeItem(key);
+    return null;
+  }
+
+  return data;
+}
+
+function setCache(key, data) {
+  localStorage.setItem(key, JSON.stringify({
+    data,
+    timestamp: Date.now()
+  }));
+}
+
+
+
+
+
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // =============================================
